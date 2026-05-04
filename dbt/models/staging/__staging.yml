@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_telemetry
+    description: "Typed, cleaned view over RAW.TELEMETRY"
+    columns:
+      - name: device_id
+        tests: [not_null]
+      - name: timestamp
+        tests: [not_null]
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['AMERICAS', 'EMEA', 'APAC']
+              quote: true
+
+  - name: stg_quality_logs
+    description: "Typed view over RAW.QUALITY_LOGS"
+    columns:
+      - name: lot_number
+        tests: [not_null]
+      - name: pass_fail
+        tests:
+          - accepted_values:
+              values: ['PASS', 'FAIL']
+
+  - name: stg_customer_reviews
+    description: >
+      Typed reviews joined to the real telemetry device pool via deterministic
+      round-robin assignment. Guarantees every device_id exists in stg_telemetry
+      (enforced by the `relationships` test).
+    columns:
+      - name: review_id
+        tests: [not_null, unique]
+      - name: lot_number
+        tests: [not_null]
+      - name: device_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_telemetry')
+              field: device_id
+      - name: region
+        tests:
+          - accepted_values:
+              values: ['AMERICAS', 'EMEA', 'APAC']
+              quote: true
+
+  - name: stg_slack_messages
+    description: "Typed view over RAW.SLACK_MESSAGES"
+    columns:
+      - name: message_id
+        tests: [not_null]

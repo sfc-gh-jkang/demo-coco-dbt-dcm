@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: mart_lot_quality_correlation
+    description: >
+      Manufacturing QA × field performance correlation, aggregated by lot.
+      Matches the agent's verified query `manufacturing_field_performance_correlation`.
+    columns:
+      - name: lot_number
+        tests: [not_null, unique]
+      - name: pass_rate
+      - name: failure_count
+      - name: avg_battery_level
+      - name: low_battery_incidents
+
+  - name: mart_regional_customer_impact
+    description: >
+      Customer satisfaction aggregated by lot × region with device telemetry context.
+      Matches the agent's verified query `customer_impact_analysis`.
+    columns:
+      - name: lot_number
+        tests: [not_null]
+      - name: region
+        tests: [not_null]
+      - name: avg_rating
+      - name: review_count
+      - name: avg_battery_level
+        tests: [not_null]
+
+  - name: mart_battery_moisture_correlation
+    description: >
+      Battery performance vs humidity, segmented by lot × region with moisture
+      resistance test values. Matches the agent's verified query
+      `moisture_battery_correlation`.
+    columns:
+      - name: lot_number
+        tests: [not_null]
+      - name: region
+        tests: [not_null]
+      - name: avg_humidity
+      - name: avg_battery
+      - name: device_count

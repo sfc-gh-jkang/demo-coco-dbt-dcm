@@ -1,0 +1,34 @@
+name: 'pawcore_pipeline'
+version: '1.0.0'
+config-version: 2
+profile: 'pawcore'
+
+model-paths: ['models']
+macro-paths: ['macros']
+test-paths: ['tests']
+
+target-path: 'target'
+clean-targets: ['target', 'dbt_packages']
+
+# Per-layer materialization and schema targeting.
+# generate_schema_name.sql (in macros/) strips the target.schema prefix so
+# +schema values land as exact, unprefixed schema names.
+models:
+  pawcore_pipeline:
+    staging:
+      +materialized: view
+      +schema: STAGING
+    intermediate:
+      +materialized: view
+      +schema: STAGING
+    hol:
+      +materialized: table
+      device_data:
+        +schema: DEVICE_DATA
+      manufacturing:
+        +schema: MANUFACTURING
+      support:
+        +schema: SUPPORT
+    marts:
+      +materialized: table
+      +schema: ANALYTICS

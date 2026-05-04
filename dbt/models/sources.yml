@@ -1,0 +1,41 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ${TARGET_DB}
+    schema: RAW
+    description: "Landing zone — raw CSVs from PawCore HOL GitHub repo"
+    tables:
+      - name: telemetry
+        description: "Device telemetry (battery, temp, humidity) from SmartCollar devices"
+        columns:
+          - name: device_id
+            tests: [not_null]
+          - name: timestamp
+            tests: [not_null]
+          - name: lot_number
+          - name: region
+
+      - name: quality_logs
+        description: "Manufacturing lot test results (pass/fail + measurements)"
+        columns:
+          - name: lot_number
+            tests: [not_null]
+          - name: pass_fail
+            tests:
+              - accepted_values:
+                  values: ['PASS', 'FAIL']
+
+      - name: customer_reviews
+        description: "Product reviews by region. lot_number + device_id are null in raw; populated in staging."
+        columns:
+          - name: review_id
+            tests: [not_null]
+          - name: rating
+          - name: region
+
+      - name: slack_messages
+        description: "Internal engineering Slack messages for Cortex Search follow-on"
+        columns:
+          - name: message_id
+          - name: slack_channel

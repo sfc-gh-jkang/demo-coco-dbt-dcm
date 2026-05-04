@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_region_lot_device_pool
+    description: >
+      Distinct (region, lot_number, device_id) triples from stg_telemetry,
+      ranked per region. Drives review→device assignment in stg_customer_reviews.
+    columns:
+      - name: region
+        tests: [not_null]
+      - name: lot_number
+        tests: [not_null]
+      - name: device_id
+        tests: [not_null]
+      - name: device_rank
+        tests: [not_null]

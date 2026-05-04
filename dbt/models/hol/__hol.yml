@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: telemetry
+    description: "HOL-compat: DEVICE_DATA.TELEMETRY — feeds Cortex Agent semantic view"
+    columns:
+      - name: device_id
+        tests: [not_null]
+      - name: timestamp
+        tests: [not_null]
+      - name: battery_level
+      - name: humidity_reading
+      - name: temperature
+      - name: charging_cycles
+      - name: lot_number
+      - name: region
+
+  - name: quality_logs
+    description: "HOL-compat: MANUFACTURING.QUALITY_LOGS"
+    columns:
+      - name: lot_number
+        tests: [not_null]
+      - name: pass_fail
+        tests:
+          - accepted_values:
+              values: ['PASS', 'FAIL']
+
+  - name: customer_reviews
+    description: "HOL-compat: SUPPORT.CUSTOMER_REVIEWS (column is `date`, not `review_date`)"
+    columns:
+      - name: review_id
+        tests: [not_null, unique]
+      - name: lot_number
+        tests: [not_null]
+      - name: rating
+      - name: date
+      - name: region
+
+  - name: slack_messages
+    description: "HOL-compat: SUPPORT.SLACK_MESSAGES (for Cortex Search follow-on)"
+    columns:
+      - name: message_id
+        tests: [not_null]
+      - name: text
+      - name: slack_channel
+      - name: thread_id

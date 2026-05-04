@@ -1,0 +1,45 @@
+# dbt
+dbt/target/
+dbt/logs/
+dbt/.user.yml
+# Note: dbt_packages/ is vendored into git intentionally — native dbt on
+# Snowflake requires packages to be installed at CREATE DBT PROJECT time.
+
+# DCM build output (envsubst temp dir)
+dcm/.build/
+
+# Local env / secrets (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+credentials.json
+**/secrets/
+**/*secret*
+**/*credential*
+**/*password*
+.streamlit/secrets.toml
+profiles.local.yml
+
+# Snowflake CLI
+.snow/
+connections.toml
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

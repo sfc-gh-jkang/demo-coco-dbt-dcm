@@ -1,0 +1,8 @@
+manifest_version: 2
+type: DCM_PROJECT
+default_target: 'DEV'
+
+targets:
+  DEV:
+    project_name: 'PAWCORE_ANALYTICS.PUBLIC.COCO_DCM_PROJECT'
+    project_owner: ACCOUNTADMIN
