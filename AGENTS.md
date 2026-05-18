@@ -42,10 +42,10 @@ demo-coco-dbt-dcm/
 
 ## Connection routing (dev vs webinar)
 
-- Dev / rehearsal: `aws_spcs` (SE demo account)
-- Webinar live: fresh Snowflake trial, connection name varies per attendee
+- Maintainer's dev / rehearsal: `aws_spcs` (SE demo account) — *replace with whatever connection name you use locally*
+- Webinar live: fresh Snowflake trial, connection name varies per attendee (typically `mytrial`)
 
-Both must work from identical source code. If you need an env-specific setting, use env vars in `dbt/profiles.yml`, never hardcode.
+Both must work from identical source code. If you need an env-specific setting, use env vars in `dbt/profiles.yml`, never hardcode. External readers should set `SNOWFLAKE_CONNECTION=<your-conn>` in `.env` — never edit code or templates.
 
 ## Related repos
 

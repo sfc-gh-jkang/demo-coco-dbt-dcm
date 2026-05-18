@@ -22,8 +22,8 @@
 
 | Env | Connection | Purpose |
 |---|---|---|
-| My SE demo | `aws_spcs` | Dev + rehearsal |
-| Webinar day | Fresh trial (I spin up 1h before) | Live demo |
+| Maintainer's SE demo (replace with yours) | `aws_spcs` | Dev + rehearsal |
+| Webinar day | Fresh trial (spin up 1h before) | Live demo |
 
 ## 60-minute agenda (active HOL)
 
