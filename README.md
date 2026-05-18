@@ -10,6 +10,18 @@ A 60-minute hands-on lab that builds a complete, production-shaped Snowflake dat
 
 The tables this pipeline lands are the exact shape the [Cortex AI + Snowflake Intelligence HOL](https://github.com/sfc-gh-calexander/HandsOnLabs/tree/main/1-Cortex-AI-Snowflake-Intelligence) semantic view expects, so you can layer a Cortex Agent on top in minutes.
 
+## Architecture
+
+**Data flow** — CSVs in the upstream HOL repo land in `RAW`, dbt builds staging views, then HOL-contract tables, then analytics marts. A semantic view + Cortex Agent layer on top:
+
+![Data flow](docs/images/architecture_data_flow.png)
+
+**Deploy flow** — `bash scripts/deploy.sh` walks through these seven steps; pause between any of them with `--stop-at`:
+
+![Deploy flow](docs/images/architecture_deploy_flow.png)
+
+See [docs/architecture.md](docs/architecture.md) for the full ownership-split table (DCM vs dbt vs bootstrap SQL).
+
 ## Prerequisites
 
 - Fresh [Snowflake trial account](https://signup.snowflake.com/) with ACCOUNTADMIN role

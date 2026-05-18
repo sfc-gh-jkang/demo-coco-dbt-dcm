@@ -1,6 +1,10 @@
 # Architecture
 
+> Pre-rendered PNGs of both diagrams live in [`docs/images/`](images/) — useful for GitHub previews, slides, and tools without a Mermaid renderer.
+
 ## Data flow
+
+![Data flow](images/architecture_data_flow.png)
 
 ```mermaid
 flowchart LR
@@ -77,6 +81,8 @@ flowchart LR
 ```
 
 ## Deploy flow
+
+![Deploy flow](images/architecture_deploy_flow.png)
 
 ```mermaid
 flowchart TB
