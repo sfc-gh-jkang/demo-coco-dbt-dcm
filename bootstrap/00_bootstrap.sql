@@ -6,13 +6,14 @@
 --
 -- PARAMETERIZATION: run via `scripts/deploy.sh` which sources `.env` and
 -- pipes through envsubst. Variables: ${TARGET_DB}, ${TARGET_WH},
--- ${GITHUB_USER}, ${GITHUB_PAT} (optional — needed only for private demo repo).
+-- ${GITHUB_USER}, ${GITHUB_PAT} (optional — only needed if you fork this
+-- repo and keep your fork private; the upstream repo is public).
 -- =============================================================================
 
 USE ROLE ACCOUNTADMIN;
 
 CREATE DATABASE IF NOT EXISTS ${TARGET_DB}
-    COMMENT = 'PawCore demo — CoCo + dbt + DCM webinar (Expires: 2026-06-03)';
+    COMMENT = 'PawCore demo — CoCo + dbt + DCM webinar (Expires: 2026-09-03)';
 
 CREATE WAREHOUSE IF NOT EXISTS ${TARGET_WH}
     WITH WAREHOUSE_SIZE = 'XSMALL'
@@ -26,7 +27,9 @@ CREATE SCHEMA IF NOT EXISTS ${TARGET_DB}.PUBLIC;
 USE SCHEMA PUBLIC;
 
 -- =============================================================================
--- Optional: PAT secret for private demo repo (only used if GITHUB_PAT set)
+-- Optional: PAT secret (only used if you fork this repo and keep your fork
+-- private). Leaving GITHUB_PAT blank in .env creates an empty-password secret
+-- that goes unused — harmless.
 -- =============================================================================
 
 CREATE OR REPLACE SECRET github_sfc_gh_jkang_pat
@@ -55,10 +58,9 @@ CREATE OR REPLACE GIT REPOSITORY ${TARGET_DB}.PUBLIC.UPSTREAM_HOL_REPO
     COMMENT = 'Upstream PawCore HOL repo — source of raw CSVs';
 ALTER GIT REPOSITORY ${TARGET_DB}.PUBLIC.UPSTREAM_HOL_REPO FETCH;
 
--- Demo repo (private — needs PAT via GIT_CREDENTIALS)
+-- Demo repo (public — no credentials needed)
 CREATE OR REPLACE GIT REPOSITORY ${TARGET_DB}.PUBLIC.DEMO_REPO
     API_INTEGRATION = pawcore_github_api
-    GIT_CREDENTIALS = github_sfc_gh_jkang_pat
     ORIGIN = 'https://github.com/${GITHUB_USER}/demo-coco-dbt-dcm.git'
     COMMENT = 'Demo repo — dbt project + DCM project sources';
 ALTER GIT REPOSITORY ${TARGET_DB}.PUBLIC.DEMO_REPO FETCH;

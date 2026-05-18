@@ -27,7 +27,6 @@ See [docs/architecture.md](docs/architecture.md) for the full ownership-split ta
 - Fresh [Snowflake trial account](https://signup.snowflake.com/) with ACCOUNTADMIN role
 - [Snowflake CLI](https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation) v3.0+
 - [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code) installed
-- GitHub PAT (`repo` scope) if the demo repo is private
 
 ## Setup (try it yourself)
 
@@ -36,7 +35,6 @@ The whole demo is driven by **a single `.env` file**. Change `TARGET_DATABASE` t
 ### Step 1 — Clone + pull latest
 
 ```bash
-gh auth switch --user sfc-gh-jkang        # required only while repo is private
 git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
 cd demo-coco-dbt-dcm
 git pull                                  # if you already cloned
@@ -49,22 +47,17 @@ If you don't have one yet:
 cp .env.example .env
 ```
 
-If you already have one, leave it alone — just verify and tweak. Open `.env` and set these 6 lines:
+If you already have one, leave it alone — just verify and tweak. Open `.env` and set these 5 lines:
 
 ```bash
-SNOWFLAKE_CONNECTION=aws_spcs              # snow connection list
+SNOWFLAKE_CONNECTION=mytrial               # snow connection list
 TARGET_DATABASE=PAWCORE_DBT_DEMO           # any name you want
 TARGET_WAREHOUSE=PAWCORE_DEMO_WH           # default fine
-GITHUB_PAT=ghp_xxxxxxxxxxxxxxxxxxxx        # see below
 GITHUB_USER=sfc-gh-jkang
 I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
 ```
 
-Get a GitHub PAT (only needed while repo is private):
-```bash
-gh auth switch --user sfc-gh-jkang && gh auth token   # copy output into GITHUB_PAT
-gh auth switch --user johnkangw                       # switch back to your default
-```
+> The repo is now public — `GITHUB_PAT` can be left blank in `.env`. The bootstrap SQL still creates a placeholder secret (harmless) but the demo git repo is cloned without credentials. Only set `GITHUB_PAT` if you fork this repo and keep your fork private.
 
 ### Step 3 — Sanity-check `.env` before deploying
 
@@ -86,15 +79,15 @@ Paste this whole block — it tells you if your `.env` is correct:
 **Expected output:**
 ```
 ── git ──
-0b146f3 Initial import: Cortex Code + dbt + DCM webinar demo
+8628f5a Add rendered architecture diagrams to README + docs
 
 ── .env ──
-SNOWFLAKE_CONNECTION=aws_spcs
+SNOWFLAKE_CONNECTION=mytrial
 TARGET_DATABASE=PAWCORE_DBT_DEMO
 TARGET_WAREHOUSE=PAWCORE_DEMO_WH
 GITHUB_USER=sfc-gh-jkang
 I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
-GITHUB_PAT length: 40
+GITHUB_PAT length: 0
 
 ── dbt templates (must show ${TARGET_DB}, NOT a hardcoded DB name) ──
 dbt/profiles.yml:      database: ${TARGET_DB}
@@ -103,7 +96,7 @@ dbt/models/sources.yml:    database: ${TARGET_DB}
 
 **Common gotchas:**
 - `Safety flag` looks like `=PAWCORE_ANALYTICS` instead of `=1` → an earlier `sed` corrupted it. Fix: `sed -i '' 's/^I_UNDERSTAND.*/I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1/' .env`
-- `GITHUB_PAT length` is `0` → re-capture with `gh auth switch --user sfc-gh-jkang && gh auth token`
+- `GITHUB_PAT length` non-zero when you didn't intend it → fine, just leave it; bootstrap will use it. Public repo deploys also work with length `0`.
 - `dbt templates` show a hardcoded DB name → `git pull` again, you're behind
 
 ### Step 4 — Teardown anything from prior runs (optional, for clean state)
@@ -126,7 +119,7 @@ bash scripts/deploy.sh
 
 You'll see 7 step markers. Total ~4 minutes. Expected end:
 ```
-✓ Deploy complete. Target: PAWCORE_DBT_DEMO on aws_spcs
+✓ Deploy complete. Target: PAWCORE_DBT_DEMO on mytrial
   Open Snowsight → AI & ML → Snowflake Intelligence → PAWCORE_ASSISTANT
   Try: "Which lot has the worst customer ratings?"
 ```
@@ -181,7 +174,7 @@ bash scripts/deploy.sh              # deploys to the new DB; nothing else change
 ### Step 9 — Cleanup
 
 ```bash
-snow sql -c aws_spcs -q "
+snow sql -c "$CONN" -q "
 DROP DATABASE IF EXISTS PAWCORE_DBT_DEMO;
 DROP DATABASE IF EXISTS PAWCORE_SANDBOX_TEST2;
 DROP API INTEGRATION IF EXISTS pawcore_github_api;

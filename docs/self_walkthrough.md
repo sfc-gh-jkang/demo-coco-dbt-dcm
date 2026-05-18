@@ -14,13 +14,13 @@ Solo run-through of the demo. Takes ~60 minutes the first time. Same content as 
    snow connection test --connection mytrial
    ```
 4. **Cortex Code**: https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code → `cortex --version` → `cortex connections set mytrial`
-5. **GitHub PAT** (if the repo is private): https://github.com/settings/tokens → classic, `repo` scope
+5. **GitHub PAT** (only if you forked this repo and kept your fork private — the upstream is public): https://github.com/settings/tokens → classic, `repo` scope
 6. **Clone + configure**:
    ```bash
    git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
    cd demo-coco-dbt-dcm
    cp .env.example .env
-   # edit .env: set SNOWFLAKE_CONNECTION=mytrial, GITHUB_PAT=ghp_..., I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
+   # edit .env: set SNOWFLAKE_CONNECTION=mytrial, I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1 (GITHUB_PAT can stay blank)
    ```
 
 ---
