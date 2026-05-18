@@ -1,6 +1,6 @@
 # Prompt to Pipeline: Cortex Code + dbt on Snowflake + DCM
 
-![Expires](https://img.shields.io/badge/Expires-2026--06--03-orange)
+![Expires](https://img.shields.io/badge/Expires-2026--09--03-orange)
 
 A 60-minute hands-on lab that builds a complete, production-shaped Snowflake data pipeline for PawCore (smart pet collar manufacturer) using:
 
