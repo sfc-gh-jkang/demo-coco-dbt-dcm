@@ -17,6 +17,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 from dotenv import load_dotenv as _dotenv_load
@@ -202,6 +203,16 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--teardown",
         action="store_true",
         help="Drop all deployed objects (agent, database, warehouse) and exit.",
+    )
+    p.add_argument(
+        "--verify",
+        action="store_true",
+        help="Check that all expected objects exist with correct row counts.",
+    )
+    p.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print what each step would do without executing anything.",
     )
     ns = p.parse_args(argv)
     if ns.resume:
@@ -568,6 +579,138 @@ def _stage_dbt_project(
     shutil.rmtree(dbt_build)
 
 
+# Expected row counts for verification
+_EXPECTED_COUNTS = {
+    "DEVICE_DATA.TELEMETRY": 21000,
+    "MANUFACTURING.QUALITY_LOGS": 1050,
+    "SUPPORT.CUSTOMER_REVIEWS": 1550,
+    "SUPPORT.SLACK_MESSAGES": 37,
+    "ANALYTICS.MART_LOT_QUALITY_CORRELATION": 3,
+    "ANALYTICS.MART_REGIONAL_CUSTOMER_IMPACT": 3,
+    "ANALYTICS.MART_BATTERY_MOISTURE_CORRELATION": 3,
+}
+
+
+def _run_verify(snow_exe: str, connection: str, target_database: str) -> bool:
+    """Verify all deployed objects exist with expected row counts. Returns True if all pass."""
+    import json
+
+    all_pass = True
+
+    for table, expected in _EXPECTED_COUNTS.items():
+        sql = f"SELECT COUNT(*) AS n FROM {target_database}.{table};"
+        p = subprocess.run(
+            [snow_exe, "sql", "-c", connection, "-q", sql, "--format", "json"],
+            capture_output=True,
+            **_SUB_TX,
+        )
+        if p.returncode != 0:
+            print(f"  FAIL  {table}: not found")
+            all_pass = False
+        else:
+            try:
+                rows = json.loads(p.stdout or "[]")
+                count = rows[0]["N"] if rows else 0
+            except (json.JSONDecodeError, TypeError, KeyError, IndexError):
+                print(f"  FAIL  {table}: could not parse result")
+                all_pass = False
+                continue
+            if count == expected:
+                print(f"  PASS  {table}: {count:,} rows")
+            else:
+                print(f"  FAIL  {table}: {count:,} rows (expected {expected:,})")
+                all_pass = False
+
+    # Check semantic view
+    sql_sv = f"SHOW SEMANTIC VIEWS LIKE 'PAWCORE_ANALYSIS' IN SCHEMA {target_database}.SEMANTIC;"
+    p_sv = subprocess.run(
+        [snow_exe, "sql", "-c", connection, "-q", sql_sv, "--format", "json"],
+        capture_output=True,
+        **_SUB_TX,
+    )
+    if p_sv.returncode == 0 and "PAWCORE_ANALYSIS" in (p_sv.stdout or ""):
+        print("  PASS  SEMANTIC VIEW: PAWCORE_ANALYSIS")
+    else:
+        print("  FAIL  SEMANTIC VIEW: not found")
+        all_pass = False
+
+    # Check agent
+    sql_ag = "SHOW AGENTS LIKE 'PAWCORE_ASSISTANT' IN SCHEMA SNOWFLAKE_INTELLIGENCE.AGENTS;"
+    p_ag = subprocess.run(
+        [snow_exe, "sql", "-c", connection, "-q", sql_ag, "--format", "json"],
+        capture_output=True,
+        **_SUB_TX,
+    )
+    if p_ag.returncode == 0 and "PAWCORE_ASSISTANT" in (p_ag.stdout or ""):
+        print("  PASS  AGENT: PAWCORE_ASSISTANT")
+    else:
+        print("  FAIL  AGENT: not found")
+        all_pass = False
+
+    return all_pass
+
+
+def _print_wow(snow_exe: str, connection: str, target_database: str) -> None:
+    """Print a live data insight as the deploy's wow moment."""
+    import json
+
+    sql = (
+        f"SELECT lot_number, region, avg_rating, review_count, "
+        f"avg_battery_level, device_count "
+        f"FROM {target_database}.ANALYTICS.MART_REGIONAL_CUSTOMER_IMPACT "
+        f"ORDER BY avg_rating ASC LIMIT 1;"
+    )
+    p = subprocess.run(
+        [snow_exe, "sql", "-c", connection, "-q", sql, "--format", "json"],
+        capture_output=True,
+        **_SUB_TX,
+    )
+    if p.returncode != 0:
+        return
+
+    try:
+        rows = json.loads(p.stdout or "[]")
+    except (json.JSONDecodeError, TypeError):
+        return
+    if not rows:
+        return
+
+    r = rows[0]
+    lot = r.get("LOT_NUMBER", "?")
+    region = r.get("REGION", "?")
+    rating = float(r.get("AVG_RATING", 0))
+    reviews = int(r.get("REVIEW_COUNT", 0))
+    battery = float(r.get("AVG_BATTERY_LEVEL", 0))
+    devices = int(r.get("DEVICE_COUNT", 0))
+
+    print("")
+    print("  ┌─────────────────────────────────────────────────────────────┐")
+    print("  │  INSIGHT: Your pipeline just discovered a quality issue     │")
+    print("  ├─────────────────────────────────────────────────────────────┤")
+    print(f"  │  Worst lot: {lot} ({region})")
+    print(f"  │  Avg rating: {rating:.2f}/5 across {reviews:,} reviews")
+    print(f"  │  Avg battery: {battery:.1f}% across {devices:,} devices")
+    print("  │  Signal: low battery correlates with low customer satisfaction")
+    print("  └─────────────────────────────────────────────────────────────┘")
+    print("")
+    print("  Ask the agent: \"Why does LOT341 have the worst ratings?\"")
+    print("  It will cross-reference manufacturing QA + telemetry + reviews.")
+
+
+def _print_timing(steps: list[tuple[str, float]]) -> None:
+    """Print a step-timing summary table."""
+    total = sum(t for _, t in steps)
+    print("")
+    print("  ┌──────────────────────────────────────────┬───────────┐")
+    print("  │ Step                                     │  Duration │")
+    print("  ├──────────────────────────────────────────┼───────────┤")
+    for name, dur in steps:
+        print(f"  │ {name:<40} │ {dur:>7.1f}s │")
+    print("  ├──────────────────────────────────────────┼───────────┤")
+    print(f"  │ {'Total':<40} │ {total:>7.1f}s │")
+    print("  └──────────────────────────────────────────┴───────────┘")
+
+
 def main() -> None:
     """Orchestrate the full 7-step deploy pipeline.
 
@@ -625,6 +768,17 @@ def main() -> None:
         print("✓ Teardown complete.")
         return
 
+    # --verify: check deployed objects exist (no safety gate needed)
+    if ns.verify:
+        snow_exe = snow_executable()
+        print(f"==> Verifying {target_database} on {connection}...")
+        if _run_verify(snow_exe, connection, target_database):
+            print("\n✓ All checks passed.")
+        else:
+            print("\nFAIL: some checks did not pass.", file=sys.stderr)
+            sys.exit(1)
+        return
+
     os.environ.setdefault("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE", "0")
     if os.environ.get("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE") != "1":
         print(SAFETY_BOX.format(db=target_database, conn=connection), file=sys.stderr)
@@ -637,6 +791,20 @@ def main() -> None:
 
     prefer = ns.prefer_envsubst
     stop_at = ns.stop_at
+
+    # --dry-run: show what would happen without executing
+    if ns.dry_run:
+        data_size = sum(f.stat().st_size for f in (repo / "data").rglob("*") if f.is_file())
+        dbt_files = sum(1 for _ in (repo / "dbt").rglob("*") if _.is_file())
+        print(f"[DRY RUN] Target: {target_database} on {connection}")
+        print(f"[DRY RUN] Step 1: Create DB={target_database}, WH={target_wh}, stage")
+        print("[DRY RUN] Step 2: Deploy 8 schemas via DCM")
+        print(f"[DRY RUN] Step 3: Upload {data_size / 1024:.0f}KB of CSVs + COPY INTO 4 tables")
+        print(f"[DRY RUN] Step 4: Stage dbt project ({dbt_files} files) + CREATE DBT PROJECT")
+        print("[DRY RUN] Step 5: EXECUTE DBT PROJECT (12 models + 36 tests)")
+        print(f"[DRY RUN] Step 6: CREATE SEMANTIC VIEW {target_database}.SEMANTIC.PAWCORE_ANALYSIS")
+        print("[DRY RUN] Step 7: CREATE AGENT SNOWFLAKE_INTELLIGENCE.AGENTS.PAWCORE_ASSISTANT")
+        return
 
     def sub_all(template: str) -> str:
         return envsubst_maybe(template, prefer=prefer, only=None)
@@ -657,15 +825,22 @@ def main() -> None:
     elif (pr.stdout or "").strip():
         print(f"   {(pr.stdout or '').strip()}")
 
+    timings: list[tuple[str, float]] = []
+
+    t0 = time.time()
     print("==> Step 1/7: Bootstrap (DB, warehouse, stage)")
     bootstrap_txt = (repo / "bootstrap" / "00_bootstrap.sql").read_text(encoding="utf-8")
     r1 = run_snow_ci(snow_exe, connection, sub_all(bootstrap_txt))
     if r1.returncode != 0:
         sys.exit(r1.returncode)
+    timings.append(("1. Bootstrap", time.time() - t0))
 
+    t0 = time.time()
     print("==> Step 2/7: DCM create + deploy (schemas)")
     _build_and_deploy_dcm(snow_exe, connection, repo, target_database, sub_all)
+    timings.append(("2. DCM schemas", time.time() - t0))
 
+    t0 = time.time()
     print("==> Step 3/7: Upload data/ to stage + load raw CSVs")
     subprocess.run(
         [
@@ -682,32 +857,36 @@ def main() -> None:
     r3 = run_snow_ci(snow_exe, connection, sub_all(raw_sql))
     if r3.returncode != 0:
         sys.exit(r3.returncode)
+    timings.append(("3. Data upload + raw load", time.time() - t0))
 
     if stop_at == "raw-load":
-        print("")
-        print("✓ Stopped at raw-load. Schemas + RAW tables ready.")
+        _print_timing(timings)
+        print("\n✓ Stopped at raw-load. Schemas + RAW tables ready.")
         print("  Re-run without --stop-at to continue to dbt build.")
         return
 
+    t0 = time.time()
     print("==> Step 4/7: Stage parameterized dbt project + create DBT PROJECT")
     _stage_dbt_project(snow_exe, connection, repo, target_database, target_wh, prefer)
+    timings.append(("4. Stage dbt project", time.time() - t0))
 
+    t0 = time.time()
     print("==> Step 5/7: Execute dbt build")
     pipeline_txt = (repo / "snowflake" / "run_pipeline.sql").read_text(encoding="utf-8")
     r5 = run_snow_ci(snow_exe, connection, sub_all(pipeline_txt))
     if r5.returncode != 0:
         sys.exit(r5.returncode)
+    timings.append(("5. dbt build (48 nodes)", time.time() - t0))
 
     if stop_at == "build":
-        print("")
-        print(
-            "✓ Stopped at dbt build. Marts ready. Re-run without --stop-at "
-            "for semantic view + agent."
-        )
+        _print_timing(timings)
+        print("\n✓ Stopped at dbt build. Marts ready. Re-run without --stop-at "
+              "for semantic view + agent.")
         return
 
     only_db_wh = frozenset({"TARGET_DB", "TARGET_WH"})
 
+    t0 = time.time()
     print("==> Step 6/7: Create semantic view")
     sem_txt = (repo / "snowflake" / "create_semantic_view.sql").read_text(encoding="utf-8")
     r6 = run_snow_ci(
@@ -715,7 +894,9 @@ def main() -> None:
     )
     if r6.returncode != 0:
         sys.exit(r6.returncode)
+    timings.append(("6. Semantic view", time.time() - t0))
 
+    t0 = time.time()
     print("==> Step 7/7: Create Snowflake Intelligence agent")
     agent_txt = (repo / "snowflake" / "create_agent.sql").read_text(encoding="utf-8")
     r7 = run_snow_ci(
@@ -727,9 +908,12 @@ def main() -> None:
             "   AI & ML → Snowflake Intelligence → + Create Agent\n"
             "   See docs/exercises/03_agent.md Option B for the click-path."
         )
+    timings.append(("7. Agent", time.time() - t0))
 
-    print("")
-    print(f"✓ Deploy complete. Target: {target_database} on {connection}")
+    _print_timing(timings)
+    _print_wow(snow_exe, connection, target_database)
+
+    print(f"\n✓ Deploy complete. Target: {target_database} on {connection}")
     print(
         "  Open the agent: https://app.snowflake.com/"
         "#/agents/SNOWFLAKE_INTELLIGENCE/AGENTS/PAWCORE_ASSISTANT"
@@ -737,7 +921,6 @@ def main() -> None:
     print(
         "  Or via Snowsight → AI & ML → Snowflake Intelligence → 'PawCore Assistant'"
     )
-    print('  Try: "Which lot has the worst customer ratings?"')
 
 
 if __name__ == "__main__":

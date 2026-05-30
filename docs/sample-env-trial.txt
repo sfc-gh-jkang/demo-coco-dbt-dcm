@@ -1,0 +1,13 @@
+# Sample .env for a fresh Snowflake trial account
+#
+# Copy this to .env at the project root:
+#   cp docs/sample-env-trial.txt .env
+#
+# The "default" connection is created automatically when you run:
+#   snow connection add
+# during your trial account setup.
+
+SNOWFLAKE_CONNECTION=default
+TARGET_DATABASE=PAWCORE_ANALYTICS
+TARGET_WAREHOUSE=PAWCORE_DEMO_WH
+I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1

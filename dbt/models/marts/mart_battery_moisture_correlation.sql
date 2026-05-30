@@ -9,7 +9,7 @@ SELECT
     AVG(t.humidity_reading)             AS avg_humidity,
     AVG(t.battery_level)                AS avg_battery,
     COUNT(DISTINCT t.device_id)         AS device_count,
-    AVG(CASE WHEN q.test_type = 'MOISTURE_RESISTANCE'
+    AVG(CASE WHEN q.test_type = 'MOISTURE_THRESHOLD'
              THEN q.measurement_value END) AS moisture_resistance
 FROM {{ ref('stg_telemetry') }} t
 JOIN {{ ref('stg_quality_logs') }} q
