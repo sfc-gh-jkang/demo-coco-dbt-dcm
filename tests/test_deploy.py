@@ -903,3 +903,203 @@ class TestMainWithSharedFixture:
         captured = capsys.readouterr()
         assert "Stopped at raw-load" in captured.out
         assert "Step 4/7" not in captured.out
+
+
+# ---------------------------------------------------------------------------
+# _run_verify
+# ---------------------------------------------------------------------------
+
+
+class TestRunVerify:
+    """Tests for the _run_verify function."""
+
+    def _mock_subprocess(self, responses):
+        """Helper: mock subprocess.run to return a series of responses."""
+        call_idx = [0]
+
+        def side_effect(*args, **kwargs):
+            idx = call_idx[0]
+            call_idx[0] += 1
+            if idx < len(responses):
+                return responses[idx]
+            # Default success
+            return MagicMock(returncode=0, stdout="[]", stderr="")
+
+        return side_effect
+
+    @patch("subprocess.run")
+    def test_all_pass(self, mock_run, capsys):
+        """All tables found with correct counts, semantic view + VQRs + agent present."""
+        import json
+
+        # 7 table checks + semantic view + VQR describe + agent = 10 calls
+        table_responses = []
+        for count in [21000, 1050, 1550, 37, 3, 3, 3]:
+            table_responses.append(
+                MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr="")
+            )
+        # Semantic view found
+        table_responses.append(
+            MagicMock(returncode=0, stdout='[{"name": "PAWCORE_ANALYSIS"}]', stderr="")
+        )
+        # VQR describe — 22 QUESTION entries
+        vqr_stdout = '"QUESTION"\n' * 22
+        table_responses.append(
+            MagicMock(returncode=0, stdout=vqr_stdout, stderr="")
+        )
+        # Agent found
+        table_responses.append(
+            MagicMock(returncode=0, stdout='[{"name": "PAWCORE_ASSISTANT"}]', stderr="")
+        )
+
+        mock_run.side_effect = table_responses
+
+        result = deploy._run_verify("/bin/snow", "test_conn", "TESTDB")
+        assert result is True
+        captured = capsys.readouterr()
+        assert "PASS  DEVICE_DATA.TELEMETRY: 21,000 rows" in captured.out
+        assert "PASS  SEMANTIC VIEW: PAWCORE_ANALYSIS" in captured.out
+        assert "PASS  VERIFIED QUERIES: 22 registered" in captured.out
+        assert "PASS  AGENT: PAWCORE_ASSISTANT" in captured.out
+
+    @patch("subprocess.run")
+    def test_table_wrong_count(self, mock_run, capsys):
+        """Wrong row count causes FAIL."""
+        import json
+
+        # First table wrong, rest correct
+        responses = [MagicMock(returncode=0, stdout=json.dumps([{"N": 999}]), stderr="")]
+        for count in [1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        # SV + VQR + Agent
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        responses.append(MagicMock(returncode=0, stdout='"QUESTION"\n' * 22, stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is False
+        captured = capsys.readouterr()
+        assert "FAIL  DEVICE_DATA.TELEMETRY: 999 rows (expected 21,000)" in captured.out
+
+    @patch("subprocess.run")
+    def test_table_not_found(self, mock_run, capsys):
+        """Table query returns non-zero exit code."""
+        import json
+
+        # First table fails
+        responses = [MagicMock(returncode=1, stdout="", stderr="does not exist")]
+        for count in [1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        responses.append(MagicMock(returncode=0, stdout='"QUESTION"\n' * 22, stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is False
+        captured = capsys.readouterr()
+        assert "FAIL  DEVICE_DATA.TELEMETRY: not found" in captured.out
+
+    @patch("subprocess.run")
+    def test_semantic_view_not_found(self, mock_run, capsys):
+        """Semantic view missing causes FAIL."""
+        import json
+
+        responses = []
+        for count in [21000, 1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        # SV not found
+        responses.append(MagicMock(returncode=0, stdout="[]", stderr=""))
+        # VQR describe fails (no view)
+        responses.append(MagicMock(returncode=1, stdout="", stderr=""))
+        # Agent found
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is False
+        captured = capsys.readouterr()
+        assert "FAIL  SEMANTIC VIEW: not found" in captured.out
+
+    @patch("subprocess.run")
+    def test_vqr_low_count_warns(self, mock_run, capsys):
+        """Low VQR count produces WARN but does not fail."""
+        import json
+
+        responses = []
+        for count in [21000, 1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        # Only 5 VQRs
+        responses.append(MagicMock(returncode=0, stdout='"QUESTION"\n' * 5, stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is True  # VQR is warn-only, not a failure
+        captured = capsys.readouterr()
+        assert "WARN  VERIFIED QUERIES: only 5 (expected 22)" in captured.out
+
+    @patch("subprocess.run")
+    def test_vqr_zero_warns(self, mock_run, capsys):
+        """Zero VQRs produces WARN but does not fail."""
+        import json
+
+        responses = []
+        for count in [21000, 1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        # Zero VQRs
+        responses.append(MagicMock(returncode=0, stdout="some describe output", stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is True
+        captured = capsys.readouterr()
+        assert "WARN  VERIFIED QUERIES: none found" in captured.out
+
+    @patch("subprocess.run")
+    def test_agent_not_found(self, mock_run, capsys):
+        """Missing agent causes FAIL."""
+        import json
+
+        responses = []
+        for count in [21000, 1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        responses.append(MagicMock(returncode=0, stdout='"QUESTION"\n' * 22, stderr=""))
+        # Agent not found
+        responses.append(MagicMock(returncode=1, stdout="", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is False
+        captured = capsys.readouterr()
+        assert "FAIL  AGENT: not found" in captured.out
+
+    @patch("subprocess.run")
+    def test_json_parse_error(self, mock_run, capsys):
+        """Invalid JSON from table query causes FAIL."""
+        import json
+
+        responses = [MagicMock(returncode=0, stdout="not json at all", stderr="")]
+        for count in [1050, 1550, 37, 3, 3, 3]:
+            responses.append(MagicMock(returncode=0, stdout=json.dumps([{"N": count}]), stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ANALYSIS", stderr=""))
+        responses.append(MagicMock(returncode=0, stdout='"QUESTION"\n' * 22, stderr=""))
+        responses.append(MagicMock(returncode=0, stdout="PAWCORE_ASSISTANT", stderr=""))
+
+        mock_run.side_effect = responses
+
+        result = deploy._run_verify("/bin/snow", "conn", "DB")
+        assert result is False
+        captured = capsys.readouterr()
+        assert "FAIL  DEVICE_DATA.TELEMETRY: could not parse result" in captured.out

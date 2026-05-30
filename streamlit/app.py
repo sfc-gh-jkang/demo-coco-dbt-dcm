@@ -18,7 +18,6 @@ Or via CLI:
 """
 
 import streamlit as st
-import pandas as pd
 
 st.set_page_config(page_title="PawCore Health Dashboard", layout="wide")
 
