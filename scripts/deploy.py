@@ -3,7 +3,7 @@
 deploy.py — Gated end-to-end deploy for the PawCore demo pipeline.
 
 Requires:
-  Python 3.14+
+  Python 3.10+
   Snowflake CLI (`snow`) on PATH — Windows, Linux, macOS.
 
 Cross-platform:
@@ -626,11 +626,15 @@ def main() -> None:
         ".INFORMATION_SCHEMA.SCHEMATA\n"
         "WHERE SCHEMA_NAME NOT IN ('INFORMATION_SCHEMA','PUBLIC');"
     )
-    pr = run_snow_ci(snow_exe, connection, sql_pf)
+    pr = subprocess.run(
+        [snow_exe, "sql", "-c", connection, "-q", sql_pf],
+        capture_output=True,
+        **_SUB_TX,
+    )
     if pr.returncode != 0:
         print("   (database does not yet exist — clean install)")
     elif (pr.stdout or "").strip():
-        print((pr.stdout or "").strip())
+        print(f"   {(pr.stdout or '').strip()}")
 
     print("==> Step 1/7: Bootstrap (DB, warehouse, stage)")
     bootstrap_txt = (repo / "bootstrap" / "00_bootstrap.sql").read_text(encoding="utf-8")

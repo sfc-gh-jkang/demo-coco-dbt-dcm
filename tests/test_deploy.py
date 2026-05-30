@@ -658,9 +658,9 @@ class TestMainFullDeploy:
             # Make the final run_snow_ci call (step 7 - agent) fail
             if isinstance(cmd, list) and "-i" in cmd:
                 side_effect.call_count += 1
-                # -i calls: pre-flight=1, bootstrap=2, raw-load=3,
-                # pipeline=4, semantic=5, agent=6
-                if side_effect.call_count >= 6:
+                # -i calls: bootstrap=1, raw-load=2,
+                # pipeline=3, semantic=4, agent=5
+                if side_effect.call_count >= 5:
                     return MagicMock(returncode=1, stdout="", stderr="")
             return MagicMock(returncode=0, stdout="ok", stderr="")
 
