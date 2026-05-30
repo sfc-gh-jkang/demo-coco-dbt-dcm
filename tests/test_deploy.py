@@ -566,6 +566,55 @@ class TestMainStopAtRawLoad:
         assert "Step 4/7" not in captured.out
 
 
+# ---------------------------------------------------------------------------
+# --teardown flag
+# ---------------------------------------------------------------------------
+
+class TestTeardown:
+    """Tests for the --teardown flag."""
+
+    def test_teardown_flag_parsed(self):
+        ns = deploy.parse_args(["--teardown"])
+        assert ns.teardown is True
+
+    @patch("subprocess.run")
+    def test_teardown_runs_and_exits(self, mock_run, full_project_tree, clean_env, capsys, monkeypatch):
+        mock_run.return_value = MagicMock(returncode=0, stdout="", stderr="")
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--teardown"])
+
+        # Create teardown.sql in the project tree
+        (full_project_tree / "teardown.sql").write_text(
+            "DROP DATABASE IF EXISTS ${TARGET_DB};\n"
+            "DROP WAREHOUSE IF EXISTS ${TARGET_WH};\n"
+        )
+
+        with patch.object(deploy, "repo_root", return_value=full_project_tree):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    deploy.main()
+
+        captured = capsys.readouterr()
+        assert "Teardown complete" in captured.out
+        # Should NOT have run any deploy steps
+        assert "Step 1/7" not in captured.out
+
+    @patch("subprocess.run")
+    def test_teardown_does_not_need_safety_gate(self, mock_run, tmp_path, clean_env, monkeypatch):
+        """Teardown works without I_UNDERSTAND flag."""
+        mock_run.return_value = MagicMock(returncode=0, stdout="", stderr="")
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--teardown"])
+
+        (tmp_path / ".env").write_text(
+            "SNOWFLAKE_CONNECTION=c\nTARGET_DATABASE=DB\nTARGET_WAREHOUSE=WH\n"
+        )
+        (tmp_path / "teardown.sql").write_text("DROP DATABASE IF EXISTS ${TARGET_DB};")
+
+        with patch.object(deploy, "repo_root", return_value=tmp_path):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    deploy.main()  # Should NOT exit with code 2
+
+
 class TestMainStopAtBuild:
     """Tests that --stop-at build halts after step 5."""
 

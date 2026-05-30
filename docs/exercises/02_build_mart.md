@@ -120,21 +120,27 @@ After CoCo writes the file:
    ```
    The build runs all 48 existing nodes plus your new mart. Watch for PASS on your model.
 
-   **Or** for a faster targeted rebuild (uploads just your file and runs only your mart):
+   **Or** for a faster targeted rebuild (uploads just your file and rebuilds only your mart):
    ```bash
    CONN=$(grep "^SNOWFLAKE_CONNECTION=" .env | cut -d= -f2)
    DB=$(grep "^TARGET_DATABASE=" .env | cut -d= -f2)
+   WH=$(grep "^TARGET_WAREHOUSE=" .env | cut -d= -f2)
 
    snow stage copy dbt/models/marts/mart_<your_choice>.sql \
        @${DB}.PUBLIC.DBT_PROJECT_STAGE/models/marts/ \
        -c "$CONN" --overwrite
 
    snow sql -c "$CONN" -q "
+   USE WAREHOUSE ${WH};
+   CREATE OR REPLACE DBT PROJECT ${DB}.PUBLIC.PAWCORE_DBT
+       FROM @${DB}.PUBLIC.DBT_PROJECT_STAGE/
+       COMMENT = 'PawCore dbt project';
    EXECUTE DBT PROJECT ${DB}.PUBLIC.PAWCORE_DBT
        args='build --select mart_<your_choice>+';
    "
    ```
-   The `+` pulls in upstream dependencies (staging) automatically.
+   Note: `CREATE OR REPLACE DBT PROJECT` is required after uploading new files —
+   it re-compiles the manifest. The `+` pulls in upstream dependencies automatically.
 
 3. **Verify** — query your new mart:
    ```sql

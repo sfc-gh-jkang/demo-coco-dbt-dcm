@@ -165,6 +165,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
             - stop_at (str): 'raw-load', 'build', or 'full'
             - resume (bool): whether --resume was passed
             - prefer_envsubst (bool): whether to use external envsubst
+            - teardown (bool): whether to drop all objects and exit
 
     Raises:
         SystemExit: On invalid arguments (argparse handles error output).
@@ -196,6 +197,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--prefer-envsubst",
         action="store_true",
         help="Use external gettext envsubst when installed.",
+    )
+    p.add_argument(
+        "--teardown",
+        action="store_true",
+        help="Drop all deployed objects (agent, database, warehouse) and exit.",
     )
     ns = p.parse_args(argv)
     if ns.resume:
@@ -603,6 +609,21 @@ def main() -> None:
     connection = require_env("SNOWFLAKE_CONNECTION")
     target_database = require_env("TARGET_DATABASE")
     target_wh = require_env("TARGET_WAREHOUSE")
+
+    # --teardown: drop all objects and exit (no safety gate needed — DROP IF EXISTS is safe)
+    if ns.teardown:
+        snow_exe = snow_executable()
+        os.environ["TARGET_DB"] = target_database
+        os.environ["TARGET_WH"] = target_wh
+        teardown_sql = (repo / "teardown.sql").read_text(encoding="utf-8")
+        teardown_sub = envsubst_python(teardown_sql, only=None)
+        print(f"==> Teardown: dropping PAWCORE_ASSISTANT + {target_database} + {target_wh}")
+        r = run_snow_ci(snow_exe, connection, teardown_sub)
+        if r.returncode != 0:
+            print("Teardown failed.", file=sys.stderr)
+            sys.exit(r.returncode)
+        print("✓ Teardown complete.")
+        return
 
     os.environ.setdefault("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE", "0")
     if os.environ.get("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE") != "1":
