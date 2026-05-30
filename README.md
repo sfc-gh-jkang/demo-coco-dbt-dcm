@@ -325,7 +325,7 @@ Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitato
 ## Testing
 
 ```bash
-uv run pytest tests/ -v    # 84 unit tests, <1s
+uv run pytest tests/ -v    # 92 unit tests, <1s
 uv run ruff check .        # Lint
 ```
 
