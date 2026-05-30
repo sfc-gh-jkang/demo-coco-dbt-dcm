@@ -113,46 +113,46 @@ Use CTEs to keep logic readable. Follow the existing mart style (config block at
 After CoCo writes the file:
 
 1. **Add the entry to `dbt/models/marts/__marts.yml`** — CoCo can do this too, or copy the pattern from existing entries. Include the tests listed above.
-2. **Commit + push** — from the repo directory:
+
+2. **Re-deploy the dbt project** — this re-stages all dbt files (including your new mart) and rebuilds:
    ```bash
-   git checkout -b exercise/mart-<your-name>
-   git add dbt/models/marts/mart_<your_choice>.sql dbt/models/marts/__marts.yml
-   git -c commit.gpgsign=false commit -m "exercise: add <mart name>"
-   git push origin exercise/mart-<your-name>
+   uv run scripts/deploy.py --stop-at build
    ```
-   (Note: you're pushing to YOUR fork or YOUR branch — you won't have push access to `main` on the demo repo.)
+   The build runs all 48 existing nodes plus your new mart. Watch for PASS on your model.
 
-3. **Update Snowflake to see your branch** — in Snowsight or via `snow sql`:
-   ```sql
-   -- if your PAT hits your branch:
-   ALTER GIT REPOSITORY PAWCORE_ANALYTICS.PUBLIC.DEMO_REPO FETCH;
-   CREATE OR REPLACE DBT PROJECT PAWCORE_ANALYTICS.PUBLIC.PAWCORE_DBT
-       FROM @PAWCORE_ANALYTICS.PUBLIC.DEMO_REPO/branches/exercise/mart-<your-name>/dbt/;
-   ```
+   **Or** for a faster targeted rebuild (uploads just your file and runs only your mart):
+   ```bash
+   CONN=$(grep "^SNOWFLAKE_CONNECTION=" .env | cut -d= -f2)
+   DB=$(grep "^TARGET_DATABASE=" .env | cut -d= -f2)
 
-4. **Run the build** — scoped to just your new mart:
-   ```sql
-   EXECUTE DBT PROJECT PAWCORE_ANALYTICS.PUBLIC.PAWCORE_DBT
+   snow stage copy dbt/models/marts/mart_<your_choice>.sql \
+       @${DB}.PUBLIC.DBT_PROJECT_STAGE/models/marts/ \
+       -c "$CONN" --overwrite
+
+   snow sql -c "$CONN" -q "
+   EXECUTE DBT PROJECT ${DB}.PUBLIC.PAWCORE_DBT
        args='build --select mart_<your_choice>+';
+   "
    ```
-   The `+` pulls in its upstream dependencies (staging) automatically.
+   The `+` pulls in upstream dependencies (staging) automatically.
 
-5. **Verify** — run the mart:
+3. **Verify** — query your new mart:
    ```sql
    SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> LIMIT 10;
    ```
 
 ---
 
-## Can't push to the repo?
+## Alternative: skip the dbt project entirely
 
-Totally fine. Skip step 2-3 above and instead:
+If re-deploying is too slow or you hit issues, create the table directly:
 
 1. Create the file locally.
-2. Use Cortex Code to copy the file's contents into Snowsight's SQL worksheet:
-   ```
-   Run this as a one-off CREATE TABLE against PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE>.
-   <paste the CTE-based SELECT from your file>
+2. Use Cortex Code to turn it into a `CREATE TABLE AS SELECT` statement:
+   ```sql
+   CREATE OR REPLACE TABLE PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> AS
+   -- paste the CTE-based SELECT from your file
+   ;
    ```
 3. You lose the dbt test wrapping but you still get a working mart. Good enough for the demo.
 

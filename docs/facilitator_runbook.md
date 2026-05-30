@@ -10,7 +10,7 @@
 - [ ] Attendees have confirmed trial account signup — verify list
 - [ ] Pre-work email sent linking to `docs/attendee_quickstart.md` (trial + CLI + CoCo install + clone repo + edit `.env`)
 - [ ] Cortex Code is installed on presenter laptop; `cortex connections list` shows working trial connection
-- [ ] `scripts/deploy.sh` dry-run end-to-end < 15 min on a fresh trial
+- [ ] `scripts/deploy.py` dry-run end-to-end < 15 min on a fresh trial
 - [ ] `snowflake/create_semantic_view.sql` produces a working `PAWCORE_ANALYSIS` view
 - [ ] `snowflake/create_agent.sql` creates `PAWCORE_ASSISTANT` OR Snowsight UI path verified
 - [ ] Sample agent questions all return sensible answers:
@@ -30,11 +30,11 @@
 | Time | Segment | What I do | What attendees do |
 |---|---|---|---|
 | 0:00–0:05 | Welcome + PawCore framing | Show slides 1-3 | Listen, follow along |
-| 0:05–0:20 | Live bootstrap + DCM + raw load | `bash scripts/deploy.sh --stop-at raw-load` | Watch, ready their terminals |
+| 0:05–0:20 | Live bootstrap + DCM + raw load | `uv run scripts/deploy.py --stop-at raw-load` | Watch, ready their terminals |
 | 0:20–0:30 | **Activity 1: CoCo explains what was built** | Silent; facilitate chat | Prompt their own CoCo 3 times, share in chat |
-| 0:30–0:32 | Live: create dbt project + build | `bash scripts/deploy.sh --stop-at build` | Watch 48 tests pass |
+| 0:30–0:32 | Live: create dbt project + build | `uv run scripts/deploy.py --stop-at build` | Watch 48 tests pass |
 | 0:32–0:45 | **Activity 2: Build-your-own mart** | Pick Option (a) and demo, help stragglers | Prompt CoCo, create mart, run build |
-| 0:45–0:55 | **Activity 3: Plug in a Snowflake Intelligence agent** | Run `deploy.sh` (no flags, completes steps 6-7), open Snowsight AI & ML | Create agent + ask 3 questions |
+| 0:45–0:55 | **Activity 3: Plug in a Snowflake Intelligence agent** | Run `deploy.py` (no flags, completes steps 6-7), open Snowsight AI & ML | Create agent + ask 3 questions |
 | 0:55–1:00 | Recap + Q&A + handoff | Show recap slide, link to Cortex AI HOL #1 | Ask questions, share takeaways |
 
 ---
@@ -51,18 +51,18 @@ Show slides 1-3 (title, scenario, agenda).
 ## Segment 2 — Live bootstrap + DCM + raw load (0:05–0:20)
 
 **Say:**
-> "This segment is the only part where you watch me. After this, you're driving. I'm running the first 3 steps of deploy.sh — bootstrap, DCM schemas, raw data. Takes about 8 minutes."
+> "This segment is the only part where you watch me. After this, you're driving. I'm running the first 3 steps of deploy.py — bootstrap, DCM schemas, raw data. Takes about 8 minutes."
 
 Run:
 ```bash
-bash scripts/deploy.sh --stop-at raw-load
+uv run scripts/deploy.py --stop-at raw-load
 ```
 
 **Talking points while it runs:**
 - Safety gate fired; I had to set `I_UNDERSTAND=1` — *"This prevents attendees from overwriting an existing TARGET_DATABASE."*
 - Bootstrap creates the API integration with a PAT secret — *"Private-repo access without exposing the token to attendees."*
 - DCM `create` + `deploy` — *"Schemas as infrastructure. Git-backed, plan-reviewed, deploy-controlled."*
-- RAW load runs COPY FILES from the upstream HOL repo. 21k telemetry rows in ~10 seconds at MEDIUM warehouse.
+- RAW load uploads CSVs from the local data/ folder to an internal stage, then COPY INTO. 21k telemetry rows in ~10 seconds.
 
 **Checkpoint:** everyone should see `✓ Stopped at raw-load`. If attendees have errors (wrong connection name, missing PAT), handle in breakout chat while I continue.
 
@@ -88,7 +88,7 @@ Pick 2-3 chat messages, narrate why they're good.
 ## Segment 4 — Live build (0:30–0:32)
 
 ```bash
-bash scripts/deploy.sh --stop-at build
+uv run scripts/deploy.py --stop-at build
 ```
 
 **Say:**
@@ -135,7 +135,7 @@ EXECUTE DBT PROJECT PAWCORE_DBT_DEMO.PUBLIC.PAWCORE_DBT args='build --select mar
 
 Run:
 ```bash
-bash scripts/deploy.sh   # resumes and creates semantic view + agent
+uv run scripts/deploy.py   # resumes and creates semantic view + agent
 ```
 
 While it runs, open `docs/exercises/03_agent.md` in browser. Show sample questions.
@@ -175,13 +175,13 @@ Show slide 6 (resources, QR code).
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| Attendee's `deploy.sh` aborts at safety gate | Expected | Point them to `.env`, flip I_UNDERSTAND to 1 |
+| Attendee's `deploy.py` aborts at safety gate | Expected | Point them to `.env`, flip I_UNDERSTAND to 1 |
 | Attendee can't push to repo (PAT 403) | Their fork, not mine | Tell them to work locally — they don't need to push for Activity 2, the dbt build reads from git so they need to commit somewhere. Fallback: run mart as one-off CREATE TABLE in Snowsight (docs/exercises/02_build_mart.md "Can't push to the repo?") |
 | `CREATE AGENT` SQL fails with privilege error | Missing CREATE AGENT grant on their trial | Falls back to Snowsight UI path in exercise doc. Mention it's a 1-click UI form, same result. |
 | Agent returns "I don't know" on obvious questions | Semantic view didn't pick up | `SHOW SEMANTIC VIEWS` to verify; re-run `create_semantic_view.sql` |
 | Warehouse suspended mid-demo | AUTO_SUSPEND = 300 | First query auto-resumes; 2-3s wait |
 | CoCo variable outputs across attendees | Different CoCo versions / model choices | Embrace it — this is part of the story. Feature diverse answers in chat. |
-| Attendees fall way behind | Connection issues | `bash scripts/deploy.sh --resume` gets them to the current segment. If still behind at 0:40, tell them to skip Activity 2 and join live at 0:45 for the agent. |
+| Attendees fall way behind | Connection issues | `uv run scripts/deploy.py --resume` gets them to the current segment. If still behind at 0:40, tell them to skip Activity 2 and join live at 0:45 for the agent. |
 
 ---
 

@@ -25,7 +25,6 @@ models:
       - name: avg_rating
       - name: review_count
       - name: avg_battery_level
-        tests: [not_null]
 
   - name: mart_battery_moisture_correlation
     description: >

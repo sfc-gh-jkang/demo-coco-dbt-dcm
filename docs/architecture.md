@@ -8,11 +8,11 @@
 
 ```mermaid
 flowchart LR
-    subgraph External["PawCore HOL repo (GitHub)"]
+    subgraph External["Local data/ folder"]
         CSV[CSVs in data/*]
     end
 
-    subgraph Snowflake["PAWCORE_DBT_DEMO"]
+    subgraph Snowflake["PAWCORE_ANALYTICS"]
         direction TB
         subgraph RAW["RAW (DCM-managed schema)"]
             R1[TELEMETRY]
@@ -41,7 +41,7 @@ flowchart LR
             M3[mart_battery_moisture_correlation]
         end
 
-        subgraph AI["Snowflake Intelligence (deploy.sh steps 6-7)"]
+        subgraph AI["Snowflake Intelligence (deploy.py steps 6-7)"]
             SV[SEMANTIC.PAWCORE_ANALYSIS<br/>semantic view]
             AG[SNOWFLAKE_INTELLIGENCE.PAWCORE_ASSISTANT<br/>agent]
         end
@@ -99,7 +99,7 @@ flowchart TB
     H[Ready: attendee asks questions<br/>in Snowsight AI &amp; ML]
 ```
 
-Use `bash scripts/deploy.sh --stop-at raw-load` or `--stop-at build` or `--stop-at semantic` to pause between steps during the webinar.
+Use `uv run scripts/deploy.py --stop-at raw-load` or `--stop-at build` to pause between steps during the webinar.
 
 ## Ownership split — DCM vs dbt
 
@@ -114,5 +114,5 @@ Use `bash scripts/deploy.sh --stop-at raw-load` or `--stop-at build` or `--stop-
 | Staging views | **dbt** | Business logic; belongs in model code |
 | HOL-compat tables | **dbt** | Typed, tested, versioned analytical contract |
 | Mart tables | **dbt** | Business value, tested, materialized |
-| Semantic view | Bootstrap SQL (deploy.sh step 6) | `PAWCORE_ANALYSIS` — AI-readable contract over marts + HOL tables |
-| Intelligence agent | Bootstrap SQL (deploy.sh step 7) | `PAWCORE_ASSISTANT` — Cortex Analyst tool reading the semantic view |
+| Semantic view | Bootstrap SQL (deploy.py step 6) | `PAWCORE_ANALYSIS` — AI-readable contract over marts + HOL tables |
+| Intelligence agent | Bootstrap SQL (deploy.py step 7) | `PAWCORE_ASSISTANT` — Cortex Analyst tool reading the semantic view |

@@ -2,9 +2,9 @@
 -- DCM schemas — the only thing DCM owns in this demo.
 -- dbt owns all tables (staging, HOL-shape, marts).
 --
--- ${TARGET_DB} is substituted by scripts/deploy.sh via envsubst. If you're
--- running `snow dcm deploy` directly (not via deploy.sh), use the default
--- PAWCORE_ANALYTICS by setting: export TARGET_DB=PAWCORE_ANALYTICS
+-- ${TARGET_DB} is substituted by scripts/deploy.py at deploy time. If you're
+-- running `snow dcm deploy` directly (not via deploy.py), set the env var:
+-- export TARGET_DB=PAWCORE_ANALYTICS
 -- =============================================================================
 
 DEFINE SCHEMA ${TARGET_DB}.RAW

@@ -27,10 +27,10 @@ Solo run-through of the demo. Takes ~60 minutes the first time. Same content as 
 
 ## Phase 1 — Deploy the pipeline foundation (15 min)
 
-Run the first 3 steps of deploy.sh:
+Run the first 3 steps of deploy.py:
 
 ```bash
-bash scripts/deploy.sh --stop-at raw-load
+uv run scripts/deploy.py --stop-at raw-load
 ```
 
 **What you'll see:**
@@ -69,7 +69,7 @@ For each, check that CoCo's answer matches the expected elements in the exercise
 Run the next 2 steps:
 
 ```bash
-bash scripts/deploy.sh --stop-at build
+uv run scripts/deploy.py --stop-at build
 ```
 
 **Expected:** `Done. PASS=48 WARN=0 ERROR=0 SKIP=0`.
@@ -95,7 +95,7 @@ Open [docs/exercises/02_build_mart.md](exercises/02_build_mart.md). Pick Option 
 Run the last 2 steps:
 
 ```bash
-bash scripts/deploy.sh   # resumes to complete steps 6-7
+uv run scripts/deploy.py   # resumes to complete steps 6-7
 ```
 
 **What happens:**
@@ -141,7 +141,7 @@ Drops the database, warehouse, and API integration.
 
 | Symptom | Fix |
 |---|---|
-| `deploy.sh` aborts at safety gate | Set `I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1` in `.env` |
+| `deploy.py` aborts at safety gate | Set `I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1` in `.env` |
 | `093550 Operation 'clone' is not authorized` | GitHub PAT invalid or missing. Regenerate, update `.env`, rerun |
 | `CREATE DBT PROJECT` says "packages not installed" | `git pull` — `dbt_packages/` is vendored in recent commits |
 | Test failure on `region` accepted_values | `git pull` — we use `AMERICAS` now (not `NORTH AMERICA`) |

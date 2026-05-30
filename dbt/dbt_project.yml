@@ -8,7 +8,7 @@ macro-paths: ['macros']
 test-paths: ['tests']
 
 target-path: 'target'
-clean-targets: ['target', 'dbt_packages']
+clean-targets: ['target']
 
 # Per-layer materialization and schema targeting.
 # generate_schema_name.sql (in macros/) strips the target.schema prefix so

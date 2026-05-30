@@ -1,7 +1,7 @@
 # profiles.yml for native dbt on Snowflake.
 #
 # database/warehouse use ${TARGET_DB} / ${TARGET_WH} placeholders — substituted
-# by scripts/deploy.sh via envsubst at PUT time. Snowflake reads the substituted
+# by scripts/deploy.py via envsubst at PUT time. Snowflake reads the substituted
 # version from the stage, so .env is the single source of truth.
 
 pawcore:

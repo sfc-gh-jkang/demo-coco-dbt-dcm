@@ -1,16 +1,12 @@
 -- =============================================================================
 -- run_pipeline.sql — execute dbt build + smoke-test HOL-shape tables
 -- =============================================================================
--- Runs AFTER snowflake/create_dbt_project.sql.
+-- Runs AFTER deploy.py step 4 (CREATE DBT PROJECT from stage).
 -- =============================================================================
 
 USE ROLE ACCOUNTADMIN;
 USE DATABASE ${TARGET_DB};
 USE WAREHOUSE ${TARGET_WH};
-
--- Install packages (dbt_utils) — packages vendored in /dbt/dbt_packages
--- so this is a no-op in most cases but kept for future package additions.
--- EXECUTE DBT PROJECT ${TARGET_DB}.PUBLIC.PAWCORE_DBT args='deps';
 
 -- Full build: staging views → HOL tables → marts + run all tests
 EXECUTE DBT PROJECT ${TARGET_DB}.PUBLIC.PAWCORE_DBT args='build';

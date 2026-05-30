@@ -1,0 +1,21 @@
+[project]
+name = "demo-coco-dbt-dcm"
+version = "0.1.0"
+description = "PawCore: Cortex Code + dbt + DCM hands-on lab"
+requires-python = ">=3.10"
+dependencies = [
+    "python-dotenv>=1.2.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["scripts"]
+
+[tool.ruff]
+line-length = 100
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+    "ruff>=0.15.15",
+]
