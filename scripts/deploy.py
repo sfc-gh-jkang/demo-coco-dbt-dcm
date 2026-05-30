@@ -634,6 +634,26 @@ def _run_verify(snow_exe: str, connection: str, target_database: str) -> bool:
         print("  FAIL  SEMANTIC VIEW: not found")
         all_pass = False
 
+    # Check verified queries count
+    sql_vqr = (
+        f"DESCRIBE SEMANTIC VIEW {target_database}.SEMANTIC.PAWCORE_ANALYSIS;"
+    )
+    p_vqr = subprocess.run(
+        [snow_exe, "sql", "-c", connection, "-q", sql_vqr, "--format", "json"],
+        capture_output=True,
+        **_SUB_TX,
+    )
+    if p_vqr.returncode == 0:
+        vqr_count = (p_vqr.stdout or "").count('"QUESTION"')
+        if vqr_count >= 20:
+            print(f"  PASS  VERIFIED QUERIES: {vqr_count} registered")
+        elif vqr_count > 0:
+            print(f"  WARN  VERIFIED QUERIES: only {vqr_count} (expected 22)")
+        else:
+            print("  WARN  VERIFIED QUERIES: none found")
+    else:
+        print("  WARN  VERIFIED QUERIES: could not describe semantic view")
+
     # Check agent
     sql_ag = "SHOW AGENTS LIKE 'PAWCORE_ASSISTANT' IN SCHEMA SNOWFLAKE_INTELLIGENCE.AGENTS;"
     p_ag = subprocess.run(

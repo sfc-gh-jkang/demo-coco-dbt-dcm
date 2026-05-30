@@ -42,7 +42,7 @@ PAWCORE_ANALYTICS                          ← database (name configurable)
 │   ├── MART_REGIONAL_CUSTOMER_IMPACT
 │   └── MART_BATTERY_MOISTURE_CORRELATION
 └── SEMANTIC
-    └── PAWCORE_ANALYSIS                   ← semantic view (6 tables, 11 metrics)
+    └── PAWCORE_ANALYSIS                   ← semantic view (6 tables, 17 metrics, 22 VQRs)
 
 SNOWFLAKE_INTELLIGENCE.AGENTS
 └── PAWCORE_ASSISTANT                      ← Cortex Agent with text-to-SQL
@@ -110,6 +110,9 @@ Deploy takes ~4 minutes. On success:
 uv run scripts/deploy.py --stop-at raw-load   # Stop after CSV loading (steps 1-3)
 uv run scripts/deploy.py --stop-at build       # Stop after dbt build (steps 1-5)
 uv run scripts/deploy.py --resume              # Run all 7 steps (default)
+uv run scripts/deploy.py --verify              # Validate deployed objects after build
+uv run scripts/deploy.py --teardown            # Drop all objects and exit
+uv run scripts/deploy.py --dry-run             # Show what would run without executing
 uv run scripts/deploy.py --prefer-envsubst     # Use system envsubst if installed
 ```
 
@@ -221,7 +224,7 @@ demo-coco-dbt-dcm/
 │   │   └── marts/             # 3 analytical aggregations
 │   └── dbt_packages/dbt_utils/  # Vendored (no network at build time)
 ├── snowflake/
-│   ├── create_semantic_view.sql   # 6 tables, 11 metrics, 12 dimensions
+│   ├── create_semantic_view.sql   # 6 tables, 17 metrics, 22 VQRs
 │   ├── create_agent.sql           # Cortex Agent with text-to-SQL
 │   └── run_pipeline.sql           # EXECUTE DBT PROJECT + smoke tests
 ├── docs/
@@ -233,7 +236,7 @@ demo-coco-dbt-dcm/
 │   └── exercises/                 # 3 hands-on activities
 ├── tests/
 │   ├── conftest.py                # Shared pytest fixtures
-│   └── test_deploy.py            # 81 unit tests for deploy.py
+│   └── test_deploy.py            # 84 unit tests for deploy.py
 ├── .env.example                   # Configuration template
 ├── pyproject.toml                 # Python 3.10+, pytest, ruff, python-dotenv
 ├── teardown.sql                   # DROP everything
@@ -278,11 +281,16 @@ Manages schema lifecycle declaratively via `DEFINE SCHEMA` statements. DCM track
 ### `snowflake/create_semantic_view.sql`
 
 Defines the Cortex Analyst contract (`PAWCORE_ANALYSIS`) with:
-- 6 tables (raw + marts)
-- 3 relationships (lot_number as join key)
-- 7 facts, 12 dimensions, 11 metrics
+- 6 tables (raw + marts) with detailed comments and synonyms
+- 5 relationships (lot_number as join key across domains)
+- 16 facts, 15 dimensions, 17 metrics
 - Synonyms for natural-language discovery (e.g., "csat" → avg_rating)
 - Domain knowledge in comments (e.g., "LOT341 is problematic")
+- `AI_SQL_GENERATION` — instructs Cortex Analyst to prefer marts, round to 2dp
+- `AI_QUESTION_CATEGORIZATION` — rejects off-topic questions, prompts for specifics
+- `AI_VERIFIED_QUERIES` — 22 verified queries (7 onboarding) across 6 categories:
+  - Lot-level analysis, humidity/battery correlation, customer impact
+  - Device telemetry details, manufacturing QA, cross-domain root cause
 
 ### `snowflake/create_agent.sql`
 
@@ -300,6 +308,7 @@ Creates `PAWCORE_ASSISTANT` in `SNOWFLAKE_INTELLIGENCE.AGENTS` with:
 | 1 | Explore the pipeline with CoCo (3 prompts) | 10 min | [01_explore.md](docs/exercises/01_explore.md) |
 | 2 | Build your own mart (choose a business question) | 13 min | [02_build_mart.md](docs/exercises/02_build_mart.md) |
 | 3 | Create a Snowflake Intelligence agent | 10 min | [03_agent.md](docs/exercises/03_agent.md) |
+| 4 | Add a verified query to the semantic view | 5-8 min | [04_add_verified_query.md](docs/exercises/04_add_verified_query.md) |
 
 Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitator_runbook.md)
 
@@ -308,7 +317,7 @@ Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitato
 ## Testing
 
 ```bash
-uv run pytest tests/ -v    # 81 unit tests, <1s
+uv run pytest tests/ -v    # 84 unit tests, <1s
 uv run ruff check .        # Lint
 ```
 
