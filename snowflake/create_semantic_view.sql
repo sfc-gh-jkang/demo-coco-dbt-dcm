@@ -208,7 +208,195 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
       COMMENT = 'Number of failed QA tests.'
   )
 
-  COMMENT = 'PawCore SmartCollar analytics. Cross-references manufacturing QA, device telemetry, and customer feedback. LOT341 (EMEA) is a known-problematic batch — high humidity correlates with battery degradation and low customer ratings. Always join by lot_number when investigating issues. Use mart tables for pre-aggregated answers (faster, no fanout risk); use raw tables only when you need row-level detail.';
+  COMMENT = 'PawCore SmartCollar analytics. Cross-references manufacturing QA, device telemetry, and customer feedback. LOT341 (EMEA) is a known-problematic batch — high humidity correlates with battery degradation and low customer ratings. Always join by lot_number when investigating issues. Use mart tables for pre-aggregated answers (faster, no fanout risk); use raw tables only when you need row-level detail.'
+
+  AI_SQL_GENERATION 'When comparing lots, prefer the mart_lot table for pre-aggregated stats to avoid fanout. Only use the raw telemetry table when device-level detail is required. Always ROUND numeric results to 2 decimal places. For lot comparisons, ORDER BY the metric of interest descending so the worst-performing lot appears first.'
+
+  AI_QUESTION_CATEGORIZATION 'If the question is about pricing, billing, or account management, respond that this view only covers device analytics data. If the question asks about a specific lot but does not specify which one, ask the user to specify LOT339, LOT340, or LOT341.'
+
+  AI_VERIFIED_QUERIES (
+    -- =========================================================================
+    -- LOT-LEVEL ANALYSIS
+    -- =========================================================================
+    worst_performing_lot AS (
+      QUESTION 'Which lot has the worst battery performance?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot, lot_battery, lot_pass_rate, lot_low_battery FROM __mart_lot ORDER BY lot_battery ASC LIMIT 1'
+    ),
+    lot_comparison AS (
+      QUESTION 'Compare all lots by battery level and pass rate'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot, lot_battery, lot_pass_rate, lot_low_battery FROM __mart_lot ORDER BY lot_battery ASC'
+    ),
+    lot341_battery AS (
+      QUESTION 'What is the average battery level for LOT341?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot, lot_battery FROM __mart_lot WHERE lot = ''LOT341'''
+    ),
+
+    -- =========================================================================
+    -- HUMIDITY / BATTERY CORRELATION
+    -- =========================================================================
+    moisture_correlation AS (
+      QUESTION 'How does humidity correlate with battery levels across lots?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT moisture_lot, moisture_region, moisture_humidity, moisture_avg_battery, moisture_score FROM __mart_moisture ORDER BY moisture_avg_battery ASC'
+    ),
+    moisture_resistance_scores AS (
+      QUESTION 'What are the moisture resistance test scores by lot and region?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT moisture_lot, moisture_region, moisture_score FROM __mart_moisture WHERE moisture_score IS NOT NULL ORDER BY moisture_score ASC'
+    ),
+
+    -- =========================================================================
+    -- CUSTOMER IMPACT
+    -- =========================================================================
+    customer_ratings_by_region AS (
+      QUESTION 'What are the customer ratings by lot and region?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT regional_lot, regional_area, regional_rating, regional_reviews FROM __mart_regional ORDER BY regional_rating ASC'
+    ),
+    lowest_rated_region AS (
+      QUESTION 'Which lot and region has the lowest customer satisfaction?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT regional_lot, regional_area, regional_rating, regional_reviews FROM __mart_regional ORDER BY regional_rating ASC LIMIT 1'
+    ),
+    unhappy_customers_by_lot AS (
+      QUESTION 'How many unhappy customers are there per lot?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, SUM(CASE WHEN rating_value <= 2 THEN 1 ELSE 0 END) AS unhappy_count, COUNT(*) AS total_reviews FROM __customer_reviews GROUP BY lot_number ORDER BY unhappy_count DESC'
+    ),
+    rating_distribution AS (
+      QUESTION 'What is the distribution of customer ratings across all lots?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, rating_value, COUNT(*) AS count FROM __customer_reviews GROUP BY lot_number, rating_value ORDER BY lot_number, rating_value'
+    ),
+
+    -- =========================================================================
+    -- DEVICE TELEMETRY DETAILS
+    -- =========================================================================
+    device_count_by_lot AS (
+      QUESTION 'How many devices are in each lot?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, COUNT(DISTINCT device_identifier) AS device_count FROM __telemetry GROUP BY lot_number ORDER BY device_count DESC'
+    ),
+    battery_stats_by_lot AS (
+      QUESTION 'What are the battery statistics for each lot?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, AVG(battery_value) AS avg_battery, MIN(battery_value) AS min_battery, MAX(battery_value) AS max_battery, COUNT(DISTINCT device_identifier) AS devices FROM __telemetry GROUP BY lot_number ORDER BY avg_battery ASC'
+    ),
+    low_battery_devices AS (
+      QUESTION 'Which devices have critically low battery readings?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT device_identifier, lot_number, region, AVG(battery_value) AS avg_battery, COUNT(*) AS reading_count FROM __telemetry WHERE battery_value < 20 GROUP BY device_identifier, lot_number, region ORDER BY avg_battery ASC LIMIT 20'
+    ),
+
+    -- =========================================================================
+    -- MANUFACTURING QA
+    -- =========================================================================
+    qa_pass_rate_by_lot AS (
+      QUESTION 'What is the QA pass rate for each lot?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot, lot_pass_rate FROM __mart_lot ORDER BY lot_pass_rate ASC'
+    ),
+    qa_results_by_test_type AS (
+      QUESTION 'What are the QA results broken down by test type?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT test_lot, test_type, COUNT(*) AS total_tests, SUM(CASE WHEN pass_fail = ''PASS'' THEN 1 ELSE 0 END) AS passed, SUM(CASE WHEN pass_fail = ''FAIL'' THEN 1 ELSE 0 END) AS failed FROM __quality_logs GROUP BY test_lot, test_type ORDER BY test_lot, test_type'
+    ),
+    failed_qa_tests AS (
+      QUESTION 'Show all failed QA tests'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT test_lot, test_type, measurement, pass_fail FROM __quality_logs WHERE pass_fail = ''FAIL'' ORDER BY test_lot, test_type'
+    ),
+    moisture_threshold_tests AS (
+      QUESTION 'What are the moisture threshold test results by lot?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT test_lot, measurement, pass_fail FROM __quality_logs WHERE test_type = ''MOISTURE_THRESHOLD'' ORDER BY test_lot'
+    ),
+
+    -- =========================================================================
+    -- CROSS-DOMAIN / ROOT CAUSE ANALYSIS
+    -- =========================================================================
+    root_cause_summary AS (
+      QUESTION 'What is the root cause of battery issues?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT m.moisture_lot, m.moisture_region, m.moisture_avg_battery, m.moisture_humidity, m.moisture_score, r.regional_rating FROM __mart_moisture m JOIN __mart_regional r ON m.moisture_lot = r.regional_lot AND m.moisture_region = r.regional_area ORDER BY m.moisture_avg_battery ASC'
+    ),
+    lot341_deep_dive AS (
+      QUESTION 'Give me a full analysis of LOT341'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT l.lot, l.lot_battery, l.lot_pass_rate, l.lot_low_battery, r.regional_area, r.regional_rating, r.regional_reviews, m.moisture_humidity, m.moisture_score FROM __mart_lot l JOIN __mart_regional r ON l.lot = r.regional_lot JOIN __mart_moisture m ON l.lot = m.moisture_lot ORDER BY l.lot'
+    ),
+    healthy_vs_problematic AS (
+      QUESTION 'Compare healthy lots vs the problematic lot'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT l.lot, l.lot_battery, l.lot_pass_rate, l.lot_low_battery, r.regional_rating FROM __mart_lot l JOIN __mart_regional r ON l.lot = r.regional_lot ORDER BY l.lot_battery ASC'
+    ),
+
+    -- =========================================================================
+    -- EXECUTIVE SUMMARY
+    -- =========================================================================
+    executive_summary AS (
+      QUESTION 'Give me an executive summary of the PawCore data'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot, lot_battery, lot_pass_rate, lot_low_battery FROM __mart_lot ORDER BY lot'
+    ),
+    total_device_count AS (
+      QUESTION 'How many total devices are being tracked?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT COUNT(DISTINCT device_identifier) AS total_devices FROM __telemetry'
+    ),
+    total_review_count AS (
+      QUESTION 'How many customer reviews do we have?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT COUNT(*) AS total_reviews FROM __customer_reviews'
+    )
+  );
 
 -- =============================================================================
 -- Verify + grants
