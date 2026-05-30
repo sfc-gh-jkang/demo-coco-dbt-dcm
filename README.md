@@ -226,14 +226,20 @@ demo-coco-dbt-dcm/
 ├── snowflake/
 │   ├── create_semantic_view.sql   # 6 tables, 17 metrics, 22 VQRs
 │   ├── create_agent.sql           # Cortex Agent with text-to-SQL
+│   ├── snowsight_worksheet.sql    # 10 ready-to-paste SEMANTIC_VIEW queries
 │   └── run_pipeline.sql           # EXECUTE DBT PROJECT + smoke tests
+├── streamlit/
+│   ├── app.py                     # Streamlit-in-Snowflake dashboard
+│   └── environment.yml            # SiS deployment dependencies
 ├── docs/
 │   ├── architecture.md            # Mermaid diagrams
 │   ├── facilitator_runbook.md     # 60-min timed facilitator script
 │   ├── attendee_quickstart.md     # Pre-work checklist
 │   ├── self_walkthrough.md        # Solo rehearsal guide
 │   ├── speaker_notes.md           # Per-slide notes
-│   └── exercises/                 # 3 hands-on activities
+│   ├── prompt_guide.md            # 22 agent questions with expected answers
+│   ├── certificate_template.html  # Print-ready completion certificate
+│   └── exercises/                 # 6 hands-on activities
 ├── tests/
 │   ├── conftest.py                # Shared pytest fixtures
 │   └── test_deploy.py            # 84 unit tests for deploy.py
@@ -309,6 +315,8 @@ Creates `PAWCORE_ASSISTANT` in `SNOWFLAKE_INTELLIGENCE.AGENTS` with:
 | 2 | Build your own mart (choose a business question) | 13 min | [02_build_mart.md](docs/exercises/02_build_mart.md) |
 | 3 | Create a Snowflake Intelligence agent | 10 min | [03_agent.md](docs/exercises/03_agent.md) |
 | 4 | Add a verified query to the semantic view | 5-8 min | [04_add_verified_query.md](docs/exercises/04_add_verified_query.md) |
+| 5 | Create a battery alert | 5-8 min | [05_create_alert.md](docs/exercises/05_create_alert.md) |
+| 6 | Track remediation (version 2 storyline) | 5-8 min | [06_remediation.md](docs/exercises/06_remediation.md) |
 
 Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitator_runbook.md)
 

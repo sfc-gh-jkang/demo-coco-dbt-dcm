@@ -34,7 +34,8 @@
 | 0:20–0:30 | **Activity 1: CoCo explains what was built** | Silent; facilitate chat | Prompt their own CoCo 3 times, share in chat |
 | 0:30–0:32 | Live: create dbt project + build | `uv run scripts/deploy.py --stop-at build` | Watch 48 tests pass |
 | 0:32–0:45 | **Activity 2: Build-your-own mart** | Pick Option (a) and demo, help stragglers | Prompt CoCo, create mart, run build |
-| 0:45–0:55 | **Activity 3: Plug in a Snowflake Intelligence agent** | Run `deploy.py` (no flags, completes steps 6-7), open Snowsight AI & ML | Create agent + ask 3 questions |
+| 0:45–0:52 | **Activity 3: Plug in a Snowflake Intelligence agent** | Run `deploy.py` (no flags, completes steps 6-7), open Snowsight AI & ML | Create agent + ask 3 questions |
+| 0:52–0:55 | **Activity 4: Verified Queries** | Show VQR in DESCRIBE output, demo adding one | Follow Exercise 04 — add a VQR, redeploy |
 | 0:55–1:00 | Recap + Q&A + handoff | Show recap slide, link to Cortex AI HOL #1 | Ask questions, share takeaways |
 
 ---
@@ -128,7 +129,7 @@ EXECUTE DBT PROJECT PAWCORE_DBT_DEMO.PUBLIC.PAWCORE_DBT args='build --select mar
 
 ---
 
-## Segment 6 — Activity 3: Agent (0:45–0:55)
+## Segment 6 — Activity 3: Agent (0:45–0:52)
 
 **Say:**
 > "Last piece. We have marts. We have tests. We have schemas. Now we attach a Snowflake Intelligence agent and ask it business questions in English."
@@ -151,8 +152,32 @@ Narrate as the agent:
 3. Runs it
 4. Summarizes: LOT341, EMEA, 4.10 avg rating, low battery correlation
 
-**Hand-off (6 min):**
+**Hand-off (4 min):**
 > "Ask the agent the other 2 questions from the exercise doc. Or ask it something of your own. Share what you got in chat."
+
+---
+
+## Segment 6b — Activity 4: Verified Queries (0:52–0:55)
+
+**Say:**
+> "Notice how the agent got the right answer instantly? That's because we pre-loaded 22 Verified Queries — pre-verified SQL that the agent uses when your question matches. Let me show you."
+
+**Demo (1 min):**
+```sql
+DESCRIBE SEMANTIC VIEW PAWCORE_ANALYTICS.SEMANTIC.PAWCORE_ANALYSIS;
+-- Scroll to AI_VERIFIED_QUERY rows — show QUESTION and SQL columns
+```
+
+> "Each VQR is a question + the SQL that answers it. More VQRs = more accurate agent. The SQL uses logical names from the semantic view — not physical column names."
+
+**Hand-off (2 min):**
+> "Open `docs/exercises/04_add_verified_query.md`. Write a new business question and its SQL. Add it to the semantic view and redeploy with `--resume 6`. If time permits, ask the agent your new question."
+
+**Talking points:**
+- VQRs are the bridge between "prompt engineering" and "data engineering"
+- Each VQR makes the agent measurably more accurate for that question pattern
+- Similar questions also benefit (semantic matching, not exact match)
+- The `ONBOARDING_QUESTION TRUE` flag makes questions appear as suggestions in the UI
 
 ---
 
@@ -189,7 +214,25 @@ Show slide 6 (resources, QR code).
 
 The hour is paced for ~50 actual content min + 10 min buffer. If everything goes smoothly, you may have 5–10 min left at 0:55 before the recap. Pick one:
 
-### A. "Ask Slack" — demonstrate Cortex Search hook (3-5 min)
+### A. Battery Alert exercise (5 min)
+
+> "Now that we know LOT341 is problematic, let's set up an automated alert."
+
+Point attendees to `docs/exercises/05_create_alert.md`. They'll CREATE ALERT + EXECUTE ALERT and see LOT341 appear in the alert log. Demonstrates: Snowflake native alerting integrated with the same data layer.
+
+### B. Remediation tracking (5-8 min)
+
+> "Engineering fixed the seal. How do we track if it's working?"
+
+Point attendees to `docs/exercises/06_remediation.md`. They'll add a post-fix metric + VQR to the semantic view and ask the agent if LOT341 is improving. Demonstrates: semantic view evolution without touching dbt.
+
+### C. Streamlit Dashboard (5 min)
+
+> "What if leadership wants a visual dashboard, not just an agent?"
+
+Show `streamlit/app.py` — deploy to Snowflake and show the bar charts + KPI cards + scatter plot. Same data, different interface. Demonstrates: one pipeline, multiple consumption patterns.
+
+### E. "Ask Slack" — demonstrate Cortex Search hook (3-5 min)
 
 The semantic view doesn't include `SLACK_MESSAGES` because that's unstructured text. Show that the agent currently can't answer engineering-context questions, then preview Cortex Search:
 
@@ -197,7 +240,7 @@ The semantic view doesn't include `SLACK_MESSAGES` because that's unstructured t
 
 Show 1-2 sample Slack messages mentioning moisture in Snowsight to make the gap concrete.
 
-### B. "Build a test from a business rule" with CoCo (5 min)
+### F. "Build a test from a business rule" with CoCo (5 min)
 
 Live-prompt CoCo:
 
@@ -208,13 +251,13 @@ above 95. Put it in dbt/tests/ and tell me how to run just that test.
 
 CoCo writes the test, you run it (it should pass — no LOT341 device has high battery), then artificially break it ("change > 95 to > 50") to show it fails, then revert. Demonstrates: dbt tests as live business-rule guardrails authored by CoCo.
 
-### C. "Edit + redeploy via DCM" (5–8 min)
+### G. "Edit + redeploy via DCM" (5–8 min)
 
 > "Real production change: add a new schema for staging audit. Watch."
 
 Live edit `dcm/sources/definitions/schemas.sql` to add `DEFINE SCHEMA ${TARGET_DB}.AUDIT`. Commit + push (or paste in Snowsight). Re-run `snow dcm plan` and show the diff. Then `snow dcm deploy`. Demonstrates: DCM's plan-review-deploy loop in <2 min, end to end.
 
-### D. Q&A on architecture extension
+### H. Q&A on architecture extension
 
 Open question to the room: *"Where in this pipeline would you add Iceberg / streaming / Snowpipe? CoCo, what would change?"* Live-prompt CoCo to brainstorm. Less polished than A-C but engages people who came for the architecture conversation.
 

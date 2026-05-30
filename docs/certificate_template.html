@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PawCore HOL Certificate of Completion</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f0f4f8;
+    padding: 20px;
+  }
+  .certificate {
+    width: 900px;
+    background: white;
+    border: 3px solid #29B5E8;
+    border-radius: 12px;
+    padding: 60px 80px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  .certificate::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #29B5E8, #1a8bc7, #29B5E8);
+  }
+  .logo {
+    font-size: 14px;
+    color: #666;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .logo span { color: #29B5E8; font-weight: 700; }
+  h1 {
+    font-size: 36px;
+    color: #1a2b3c;
+    margin: 20px 0 8px;
+    font-weight: 300;
+  }
+  .subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 40px;
+  }
+  .presented-to {
+    font-size: 14px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .name {
+    font-size: 32px;
+    color: #1a2b3c;
+    font-weight: 600;
+    border-bottom: 2px solid #29B5E8;
+    display: inline-block;
+    padding: 4px 40px 8px;
+    margin-bottom: 30px;
+    min-width: 300px;
+    cursor: pointer;
+  }
+  .name:hover { background: #f8fcff; }
+  .description {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    text-align: left;
+  }
+  .description ul { padding-left: 20px; }
+  .description li { margin-bottom: 6px; }
+  .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+  }
+  .date-section, .signature-section {
+    text-align: center;
+  }
+  .date-value, .signature-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2b3c;
+    margin-bottom: 4px;
+  }
+  .label {
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #29B5E8, #1a8bc7);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .certificate {
+      box-shadow: none;
+      border: 2px solid #29B5E8;
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="certificate">
+  <div class="logo"><span>Snowflake</span> Hands-On Lab</div>
+  <h1>Certificate of Completion</h1>
+  <p class="subtitle">Prompt to Pipeline: Cortex Code + dbt on Snowflake + DCM</p>
+
+  <p class="presented-to">This certifies that</p>
+  <div class="name" id="participantName" onclick="editName()">Participant Name</div>
+
+  <div class="description">
+    <p>has successfully completed the 60-minute hands-on lab, building:</p>
+    <ul>
+      <li><strong>DCM-managed schemas</strong> — 8 schemas defined declaratively</li>
+      <li><strong>dbt pipeline</strong> — 12 models + 36 tests (staging → marts)</li>
+      <li><strong>Semantic view</strong> — 17 metrics, 22 verified queries</li>
+      <li><strong>Snowflake Intelligence agent</strong> — natural-language data Q&A</li>
+    </ul>
+  </div>
+
+  <div class="details">
+    <div class="date-section">
+      <div class="date-value" id="certDate"></div>
+      <div class="label">Date</div>
+    </div>
+    <div class="signature-section">
+      <div class="signature-value">John Kang</div>
+      <div class="label">Sales Engineer, Snowflake</div>
+    </div>
+  </div>
+
+  <div class="badge">AI-Assisted Data Engineering</div>
+</div>
+
+<script>
+  // Auto-fill today's date
+  document.getElementById('certDate').textContent =
+    new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+  // Click to edit name
+  function editName() {
+    const el = document.getElementById('participantName');
+    const name = prompt('Enter participant name:', el.textContent);
+    if (name && name.trim()) {
+      el.textContent = name.trim();
+    }
+  }
+
+  // Auto-prompt on first load
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const el = document.getElementById('participantName');
+      if (el.textContent === 'Participant Name') {
+        editName();
+      }
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
