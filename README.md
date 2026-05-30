@@ -57,7 +57,7 @@ Plus: a warehouse (`PAWCORE_DEMO_WH`) and an internal stage.
 | Dependency | Version | Purpose |
 |-----------|---------|---------|
 | [Snowflake CLI (`snow`)](https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation) | v3.0+ | Executes all SQL and DCM commands |
-| [uv](https://docs.astral.sh/uv/getting-started/installation/) | latest | Python environment + dependency management (auto-installs Python 3.14+ if missing) |
+| [uv](https://docs.astral.sh/uv/getting-started/installation/) | latest | Python environment + dependency management (auto-installs Python 3.10+ if missing) |
 | [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code) | latest | AI pair programmer (for hands-on exercises) |
 | Snowflake account | any edition | Must have ACCOUNTADMIN role |
 
@@ -211,7 +211,6 @@ demo-coco-dbt-dcm/
 ├── dbt/
 │   ├── dbt_project.yml        # Materialization + schema routing config
 │   ├── profiles.yml           # Connection template (${TARGET_DB} substituted)
-│   ├── packages.yml           # dbt_utils dependency
 │   ├── macros/
 │   │   └── generate_schema_name.sql  # Exact schema placement (no prefix)
 │   ├── models/
@@ -234,9 +233,9 @@ demo-coco-dbt-dcm/
 │   └── exercises/                 # 3 hands-on activities
 ├── tests/
 │   ├── conftest.py                # Shared pytest fixtures
-│   └── test_deploy.py            # 94 unit tests for deploy.py
+│   └── test_deploy.py            # 81 unit tests for deploy.py
 ├── .env.example                   # Configuration template
-├── pyproject.toml                 # Python 3.14+, pytest, ruff, python-dotenv
+├── pyproject.toml                 # Python 3.10+, pytest, ruff, python-dotenv
 ├── teardown.sql                   # DROP everything
 ├── AGENTS.md                      # AI agent project constraints
 └── LICENSE                        # Apache-2.0
@@ -248,7 +247,7 @@ demo-coco-dbt-dcm/
 
 ### `scripts/deploy.py`
 
-Cross-platform deploy engine (Python stdlib only). Key behaviors:
+Cross-platform deploy engine (one runtime dependency: `python-dotenv`). Key behaviors:
 
 - **Single-knob config**: `.env` is the only file you edit. All SQL templates use `${TARGET_DB}` / `${TARGET_WH}` placeholders substituted at runtime.
 - **Safety gate**: aborts unless `I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1` is set.
@@ -309,7 +308,7 @@ Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitato
 ## Testing
 
 ```bash
-uv run pytest tests/ -v    # 94 unit tests, <1s
+uv run pytest tests/ -v    # 81 unit tests, <1s
 uv run ruff check .        # Lint
 ```
 
@@ -323,7 +322,7 @@ Tests cover all `deploy.py` functions with mocked subprocess calls. No Snowflake
 2. **HOL-compatible** — final table shapes match the upstream Cortex AI HOL exactly
 3. **Single-knob config** — `.env` is the only file you edit
 4. **Idempotent** — safe to re-run at any time
-5. **Cross-platform** — Python stdlib only, no bash/rsync dependencies
+5. **Cross-platform** — one runtime dep (`python-dotenv`), no bash/rsync dependencies
 6. **Offline build** — dbt_utils vendored, no network fetch during `EXECUTE DBT PROJECT`
 
 ---
