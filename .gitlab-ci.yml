@@ -1,0 +1,14 @@
+stages:
+  - test
+
+lint-and-test:
+  stage: test
+  image: python:3.12-slim
+  before_script:
+    - pip install uv --quiet
+  script:
+    - uv run ruff check .
+    - uv run pytest tests/ -v
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
