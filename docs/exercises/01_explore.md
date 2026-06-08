@@ -6,7 +6,7 @@
 
 ## The goal
 
-See what Cortex Code can do with a real codebase. You just ran a deploy that created 8 schemas, 4 raw tables, 4 HOL-compatible tables, 3 marts, and 5 staging views. CoCo knows about all of it. Let's ask it to explain.
+See what Cortex Code can do with a real codebase. You just ran a deploy that created 8 schemas, 4 raw tables, 4 curated domain tables, 3 marts, and 4 staging views. CoCo knows about all of it. Let's ask it to explain.
 
 ## Setup (30 seconds)
 
@@ -38,26 +38,26 @@ Explain in 3-4 sentences what DCM is managing for this demo and why schemas (not
 
 ---
 
-## Prompt 2 — "Walk me through stg_customer_reviews"
+## Prompt 2 — "Walk me through the staging layer"
 
 **Copy-paste into CoCo:**
 
 ```
-Read dbt/models/staging/stg_customer_reviews.sql and dbt/models/intermediate/int_region_lot_device_pool.sql.
-Explain the business logic that maps a review to a specific device and lot number. Why is this done in dbt staging instead of the raw COPY INTO?
+Read dbt/models/staging/stg_customer_reviews.sql and dbt/models/staging/stg_telemetry.sql.
+Compare them. Explain in 3-4 sentences what the staging layer does and why we CAST/UPPER columns here instead of in the COPY INTO.
 ```
 
 **What to look for:**
-- Describes the round-robin device assignment (MOD-based)
-- Calls out that review_id → device_id → lot_number is derived from **real telemetry data**, not hardcoded
+- Notes that staging views handle type casting, normalization (UPPER), and null filtering
+- Calls out that raw tables store data as-is from CSVs — staging is the "clean contract" layer
 - Mentions the `relationships` dbt test that enforces `device_id` exists in `stg_telemetry`
-- Explains **why dbt**: business logic is versioned, tested, and reviewable — COPY INTO isn't
+- Explains **why dbt staging**: business logic is versioned, tested, and reviewable — COPY INTO isn't
 
 **Bonus follow-up to try:**
 ```
-If PawCore added a new region (LATAM) with its own lot number, what would I need to change? Walk me through the file changes.
+If PawCore added a new region (LATAM) with its own lot number, what would I need to change in the data pipeline?
 ```
-CoCo should identify `int_region_lot_device_pool` as the single source of truth — no hardcoded CASE to edit.
+CoCo should identify the CSV data files and the staging views as the places to update — no hardcoded logic to edit.
 
 ---
 

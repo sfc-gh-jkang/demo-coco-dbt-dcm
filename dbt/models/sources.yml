@@ -27,9 +27,13 @@ sources:
                   values: ['PASS', 'FAIL']
 
       - name: customer_reviews
-        description: "Product reviews by region. lot_number + device_id are null in raw; populated in staging."
+        description: "Product reviews by region with device_id and lot_number."
         columns:
           - name: review_id
+            tests: [not_null]
+          - name: device_id
+            tests: [not_null]
+          - name: lot_number
             tests: [not_null]
           - name: rating
           - name: region

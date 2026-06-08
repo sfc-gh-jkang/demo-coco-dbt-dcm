@@ -11,7 +11,7 @@ Demonstrate how **Cortex Code** (Snowflake's AI coding agent), **dbt Projects on
 By the end of this lab, participants will have:
 
 1. Used DCM to declaratively define and version-control 8 database schemas
-2. Built a 4-layer dbt pipeline (staging → intermediate → curated domain tables → marts) that runs natively inside Snowflake
+2. Built a 4-layer dbt pipeline (staging → curated domain tables → marts) that runs natively inside Snowflake
 3. Created a semantic view that maps business concepts to SQL
 4. Deployed a Cortex Agent that answers natural-language questions about the data
 5. Experienced using Cortex Code as a pair programmer to generate and explain all of the above
@@ -219,7 +219,6 @@ demo-coco-dbt-dcm/
 │   ├── models/
 │   │   ├── sources.yml        # 4 raw sources with tests
 │   │   ├── staging/           # 4 views: cast, normalize, filter
-│   │   ├── intermediate/      # Device assignment logic
 │   │   ├── hol/               # 4 curated domain tables (Cortex AI HOL-compatible)
 │   │   └── marts/             # 3 analytical aggregations
 │   └── dbt_packages/dbt_utils/  # Vendored (no network at build time)
@@ -270,12 +269,11 @@ Manages schema lifecycle declaratively via `DEFINE SCHEMA` statements. DCM track
 
 ### `dbt/` — Transformations
 
-**4-layer model architecture:**
+**3-layer model architecture:**
 
 | Layer | Materialization | Purpose |
 |-------|----------------|---------|
 | `staging/` | view | CAST, UPPER, null filter — zero business logic |
-| `intermediate/` | view | Cross-table derivations (device pool assignment) |
 | `hol/` | table | Curated domain tables — schema-compatible with [Cortex AI HOL #1](https://quickstarts.snowflake.com/guide/getting-started-with-cortex-analyst/) |
 | `marts/` | table | Pre-aggregated analytics (fanout-safe for semantic view) |
 

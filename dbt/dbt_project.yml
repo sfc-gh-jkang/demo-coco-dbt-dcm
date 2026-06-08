@@ -18,9 +18,6 @@ models:
     staging:
       +materialized: view
       +schema: STAGING
-    intermediate:
-      +materialized: view
-      +schema: STAGING
     hol:
       +materialized: table
       device_data:

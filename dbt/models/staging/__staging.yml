@@ -26,9 +26,8 @@ models:
 
   - name: stg_customer_reviews
     description: >
-      Typed reviews joined to the real telemetry device pool via deterministic
-      round-robin assignment. Guarantees every device_id exists in stg_telemetry
-      (enforced by the `relationships` test).
+      Typed reviews with device_id and lot_number from the source CSV.
+      Relationship test ensures every device_id exists in stg_telemetry.
     columns:
       - name: review_id
         tests: [not_null, unique]

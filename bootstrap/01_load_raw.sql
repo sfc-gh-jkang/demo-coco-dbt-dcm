@@ -92,18 +92,17 @@ ON_ERROR = 'CONTINUE'
 FORCE = TRUE;
 
 -- Customer reviews
--- CSV column layout: $1=review_id, $2=product, $3=region, $4=date, $5=review_text, $6=rating
--- device_id + lot_number are NULL in raw; dbt stg_customer_reviews populates them.
+-- CSV column layout: $1=review_id, $2=device_id, $3=lot_number, $4=product, $5=region, $6=date, $7=review_text, $8=rating
 COPY INTO RAW.CUSTOMER_REVIEWS (review_id, device_id, lot_number, rating, review_text, date, region)
 FROM (
     SELECT
         $1 AS review_id,
-        NULL AS device_id,
-        NULL AS lot_number,
-        $6 AS rating,
-        $5 AS review_text,
-        $4 AS date,
-        $3 AS region
+        $2 AS device_id,
+        $3 AS lot_number,
+        $8 AS rating,
+        $7 AS review_text,
+        $6 AS date,
+        $5 AS region
     FROM @PAWCORE_DATA_STAGE/Document_Stage/customer_reviews.csv
 )
 FILE_FORMAT = (
