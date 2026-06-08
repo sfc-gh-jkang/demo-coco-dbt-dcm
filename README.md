@@ -11,7 +11,7 @@ Demonstrate how **Cortex Code** (Snowflake's AI coding agent), **dbt Projects on
 By the end of this lab, participants will have:
 
 1. Used DCM to declaratively define and version-control 8 database schemas
-2. Built a 4-layer dbt pipeline (staging → intermediate → HOL-shape → marts) that runs natively inside Snowflake
+2. Built a 4-layer dbt pipeline (staging → intermediate → curated domain tables → marts) that runs natively inside Snowflake
 3. Created a semantic view that maps business concepts to SQL
 4. Deployed a Cortex Agent that answers natural-language questions about the data
 5. Experienced using Cortex Code as a pair programmer to generate and explain all of the above
@@ -30,11 +30,11 @@ PAWCORE_ANALYTICS                          ← database (name configurable)
 │   ├── CUSTOMER_REVIEWS   (1,550 rows)
 │   └── SLACK_MESSAGES     (37 rows)
 ├── STAGING                                ← 4 dbt views (cast, normalize, filter)
-├── DEVICE_DATA                            ← 1 HOL-shape table
+├── DEVICE_DATA                            ← 1 curated domain table
 │   └── TELEMETRY
-├── MANUFACTURING                          ← 1 HOL-shape table
+├── MANUFACTURING                          ← 1 curated domain table
 │   └── QUALITY_LOGS
-├── SUPPORT                                ← 2 HOL-shape tables
+├── SUPPORT                                ← 2 curated domain tables
 │   ├── CUSTOMER_REVIEWS
 │   └── SLACK_MESSAGES
 ├── ANALYTICS                              ← 3 analytical marts
@@ -163,7 +163,7 @@ RAW.{telemetry, quality_logs, customer_reviews, slack_messages}
     ▼  dbt staging views (CAST, UPPER, null filtering)
 STAGING.stg_*
     │
-    ├──► HOL-shape tables (exact upstream column contract)
+    ├──► Curated domain tables (compatible with Cortex AI HOL #1)
     │    DEVICE_DATA.TELEMETRY
     │    MANUFACTURING.QUALITY_LOGS
     │    SUPPORT.{CUSTOMER_REVIEWS, SLACK_MESSAGES}
@@ -220,7 +220,7 @@ demo-coco-dbt-dcm/
 │   │   ├── sources.yml        # 4 raw sources with tests
 │   │   ├── staging/           # 4 views: cast, normalize, filter
 │   │   ├── intermediate/      # Device assignment logic
-│   │   ├── hol/               # 4 HOL-shape tables (upstream contract)
+│   │   ├── hol/               # 4 curated domain tables (Cortex AI HOL-compatible)
 │   │   └── marts/             # 3 analytical aggregations
 │   └── dbt_packages/dbt_utils/  # Vendored (no network at build time)
 ├── snowflake/
@@ -276,7 +276,7 @@ Manages schema lifecycle declaratively via `DEFINE SCHEMA` statements. DCM track
 |-------|----------------|---------|
 | `staging/` | view | CAST, UPPER, null filter — zero business logic |
 | `intermediate/` | view | Cross-table derivations (device pool assignment) |
-| `hol/` | table | Exact column contract matching upstream HOL |
+| `hol/` | table | Curated domain tables — schema-compatible with [Cortex AI HOL #1](https://quickstarts.snowflake.com/guide/getting-started-with-cortex-analyst/) |
 | `marts/` | table | Pre-aggregated analytics (fanout-safe for semantic view) |
 
 **Key design choices:**
@@ -336,7 +336,7 @@ Tests cover all `deploy.py` functions with mocked subprocess calls. No Snowflake
 ## Design Constraints
 
 1. **Trial-account compatible** — works on any Snowflake edition, no SE-only features
-2. **HOL-compatible** — final table shapes match the upstream Cortex AI HOL exactly
+2. **HOL-compatible** — curated domain tables match the schema of the [Cortex AI HOL #1](https://quickstarts.snowflake.com/guide/getting-started-with-cortex-analyst/), so participants can continue directly into that lab
 3. **Single-knob config** — `.env` is the only file you edit
 4. **Idempotent** — safe to re-run at any time
 5. **Cross-platform** — one runtime dep (`python-dotenv`), no bash/rsync dependencies
