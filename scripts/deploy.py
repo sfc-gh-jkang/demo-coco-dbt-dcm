@@ -896,7 +896,7 @@ def main() -> None:
     r5 = run_snow_ci(snow_exe, connection, sub_all(pipeline_txt))
     if r5.returncode != 0:
         sys.exit(r5.returncode)
-    timings.append(("5. dbt build (48 nodes)", time.time() - t0))
+    timings.append(("5. dbt build (45 nodes)", time.time() - t0))
 
     if stop_at == "build":
         _print_timing(timings)

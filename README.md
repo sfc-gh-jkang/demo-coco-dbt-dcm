@@ -147,7 +147,7 @@ Step 1: Bootstrap       → DB, warehouse, internal stage
 Step 2: DCM deploy      → 8 schema definitions (declarative, version-controlled)
 Step 3: Raw load        → Upload data/ to stage + COPY INTO 4 RAW tables
 Step 4: dbt stage       → Upload parameterized dbt project to internal stage
-Step 5: dbt build       → EXECUTE DBT PROJECT (11 models + 33 tests = 44 nodes)
+Step 5: dbt build       → EXECUTE DBT PROJECT (11 models + 34 tests = 45 nodes)
 Step 6: Semantic view   → CREATE SEMANTIC VIEW with metrics, dimensions, relationships
 Step 7: Agent           → CREATE AGENT with text-to-SQL tool
 ```
