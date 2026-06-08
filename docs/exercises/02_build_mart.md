@@ -50,6 +50,8 @@ Expected columns: week_start (DATE), region (VARCHAR), avg_battery_level (NUMBER
 Use DATE_TRUNC('week', timestamp) for week_start. Group by week_start and region. Use CTEs. Follow the existing mart style (config block at top, table materialization, ORDER BY at end).
 
 Also add an entry to dbt/models/marts/__marts.yml with not_null tests on week_start, region, and avg_battery_level, plus accepted_values for region: ['AMERICAS', 'EMEA', 'APAC'].
+
+IMPORTANT: Do NOT try to run dbt locally. This project uses server-side dbt (EXECUTE DBT PROJECT). Just write the file — I will deploy it with the deploy script.
 ```
 
 **Expected row count:** ~30-50 rows (weeks × 3 regions)
@@ -80,6 +82,8 @@ Expected columns: device_id (VARCHAR), lot_number (VARCHAR), region (VARCHAR), a
 CRITICAL: Pre-aggregate stg_telemetry to one row per device BEFORE joining to stg_customer_reviews. Otherwise you get fanout (21K telemetry × 1.5K reviews). Use a CTE like: WITH device_stats AS (SELECT device_id, lot_number, region, AVG(battery_level), SUM(CASE WHEN battery_level < 20...) FROM stg_telemetry GROUP BY device_id, lot_number, region). Then LEFT JOIN to reviews aggregated per device_id. Rank by risk_score DESC and LIMIT 10.
 
 Also add an entry to dbt/models/marts/__marts.yml with unique test on device_id and not_null on device_id, lot_number.
+
+IMPORTANT: Do NOT try to run dbt locally. This project uses server-side dbt (EXECUTE DBT PROJECT). Just write the file — I will deploy it with the deploy script.
 ```
 
 **Expected row count:** Exactly 10 rows
@@ -110,6 +114,8 @@ Expected columns: charging_cycles_bucket (VARCHAR — one of '0-50', '51-100', '
 Use CASE WHEN charging_cycles <= 50 THEN '0-50' WHEN charging_cycles <= 100 THEN '51-100' etc. for bucketing. First compute per-device stats (avg charging_cycles, low_battery_rate, avg_temp, avg_humidity) then bucket and aggregate. Use CTEs.
 
 Also add an entry to dbt/models/marts/__marts.yml with not_null on all columns and accepted_values on charging_cycles_bucket for the 5 bucket values.
+
+IMPORTANT: Do NOT try to run dbt locally. This project uses server-side dbt (EXECUTE DBT PROJECT). Just write the file — I will deploy it with the deploy script.
 ```
 
 **Expected row count:** Exactly 5 rows (one per bucket)
