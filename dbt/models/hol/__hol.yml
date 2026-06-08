@@ -26,13 +26,16 @@ models:
               values: ['PASS', 'FAIL']
 
   - name: customer_reviews
-    description: "HOL-compat: SUPPORT.CUSTOMER_REVIEWS (column is `date`, not `review_date`)"
+    description: "HOL-compat: SUPPORT.CUSTOMER_REVIEWS"
     columns:
       - name: review_id
         tests: [not_null, unique]
+      - name: device_id
+        tests: [not_null]
       - name: lot_number
         tests: [not_null]
       - name: rating
+      - name: review_text
       - name: date
       - name: region
 
@@ -41,6 +44,7 @@ models:
     columns:
       - name: message_id
         tests: [not_null]
-      - name: text
       - name: slack_channel
+      - name: user_name
+      - name: text
       - name: thread_id

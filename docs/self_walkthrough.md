@@ -117,7 +117,7 @@ Ask the 3 questions from [docs/exercises/03_agent.md](exercises/03_agent.md):
 What you built:
 - 8 schemas via DCM (git-backed, plan-reviewed, deployable)
 - 4 raw tables loaded from upstream HOL CSVs
-- 5 staging views with typing + business logic (incl. `int_region_lot_device_pool`)
+- 4 staging views with typing, normalization, and null filtering
 - 4 HOL-shape tables (exact contract with the Cortex AI HOL)
 - 3 analytical marts (+ 1 you built yourself)
 - 1 semantic view describing everything

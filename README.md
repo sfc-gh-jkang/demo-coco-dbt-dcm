@@ -11,7 +11,7 @@ Demonstrate how **Cortex Code** (Snowflake's AI coding agent), **dbt Projects on
 By the end of this lab, participants will have:
 
 1. Used DCM to declaratively define and version-control 8 database schemas
-2. Built a 4-layer dbt pipeline (staging → curated domain tables → marts) that runs natively inside Snowflake
+2. Built a 3-layer dbt pipeline (staging → curated domain tables → marts) that runs natively inside Snowflake
 3. Created a semantic view that maps business concepts to SQL
 4. Deployed a Cortex Agent that answers natural-language questions about the data
 5. Experienced using Cortex Code as a pair programmer to generate and explain all of the above
@@ -147,7 +147,7 @@ Step 1: Bootstrap       → DB, warehouse, internal stage
 Step 2: DCM deploy      → 8 schema definitions (declarative, version-controlled)
 Step 3: Raw load        → Upload data/ to stage + COPY INTO 4 RAW tables
 Step 4: dbt stage       → Upload parameterized dbt project to internal stage
-Step 5: dbt build       → EXECUTE DBT PROJECT (12 models + 36 tests = 48 nodes)
+Step 5: dbt build       → EXECUTE DBT PROJECT (11 models + 33 tests = 44 nodes)
 Step 6: Semantic view   → CREATE SEMANTIC VIEW with metrics, dimensions, relationships
 Step 7: Agent           → CREATE AGENT with text-to-SQL tool
 ```
@@ -241,7 +241,7 @@ demo-coco-dbt-dcm/
 │   └── exercises/                 # 6 hands-on activities
 ├── tests/
 │   ├── conftest.py                # Shared pytest fixtures
-│   └── test_deploy.py            # 84 unit tests for deploy.py
+│   └── test_deploy.py            # 92 unit tests for deploy.py
 ├── .env.example                   # Configuration template
 ├── pyproject.toml                 # Python 3.10+, pytest, ruff, python-dotenv
 ├── teardown.sql                   # DROP everything

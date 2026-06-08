@@ -24,7 +24,7 @@ flowchart LR
         subgraph STG["STAGING (dbt views)"]
             S1[stg_telemetry]
             S2[stg_quality_logs]
-            S3[stg_customer_reviews<br/>+ region→lot logic]
+            S3[stg_customer_reviews]
             S4[stg_slack_messages]
         end
 

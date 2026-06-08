@@ -61,11 +61,11 @@ uv run scripts/deploy.py --stop-at raw-load
 
 **Talking points while it runs:**
 - Safety gate fired; I had to set `I_UNDERSTAND=1` — *"This prevents attendees from overwriting an existing TARGET_DATABASE."*
-- Bootstrap creates the API integration with a PAT secret — *"Private-repo access without exposing the token to attendees."*
 - DCM `create` + `deploy` — *"Schemas as infrastructure. Git-backed, plan-reviewed, deploy-controlled."*
 - RAW load uploads CSVs from the local data/ folder to an internal stage, then COPY INTO. 21k telemetry rows in ~10 seconds.
+- *"All data is bundled in the repo — no external dependencies, no API keys, no network fetch."*
 
-**Checkpoint:** everyone should see `✓ Stopped at raw-load`. If attendees have errors (wrong connection name, missing PAT), handle in breakout chat while I continue.
+**Checkpoint:** everyone should see `✓ Stopped at raw-load`. If attendees have errors (wrong connection name, missing .env values), handle in breakout chat while I continue.
 
 ---
 

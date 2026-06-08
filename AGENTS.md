@@ -29,7 +29,7 @@ demo-coco-dbt-dcm/
 ├── dbt/                    # Native dbt on Snowflake project
 │   ├── dbt_project.yml
 │   ├── macros/generate_schema_name.sql
-│   ├── models/{sources.yml, staging/, intermediate/, hol/, marts/}
+│   ├── models/{sources.yml, staging/, hol/, marts/}
 │   └── dbt_packages/dbt_utils/   (vendored)
 ├── snowflake/              # Semantic view + agent creation SQL
 ├── tests/                  # pytest unit tests for deploy.py
