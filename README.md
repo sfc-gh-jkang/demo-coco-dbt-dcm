@@ -315,6 +315,7 @@ Creates `PAWCORE_ASSISTANT` in `SNOWFLAKE_INTELLIGENCE.AGENTS` with:
 | 4 | Add a verified query to the semantic view | 5-8 min | [04_add_verified_query.md](docs/exercises/04_add_verified_query.md) |
 | 5 | Create a battery alert | 5-8 min | [05_create_alert.md](docs/exercises/05_create_alert.md) |
 | 6 | Track remediation (version 2 storyline) | 5-8 min | [06_remediation.md](docs/exercises/06_remediation.md) |
+| 7 | Advanced: observability, eval, search, guardrails | 20-30 min | [07_advanced_cortex.md](docs/exercises/07_advanced_cortex.md) |
 
 Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitator_runbook.md)
 
