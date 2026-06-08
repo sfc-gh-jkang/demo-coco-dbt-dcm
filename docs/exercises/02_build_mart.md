@@ -118,6 +118,8 @@ Also add an entry to dbt/models/marts/__marts.yml with not_null on all columns a
 
 ## Build + verify (3 minutes)
 
+**Important:** CoCo may say something like *"dbt isn't installed in the venv"* or try to validate the SQL by running it directly against Snowflake. **This is normal.** This project runs dbt server-side inside Snowflake (via `EXECUTE DBT PROJECT`), not locally. There's no local dbt CLI. CoCo is being smart about finding an alternative way to check the SQL — let it do its thing. The real test is the redeploy step below.
+
 After CoCo writes the file:
 
 1. **Redeploy the dbt project** — this re-stages all dbt files (including your new mart) and rebuilds:
