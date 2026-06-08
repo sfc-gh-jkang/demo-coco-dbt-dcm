@@ -9,7 +9,7 @@ Questions to ask the **PawCore Assistant** agent, organized by investigation flo
 These appear automatically when you first open the agent:
 
 1. **"Which lot has the worst battery performance?"**
-   → Returns LOT341 at 87% avg battery (vs 92-94% for others)
+   → Returns LOT341 at 74% avg battery (vs 92-94% for others), 620 critical readings below 20%
 
 2. **"Compare all lots by battery level and pass rate"**
    → Side-by-side comparison table of all 3 lots
@@ -37,7 +37,7 @@ These appear automatically when you first open the agent:
 
 | # | Question | Expected Insight |
 |---|----------|-----------------|
-| 1 | "Which lot has the worst battery performance?" | LOT341 at 87% (others are 92-94%) |
+| 1 | "Which lot has the worst battery performance?" | LOT341 at 74% (others are 92-94%), 620 critical readings |
 | 2 | "What is the QA pass rate for each lot?" | LOT341 is slightly lower but not dramatically |
 | 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 4.10/5 (lowest) |
 
@@ -96,6 +96,7 @@ By the end of the investigation, the agent should help you conclude:
 
 > **LOT341** (EMEA, 2,100 devices) has a manufacturing defect related to
 > **moisture resistance**. Devices exposed to high humidity experience accelerated
-> battery degradation (avg 87% vs 92-94% for healthy lots), leading to lower
-> customer satisfaction ratings (4.10/5 vs 4.14-4.29). The moisture threshold QA
-> tests show LOT341 has the lowest scores, confirming insufficient sealing.
+> battery degradation (avg 74% vs 92-94% for healthy lots, with 620 readings below
+> 20% critical threshold), leading to lower customer satisfaction ratings (4.10/5
+> vs 4.14-4.29). The moisture threshold QA tests show LOT341 has the lowest
+> scores, confirming insufficient sealing.

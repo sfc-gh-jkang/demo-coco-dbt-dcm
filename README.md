@@ -81,7 +81,7 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 | `CUSTOMER_REVIEWS` | 1,550 | Star ratings (1-5) with review text |
 | `SLACK_MESSAGES` | 37 | Internal team Slack messages about issues |
 
-**Embedded signal**: LOT341 (EMEA region) has systematically lower battery levels correlated with high humidity, failed moisture resistance tests, and low customer ratings. The Cortex Agent should discover this correlation when asked "Which lot has the worst customer ratings, and why?"
+**Embedded signal**: LOT341 (EMEA region) has systematically lower battery levels (avg 74% vs 92-94%, with 620 critical readings below 20%) correlated with high humidity, failed moisture resistance tests, and low customer ratings. The Cortex Agent should discover this correlation when asked "Which lot has the worst customer ratings, and why?"
 
 ---
 

@@ -39,3 +39,38 @@ models:
       - name: avg_humidity
       - name: avg_battery
       - name: device_count
+
+  - name: mart_weekly_battery_by_region
+    description: >
+      Battery performance trended by region, week over week. Average and minimum
+      battery level plus active device count per week × region, using
+      DATE_TRUNC('week', timestamp) from stg_telemetry.
+    columns:
+      - name: week_start
+        tests: [not_null]
+      - name: region
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['AMERICAS', 'EMEA', 'APAC']
+              quote: true
+      - name: avg_battery_level
+        tests: [not_null]
+      - name: min_battery_level
+      - name: device_count
+
+  - name: mart_top10_problematic_devices
+    description: >
+      Top 10 SmartCollar devices by composite risk score (worst first). Telemetry
+      is pre-aggregated to one row per device, then LEFT JOINed to per-device
+      review ratings. risk_score = low_battery_reading_count * 3 + (5 - avg_rating).
+    columns:
+      - name: device_id
+        tests: [not_null, unique]
+      - name: lot_number
+        tests: [not_null]
+      - name: region
+      - name: avg_battery_level
+      - name: low_battery_reading_count
+      - name: avg_rating
+      - name: risk_score
