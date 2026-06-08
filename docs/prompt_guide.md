@@ -18,7 +18,7 @@ These appear automatically when you first open the agent:
    → Shows LOT341's humidity + battery + moisture resistance scores
 
 4. **"What are the customer ratings by lot and region?"**
-   → LOT341/EMEA at 4.10 is the lowest
+   → LOT341/EMEA at 3.28 is clearly the lowest (others are 4.14-4.29)
 
 5. **"What is the root cause of battery issues?"**
    → Cross-domain join: moisture, battery, and customer ratings together
@@ -37,9 +37,9 @@ These appear automatically when you first open the agent:
 
 | # | Question | Expected Insight |
 |---|----------|-----------------|
-| 1 | "Which lot has the worst battery performance?" | LOT341 at 74% (others are 92-94%), 620 critical readings |
+| 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
 | 2 | "What is the QA pass rate for each lot?" | LOT341 is slightly lower but not dramatically |
-| 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 4.10/5 (lowest) |
+| 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
 
 ### Phase 2: Quantify the Impact
 
@@ -95,8 +95,9 @@ These appear automatically when you first open the agent:
 By the end of the investigation, the agent should help you conclude:
 
 > **LOT341** (EMEA, 2,100 devices) has a manufacturing defect related to
-> **moisture resistance**. Devices exposed to high humidity experience accelerated
-> battery degradation (avg 74% vs 92-94% for healthy lots, with 620 readings below
-> 20% critical threshold), leading to lower customer satisfaction ratings (4.10/5
-> vs 4.14-4.29). The moisture threshold QA tests show LOT341 has the lowest
-> scores, confirming insufficient sealing.
+> **moisture resistance**. The moisture threshold QA pass rate is only 70.6%
+> (vs 94% for healthy lots). Devices with inadequate sealing exposed to humidity
+> experience accelerated battery degradation (avg 78% vs 92-94% for healthy lots,
+> with 500+ readings below 20% critical threshold), leading to dramatically lower
+> customer satisfaction ratings (3.28/5 vs 4.14-4.29). The post-fix data (Nov 15+)
+> shows full recovery to 92% battery, confirming the root cause and fix.

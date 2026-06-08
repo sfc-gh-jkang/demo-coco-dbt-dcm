@@ -1,140 +1,140 @@
 REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 1,SC-2024-341-001,LOT341,SmartCollar,EMEA,2024-10-23,"Meets basic needs, solid product overall.",3
-2,SC-2024-341-002,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,5
-3,SC-2024-341-003,LOT341,SmartCollar,EMEA,2024-12-08,Best pet collar we've owned. Build quality is outstanding.,5
-4,SC-2024-341-004,LOT341,SmartCollar,EMEA,2024-10-21,Fantastic device with consistent performance. Great value for money.,4
-5,SC-2024-341-005,LOT341,SmartCollar,EMEA,2024-11-26,Works perfectly in all weather conditions. Highly recommend!,4
-6,SC-2024-341-006,LOT341,SmartCollar,EMEA,2024-11-05,Fantastic device with consistent performance. Great value for money.,4
+2,SC-2024-341-002,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,3
+3,SC-2024-341-003,LOT341,SmartCollar,EMEA,2024-12-08,Best pet collar we've owned. Build quality is outstanding.,1
+4,SC-2024-341-004,LOT341,SmartCollar,EMEA,2024-10-21,Fantastic device with consistent performance. Great value for money.,1
+5,SC-2024-341-005,LOT341,SmartCollar,EMEA,2024-11-26,Works perfectly in all weather conditions. Highly recommend!,3
+6,SC-2024-341-006,LOT341,SmartCollar,EMEA,2024-11-05,Fantastic device with consistent performance. Great value for money.,3
 7,SC-2024-341-007,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,4
 8,SC-2024-341-008,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,4
 9,SC-2024-341-009,LOT341,SmartCollar,EMEA,2024-11-28,Works perfectly in all weather conditions. Highly recommend!,5
 10,SC-2024-341-010,LOT341,SmartCollar,EMEA,2024-10-31,Love this product! Battery lasts forever and GPS is accurate.,5
-11,SC-2024-341-011,LOT341,SmartCollar,EMEA,2024-10-24,Perfect collar with amazing battery performance. Highly recommend!,4
+11,SC-2024-341-011,LOT341,SmartCollar,EMEA,2024-10-24,Perfect collar with amazing battery performance. Highly recommend!,3
 12,SC-2024-341-012,LOT341,SmartCollar,EMEA,2024-10-31,Satisfactory performance overall. Does what it should.,2
-13,SC-2024-341-013,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,5
+13,SC-2024-341-013,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,3
 14,SC-2024-341-014,LOT341,SmartCollar,EMEA,2024-11-21,Perfect collar with amazing battery performance. Highly recommend!,4
-15,SC-2024-341-015,LOT341,SmartCollar,EMEA,2024-12-11,Works perfectly in all weather conditions. Highly recommend!,4
+15,SC-2024-341-015,LOT341,SmartCollar,EMEA,2024-12-11,Works perfectly in all weather conditions. Highly recommend!,3
 16,SC-2024-341-016,LOT341,SmartCollar,EMEA,2024-10-22,Satisfactory performance overall. Does what it should.,3
 17,SC-2024-341-017,LOT341,SmartCollar,EMEA,2024-11-23,"Meets basic needs, solid product overall.",3
-18,SC-2024-341-018,LOT341,SmartCollar,EMEA,2024-12-09,Exceptional quality and reliability. Could not be happier!,4
+18,SC-2024-341-018,LOT341,SmartCollar,EMEA,2024-12-09,Exceptional quality and reliability. Could not be happier!,1
 19,SC-2024-341-019,LOT341,SmartCollar,EMEA,2024-10-19,Perfect collar with amazing battery performance. Highly recommend!,4
-20,SC-2024-341-020,LOT341,SmartCollar,EMEA,2024-11-29,Perfect collar with amazing battery performance. Highly recommend!,4
+20,SC-2024-341-020,LOT341,SmartCollar,EMEA,2024-11-29,Perfect collar with amazing battery performance. Highly recommend!,3
 21,SC-2024-341-021,LOT341,SmartCollar,EMEA,2024-11-29,Perfect collar with amazing battery performance. Highly recommend!,4
 22,SC-2024-341-022,LOT341,SmartCollar,EMEA,2024-10-19,Works as expected. Decent value for money.,3
 23,SC-2024-341-023,LOT341,SmartCollar,EMEA,2024-11-07,Satisfactory performance overall. Does what it should.,2
 24,SC-2024-341-024,LOT341,SmartCollar,EMEA,2024-10-27,Very impressed with the durability and battery life.,4
-25,SC-2024-341-025,LOT341,SmartCollar,EMEA,2024-11-19,Satisfactory performance overall. Does what it should.,2
-26,SC-2024-341-026,LOT341,SmartCollar,EMEA,2024-11-11,Love this product! Battery lasts forever and GPS is accurate.,4
-27,SC-2024-341-027,LOT341,SmartCollar,EMEA,2024-10-25,Best pet collar we've owned. Build quality is outstanding.,5
-28,SC-2024-341-028,LOT341,SmartCollar,EMEA,2024-11-10,Love this product! Battery lasts forever and GPS is accurate.,5
+25,SC-2024-341-025,LOT341,SmartCollar,EMEA,2024-11-19,Satisfactory performance overall. Does what it should.,3
+26,SC-2024-341-026,LOT341,SmartCollar,EMEA,2024-11-11,Love this product! Battery lasts forever and GPS is accurate.,3
+27,SC-2024-341-027,LOT341,SmartCollar,EMEA,2024-10-25,Best pet collar we've owned. Build quality is outstanding.,1
+28,SC-2024-341-028,LOT341,SmartCollar,EMEA,2024-11-10,Love this product! Battery lasts forever and GPS is accurate.,3
 29,SC-2024-341-029,LOT341,SmartCollar,EMEA,2024-10-28,Perfect collar with amazing battery performance. Highly recommend!,5
-30,SC-2024-341-030,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,5
+30,SC-2024-341-030,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,2
 31,SC-2024-341-031,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,4
 32,SC-2024-341-032,LOT341,SmartCollar,EMEA,2024-11-30,Best pet collar we've owned. Build quality is outstanding.,5
 33,SC-2024-341-033,LOT341,SmartCollar,EMEA,2024-12-07,Best pet collar we've owned. Build quality is outstanding.,4
-34,SC-2024-341-034,LOT341,SmartCollar,EMEA,2024-11-30,Very impressed with the durability and battery life.,4
-35,SC-2024-341-035,LOT341,SmartCollar,EMEA,2024-11-20,Very impressed with the durability and battery life.,4
+34,SC-2024-341-034,LOT341,SmartCollar,EMEA,2024-11-30,Very impressed with the durability and battery life.,3
+35,SC-2024-341-035,LOT341,SmartCollar,EMEA,2024-11-20,Very impressed with the durability and battery life.,3
 36,SC-2024-341-036,LOT341,SmartCollar,EMEA,2024-12-04,Good basic functionality but always room for improvement.,3
-37,SC-2024-341-037,LOT341,SmartCollar,EMEA,2024-11-29,Fantastic device with consistent performance. Great value for money.,5
+37,SC-2024-341-037,LOT341,SmartCollar,EMEA,2024-11-29,Fantastic device with consistent performance. Great value for money.,2
 38,SC-2024-341-038,LOT341,SmartCollar,EMEA,2024-11-19,Fantastic device with consistent performance. Great value for money.,4
 39,SC-2024-341-039,LOT341,SmartCollar,EMEA,2024-11-28,Love this product! Battery lasts forever and GPS is accurate.,4
 40,SC-2024-341-040,LOT341,SmartCollar,EMEA,2024-10-28,Works perfectly in all weather conditions. Highly recommend!,4
 41,SC-2024-341-041,LOT341,SmartCollar,EMEA,2024-11-26,"Meets basic needs, solid product overall.",3
-42,SC-2024-341-042,LOT341,SmartCollar,EMEA,2024-11-20,Fantastic device with consistent performance. Great value for money.,5
-43,SC-2024-341-043,LOT341,SmartCollar,EMEA,2024-12-13,Exceptional quality and reliability. Could not be happier!,4
-44,SC-2024-341-044,LOT341,SmartCollar,EMEA,2024-10-27,Great device with excellent battery life. Very satisfied with performance.,4
+42,SC-2024-341-042,LOT341,SmartCollar,EMEA,2024-11-20,Fantastic device with consistent performance. Great value for money.,1
+43,SC-2024-341-043,LOT341,SmartCollar,EMEA,2024-12-13,Exceptional quality and reliability. Could not be happier!,2
+44,SC-2024-341-044,LOT341,SmartCollar,EMEA,2024-10-27,Great device with excellent battery life. Very satisfied with performance.,2
 45,SC-2024-341-045,LOT341,SmartCollar,EMEA,2024-11-10,Exceptional quality and reliability. Could not be happier!,5
-46,SC-2024-341-046,LOT341,SmartCollar,EMEA,2024-10-29,Fantastic device with consistent performance. Great value for money.,5
-47,SC-2024-341-047,LOT341,SmartCollar,EMEA,2024-11-06,Good basic functionality but always room for improvement.,3
-48,SC-2024-341-048,LOT341,SmartCollar,EMEA,2024-11-16,Love this product! Battery lasts forever and GPS is accurate.,5
-49,SC-2024-341-049,LOT341,SmartCollar,EMEA,2024-11-12,Perfect collar with amazing battery performance. Highly recommend!,4
+46,SC-2024-341-046,LOT341,SmartCollar,EMEA,2024-10-29,Fantastic device with consistent performance. Great value for money.,2
+47,SC-2024-341-047,LOT341,SmartCollar,EMEA,2024-11-06,Good basic functionality but always room for improvement.,2
+48,SC-2024-341-048,LOT341,SmartCollar,EMEA,2024-11-16,Love this product! Battery lasts forever and GPS is accurate.,2
+49,SC-2024-341-049,LOT341,SmartCollar,EMEA,2024-11-12,Perfect collar with amazing battery performance. Highly recommend!,3
 50,SC-2024-341-050,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,4
-51,SC-2024-341-051,LOT341,SmartCollar,EMEA,2024-12-08,Fantastic device with consistent performance. Great value for money.,5
-52,SC-2024-341-052,LOT341,SmartCollar,EMEA,2024-11-06,Best pet collar we've owned. Build quality is outstanding.,4
+51,SC-2024-341-051,LOT341,SmartCollar,EMEA,2024-12-08,Fantastic device with consistent performance. Great value for money.,1
+52,SC-2024-341-052,LOT341,SmartCollar,EMEA,2024-11-06,Best pet collar we've owned. Build quality is outstanding.,3
 53,SC-2024-341-053,LOT341,SmartCollar,EMEA,2024-12-06,Best pet collar we've owned. Build quality is outstanding.,5
 54,SC-2024-341-054,LOT341,SmartCollar,EMEA,2024-11-16,"Meets basic needs, solid product overall.",3
-55,SC-2024-341-055,LOT341,SmartCollar,EMEA,2024-10-29,Perfect collar with amazing battery performance. Highly recommend!,5
+55,SC-2024-341-055,LOT341,SmartCollar,EMEA,2024-10-29,Perfect collar with amazing battery performance. Highly recommend!,2
 56,SC-2024-341-056,LOT341,SmartCollar,EMEA,2024-11-18,Best pet collar we've owned. Build quality is outstanding.,5
-57,SC-2024-341-057,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,5
+57,SC-2024-341-057,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,2
 58,SC-2024-341-058,LOT341,SmartCollar,EMEA,2024-11-06,Works perfectly in all weather conditions. Highly recommend!,5
-59,SC-2024-341-059,LOT341,SmartCollar,EMEA,2024-10-21,Very impressed with the durability and battery life.,5
-60,SC-2024-341-060,LOT341,SmartCollar,EMEA,2024-11-10,Satisfactory performance overall. Does what it should.,3
-61,SC-2024-341-061,LOT341,SmartCollar,EMEA,2024-11-08,Best pet collar we've owned. Build quality is outstanding.,4
+59,SC-2024-341-059,LOT341,SmartCollar,EMEA,2024-10-21,Very impressed with the durability and battery life.,2
+60,SC-2024-341-060,LOT341,SmartCollar,EMEA,2024-11-10,Satisfactory performance overall. Does what it should.,1
+61,SC-2024-341-061,LOT341,SmartCollar,EMEA,2024-11-08,Best pet collar we've owned. Build quality is outstanding.,1
 62,SC-2024-341-062,LOT341,SmartCollar,EMEA,2024-12-10,Great device with excellent battery life. Very satisfied with performance.,5
-63,SC-2024-341-063,LOT341,SmartCollar,EMEA,2024-11-28,Best pet collar we've owned. Build quality is outstanding.,5
+63,SC-2024-341-063,LOT341,SmartCollar,EMEA,2024-11-28,Best pet collar we've owned. Build quality is outstanding.,3
 64,SC-2024-341-064,LOT341,SmartCollar,EMEA,2024-11-01,Fantastic device with consistent performance. Great value for money.,4
 65,SC-2024-341-065,LOT341,SmartCollar,EMEA,2024-11-18,Satisfactory performance overall. Does what it should.,3
-66,SC-2024-341-066,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,4
+66,SC-2024-341-066,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,3
 67,SC-2024-341-067,LOT341,SmartCollar,EMEA,2024-11-23,Very impressed with the durability and battery life.,5
-68,SC-2024-341-068,LOT341,SmartCollar,EMEA,2024-11-10,Perfect collar with amazing battery performance. Highly recommend!,4
-69,SC-2024-341-069,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,5
+68,SC-2024-341-068,LOT341,SmartCollar,EMEA,2024-11-10,Perfect collar with amazing battery performance. Highly recommend!,3
+69,SC-2024-341-069,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,3
 70,SC-2024-341-070,LOT341,SmartCollar,EMEA,2024-11-10,Satisfactory performance overall. Does what it should.,3
-71,SC-2024-341-071,LOT341,SmartCollar,EMEA,2024-11-25,Best pet collar we've owned. Build quality is outstanding.,5
+71,SC-2024-341-071,LOT341,SmartCollar,EMEA,2024-11-25,Best pet collar we've owned. Build quality is outstanding.,3
 72,SC-2024-341-072,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,4
 73,SC-2024-341-073,LOT341,SmartCollar,EMEA,2024-11-20,Works perfectly in all weather conditions. Highly recommend!,4
-74,SC-2024-341-074,LOT341,SmartCollar,EMEA,2024-11-18,"Meets basic needs, solid product overall.",3
-75,SC-2024-341-075,LOT341,SmartCollar,EMEA,2024-12-09,Very impressed with the durability and battery life.,5
-76,SC-2024-341-076,LOT341,SmartCollar,EMEA,2024-11-26,Best pet collar we've owned. Build quality is outstanding.,5
-77,SC-2024-341-077,LOT341,SmartCollar,EMEA,2024-11-06,Works perfectly in all weather conditions. Highly recommend!,4
+74,SC-2024-341-074,LOT341,SmartCollar,EMEA,2024-11-18,"Meets basic needs, solid product overall.",1
+75,SC-2024-341-075,LOT341,SmartCollar,EMEA,2024-12-09,Very impressed with the durability and battery life.,3
+76,SC-2024-341-076,LOT341,SmartCollar,EMEA,2024-11-26,Best pet collar we've owned. Build quality is outstanding.,3
+77,SC-2024-341-077,LOT341,SmartCollar,EMEA,2024-11-06,Works perfectly in all weather conditions. Highly recommend!,3
 78,SC-2024-341-078,LOT341,SmartCollar,EMEA,2024-11-16,Love this product! Battery lasts forever and GPS is accurate.,4
-79,SC-2024-341-079,LOT341,SmartCollar,EMEA,2024-10-25,Great device with excellent battery life. Very satisfied with performance.,4
+79,SC-2024-341-079,LOT341,SmartCollar,EMEA,2024-10-25,Great device with excellent battery life. Very satisfied with performance.,3
 80,SC-2024-341-080,LOT341,SmartCollar,EMEA,2024-10-29,Best pet collar we've owned. Build quality is outstanding.,5
 81,SC-2024-341-081,LOT341,SmartCollar,EMEA,2024-12-13,Works perfectly in all weather conditions. Highly recommend!,5
-82,SC-2024-341-082,LOT341,SmartCollar,EMEA,2024-11-30,Good basic functionality but always room for improvement.,2
+82,SC-2024-341-082,LOT341,SmartCollar,EMEA,2024-11-30,Good basic functionality but always room for improvement.,1
 83,SC-2024-341-083,LOT341,SmartCollar,EMEA,2024-11-09,Exceptional quality and reliability. Could not be happier!,5
 84,SC-2024-341-084,LOT341,SmartCollar,EMEA,2024-11-12,Very impressed with the durability and battery life.,5
-85,SC-2024-341-085,LOT341,SmartCollar,EMEA,2024-10-15,Best pet collar we've owned. Build quality is outstanding.,4
-86,SC-2024-341-086,LOT341,SmartCollar,EMEA,2024-11-07,Exceptional quality and reliability. Could not be happier!,5
-87,SC-2024-341-087,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,4
+85,SC-2024-341-085,LOT341,SmartCollar,EMEA,2024-10-15,Best pet collar we've owned. Build quality is outstanding.,3
+86,SC-2024-341-086,LOT341,SmartCollar,EMEA,2024-11-07,Exceptional quality and reliability. Could not be happier!,3
+87,SC-2024-341-087,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,3
 88,SC-2024-341-088,LOT341,SmartCollar,EMEA,2024-10-16,Very impressed with the durability and battery life.,4
 89,SC-2024-341-089,LOT341,SmartCollar,EMEA,2024-10-18,Very impressed with the durability and battery life.,4
-90,SC-2024-341-090,LOT341,SmartCollar,EMEA,2024-10-15,Love this product! Battery lasts forever and GPS is accurate.,5
+90,SC-2024-341-090,LOT341,SmartCollar,EMEA,2024-10-15,Love this product! Battery lasts forever and GPS is accurate.,3
 91,SC-2024-341-091,LOT341,SmartCollar,EMEA,2024-11-19,Works as expected. Decent value for money.,3
 92,SC-2024-341-092,LOT341,SmartCollar,EMEA,2024-11-09,Works as expected. Decent value for money.,3
 93,SC-2024-341-093,LOT341,SmartCollar,EMEA,2024-12-07,Works as expected. Decent value for money.,3
 94,SC-2024-341-094,LOT341,SmartCollar,EMEA,2024-11-07,Works as expected. Decent value for money.,3
 95,SC-2024-341-095,LOT341,SmartCollar,EMEA,2024-11-08,Perfect collar with amazing battery performance. Highly recommend!,5
-96,SC-2024-341-096,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,4
-97,SC-2024-341-097,LOT341,SmartCollar,EMEA,2024-11-04,Works perfectly in all weather conditions. Highly recommend!,5
+96,SC-2024-341-096,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,3
+97,SC-2024-341-097,LOT341,SmartCollar,EMEA,2024-11-04,Works perfectly in all weather conditions. Highly recommend!,3
 98,SC-2024-341-098,LOT341,SmartCollar,EMEA,2024-11-13,Works as expected. Decent value for money.,3
-99,SC-2024-341-099,LOT341,SmartCollar,EMEA,2024-11-23,Works perfectly in all weather conditions. Highly recommend!,5
-100,SC-2024-341-100,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,5
+99,SC-2024-341-099,LOT341,SmartCollar,EMEA,2024-11-23,Works perfectly in all weather conditions. Highly recommend!,2
+100,SC-2024-341-100,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,3
 101,SC-2024-341-101,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,4
-102,SC-2024-341-102,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,4
+102,SC-2024-341-102,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,2
 103,SC-2024-341-103,LOT341,SmartCollar,EMEA,2024-12-13,"Meets basic needs, solid product overall.",3
 104,SC-2024-341-104,LOT341,SmartCollar,EMEA,2024-12-02,Works perfectly in all weather conditions. Highly recommend!,4
 105,SC-2024-341-105,LOT341,SmartCollar,EMEA,2024-10-31,Great device with excellent battery life. Very satisfied with performance.,4
 106,SC-2024-341-106,LOT341,SmartCollar,EMEA,2024-11-21,Great device with excellent battery life. Very satisfied with performance.,4
 107,SC-2024-341-107,LOT341,SmartCollar,EMEA,2024-11-27,Exceptional quality and reliability. Could not be happier!,5
-108,SC-2024-341-108,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,4
+108,SC-2024-341-108,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,3
 109,SC-2024-341-109,LOT341,SmartCollar,EMEA,2024-10-29,Love this product! Battery lasts forever and GPS is accurate.,5
-110,SC-2024-341-110,LOT341,SmartCollar,EMEA,2024-12-05,Perfect collar with amazing battery performance. Highly recommend!,5
+110,SC-2024-341-110,LOT341,SmartCollar,EMEA,2024-12-05,Perfect collar with amazing battery performance. Highly recommend!,3
 111,SC-2024-341-111,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,5
 112,SC-2024-341-112,LOT341,SmartCollar,EMEA,2024-12-08,Fantastic device with consistent performance. Great value for money.,4
-113,SC-2024-341-113,LOT341,SmartCollar,EMEA,2024-11-25,Works perfectly in all weather conditions. Highly recommend!,5
+113,SC-2024-341-113,LOT341,SmartCollar,EMEA,2024-11-25,Works perfectly in all weather conditions. Highly recommend!,3
 114,SC-2024-341-114,LOT341,SmartCollar,EMEA,2024-12-09,Satisfactory performance overall. Does what it should.,3
 115,SC-2024-341-115,LOT341,SmartCollar,EMEA,2024-12-07,Satisfactory performance overall. Does what it should.,3
 116,SC-2024-341-116,LOT341,SmartCollar,EMEA,2024-12-11,Satisfactory performance overall. Does what it should.,2
 117,SC-2024-341-117,LOT341,SmartCollar,EMEA,2024-11-26,Works perfectly in all weather conditions. Highly recommend!,5
-118,SC-2024-341-118,LOT341,SmartCollar,EMEA,2024-10-27,Fantastic device with consistent performance. Great value for money.,5
-119,SC-2024-341-119,LOT341,SmartCollar,EMEA,2024-11-30,Best pet collar we've owned. Build quality is outstanding.,4
+118,SC-2024-341-118,LOT341,SmartCollar,EMEA,2024-10-27,Fantastic device with consistent performance. Great value for money.,3
+119,SC-2024-341-119,LOT341,SmartCollar,EMEA,2024-11-30,Best pet collar we've owned. Build quality is outstanding.,3
 120,SC-2024-341-120,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,5
-121,SC-2024-341-121,LOT341,SmartCollar,EMEA,2024-11-08,Very impressed with the durability and battery life.,4
+121,SC-2024-341-121,LOT341,SmartCollar,EMEA,2024-11-08,Very impressed with the durability and battery life.,3
 122,SC-2024-341-122,LOT341,SmartCollar,EMEA,2024-11-22,Exceptional quality and reliability. Could not be happier!,5
 123,SC-2024-341-123,LOT341,SmartCollar,EMEA,2024-10-24,"Meets basic needs, solid product overall.",2
 124,SC-2024-341-124,LOT341,SmartCollar,EMEA,2024-11-12,Perfect collar with amazing battery performance. Highly recommend!,4
-125,SC-2024-341-125,LOT341,SmartCollar,EMEA,2024-12-04,Love this product! Battery lasts forever and GPS is accurate.,4
+125,SC-2024-341-125,LOT341,SmartCollar,EMEA,2024-12-04,Love this product! Battery lasts forever and GPS is accurate.,1
 126,SC-2024-341-126,LOT341,SmartCollar,EMEA,2024-10-21,Perfect collar with amazing battery performance. Highly recommend!,5
 127,SC-2024-341-127,LOT341,SmartCollar,EMEA,2024-11-02,Works as expected. Decent value for money.,3
-128,SC-2024-341-128,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,4
+128,SC-2024-341-128,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,3
 129,SC-2024-341-129,LOT341,SmartCollar,EMEA,2024-11-27,Satisfactory performance overall. Does what it should.,2
 130,SC-2024-341-130,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
-131,SC-2024-341-131,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
+131,SC-2024-341-131,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,3
 132,SC-2024-341-132,LOT341,SmartCollar,EMEA,2024-11-20,Best pet collar we've owned. Build quality is outstanding.,4
 133,SC-2024-341-133,LOT341,SmartCollar,EMEA,2024-12-13,Perfect collar with amazing battery performance. Highly recommend!,4
-134,SC-2024-341-134,LOT341,SmartCollar,EMEA,2024-10-15,Great device with excellent battery life. Very satisfied with performance.,5
+134,SC-2024-341-134,LOT341,SmartCollar,EMEA,2024-10-15,Great device with excellent battery life. Very satisfied with performance.,2
 135,SC-2024-341-135,LOT341,SmartCollar,EMEA,2024-12-04,Works perfectly in all weather conditions. Highly recommend!,4
-136,SC-2024-341-136,LOT341,SmartCollar,EMEA,2024-11-13,Fantastic device with consistent performance. Great value for money.,4
+136,SC-2024-341-136,LOT341,SmartCollar,EMEA,2024-11-13,Fantastic device with consistent performance. Great value for money.,2
 137,SC-2024-341-137,LOT341,SmartCollar,EMEA,2024-11-12,Love this product! Battery lasts forever and GPS is accurate.,4
 138,SC-2024-341-138,LOT341,SmartCollar,EMEA,2024-10-25,Satisfactory performance overall. Does what it should.,3
 139,SC-2024-341-139,LOT341,SmartCollar,EMEA,2024-11-17,Great device with excellent battery life. Very satisfied with performance.,5
@@ -149,37 +149,37 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 148,SC-2024-341-148,LOT341,SmartCollar,EMEA,2024-10-22,Satisfactory performance overall. Does what it should.,3
 149,SC-2024-341-149,LOT341,SmartCollar,EMEA,2024-10-21,Works as expected. Decent value for money.,2
 150,SC-2024-341-150,LOT341,SmartCollar,EMEA,2024-10-26,Best pet collar we've owned. Build quality is outstanding.,4
-151,SC-2024-341-151,LOT341,SmartCollar,EMEA,2024-11-24,Exceptional quality and reliability. Could not be happier!,5
+151,SC-2024-341-151,LOT341,SmartCollar,EMEA,2024-11-24,Exceptional quality and reliability. Could not be happier!,3
 152,SC-2024-341-152,LOT341,SmartCollar,EMEA,2024-12-05,Works perfectly in all weather conditions. Highly recommend!,4
 153,SC-2024-341-153,LOT341,SmartCollar,EMEA,2024-11-17,Love this product! Battery lasts forever and GPS is accurate.,4
 154,SC-2024-341-154,LOT341,SmartCollar,EMEA,2024-10-16,Works perfectly in all weather conditions. Highly recommend!,5
-155,SC-2024-341-155,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,4
+155,SC-2024-341-155,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,1
 156,SC-2024-341-156,LOT341,SmartCollar,EMEA,2024-10-24,Love this product! Battery lasts forever and GPS is accurate.,4
-157,SC-2024-341-157,LOT341,SmartCollar,EMEA,2024-11-12,Love this product! Battery lasts forever and GPS is accurate.,4
-158,SC-2024-341-158,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,4
+157,SC-2024-341-157,LOT341,SmartCollar,EMEA,2024-11-12,Love this product! Battery lasts forever and GPS is accurate.,3
+158,SC-2024-341-158,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,3
 159,SC-2024-341-159,LOT341,SmartCollar,EMEA,2024-10-27,Perfect collar with amazing battery performance. Highly recommend!,5
 160,SC-2024-341-160,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,4
 161,SC-2024-341-161,LOT341,SmartCollar,EMEA,2024-11-24,Great device with excellent battery life. Very satisfied with performance.,4
-162,SC-2024-341-162,LOT341,SmartCollar,EMEA,2024-11-17,Works as expected. Decent value for money.,2
+162,SC-2024-341-162,LOT341,SmartCollar,EMEA,2024-11-17,Works as expected. Decent value for money.,3
 163,SC-2024-341-163,LOT341,SmartCollar,EMEA,2024-10-15,Fantastic device with consistent performance. Great value for money.,4
 164,SC-2024-341-164,LOT341,SmartCollar,EMEA,2024-10-19,Very impressed with the durability and battery life.,5
 165,SC-2024-341-165,LOT341,SmartCollar,EMEA,2024-11-13,Love this product! Battery lasts forever and GPS is accurate.,4
-166,SC-2024-341-166,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,5
-167,SC-2024-341-167,LOT341,SmartCollar,EMEA,2024-11-09,Fantastic device with consistent performance. Great value for money.,4
-168,SC-2024-341-168,LOT341,SmartCollar,EMEA,2024-10-19,Exceptional quality and reliability. Could not be happier!,5
+166,SC-2024-341-166,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,3
+167,SC-2024-341-167,LOT341,SmartCollar,EMEA,2024-11-09,Fantastic device with consistent performance. Great value for money.,2
+168,SC-2024-341-168,LOT341,SmartCollar,EMEA,2024-10-19,Exceptional quality and reliability. Could not be happier!,3
 169,SC-2024-341-169,LOT341,SmartCollar,EMEA,2024-12-06,Great device with excellent battery life. Very satisfied with performance.,4
 170,SC-2024-341-170,LOT341,SmartCollar,EMEA,2024-11-07,Perfect collar with amazing battery performance. Highly recommend!,4
 171,SC-2024-341-171,LOT341,SmartCollar,EMEA,2024-11-25,Good basic functionality but always room for improvement.,3
 172,SC-2024-341-172,LOT341,SmartCollar,EMEA,2024-11-05,"Meets basic needs, solid product overall.",3
-173,SC-2024-341-173,LOT341,SmartCollar,EMEA,2024-12-14,Best pet collar we've owned. Build quality is outstanding.,5
+173,SC-2024-341-173,LOT341,SmartCollar,EMEA,2024-12-14,Best pet collar we've owned. Build quality is outstanding.,3
 174,SC-2024-341-174,LOT341,SmartCollar,EMEA,2024-11-18,Perfect collar with amazing battery performance. Highly recommend!,4
 175,SC-2024-341-175,LOT341,SmartCollar,EMEA,2024-11-13,Best pet collar we've owned. Build quality is outstanding.,5
-176,SC-2024-341-176,LOT341,SmartCollar,EMEA,2024-12-01,Perfect collar with amazing battery performance. Highly recommend!,4
-177,SC-2024-341-177,LOT341,SmartCollar,EMEA,2024-12-04,Best pet collar we've owned. Build quality is outstanding.,4
+176,SC-2024-341-176,LOT341,SmartCollar,EMEA,2024-12-01,Perfect collar with amazing battery performance. Highly recommend!,3
+177,SC-2024-341-177,LOT341,SmartCollar,EMEA,2024-12-04,Best pet collar we've owned. Build quality is outstanding.,3
 178,SC-2024-341-178,LOT341,SmartCollar,EMEA,2024-10-19,Fantastic device with consistent performance. Great value for money.,4
 179,SC-2024-341-179,LOT341,SmartCollar,EMEA,2024-10-19,Good basic functionality but always room for improvement.,3
 180,SC-2024-341-180,LOT341,SmartCollar,EMEA,2024-11-29,Exceptional quality and reliability. Could not be happier!,5
-181,SC-2024-341-181,LOT341,SmartCollar,EMEA,2024-10-18,Perfect collar with amazing battery performance. Highly recommend!,5
+181,SC-2024-341-181,LOT341,SmartCollar,EMEA,2024-10-18,Perfect collar with amazing battery performance. Highly recommend!,2
 182,SC-2024-341-182,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,4
 183,SC-2024-341-183,LOT341,SmartCollar,EMEA,2024-11-16,Great device with excellent battery life. Very satisfied with performance.,5
 184,SC-2024-341-184,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,5
@@ -188,49 +188,49 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 187,SC-2024-341-187,LOT341,SmartCollar,EMEA,2024-10-19,Love this product! Battery lasts forever and GPS is accurate.,4
 188,SC-2024-341-188,LOT341,SmartCollar,EMEA,2024-11-06,Best pet collar we've owned. Build quality is outstanding.,4
 189,SC-2024-341-189,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,5
-190,SC-2024-341-190,LOT341,SmartCollar,EMEA,2024-11-08,Great device with excellent battery life. Very satisfied with performance.,5
-191,SC-2024-341-191,LOT341,SmartCollar,EMEA,2024-12-10,Very impressed with the durability and battery life.,5
+190,SC-2024-341-190,LOT341,SmartCollar,EMEA,2024-11-08,Great device with excellent battery life. Very satisfied with performance.,2
+191,SC-2024-341-191,LOT341,SmartCollar,EMEA,2024-12-10,Very impressed with the durability and battery life.,1
 192,SC-2024-341-192,LOT341,SmartCollar,EMEA,2024-11-21,Very impressed with the durability and battery life.,4
 193,SC-2024-341-193,LOT341,SmartCollar,EMEA,2024-10-28,Good basic functionality but always room for improvement.,3
 194,SC-2024-341-194,LOT341,SmartCollar,EMEA,2024-12-13,Exceptional quality and reliability. Could not be happier!,5
 195,SC-2024-341-195,LOT341,SmartCollar,EMEA,2024-11-19,Fantastic device with consistent performance. Great value for money.,4
-196,SC-2024-341-196,LOT341,SmartCollar,EMEA,2024-12-09,Love this product! Battery lasts forever and GPS is accurate.,5
-197,SC-2024-341-197,LOT341,SmartCollar,EMEA,2024-10-21,Great device with excellent battery life. Very satisfied with performance.,5
+196,SC-2024-341-196,LOT341,SmartCollar,EMEA,2024-12-09,Love this product! Battery lasts forever and GPS is accurate.,3
+197,SC-2024-341-197,LOT341,SmartCollar,EMEA,2024-10-21,Great device with excellent battery life. Very satisfied with performance.,2
 198,SC-2024-341-198,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,4
 199,SC-2024-341-199,LOT341,SmartCollar,EMEA,2024-11-01,Works as expected. Decent value for money.,3
-200,SC-2024-341-200,LOT341,SmartCollar,EMEA,2024-10-26,Exceptional quality and reliability. Could not be happier!,5
+200,SC-2024-341-200,LOT341,SmartCollar,EMEA,2024-10-26,Exceptional quality and reliability. Could not be happier!,2
 201,SC-2024-341-201,LOT341,SmartCollar,EMEA,2024-11-11,"Meets basic needs, solid product overall.",3
 202,SC-2024-341-202,LOT341,SmartCollar,EMEA,2024-11-04,Love this product! Battery lasts forever and GPS is accurate.,4
-203,SC-2024-341-203,LOT341,SmartCollar,EMEA,2024-11-10,Best pet collar we've owned. Build quality is outstanding.,5
-204,SC-2024-341-204,LOT341,SmartCollar,EMEA,2024-12-14,Fantastic device with consistent performance. Great value for money.,5
-205,SC-2024-341-205,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,5
-206,SC-2024-341-206,LOT341,SmartCollar,EMEA,2024-12-14,Works as expected. Decent value for money.,3
+203,SC-2024-341-203,LOT341,SmartCollar,EMEA,2024-11-10,Best pet collar we've owned. Build quality is outstanding.,2
+204,SC-2024-341-204,LOT341,SmartCollar,EMEA,2024-12-14,Fantastic device with consistent performance. Great value for money.,2
+205,SC-2024-341-205,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,3
+206,SC-2024-341-206,LOT341,SmartCollar,EMEA,2024-12-14,Works as expected. Decent value for money.,2
 207,SC-2024-341-207,LOT341,SmartCollar,EMEA,2024-11-15,"Meets basic needs, solid product overall.",2
 208,SC-2024-341-208,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,4
-209,SC-2024-341-209,LOT341,SmartCollar,EMEA,2024-12-09,Perfect collar with amazing battery performance. Highly recommend!,4
+209,SC-2024-341-209,LOT341,SmartCollar,EMEA,2024-12-09,Perfect collar with amazing battery performance. Highly recommend!,1
 210,SC-2024-341-210,LOT341,SmartCollar,EMEA,2024-11-13,Works perfectly in all weather conditions. Highly recommend!,4
-211,SC-2024-341-211,LOT341,SmartCollar,EMEA,2024-11-22,Perfect collar with amazing battery performance. Highly recommend!,4
+211,SC-2024-341-211,LOT341,SmartCollar,EMEA,2024-11-22,Perfect collar with amazing battery performance. Highly recommend!,2
 212,SC-2024-341-212,LOT341,SmartCollar,EMEA,2024-12-05,Good basic functionality but always room for improvement.,3
 213,SC-2024-341-213,LOT341,SmartCollar,EMEA,2024-11-19,Works as expected. Decent value for money.,3
-214,SC-2024-341-214,LOT341,SmartCollar,EMEA,2024-11-13,Works as expected. Decent value for money.,3
+214,SC-2024-341-214,LOT341,SmartCollar,EMEA,2024-11-13,Works as expected. Decent value for money.,1
 215,SC-2024-341-215,LOT341,SmartCollar,EMEA,2024-12-08,"Meets basic needs, solid product overall.",2
 216,SC-2024-341-216,LOT341,SmartCollar,EMEA,2024-10-26,Very impressed with the durability and battery life.,5
-217,SC-2024-341-217,LOT341,SmartCollar,EMEA,2024-12-11,Fantastic device with consistent performance. Great value for money.,4
-218,SC-2024-341-218,LOT341,SmartCollar,EMEA,2024-11-23,Great device with excellent battery life. Very satisfied with performance.,5
+217,SC-2024-341-217,LOT341,SmartCollar,EMEA,2024-12-11,Fantastic device with consistent performance. Great value for money.,1
+218,SC-2024-341-218,LOT341,SmartCollar,EMEA,2024-11-23,Great device with excellent battery life. Very satisfied with performance.,2
 219,SC-2024-341-219,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,5
-220,SC-2024-341-220,LOT341,SmartCollar,EMEA,2024-10-29,Great device with excellent battery life. Very satisfied with performance.,4
+220,SC-2024-341-220,LOT341,SmartCollar,EMEA,2024-10-29,Great device with excellent battery life. Very satisfied with performance.,1
 221,SC-2024-341-221,LOT341,SmartCollar,EMEA,2024-11-20,Great device with excellent battery life. Very satisfied with performance.,4
 222,SC-2024-341-222,LOT341,SmartCollar,EMEA,2024-10-24,Great device with excellent battery life. Very satisfied with performance.,4
 223,SC-2024-341-223,LOT341,SmartCollar,EMEA,2024-12-12,Exceptional quality and reliability. Could not be happier!,5
-224,SC-2024-341-224,LOT341,SmartCollar,EMEA,2024-11-03,Exceptional quality and reliability. Could not be happier!,4
-225,SC-2024-341-225,LOT341,SmartCollar,EMEA,2024-11-12,Works as expected. Decent value for money.,3
+224,SC-2024-341-224,LOT341,SmartCollar,EMEA,2024-11-03,Exceptional quality and reliability. Could not be happier!,3
+225,SC-2024-341-225,LOT341,SmartCollar,EMEA,2024-11-12,Works as expected. Decent value for money.,2
 226,SC-2024-341-226,LOT341,SmartCollar,EMEA,2024-10-24,Good basic functionality but always room for improvement.,3
-227,SC-2024-341-227,LOT341,SmartCollar,EMEA,2024-11-14,Very impressed with the durability and battery life.,5
-228,SC-2024-341-228,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,4
+227,SC-2024-341-227,LOT341,SmartCollar,EMEA,2024-11-14,Very impressed with the durability and battery life.,3
+228,SC-2024-341-228,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,3
 229,SC-2024-341-229,LOT341,SmartCollar,EMEA,2024-11-04,Best pet collar we've owned. Build quality is outstanding.,4
 230,SC-2024-341-230,LOT341,SmartCollar,EMEA,2024-12-06,Works as expected. Decent value for money.,2
 231,SC-2024-341-231,LOT341,SmartCollar,EMEA,2024-12-14,Great device with excellent battery life. Very satisfied with performance.,4
-232,SC-2024-341-232,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,4
+232,SC-2024-341-232,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,2
 233,SC-2024-341-233,LOT341,SmartCollar,EMEA,2024-11-03,Great device with excellent battery life. Very satisfied with performance.,5
 234,SC-2024-341-234,LOT341,SmartCollar,EMEA,2024-11-25,"Meets basic needs, solid product overall.",3
 235,SC-2024-341-235,LOT341,SmartCollar,EMEA,2024-11-01,"Meets basic needs, solid product overall.",3
@@ -240,64 +240,64 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 239,SC-2024-341-239,LOT341,SmartCollar,EMEA,2024-12-04,"Meets basic needs, solid product overall.",3
 240,SC-2024-341-240,LOT341,SmartCollar,EMEA,2024-11-25,Works perfectly in all weather conditions. Highly recommend!,4
 241,SC-2024-341-241,LOT341,SmartCollar,EMEA,2024-11-02,Works as expected. Decent value for money.,3
-242,SC-2024-341-242,LOT341,SmartCollar,EMEA,2024-11-18,Satisfactory performance overall. Does what it should.,2
+242,SC-2024-341-242,LOT341,SmartCollar,EMEA,2024-11-18,Satisfactory performance overall. Does what it should.,1
 243,SC-2024-341-243,LOT341,SmartCollar,EMEA,2024-11-24,Satisfactory performance overall. Does what it should.,3
-244,SC-2024-341-244,LOT341,SmartCollar,EMEA,2024-12-04,Fantastic device with consistent performance. Great value for money.,5
-245,SC-2024-341-245,LOT341,SmartCollar,EMEA,2024-11-18,Exceptional quality and reliability. Could not be happier!,5
-246,SC-2024-341-246,LOT341,SmartCollar,EMEA,2024-12-09,Love this product! Battery lasts forever and GPS is accurate.,4
-247,SC-2024-341-247,LOT341,SmartCollar,EMEA,2024-11-22,Fantastic device with consistent performance. Great value for money.,5
-248,SC-2024-341-248,LOT341,SmartCollar,EMEA,2024-11-14,Love this product! Battery lasts forever and GPS is accurate.,5
+244,SC-2024-341-244,LOT341,SmartCollar,EMEA,2024-12-04,Fantastic device with consistent performance. Great value for money.,3
+245,SC-2024-341-245,LOT341,SmartCollar,EMEA,2024-11-18,Exceptional quality and reliability. Could not be happier!,3
+246,SC-2024-341-246,LOT341,SmartCollar,EMEA,2024-12-09,Love this product! Battery lasts forever and GPS is accurate.,2
+247,SC-2024-341-247,LOT341,SmartCollar,EMEA,2024-11-22,Fantastic device with consistent performance. Great value for money.,1
+248,SC-2024-341-248,LOT341,SmartCollar,EMEA,2024-11-14,Love this product! Battery lasts forever and GPS is accurate.,1
 249,SC-2024-341-249,LOT341,SmartCollar,EMEA,2024-11-09,Satisfactory performance overall. Does what it should.,3
 250,SC-2024-341-250,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,5
 251,SC-2024-341-251,LOT341,SmartCollar,EMEA,2024-11-02,Works as expected. Decent value for money.,3
-252,SC-2024-341-252,LOT341,SmartCollar,EMEA,2024-10-21,Works perfectly in all weather conditions. Highly recommend!,5
+252,SC-2024-341-252,LOT341,SmartCollar,EMEA,2024-10-21,Works perfectly in all weather conditions. Highly recommend!,2
 253,SC-2024-341-253,LOT341,SmartCollar,EMEA,2024-10-27,Works as expected. Decent value for money.,3
-254,SC-2024-341-254,LOT341,SmartCollar,EMEA,2024-11-04,Great device with excellent battery life. Very satisfied with performance.,5
+254,SC-2024-341-254,LOT341,SmartCollar,EMEA,2024-11-04,Great device with excellent battery life. Very satisfied with performance.,1
 255,SC-2024-341-255,LOT341,SmartCollar,EMEA,2024-11-17,Fantastic device with consistent performance. Great value for money.,4
-256,SC-2024-341-256,LOT341,SmartCollar,EMEA,2024-12-11,Exceptional quality and reliability. Could not be happier!,4
-257,SC-2024-341-257,LOT341,SmartCollar,EMEA,2024-11-15,Works perfectly in all weather conditions. Highly recommend!,4
+256,SC-2024-341-256,LOT341,SmartCollar,EMEA,2024-12-11,Exceptional quality and reliability. Could not be happier!,3
+257,SC-2024-341-257,LOT341,SmartCollar,EMEA,2024-11-15,Works perfectly in all weather conditions. Highly recommend!,3
 258,SC-2024-341-258,LOT341,SmartCollar,EMEA,2024-11-19,Satisfactory performance overall. Does what it should.,3
 259,SC-2024-341-259,LOT341,SmartCollar,EMEA,2024-12-01,Works perfectly in all weather conditions. Highly recommend!,5
-260,SC-2024-341-260,LOT341,SmartCollar,EMEA,2024-11-07,Great device with excellent battery life. Very satisfied with performance.,4
+260,SC-2024-341-260,LOT341,SmartCollar,EMEA,2024-11-07,Great device with excellent battery life. Very satisfied with performance.,2
 261,SC-2024-341-261,LOT341,SmartCollar,EMEA,2024-11-19,Perfect collar with amazing battery performance. Highly recommend!,4
 262,SC-2024-341-262,LOT341,SmartCollar,EMEA,2024-12-14,Satisfactory performance overall. Does what it should.,2
 263,SC-2024-341-263,LOT341,SmartCollar,EMEA,2024-11-14,Great device with excellent battery life. Very satisfied with performance.,4
-264,SC-2024-341-264,LOT341,SmartCollar,EMEA,2024-12-05,Love this product! Battery lasts forever and GPS is accurate.,5
+264,SC-2024-341-264,LOT341,SmartCollar,EMEA,2024-12-05,Love this product! Battery lasts forever and GPS is accurate.,2
 265,SC-2024-341-265,LOT341,SmartCollar,EMEA,2024-11-13,Best pet collar we've owned. Build quality is outstanding.,5
-266,SC-2024-341-266,LOT341,SmartCollar,EMEA,2024-11-02,Love this product! Battery lasts forever and GPS is accurate.,4
+266,SC-2024-341-266,LOT341,SmartCollar,EMEA,2024-11-02,Love this product! Battery lasts forever and GPS is accurate.,3
 267,SC-2024-341-267,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,5
 268,SC-2024-341-268,LOT341,SmartCollar,EMEA,2024-11-15,Fantastic device with consistent performance. Great value for money.,4
-269,SC-2024-341-269,LOT341,SmartCollar,EMEA,2024-11-28,Great device with excellent battery life. Very satisfied with performance.,4
+269,SC-2024-341-269,LOT341,SmartCollar,EMEA,2024-11-28,Great device with excellent battery life. Very satisfied with performance.,2
 270,SC-2024-341-270,LOT341,SmartCollar,EMEA,2024-10-25,Very impressed with the durability and battery life.,4
-271,SC-2024-341-271,LOT341,SmartCollar,EMEA,2024-11-26,Love this product! Battery lasts forever and GPS is accurate.,4
+271,SC-2024-341-271,LOT341,SmartCollar,EMEA,2024-11-26,Love this product! Battery lasts forever and GPS is accurate.,3
 272,SC-2024-341-272,LOT341,SmartCollar,EMEA,2024-11-07,Perfect collar with amazing battery performance. Highly recommend!,5
-273,SC-2024-341-273,LOT341,SmartCollar,EMEA,2024-11-21,Exceptional quality and reliability. Could not be happier!,4
-274,SC-2024-341-274,LOT341,SmartCollar,EMEA,2024-11-05,"Meets basic needs, solid product overall.",2
+273,SC-2024-341-273,LOT341,SmartCollar,EMEA,2024-11-21,Exceptional quality and reliability. Could not be happier!,2
+274,SC-2024-341-274,LOT341,SmartCollar,EMEA,2024-11-05,"Meets basic needs, solid product overall.",1
 275,SC-2024-341-275,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,4
-276,SC-2024-341-276,LOT341,SmartCollar,EMEA,2024-11-02,Very impressed with the durability and battery life.,5
-277,SC-2024-341-277,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,5
+276,SC-2024-341-276,LOT341,SmartCollar,EMEA,2024-11-02,Very impressed with the durability and battery life.,1
+277,SC-2024-341-277,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,1
 278,SC-2024-341-278,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,5
-279,SC-2024-341-279,LOT341,SmartCollar,EMEA,2024-12-08,Love this product! Battery lasts forever and GPS is accurate.,5
-280,SC-2024-341-280,LOT341,SmartCollar,EMEA,2024-11-09,Good basic functionality but always room for improvement.,3
-281,SC-2024-341-281,LOT341,SmartCollar,EMEA,2024-10-31,Very impressed with the durability and battery life.,4
+279,SC-2024-341-279,LOT341,SmartCollar,EMEA,2024-12-08,Love this product! Battery lasts forever and GPS is accurate.,2
+280,SC-2024-341-280,LOT341,SmartCollar,EMEA,2024-11-09,Good basic functionality but always room for improvement.,2
+281,SC-2024-341-281,LOT341,SmartCollar,EMEA,2024-10-31,Very impressed with the durability and battery life.,1
 282,SC-2024-341-282,LOT341,SmartCollar,EMEA,2024-11-11,Satisfactory performance overall. Does what it should.,3
 283,SC-2024-341-283,LOT341,SmartCollar,EMEA,2024-12-08,"Meets basic needs, solid product overall.",3
 284,SC-2024-341-284,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
-285,SC-2024-341-285,LOT341,SmartCollar,EMEA,2024-11-01,Love this product! Battery lasts forever and GPS is accurate.,5
-286,SC-2024-341-286,LOT341,SmartCollar,EMEA,2024-10-23,Fantastic device with consistent performance. Great value for money.,4
-287,SC-2024-341-287,LOT341,SmartCollar,EMEA,2024-11-25,Exceptional quality and reliability. Could not be happier!,5
+285,SC-2024-341-285,LOT341,SmartCollar,EMEA,2024-11-01,Love this product! Battery lasts forever and GPS is accurate.,2
+286,SC-2024-341-286,LOT341,SmartCollar,EMEA,2024-10-23,Fantastic device with consistent performance. Great value for money.,3
+287,SC-2024-341-287,LOT341,SmartCollar,EMEA,2024-11-25,Exceptional quality and reliability. Could not be happier!,3
 288,SC-2024-341-288,LOT341,SmartCollar,EMEA,2024-11-05,Very impressed with the durability and battery life.,5
 289,SC-2024-341-289,LOT341,SmartCollar,EMEA,2024-11-13,Exceptional quality and reliability. Could not be happier!,4
-290,SC-2024-341-290,LOT341,SmartCollar,EMEA,2024-11-25,Perfect collar with amazing battery performance. Highly recommend!,5
-291,SC-2024-341-291,LOT341,SmartCollar,EMEA,2024-11-08,Great device with excellent battery life. Very satisfied with performance.,4
+290,SC-2024-341-290,LOT341,SmartCollar,EMEA,2024-11-25,Perfect collar with amazing battery performance. Highly recommend!,3
+291,SC-2024-341-291,LOT341,SmartCollar,EMEA,2024-11-08,Great device with excellent battery life. Very satisfied with performance.,2
 292,SC-2024-341-292,LOT341,SmartCollar,EMEA,2024-11-22,Great device with excellent battery life. Very satisfied with performance.,4
 293,SC-2024-341-293,LOT341,SmartCollar,EMEA,2024-11-12,Perfect collar with amazing battery performance. Highly recommend!,4
-294,SC-2024-341-294,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,5
-295,SC-2024-341-295,LOT341,SmartCollar,EMEA,2024-10-24,Love this product! Battery lasts forever and GPS is accurate.,4
+294,SC-2024-341-294,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,2
+295,SC-2024-341-295,LOT341,SmartCollar,EMEA,2024-10-24,Love this product! Battery lasts forever and GPS is accurate.,3
 296,SC-2024-341-296,LOT341,SmartCollar,EMEA,2024-10-18,"Meets basic needs, solid product overall.",3
-297,SC-2024-341-297,LOT341,SmartCollar,EMEA,2024-11-28,Works perfectly in all weather conditions. Highly recommend!,5
-298,SC-2024-341-298,LOT341,SmartCollar,EMEA,2024-11-09,Fantastic device with consistent performance. Great value for money.,5
-299,SC-2024-341-299,LOT341,SmartCollar,EMEA,2024-11-14,Exceptional quality and reliability. Could not be happier!,4
+297,SC-2024-341-297,LOT341,SmartCollar,EMEA,2024-11-28,Works perfectly in all weather conditions. Highly recommend!,1
+298,SC-2024-341-298,LOT341,SmartCollar,EMEA,2024-11-09,Fantastic device with consistent performance. Great value for money.,2
+299,SC-2024-341-299,LOT341,SmartCollar,EMEA,2024-11-14,Exceptional quality and reliability. Could not be happier!,2
 300,SC-2024-341-300,LOT341,SmartCollar,EMEA,2024-11-01,Best pet collar we've owned. Build quality is outstanding.,5
 301,SC-2024-341-301,LOT341,SmartCollar,EMEA,2024-10-31,Perfect collar with amazing battery performance. Highly recommend!,4
 302,SC-2024-341-302,LOT341,SmartCollar,EMEA,2024-11-08,Love this product! Battery lasts forever and GPS is accurate.,4
@@ -305,114 +305,114 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 304,SC-2024-341-304,LOT341,SmartCollar,EMEA,2024-10-21,Good basic functionality but always room for improvement.,3
 305,SC-2024-341-305,LOT341,SmartCollar,EMEA,2024-11-21,Works perfectly in all weather conditions. Highly recommend!,4
 306,SC-2024-341-306,LOT341,SmartCollar,EMEA,2024-12-09,Fantastic device with consistent performance. Great value for money.,4
-307,SC-2024-341-307,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,5
+307,SC-2024-341-307,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,3
 308,SC-2024-341-308,LOT341,SmartCollar,EMEA,2024-11-12,Good basic functionality but always room for improvement.,3
-309,SC-2024-341-309,LOT341,SmartCollar,EMEA,2024-12-05,Exceptional quality and reliability. Could not be happier!,4
-310,SC-2024-341-310,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,5
+309,SC-2024-341-309,LOT341,SmartCollar,EMEA,2024-12-05,Exceptional quality and reliability. Could not be happier!,2
+310,SC-2024-341-310,LOT341,SmartCollar,EMEA,2024-11-09,Best pet collar we've owned. Build quality is outstanding.,3
 311,SC-2024-341-311,LOT341,SmartCollar,EMEA,2024-11-20,Great device with excellent battery life. Very satisfied with performance.,5
 312,SC-2024-341-312,LOT341,SmartCollar,EMEA,2024-12-08,Exceptional quality and reliability. Could not be happier!,5
-313,SC-2024-341-313,LOT341,SmartCollar,EMEA,2024-11-17,Works perfectly in all weather conditions. Highly recommend!,5
+313,SC-2024-341-313,LOT341,SmartCollar,EMEA,2024-11-17,Works perfectly in all weather conditions. Highly recommend!,1
 314,SC-2024-341-314,LOT341,SmartCollar,EMEA,2024-11-17,Good basic functionality but always room for improvement.,2
-315,SC-2024-341-315,LOT341,SmartCollar,EMEA,2024-12-05,Best pet collar we've owned. Build quality is outstanding.,5
-316,SC-2024-341-316,LOT341,SmartCollar,EMEA,2024-10-29,Works perfectly in all weather conditions. Highly recommend!,5
+315,SC-2024-341-315,LOT341,SmartCollar,EMEA,2024-12-05,Best pet collar we've owned. Build quality is outstanding.,3
+316,SC-2024-341-316,LOT341,SmartCollar,EMEA,2024-10-29,Works perfectly in all weather conditions. Highly recommend!,3
 317,SC-2024-341-317,LOT341,SmartCollar,EMEA,2024-11-22,Very impressed with the durability and battery life.,4
 318,SC-2024-341-318,LOT341,SmartCollar,EMEA,2024-10-29,Great device with excellent battery life. Very satisfied with performance.,5
-319,SC-2024-341-319,LOT341,SmartCollar,EMEA,2024-12-03,Very impressed with the durability and battery life.,4
-320,SC-2024-341-320,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,4
-321,SC-2024-341-321,LOT341,SmartCollar,EMEA,2024-11-08,Works as expected. Decent value for money.,2
+319,SC-2024-341-319,LOT341,SmartCollar,EMEA,2024-12-03,Very impressed with the durability and battery life.,2
+320,SC-2024-341-320,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,2
+321,SC-2024-341-321,LOT341,SmartCollar,EMEA,2024-11-08,Works as expected. Decent value for money.,3
 322,SC-2024-341-322,LOT341,SmartCollar,EMEA,2024-10-22,Very impressed with the durability and battery life.,5
-323,SC-2024-341-323,LOT341,SmartCollar,EMEA,2024-11-07,Works perfectly in all weather conditions. Highly recommend!,5
+323,SC-2024-341-323,LOT341,SmartCollar,EMEA,2024-11-07,Works perfectly in all weather conditions. Highly recommend!,2
 324,SC-2024-341-324,LOT341,SmartCollar,EMEA,2024-10-26,"Meets basic needs, solid product overall.",3
 325,SC-2024-341-325,LOT341,SmartCollar,EMEA,2024-10-16,Works perfectly in all weather conditions. Highly recommend!,5
 326,SC-2024-341-326,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,4
-327,SC-2024-341-327,LOT341,SmartCollar,EMEA,2024-12-10,Works as expected. Decent value for money.,3
+327,SC-2024-341-327,LOT341,SmartCollar,EMEA,2024-12-10,Works as expected. Decent value for money.,1
 328,SC-2024-341-328,LOT341,SmartCollar,EMEA,2024-12-09,Exceptional quality and reliability. Could not be happier!,4
-329,SC-2024-341-329,LOT341,SmartCollar,EMEA,2024-11-11,Great device with excellent battery life. Very satisfied with performance.,4
-330,SC-2024-341-330,LOT341,SmartCollar,EMEA,2024-10-25,Works perfectly in all weather conditions. Highly recommend!,5
+329,SC-2024-341-329,LOT341,SmartCollar,EMEA,2024-11-11,Great device with excellent battery life. Very satisfied with performance.,1
+330,SC-2024-341-330,LOT341,SmartCollar,EMEA,2024-10-25,Works perfectly in all weather conditions. Highly recommend!,1
 331,SC-2024-341-331,LOT341,SmartCollar,EMEA,2024-11-10,Works perfectly in all weather conditions. Highly recommend!,4
-332,SC-2024-341-332,LOT341,SmartCollar,EMEA,2024-10-17,Fantastic device with consistent performance. Great value for money.,4
-333,SC-2024-341-333,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,5
-334,SC-2024-341-334,LOT341,SmartCollar,EMEA,2024-12-04,Love this product! Battery lasts forever and GPS is accurate.,4
-335,SC-2024-341-335,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,4
+332,SC-2024-341-332,LOT341,SmartCollar,EMEA,2024-10-17,Fantastic device with consistent performance. Great value for money.,3
+333,SC-2024-341-333,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,3
+334,SC-2024-341-334,LOT341,SmartCollar,EMEA,2024-12-04,Love this product! Battery lasts forever and GPS is accurate.,3
+335,SC-2024-341-335,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,3
 336,SC-2024-341-336,LOT341,SmartCollar,EMEA,2024-10-22,Works perfectly in all weather conditions. Highly recommend!,5
 337,SC-2024-341-337,LOT341,SmartCollar,EMEA,2024-12-10,Great device with excellent battery life. Very satisfied with performance.,4
-338,SC-2024-341-338,LOT341,SmartCollar,EMEA,2024-11-21,Good basic functionality but always room for improvement.,3
-339,SC-2024-341-339,LOT341,SmartCollar,EMEA,2024-11-08,Best pet collar we've owned. Build quality is outstanding.,4
+338,SC-2024-341-338,LOT341,SmartCollar,EMEA,2024-11-21,Good basic functionality but always room for improvement.,1
+339,SC-2024-341-339,LOT341,SmartCollar,EMEA,2024-11-08,Best pet collar we've owned. Build quality is outstanding.,3
 340,SC-2024-341-340,LOT341,SmartCollar,EMEA,2024-11-05,Satisfactory performance overall. Does what it should.,3
 341,SC-2024-341-341,LOT341,SmartCollar,EMEA,2024-12-07,Good basic functionality but always room for improvement.,3
 342,SC-2024-341-342,LOT341,SmartCollar,EMEA,2024-12-10,Best pet collar we've owned. Build quality is outstanding.,4
 343,SC-2024-341-343,LOT341,SmartCollar,EMEA,2024-11-05,Love this product! Battery lasts forever and GPS is accurate.,5
-344,SC-2024-341-344,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,5
+344,SC-2024-341-344,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,3
 345,SC-2024-341-345,LOT341,SmartCollar,EMEA,2024-11-01,Great device with excellent battery life. Very satisfied with performance.,5
-346,SC-2024-341-346,LOT341,SmartCollar,EMEA,2024-11-09,Love this product! Battery lasts forever and GPS is accurate.,5
+346,SC-2024-341-346,LOT341,SmartCollar,EMEA,2024-11-09,Love this product! Battery lasts forever and GPS is accurate.,2
 347,SC-2024-341-347,LOT341,SmartCollar,EMEA,2024-10-21,Love this product! Battery lasts forever and GPS is accurate.,5
 348,SC-2024-341-348,LOT341,SmartCollar,EMEA,2024-12-09,Satisfactory performance overall. Does what it should.,3
-349,SC-2024-341-349,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,4
+349,SC-2024-341-349,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,3
 350,SC-2024-341-350,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,5
 351,SC-2024-341-351,LOT341,SmartCollar,EMEA,2024-11-02,Works perfectly in all weather conditions. Highly recommend!,4
-352,SC-2024-341-352,LOT341,SmartCollar,EMEA,2024-10-27,Perfect collar with amazing battery performance. Highly recommend!,5
-353,SC-2024-341-353,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,4
-354,SC-2024-341-354,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,4
-355,SC-2024-341-355,LOT341,SmartCollar,EMEA,2024-11-26,Best pet collar we've owned. Build quality is outstanding.,5
+352,SC-2024-341-352,LOT341,SmartCollar,EMEA,2024-10-27,Perfect collar with amazing battery performance. Highly recommend!,3
+353,SC-2024-341-353,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,3
+354,SC-2024-341-354,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,2
+355,SC-2024-341-355,LOT341,SmartCollar,EMEA,2024-11-26,Best pet collar we've owned. Build quality is outstanding.,3
 356,SC-2024-341-356,LOT341,SmartCollar,EMEA,2024-10-25,Satisfactory performance overall. Does what it should.,3
-357,SC-2024-341-357,LOT341,SmartCollar,EMEA,2024-12-05,Best pet collar we've owned. Build quality is outstanding.,4
-358,SC-2024-341-358,LOT341,SmartCollar,EMEA,2024-11-06,Love this product! Battery lasts forever and GPS is accurate.,4
-359,SC-2024-341-359,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,5
+357,SC-2024-341-357,LOT341,SmartCollar,EMEA,2024-12-05,Best pet collar we've owned. Build quality is outstanding.,3
+358,SC-2024-341-358,LOT341,SmartCollar,EMEA,2024-11-06,Love this product! Battery lasts forever and GPS is accurate.,3
+359,SC-2024-341-359,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,2
 360,SC-2024-341-360,LOT341,SmartCollar,EMEA,2024-11-16,Love this product! Battery lasts forever and GPS is accurate.,4
-361,SC-2024-341-361,LOT341,SmartCollar,EMEA,2024-11-12,Works perfectly in all weather conditions. Highly recommend!,4
-362,SC-2024-341-362,LOT341,SmartCollar,EMEA,2024-10-24,Great device with excellent battery life. Very satisfied with performance.,4
-363,SC-2024-341-363,LOT341,SmartCollar,EMEA,2024-10-17,Fantastic device with consistent performance. Great value for money.,4
-364,SC-2024-341-364,LOT341,SmartCollar,EMEA,2024-10-21,"Meets basic needs, solid product overall.",3
-365,SC-2024-341-365,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,4
-366,SC-2024-341-366,LOT341,SmartCollar,EMEA,2024-11-09,Great device with excellent battery life. Very satisfied with performance.,4
-367,SC-2024-341-367,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,5
+361,SC-2024-341-361,LOT341,SmartCollar,EMEA,2024-11-12,Works perfectly in all weather conditions. Highly recommend!,3
+362,SC-2024-341-362,LOT341,SmartCollar,EMEA,2024-10-24,Great device with excellent battery life. Very satisfied with performance.,3
+363,SC-2024-341-363,LOT341,SmartCollar,EMEA,2024-10-17,Fantastic device with consistent performance. Great value for money.,3
+364,SC-2024-341-364,LOT341,SmartCollar,EMEA,2024-10-21,"Meets basic needs, solid product overall.",2
+365,SC-2024-341-365,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,2
+366,SC-2024-341-366,LOT341,SmartCollar,EMEA,2024-11-09,Great device with excellent battery life. Very satisfied with performance.,1
+367,SC-2024-341-367,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,3
 368,SC-2024-341-368,LOT341,SmartCollar,EMEA,2024-10-29,Satisfactory performance overall. Does what it should.,3
 369,SC-2024-341-369,LOT341,SmartCollar,EMEA,2024-11-24,Very impressed with the durability and battery life.,5
 370,SC-2024-341-370,LOT341,SmartCollar,EMEA,2024-11-22,Very impressed with the durability and battery life.,5
-371,SC-2024-341-371,LOT341,SmartCollar,EMEA,2024-10-27,"Meets basic needs, solid product overall.",2
+371,SC-2024-341-371,LOT341,SmartCollar,EMEA,2024-10-27,"Meets basic needs, solid product overall.",3
 372,SC-2024-341-372,LOT341,SmartCollar,EMEA,2024-11-21,Good basic functionality but always room for improvement.,3
-373,SC-2024-341-373,LOT341,SmartCollar,EMEA,2024-12-04,Great device with excellent battery life. Very satisfied with performance.,4
+373,SC-2024-341-373,LOT341,SmartCollar,EMEA,2024-12-04,Great device with excellent battery life. Very satisfied with performance.,3
 374,SC-2024-341-374,LOT341,SmartCollar,EMEA,2024-12-11,Best pet collar we've owned. Build quality is outstanding.,4
 375,SC-2024-341-375,LOT341,SmartCollar,EMEA,2024-11-05,Great device with excellent battery life. Very satisfied with performance.,5
 376,SC-2024-341-376,LOT341,SmartCollar,EMEA,2024-11-03,Good basic functionality but always room for improvement.,2
 377,SC-2024-341-377,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,4
-378,SC-2024-341-378,LOT341,SmartCollar,EMEA,2024-11-05,Works perfectly in all weather conditions. Highly recommend!,5
-379,SC-2024-341-379,LOT341,SmartCollar,EMEA,2024-11-16,Exceptional quality and reliability. Could not be happier!,4
-380,SC-2024-341-380,LOT341,SmartCollar,EMEA,2024-11-07,Works perfectly in all weather conditions. Highly recommend!,5
+378,SC-2024-341-378,LOT341,SmartCollar,EMEA,2024-11-05,Works perfectly in all weather conditions. Highly recommend!,2
+379,SC-2024-341-379,LOT341,SmartCollar,EMEA,2024-11-16,Exceptional quality and reliability. Could not be happier!,3
+380,SC-2024-341-380,LOT341,SmartCollar,EMEA,2024-11-07,Works perfectly in all weather conditions. Highly recommend!,3
 381,SC-2024-341-381,LOT341,SmartCollar,EMEA,2024-11-20,Fantastic device with consistent performance. Great value for money.,4
-382,SC-2024-341-382,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,5
+382,SC-2024-341-382,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,3
 383,SC-2024-341-383,LOT341,SmartCollar,EMEA,2024-12-01,Works perfectly in all weather conditions. Highly recommend!,4
-384,SC-2024-341-384,LOT341,SmartCollar,EMEA,2024-11-30,Works perfectly in all weather conditions. Highly recommend!,5
+384,SC-2024-341-384,LOT341,SmartCollar,EMEA,2024-11-30,Works perfectly in all weather conditions. Highly recommend!,3
 385,SC-2024-341-385,LOT341,SmartCollar,EMEA,2024-11-22,Great device with excellent battery life. Very satisfied with performance.,4
 386,SC-2024-341-386,LOT341,SmartCollar,EMEA,2024-11-21,Perfect collar with amazing battery performance. Highly recommend!,4
-387,SC-2024-341-387,LOT341,SmartCollar,EMEA,2024-12-13,Best pet collar we've owned. Build quality is outstanding.,5
+387,SC-2024-341-387,LOT341,SmartCollar,EMEA,2024-12-13,Best pet collar we've owned. Build quality is outstanding.,1
 388,SC-2024-341-388,LOT341,SmartCollar,EMEA,2024-12-11,Fantastic device with consistent performance. Great value for money.,5
 389,SC-2024-341-389,LOT341,SmartCollar,EMEA,2024-11-29,Good basic functionality but always room for improvement.,3
-390,SC-2024-341-390,LOT341,SmartCollar,EMEA,2024-12-07,Exceptional quality and reliability. Could not be happier!,5
+390,SC-2024-341-390,LOT341,SmartCollar,EMEA,2024-12-07,Exceptional quality and reliability. Could not be happier!,2
 391,SC-2024-341-391,LOT341,SmartCollar,EMEA,2024-10-28,Very impressed with the durability and battery life.,5
 392,SC-2024-341-392,LOT341,SmartCollar,EMEA,2024-11-08,"Meets basic needs, solid product overall.",2
-393,SC-2024-341-393,LOT341,SmartCollar,EMEA,2024-11-16,Great device with excellent battery life. Very satisfied with performance.,5
+393,SC-2024-341-393,LOT341,SmartCollar,EMEA,2024-11-16,Great device with excellent battery life. Very satisfied with performance.,3
 394,SC-2024-341-394,LOT341,SmartCollar,EMEA,2024-12-13,Very impressed with the durability and battery life.,5
 395,SC-2024-341-395,LOT341,SmartCollar,EMEA,2024-11-18,Exceptional quality and reliability. Could not be happier!,5
-396,SC-2024-341-396,LOT341,SmartCollar,EMEA,2024-12-03,Best pet collar we've owned. Build quality is outstanding.,4
+396,SC-2024-341-396,LOT341,SmartCollar,EMEA,2024-12-03,Best pet collar we've owned. Build quality is outstanding.,2
 397,SC-2024-341-397,LOT341,SmartCollar,EMEA,2024-11-09,Love this product! Battery lasts forever and GPS is accurate.,4
 398,SC-2024-341-398,LOT341,SmartCollar,EMEA,2024-11-27,Fantastic device with consistent performance. Great value for money.,4
-399,SC-2024-341-399,LOT341,SmartCollar,EMEA,2024-10-18,Perfect collar with amazing battery performance. Highly recommend!,4
+399,SC-2024-341-399,LOT341,SmartCollar,EMEA,2024-10-18,Perfect collar with amazing battery performance. Highly recommend!,1
 400,SC-2024-341-400,LOT341,SmartCollar,EMEA,2024-10-28,Best pet collar we've owned. Build quality is outstanding.,5
 401,SC-2024-341-401,LOT341,SmartCollar,EMEA,2024-12-02,Satisfactory performance overall. Does what it should.,3
 402,SC-2024-341-402,LOT341,SmartCollar,EMEA,2024-10-15,Great device with excellent battery life. Very satisfied with performance.,4
 403,SC-2024-341-403,LOT341,SmartCollar,EMEA,2024-11-19,Fantastic device with consistent performance. Great value for money.,5
-404,SC-2024-341-404,LOT341,SmartCollar,EMEA,2024-11-10,Works perfectly in all weather conditions. Highly recommend!,4
+404,SC-2024-341-404,LOT341,SmartCollar,EMEA,2024-11-10,Works perfectly in all weather conditions. Highly recommend!,1
 405,SC-2024-341-405,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,4
-406,SC-2024-341-406,LOT341,SmartCollar,EMEA,2024-10-19,Fantastic device with consistent performance. Great value for money.,4
-407,SC-2024-341-407,LOT341,SmartCollar,EMEA,2024-12-10,Works as expected. Decent value for money.,3
+406,SC-2024-341-406,LOT341,SmartCollar,EMEA,2024-10-19,Fantastic device with consistent performance. Great value for money.,3
+407,SC-2024-341-407,LOT341,SmartCollar,EMEA,2024-12-10,Works as expected. Decent value for money.,2
 408,SC-2024-341-408,LOT341,SmartCollar,EMEA,2024-10-20,Works perfectly in all weather conditions. Highly recommend!,4
-409,SC-2024-341-409,LOT341,SmartCollar,EMEA,2024-11-23,Exceptional quality and reliability. Could not be happier!,4
+409,SC-2024-341-409,LOT341,SmartCollar,EMEA,2024-11-23,Exceptional quality and reliability. Could not be happier!,3
 410,SC-2024-341-410,LOT341,SmartCollar,EMEA,2024-10-21,Exceptional quality and reliability. Could not be happier!,4
 411,SC-2024-341-411,LOT341,SmartCollar,EMEA,2024-12-13,Exceptional quality and reliability. Could not be happier!,4
 412,SC-2024-341-412,LOT341,SmartCollar,EMEA,2024-12-09,Great device with excellent battery life. Very satisfied with performance.,4
 413,SC-2024-341-413,LOT341,SmartCollar,EMEA,2024-11-16,Best pet collar we've owned. Build quality is outstanding.,4
-414,SC-2024-341-414,LOT341,SmartCollar,EMEA,2024-11-15,Very impressed with the durability and battery life.,4
+414,SC-2024-341-414,LOT341,SmartCollar,EMEA,2024-11-15,Very impressed with the durability and battery life.,2
 415,SC-2024-341-415,LOT341,SmartCollar,EMEA,2024-11-03,Great device with excellent battery life. Very satisfied with performance.,4
 416,SC-2024-341-416,LOT341,SmartCollar,EMEA,2024-11-29,Works as expected. Decent value for money.,3
 417,SC-2024-341-417,LOT341,SmartCollar,EMEA,2024-11-20,Good basic functionality but always room for improvement.,3
@@ -421,124 +421,124 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 420,SC-2024-341-420,LOT341,SmartCollar,EMEA,2024-11-10,Works as expected. Decent value for money.,3
 421,SC-2024-341-421,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,4
 422,SC-2024-341-422,LOT341,SmartCollar,EMEA,2024-11-03,Works perfectly in all weather conditions. Highly recommend!,4
-423,SC-2024-341-423,LOT341,SmartCollar,EMEA,2024-11-17,Works perfectly in all weather conditions. Highly recommend!,5
-424,SC-2024-341-424,LOT341,SmartCollar,EMEA,2024-11-07,Best pet collar we've owned. Build quality is outstanding.,4
+423,SC-2024-341-423,LOT341,SmartCollar,EMEA,2024-11-17,Works perfectly in all weather conditions. Highly recommend!,3
+424,SC-2024-341-424,LOT341,SmartCollar,EMEA,2024-11-07,Best pet collar we've owned. Build quality is outstanding.,3
 425,SC-2024-341-425,LOT341,SmartCollar,EMEA,2024-12-09,Love this product! Battery lasts forever and GPS is accurate.,5
 426,SC-2024-341-426,LOT341,SmartCollar,EMEA,2024-12-05,Works as expected. Decent value for money.,2
 427,SC-2024-341-427,LOT341,SmartCollar,EMEA,2024-11-02,Exceptional quality and reliability. Could not be happier!,5
-428,SC-2024-341-428,LOT341,SmartCollar,EMEA,2024-10-15,Perfect collar with amazing battery performance. Highly recommend!,5
+428,SC-2024-341-428,LOT341,SmartCollar,EMEA,2024-10-15,Perfect collar with amazing battery performance. Highly recommend!,2
 429,SC-2024-341-429,LOT341,SmartCollar,EMEA,2024-10-30,Works perfectly in all weather conditions. Highly recommend!,5
 430,SC-2024-341-430,LOT341,SmartCollar,EMEA,2024-10-18,Perfect collar with amazing battery performance. Highly recommend!,5
-431,SC-2024-341-431,LOT341,SmartCollar,EMEA,2024-10-28,Best pet collar we've owned. Build quality is outstanding.,5
-432,SC-2024-341-432,LOT341,SmartCollar,EMEA,2024-10-26,Exceptional quality and reliability. Could not be happier!,5
+431,SC-2024-341-431,LOT341,SmartCollar,EMEA,2024-10-28,Best pet collar we've owned. Build quality is outstanding.,3
+432,SC-2024-341-432,LOT341,SmartCollar,EMEA,2024-10-26,Exceptional quality and reliability. Could not be happier!,3
 433,SC-2024-341-433,LOT341,SmartCollar,EMEA,2024-11-19,Perfect collar with amazing battery performance. Highly recommend!,4
-434,SC-2024-341-434,LOT341,SmartCollar,EMEA,2024-11-04,Exceptional quality and reliability. Could not be happier!,4
-435,SC-2024-341-435,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,5
-436,SC-2024-341-436,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,5
-437,SC-2024-341-437,LOT341,SmartCollar,EMEA,2024-11-13,Works perfectly in all weather conditions. Highly recommend!,4
+434,SC-2024-341-434,LOT341,SmartCollar,EMEA,2024-11-04,Exceptional quality and reliability. Could not be happier!,3
+435,SC-2024-341-435,LOT341,SmartCollar,EMEA,2024-10-22,Fantastic device with consistent performance. Great value for money.,3
+436,SC-2024-341-436,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,1
+437,SC-2024-341-437,LOT341,SmartCollar,EMEA,2024-11-13,Works perfectly in all weather conditions. Highly recommend!,3
 438,SC-2024-341-438,LOT341,SmartCollar,EMEA,2024-11-17,Love this product! Battery lasts forever and GPS is accurate.,4
-439,SC-2024-341-439,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,4
+439,SC-2024-341-439,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,3
 440,SC-2024-341-440,LOT341,SmartCollar,EMEA,2024-12-08,Perfect collar with amazing battery performance. Highly recommend!,4
-441,SC-2024-341-441,LOT341,SmartCollar,EMEA,2024-11-14,Works as expected. Decent value for money.,3
-442,SC-2024-341-442,LOT341,SmartCollar,EMEA,2024-10-28,"Meets basic needs, solid product overall.",2
-443,SC-2024-341-443,LOT341,SmartCollar,EMEA,2024-11-10,Works perfectly in all weather conditions. Highly recommend!,5
-444,SC-2024-341-444,LOT341,SmartCollar,EMEA,2024-12-14,Best pet collar we've owned. Build quality is outstanding.,5
+441,SC-2024-341-441,LOT341,SmartCollar,EMEA,2024-11-14,Works as expected. Decent value for money.,1
+442,SC-2024-341-442,LOT341,SmartCollar,EMEA,2024-10-28,"Meets basic needs, solid product overall.",3
+443,SC-2024-341-443,LOT341,SmartCollar,EMEA,2024-11-10,Works perfectly in all weather conditions. Highly recommend!,1
+444,SC-2024-341-444,LOT341,SmartCollar,EMEA,2024-12-14,Best pet collar we've owned. Build quality is outstanding.,1
 445,SC-2024-341-445,LOT341,SmartCollar,EMEA,2024-10-27,Love this product! Battery lasts forever and GPS is accurate.,5
-446,SC-2024-341-446,LOT341,SmartCollar,EMEA,2024-12-07,Great device with excellent battery life. Very satisfied with performance.,4
-447,SC-2024-341-447,LOT341,SmartCollar,EMEA,2024-11-29,Fantastic device with consistent performance. Great value for money.,4
+446,SC-2024-341-446,LOT341,SmartCollar,EMEA,2024-12-07,Great device with excellent battery life. Very satisfied with performance.,3
+447,SC-2024-341-447,LOT341,SmartCollar,EMEA,2024-11-29,Fantastic device with consistent performance. Great value for money.,2
 448,SC-2024-341-448,LOT341,SmartCollar,EMEA,2024-11-20,Exceptional quality and reliability. Could not be happier!,5
-449,SC-2024-341-449,LOT341,SmartCollar,EMEA,2024-11-23,Great device with excellent battery life. Very satisfied with performance.,4
+449,SC-2024-341-449,LOT341,SmartCollar,EMEA,2024-11-23,Great device with excellent battery life. Very satisfied with performance.,2
 450,SC-2024-341-450,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,5
-451,SC-2024-341-451,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,5
-452,SC-2024-341-452,LOT341,SmartCollar,EMEA,2024-12-01,Love this product! Battery lasts forever and GPS is accurate.,5
+451,SC-2024-341-451,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,2
+452,SC-2024-341-452,LOT341,SmartCollar,EMEA,2024-12-01,Love this product! Battery lasts forever and GPS is accurate.,1
 453,SC-2024-341-453,LOT341,SmartCollar,EMEA,2024-10-15,Very impressed with the durability and battery life.,4
-454,SC-2024-341-454,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,5
-455,SC-2024-341-455,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,4
+454,SC-2024-341-454,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,3
+455,SC-2024-341-455,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,3
 456,SC-2024-341-456,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,5
 457,SC-2024-341-457,LOT341,SmartCollar,EMEA,2024-10-17,"Meets basic needs, solid product overall.",3
 458,SC-2024-341-458,LOT341,SmartCollar,EMEA,2024-11-30,Works perfectly in all weather conditions. Highly recommend!,5
 459,SC-2024-341-459,LOT341,SmartCollar,EMEA,2024-12-01,Best pet collar we've owned. Build quality is outstanding.,4
 460,SC-2024-341-460,LOT341,SmartCollar,EMEA,2024-11-01,Best pet collar we've owned. Build quality is outstanding.,5
-461,SC-2024-341-461,LOT341,SmartCollar,EMEA,2024-11-16,Best pet collar we've owned. Build quality is outstanding.,5
-462,SC-2024-341-462,LOT341,SmartCollar,EMEA,2024-11-05,Exceptional quality and reliability. Could not be happier!,4
+461,SC-2024-341-461,LOT341,SmartCollar,EMEA,2024-11-16,Best pet collar we've owned. Build quality is outstanding.,3
+462,SC-2024-341-462,LOT341,SmartCollar,EMEA,2024-11-05,Exceptional quality and reliability. Could not be happier!,2
 463,SC-2024-341-463,LOT341,SmartCollar,EMEA,2024-11-27,Very impressed with the durability and battery life.,4
 464,SC-2024-341-464,LOT341,SmartCollar,EMEA,2024-12-05,Exceptional quality and reliability. Could not be happier!,4
 465,SC-2024-341-465,LOT341,SmartCollar,EMEA,2024-11-20,Works perfectly in all weather conditions. Highly recommend!,5
-466,SC-2024-341-466,LOT341,SmartCollar,EMEA,2024-11-30,Perfect collar with amazing battery performance. Highly recommend!,4
-467,SC-2024-341-467,LOT341,SmartCollar,EMEA,2024-11-16,Good basic functionality but always room for improvement.,2
+466,SC-2024-341-466,LOT341,SmartCollar,EMEA,2024-11-30,Perfect collar with amazing battery performance. Highly recommend!,3
+467,SC-2024-341-467,LOT341,SmartCollar,EMEA,2024-11-16,Good basic functionality but always room for improvement.,3
 468,SC-2024-341-468,LOT341,SmartCollar,EMEA,2024-11-28,Works perfectly in all weather conditions. Highly recommend!,5
 469,SC-2024-341-469,LOT341,SmartCollar,EMEA,2024-11-03,Very impressed with the durability and battery life.,4
-470,SC-2024-341-470,LOT341,SmartCollar,EMEA,2024-11-06,Exceptional quality and reliability. Could not be happier!,4
+470,SC-2024-341-470,LOT341,SmartCollar,EMEA,2024-11-06,Exceptional quality and reliability. Could not be happier!,3
 471,SC-2024-341-471,LOT341,SmartCollar,EMEA,2024-11-19,Very impressed with the durability and battery life.,5
 472,SC-2024-341-472,LOT341,SmartCollar,EMEA,2024-11-17,"Meets basic needs, solid product overall.",2
 473,SC-2024-341-473,LOT341,SmartCollar,EMEA,2024-12-02,Fantastic device with consistent performance. Great value for money.,5
 474,SC-2024-341-474,LOT341,SmartCollar,EMEA,2024-12-02,Perfect collar with amazing battery performance. Highly recommend!,4
 475,SC-2024-341-475,LOT341,SmartCollar,EMEA,2024-11-12,Satisfactory performance overall. Does what it should.,3
 476,SC-2024-341-476,LOT341,SmartCollar,EMEA,2024-10-28,Great device with excellent battery life. Very satisfied with performance.,4
-477,SC-2024-341-477,LOT341,SmartCollar,EMEA,2024-12-13,Love this product! Battery lasts forever and GPS is accurate.,5
+477,SC-2024-341-477,LOT341,SmartCollar,EMEA,2024-12-13,Love this product! Battery lasts forever and GPS is accurate.,2
 478,SC-2024-341-478,LOT341,SmartCollar,EMEA,2024-11-25,Great device with excellent battery life. Very satisfied with performance.,4
-479,SC-2024-341-479,LOT341,SmartCollar,EMEA,2024-10-25,Exceptional quality and reliability. Could not be happier!,5
-480,SC-2024-341-480,LOT341,SmartCollar,EMEA,2024-11-06,Very impressed with the durability and battery life.,5
-481,SC-2024-341-481,LOT341,SmartCollar,EMEA,2024-11-26,Very impressed with the durability and battery life.,4
+479,SC-2024-341-479,LOT341,SmartCollar,EMEA,2024-10-25,Exceptional quality and reliability. Could not be happier!,2
+480,SC-2024-341-480,LOT341,SmartCollar,EMEA,2024-11-06,Very impressed with the durability and battery life.,2
+481,SC-2024-341-481,LOT341,SmartCollar,EMEA,2024-11-26,Very impressed with the durability and battery life.,3
 482,SC-2024-341-482,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,5
-483,SC-2024-341-483,LOT341,SmartCollar,EMEA,2024-12-11,Very impressed with the durability and battery life.,4
-484,SC-2024-341-484,LOT341,SmartCollar,EMEA,2024-10-26,Perfect collar with amazing battery performance. Highly recommend!,5
+483,SC-2024-341-483,LOT341,SmartCollar,EMEA,2024-12-11,Very impressed with the durability and battery life.,3
+484,SC-2024-341-484,LOT341,SmartCollar,EMEA,2024-10-26,Perfect collar with amazing battery performance. Highly recommend!,3
 485,SC-2024-341-485,LOT341,SmartCollar,EMEA,2024-11-03,"Meets basic needs, solid product overall.",3
 486,SC-2024-341-486,LOT341,SmartCollar,EMEA,2024-11-26,Love this product! Battery lasts forever and GPS is accurate.,5
 487,SC-2024-341-487,LOT341,SmartCollar,EMEA,2024-10-25,Great device with excellent battery life. Very satisfied with performance.,4
-488,SC-2024-341-488,LOT341,SmartCollar,EMEA,2024-12-03,Very impressed with the durability and battery life.,4
-489,SC-2024-341-489,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,5
+488,SC-2024-341-488,LOT341,SmartCollar,EMEA,2024-12-03,Very impressed with the durability and battery life.,2
+489,SC-2024-341-489,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,3
 490,SC-2024-341-490,LOT341,SmartCollar,EMEA,2024-10-24,Good basic functionality but always room for improvement.,3
-491,SC-2024-341-491,LOT341,SmartCollar,EMEA,2024-12-08,Good basic functionality but always room for improvement.,2
-492,SC-2024-341-492,LOT341,SmartCollar,EMEA,2024-11-16,Very impressed with the durability and battery life.,4
-493,SC-2024-341-493,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,5
+491,SC-2024-341-491,LOT341,SmartCollar,EMEA,2024-12-08,Good basic functionality but always room for improvement.,3
+492,SC-2024-341-492,LOT341,SmartCollar,EMEA,2024-11-16,Very impressed with the durability and battery life.,1
+493,SC-2024-341-493,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,1
 494,SC-2024-341-494,LOT341,SmartCollar,EMEA,2024-11-19,Satisfactory performance overall. Does what it should.,3
 495,SC-2024-341-495,LOT341,SmartCollar,EMEA,2024-12-03,Satisfactory performance overall. Does what it should.,3
 496,SC-2024-341-496,LOT341,SmartCollar,EMEA,2024-12-13,Fantastic device with consistent performance. Great value for money.,4
-497,SC-2024-341-497,LOT341,SmartCollar,EMEA,2024-11-21,Best pet collar we've owned. Build quality is outstanding.,4
+497,SC-2024-341-497,LOT341,SmartCollar,EMEA,2024-11-21,Best pet collar we've owned. Build quality is outstanding.,3
 498,SC-2024-341-498,LOT341,SmartCollar,EMEA,2024-10-20,Great device with excellent battery life. Very satisfied with performance.,4
 499,SC-2024-341-499,LOT341,SmartCollar,EMEA,2024-10-21,Love this product! Battery lasts forever and GPS is accurate.,4
-500,SC-2024-341-500,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,5
-501,SC-2024-341-501,LOT341,SmartCollar,EMEA,2024-11-27,Fantastic device with consistent performance. Great value for money.,5
+500,SC-2024-341-500,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,3
+501,SC-2024-341-501,LOT341,SmartCollar,EMEA,2024-11-27,Fantastic device with consistent performance. Great value for money.,1
 502,SC-2024-341-502,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,5
-503,SC-2024-341-503,LOT341,SmartCollar,EMEA,2024-12-07,Love this product! Battery lasts forever and GPS is accurate.,5
-504,SC-2024-341-504,LOT341,SmartCollar,EMEA,2024-11-17,Love this product! Battery lasts forever and GPS is accurate.,5
+503,SC-2024-341-503,LOT341,SmartCollar,EMEA,2024-12-07,Love this product! Battery lasts forever and GPS is accurate.,3
+504,SC-2024-341-504,LOT341,SmartCollar,EMEA,2024-11-17,Love this product! Battery lasts forever and GPS is accurate.,1
 505,SC-2024-341-505,LOT341,SmartCollar,EMEA,2024-11-23,Works perfectly in all weather conditions. Highly recommend!,4
-506,SC-2024-341-506,LOT341,SmartCollar,EMEA,2024-11-07,Very impressed with the durability and battery life.,5
-507,SC-2024-341-507,LOT341,SmartCollar,EMEA,2024-12-12,Perfect collar with amazing battery performance. Highly recommend!,4
-508,SC-2024-341-508,LOT341,SmartCollar,EMEA,2024-10-24,Best pet collar we've owned. Build quality is outstanding.,5
-509,SC-2024-341-509,LOT341,SmartCollar,EMEA,2024-12-07,Satisfactory performance overall. Does what it should.,3
+506,SC-2024-341-506,LOT341,SmartCollar,EMEA,2024-11-07,Very impressed with the durability and battery life.,3
+507,SC-2024-341-507,LOT341,SmartCollar,EMEA,2024-12-12,Perfect collar with amazing battery performance. Highly recommend!,3
+508,SC-2024-341-508,LOT341,SmartCollar,EMEA,2024-10-24,Best pet collar we've owned. Build quality is outstanding.,3
+509,SC-2024-341-509,LOT341,SmartCollar,EMEA,2024-12-07,Satisfactory performance overall. Does what it should.,2
 510,SC-2024-341-510,LOT341,SmartCollar,EMEA,2024-12-11,Works perfectly in all weather conditions. Highly recommend!,5
-511,SC-2024-341-511,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,4
+511,SC-2024-341-511,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,3
 512,SC-2024-341-512,LOT341,SmartCollar,EMEA,2024-11-03,Best pet collar we've owned. Build quality is outstanding.,4
-513,SC-2024-341-513,LOT341,SmartCollar,EMEA,2024-10-18,Good basic functionality but always room for improvement.,3
-514,SC-2024-341-514,LOT341,SmartCollar,EMEA,2024-10-28,Great device with excellent battery life. Very satisfied with performance.,4
+513,SC-2024-341-513,LOT341,SmartCollar,EMEA,2024-10-18,Good basic functionality but always room for improvement.,1
+514,SC-2024-341-514,LOT341,SmartCollar,EMEA,2024-10-28,Great device with excellent battery life. Very satisfied with performance.,3
 515,SC-2024-341-515,LOT341,SmartCollar,EMEA,2024-11-05,"Meets basic needs, solid product overall.",2
 516,SC-2024-341-516,LOT341,SmartCollar,EMEA,2024-12-05,Love this product! Battery lasts forever and GPS is accurate.,4
 517,SC-2024-341-517,LOT341,SmartCollar,EMEA,2024-11-29,"Meets basic needs, solid product overall.",3
-518,SC-2024-341-518,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,4
+518,SC-2024-341-518,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,2
 519,SC-2024-341-519,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,4
-520,SC-2024-341-520,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,5
+520,SC-2024-341-520,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,2
 521,SC-2024-341-521,LOT341,SmartCollar,EMEA,2024-11-24,Great device with excellent battery life. Very satisfied with performance.,4
-522,SC-2024-341-522,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,5
-523,SC-2024-341-523,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,5
-524,SC-2024-341-524,LOT341,SmartCollar,EMEA,2024-10-16,Love this product! Battery lasts forever and GPS is accurate.,4
+522,SC-2024-341-522,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,2
+523,SC-2024-341-523,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,3
+524,SC-2024-341-524,LOT341,SmartCollar,EMEA,2024-10-16,Love this product! Battery lasts forever and GPS is accurate.,3
 525,SC-2024-341-525,LOT341,SmartCollar,EMEA,2024-10-23,Fantastic device with consistent performance. Great value for money.,4
-526,SC-2024-341-526,LOT341,SmartCollar,EMEA,2024-11-28,Best pet collar we've owned. Build quality is outstanding.,4
+526,SC-2024-341-526,LOT341,SmartCollar,EMEA,2024-11-28,Best pet collar we've owned. Build quality is outstanding.,3
 527,SC-2024-341-527,LOT341,SmartCollar,EMEA,2024-10-19,Perfect collar with amazing battery performance. Highly recommend!,4
-528,SC-2024-341-528,LOT341,SmartCollar,EMEA,2024-11-12,Best pet collar we've owned. Build quality is outstanding.,4
+528,SC-2024-341-528,LOT341,SmartCollar,EMEA,2024-11-12,Best pet collar we've owned. Build quality is outstanding.,3
 529,SC-2024-341-529,LOT341,SmartCollar,EMEA,2024-11-15,Satisfactory performance overall. Does what it should.,3
 530,SC-2024-341-530,LOT341,SmartCollar,EMEA,2024-11-05,Very impressed with the durability and battery life.,5
-531,SC-2024-341-531,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,4
+531,SC-2024-341-531,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,3
 532,SC-2024-341-532,LOT341,SmartCollar,EMEA,2024-11-08,Good basic functionality but always room for improvement.,3
 533,SC-2024-341-533,LOT341,SmartCollar,EMEA,2024-11-15,Very impressed with the durability and battery life.,5
-534,SC-2024-341-534,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,4
+534,SC-2024-341-534,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,1
 535,SC-2024-341-535,LOT341,SmartCollar,EMEA,2024-11-26,Works perfectly in all weather conditions. Highly recommend!,5
 536,SC-2024-341-536,LOT341,SmartCollar,EMEA,2024-12-03,Satisfactory performance overall. Does what it should.,3
-537,SC-2024-341-537,LOT341,SmartCollar,EMEA,2024-10-18,"Meets basic needs, solid product overall.",3
+537,SC-2024-341-537,LOT341,SmartCollar,EMEA,2024-10-18,"Meets basic needs, solid product overall.",2
 538,SC-2024-341-538,LOT341,SmartCollar,EMEA,2024-10-29,Very impressed with the durability and battery life.,5
 539,SC-2024-341-539,LOT341,SmartCollar,EMEA,2024-12-06,"Meets basic needs, solid product overall.",2
-540,SC-2024-341-540,LOT341,SmartCollar,EMEA,2024-11-05,Works perfectly in all weather conditions. Highly recommend!,4
+540,SC-2024-341-540,LOT341,SmartCollar,EMEA,2024-11-05,Works perfectly in all weather conditions. Highly recommend!,1
 541,SC-2024-341-541,LOT341,SmartCollar,EMEA,2024-10-28,Fantastic device with consistent performance. Great value for money.,4
 542,SC-2024-341-542,LOT341,SmartCollar,EMEA,2024-10-22,Good basic functionality but always room for improvement.,3
 543,SC-2024-341-543,LOT341,SmartCollar,EMEA,2024-10-30,Works perfectly in all weather conditions. Highly recommend!,5
@@ -547,103 +547,103 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 546,SC-2024-341-546,LOT341,SmartCollar,EMEA,2024-11-04,Exceptional quality and reliability. Could not be happier!,5
 547,SC-2024-341-547,LOT341,SmartCollar,EMEA,2024-11-02,Works perfectly in all weather conditions. Highly recommend!,5
 548,SC-2024-341-548,LOT341,SmartCollar,EMEA,2024-10-16,Fantastic device with consistent performance. Great value for money.,5
-549,SC-2024-341-549,LOT341,SmartCollar,EMEA,2024-12-13,Fantastic device with consistent performance. Great value for money.,5
-550,SC-2024-341-550,LOT341,SmartCollar,EMEA,2024-11-12,Great device with excellent battery life. Very satisfied with performance.,4
-551,SC-2024-341-551,LOT341,SmartCollar,EMEA,2024-10-22,Great device with excellent battery life. Very satisfied with performance.,5
-552,SC-2024-341-552,LOT341,SmartCollar,EMEA,2024-11-11,Very impressed with the durability and battery life.,4
+549,SC-2024-341-549,LOT341,SmartCollar,EMEA,2024-12-13,Fantastic device with consistent performance. Great value for money.,3
+550,SC-2024-341-550,LOT341,SmartCollar,EMEA,2024-11-12,Great device with excellent battery life. Very satisfied with performance.,1
+551,SC-2024-341-551,LOT341,SmartCollar,EMEA,2024-10-22,Great device with excellent battery life. Very satisfied with performance.,2
+552,SC-2024-341-552,LOT341,SmartCollar,EMEA,2024-11-11,Very impressed with the durability and battery life.,1
 553,SC-2024-341-553,LOT341,SmartCollar,EMEA,2024-10-26,Best pet collar we've owned. Build quality is outstanding.,5
 554,SC-2024-341-554,LOT341,SmartCollar,EMEA,2024-12-02,"Meets basic needs, solid product overall.",3
 555,SC-2024-341-555,LOT341,SmartCollar,EMEA,2024-10-23,Fantastic device with consistent performance. Great value for money.,5
-556,SC-2024-341-556,LOT341,SmartCollar,EMEA,2024-11-03,Works perfectly in all weather conditions. Highly recommend!,5
+556,SC-2024-341-556,LOT341,SmartCollar,EMEA,2024-11-03,Works perfectly in all weather conditions. Highly recommend!,3
 557,SC-2024-341-557,LOT341,SmartCollar,EMEA,2024-10-31,Works perfectly in all weather conditions. Highly recommend!,4
 558,SC-2024-341-558,LOT341,SmartCollar,EMEA,2024-12-03,Great device with excellent battery life. Very satisfied with performance.,5
 559,SC-2024-341-559,LOT341,SmartCollar,EMEA,2024-11-10,Great device with excellent battery life. Very satisfied with performance.,5
-560,SC-2024-341-560,LOT341,SmartCollar,EMEA,2024-12-12,Best pet collar we've owned. Build quality is outstanding.,5
+560,SC-2024-341-560,LOT341,SmartCollar,EMEA,2024-12-12,Best pet collar we've owned. Build quality is outstanding.,1
 561,SC-2024-341-561,LOT341,SmartCollar,EMEA,2024-11-12,Fantastic device with consistent performance. Great value for money.,4
 562,SC-2024-341-562,LOT341,SmartCollar,EMEA,2024-10-20,Love this product! Battery lasts forever and GPS is accurate.,5
 563,SC-2024-341-563,LOT341,SmartCollar,EMEA,2024-12-05,Love this product! Battery lasts forever and GPS is accurate.,4
 564,SC-2024-341-564,LOT341,SmartCollar,EMEA,2024-10-31,Good basic functionality but always room for improvement.,3
 565,SC-2024-341-565,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,5
 566,SC-2024-341-566,LOT341,SmartCollar,EMEA,2024-10-16,Fantastic device with consistent performance. Great value for money.,5
-567,SC-2024-341-567,LOT341,SmartCollar,EMEA,2024-12-09,Satisfactory performance overall. Does what it should.,3
-568,SC-2024-341-568,LOT341,SmartCollar,EMEA,2024-10-28,Love this product! Battery lasts forever and GPS is accurate.,5
+567,SC-2024-341-567,LOT341,SmartCollar,EMEA,2024-12-09,Satisfactory performance overall. Does what it should.,2
+568,SC-2024-341-568,LOT341,SmartCollar,EMEA,2024-10-28,Love this product! Battery lasts forever and GPS is accurate.,3
 569,SC-2024-341-569,LOT341,SmartCollar,EMEA,2024-12-07,Very impressed with the durability and battery life.,5
 570,SC-2024-341-570,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,5
-571,SC-2024-341-571,LOT341,SmartCollar,EMEA,2024-10-19,Perfect collar with amazing battery performance. Highly recommend!,4
+571,SC-2024-341-571,LOT341,SmartCollar,EMEA,2024-10-19,Perfect collar with amazing battery performance. Highly recommend!,2
 572,SC-2024-341-572,LOT341,SmartCollar,EMEA,2024-11-07,Exceptional quality and reliability. Could not be happier!,5
-573,SC-2024-341-573,LOT341,SmartCollar,EMEA,2024-11-21,Exceptional quality and reliability. Could not be happier!,4
+573,SC-2024-341-573,LOT341,SmartCollar,EMEA,2024-11-21,Exceptional quality and reliability. Could not be happier!,3
 574,SC-2024-341-574,LOT341,SmartCollar,EMEA,2024-11-24,"Meets basic needs, solid product overall.",3
 575,SC-2024-341-575,LOT341,SmartCollar,EMEA,2024-12-08,Perfect collar with amazing battery performance. Highly recommend!,5
 576,SC-2024-341-576,LOT341,SmartCollar,EMEA,2024-11-17,Great device with excellent battery life. Very satisfied with performance.,4
-577,SC-2024-341-577,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,4
+577,SC-2024-341-577,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,3
 578,SC-2024-341-578,LOT341,SmartCollar,EMEA,2024-10-15,Exceptional quality and reliability. Could not be happier!,4
 579,SC-2024-341-579,LOT341,SmartCollar,EMEA,2024-10-18,Works perfectly in all weather conditions. Highly recommend!,4
 580,SC-2024-341-580,LOT341,SmartCollar,EMEA,2024-11-30,Works as expected. Decent value for money.,2
 581,SC-2024-341-581,LOT341,SmartCollar,EMEA,2024-11-27,Perfect collar with amazing battery performance. Highly recommend!,4
-582,SC-2024-341-582,LOT341,SmartCollar,EMEA,2024-11-12,Love this product! Battery lasts forever and GPS is accurate.,4
+582,SC-2024-341-582,LOT341,SmartCollar,EMEA,2024-11-12,Love this product! Battery lasts forever and GPS is accurate.,3
 583,SC-2024-341-583,LOT341,SmartCollar,EMEA,2024-10-29,Very impressed with the durability and battery life.,4
 584,SC-2024-341-584,LOT341,SmartCollar,EMEA,2024-12-14,"Meets basic needs, solid product overall.",2
 585,SC-2024-341-585,LOT341,SmartCollar,EMEA,2024-12-01,Very impressed with the durability and battery life.,5
 586,SC-2024-341-586,LOT341,SmartCollar,EMEA,2024-12-01,Perfect collar with amazing battery performance. Highly recommend!,4
-587,SC-2024-341-587,LOT341,SmartCollar,EMEA,2024-11-06,Good basic functionality but always room for improvement.,3
-588,SC-2024-341-588,LOT341,SmartCollar,EMEA,2024-11-07,Best pet collar we've owned. Build quality is outstanding.,5
+587,SC-2024-341-587,LOT341,SmartCollar,EMEA,2024-11-06,Good basic functionality but always room for improvement.,2
+588,SC-2024-341-588,LOT341,SmartCollar,EMEA,2024-11-07,Best pet collar we've owned. Build quality is outstanding.,3
 589,SC-2024-341-589,LOT341,SmartCollar,EMEA,2024-11-08,Fantastic device with consistent performance. Great value for money.,4
 590,SC-2024-341-590,LOT341,SmartCollar,EMEA,2024-10-24,Best pet collar we've owned. Build quality is outstanding.,4
 591,SC-2024-341-591,LOT341,SmartCollar,EMEA,2024-10-28,Works perfectly in all weather conditions. Highly recommend!,4
-592,SC-2024-341-592,LOT341,SmartCollar,EMEA,2024-10-18,Fantastic device with consistent performance. Great value for money.,5
+592,SC-2024-341-592,LOT341,SmartCollar,EMEA,2024-10-18,Fantastic device with consistent performance. Great value for money.,2
 593,SC-2024-341-593,LOT341,SmartCollar,EMEA,2024-11-09,Perfect collar with amazing battery performance. Highly recommend!,5
-594,SC-2024-341-594,LOT341,SmartCollar,EMEA,2024-10-30,Very impressed with the durability and battery life.,5
-595,SC-2024-341-595,LOT341,SmartCollar,EMEA,2024-12-11,"Meets basic needs, solid product overall.",1
-596,SC-2024-341-596,LOT341,SmartCollar,EMEA,2024-11-18,Very impressed with the durability and battery life.,4
-597,SC-2024-341-597,LOT341,SmartCollar,EMEA,2024-12-14,Exceptional quality and reliability. Could not be happier!,4
-598,SC-2024-341-598,LOT341,SmartCollar,EMEA,2024-10-26,Love this product! Battery lasts forever and GPS is accurate.,4
-599,SC-2024-341-599,LOT341,SmartCollar,EMEA,2024-11-07,Love this product! Battery lasts forever and GPS is accurate.,5
+594,SC-2024-341-594,LOT341,SmartCollar,EMEA,2024-10-30,Very impressed with the durability and battery life.,3
+595,SC-2024-341-595,LOT341,SmartCollar,EMEA,2024-12-11,"Meets basic needs, solid product overall.",3
+596,SC-2024-341-596,LOT341,SmartCollar,EMEA,2024-11-18,Very impressed with the durability and battery life.,3
+597,SC-2024-341-597,LOT341,SmartCollar,EMEA,2024-12-14,Exceptional quality and reliability. Could not be happier!,2
+598,SC-2024-341-598,LOT341,SmartCollar,EMEA,2024-10-26,Love this product! Battery lasts forever and GPS is accurate.,3
+599,SC-2024-341-599,LOT341,SmartCollar,EMEA,2024-11-07,Love this product! Battery lasts forever and GPS is accurate.,1
 600,SC-2024-341-600,LOT341,SmartCollar,EMEA,2024-11-23,Works as expected. Decent value for money.,3
 601,SC-2024-341-601,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
 602,SC-2024-341-602,LOT341,SmartCollar,EMEA,2024-11-29,Very impressed with the durability and battery life.,4
 603,SC-2024-341-603,LOT341,SmartCollar,EMEA,2024-11-22,Works perfectly in all weather conditions. Highly recommend!,5
-604,SC-2024-341-604,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,5
+604,SC-2024-341-604,LOT341,SmartCollar,EMEA,2024-11-03,Fantastic device with consistent performance. Great value for money.,3
 605,SC-2024-341-605,LOT341,SmartCollar,EMEA,2024-11-07,Best pet collar we've owned. Build quality is outstanding.,5
-606,SC-2024-341-606,LOT341,SmartCollar,EMEA,2024-12-02,Works perfectly in all weather conditions. Highly recommend!,4
-607,SC-2024-341-607,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,5
-608,SC-2024-341-608,LOT341,SmartCollar,EMEA,2024-11-24,Exceptional quality and reliability. Could not be happier!,4
+606,SC-2024-341-606,LOT341,SmartCollar,EMEA,2024-12-02,Works perfectly in all weather conditions. Highly recommend!,3
+607,SC-2024-341-607,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,2
+608,SC-2024-341-608,LOT341,SmartCollar,EMEA,2024-11-24,Exceptional quality and reliability. Could not be happier!,2
 609,SC-2024-341-609,LOT341,SmartCollar,EMEA,2024-11-27,Best pet collar we've owned. Build quality is outstanding.,4
 610,SC-2024-341-610,LOT341,SmartCollar,EMEA,2024-11-01,Works perfectly in all weather conditions. Highly recommend!,4
 611,SC-2024-341-611,LOT341,SmartCollar,EMEA,2024-11-14,Exceptional quality and reliability. Could not be happier!,4
 612,SC-2024-341-612,LOT341,SmartCollar,EMEA,2024-12-01,Fantastic device with consistent performance. Great value for money.,4
 613,SC-2024-341-613,LOT341,SmartCollar,EMEA,2024-10-21,Love this product! Battery lasts forever and GPS is accurate.,4
 614,SC-2024-341-614,LOT341,SmartCollar,EMEA,2024-12-10,Exceptional quality and reliability. Could not be happier!,5
-615,SC-2024-341-615,LOT341,SmartCollar,EMEA,2024-10-29,Fantastic device with consistent performance. Great value for money.,4
-616,SC-2024-341-616,LOT341,SmartCollar,EMEA,2024-11-08,Satisfactory performance overall. Does what it should.,2
-617,SC-2024-341-617,LOT341,SmartCollar,EMEA,2024-10-27,Works perfectly in all weather conditions. Highly recommend!,5
-618,SC-2024-341-618,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,4
+615,SC-2024-341-615,LOT341,SmartCollar,EMEA,2024-10-29,Fantastic device with consistent performance. Great value for money.,3
+616,SC-2024-341-616,LOT341,SmartCollar,EMEA,2024-11-08,Satisfactory performance overall. Does what it should.,3
+617,SC-2024-341-617,LOT341,SmartCollar,EMEA,2024-10-27,Works perfectly in all weather conditions. Highly recommend!,3
+618,SC-2024-341-618,LOT341,SmartCollar,EMEA,2024-11-06,Fantastic device with consistent performance. Great value for money.,3
 619,SC-2024-341-619,LOT341,SmartCollar,EMEA,2024-11-26,Very impressed with the durability and battery life.,4
 620,SC-2024-341-620,LOT341,SmartCollar,EMEA,2024-12-14,Great device with excellent battery life. Very satisfied with performance.,4
-621,SC-2024-341-621,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,5
+621,SC-2024-341-621,LOT341,SmartCollar,EMEA,2024-12-06,Very impressed with the durability and battery life.,1
 622,SC-2024-341-622,LOT341,SmartCollar,EMEA,2024-12-03,Great device with excellent battery life. Very satisfied with performance.,4
 623,SC-2024-341-623,LOT341,SmartCollar,EMEA,2024-10-22,Good basic functionality but always room for improvement.,3
 624,SC-2024-341-624,LOT341,SmartCollar,EMEA,2024-11-20,Works perfectly in all weather conditions. Highly recommend!,5
 625,SC-2024-341-625,LOT341,SmartCollar,EMEA,2024-11-07,Great device with excellent battery life. Very satisfied with performance.,5
 626,SC-2024-341-626,LOT341,SmartCollar,EMEA,2024-12-13,Love this product! Battery lasts forever and GPS is accurate.,5
-627,SC-2024-341-627,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,4
-628,SC-2024-341-628,LOT341,SmartCollar,EMEA,2024-10-21,"Meets basic needs, solid product overall.",3
+627,SC-2024-341-627,LOT341,SmartCollar,EMEA,2024-11-30,Exceptional quality and reliability. Could not be happier!,3
+628,SC-2024-341-628,LOT341,SmartCollar,EMEA,2024-10-21,"Meets basic needs, solid product overall.",1
 629,SC-2024-341-629,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,5
-630,SC-2024-341-630,LOT341,SmartCollar,EMEA,2024-12-11,Very impressed with the durability and battery life.,5
-631,SC-2024-341-631,LOT341,SmartCollar,EMEA,2024-11-19,Great device with excellent battery life. Very satisfied with performance.,4
+630,SC-2024-341-630,LOT341,SmartCollar,EMEA,2024-12-11,Very impressed with the durability and battery life.,2
+631,SC-2024-341-631,LOT341,SmartCollar,EMEA,2024-11-19,Great device with excellent battery life. Very satisfied with performance.,3
 632,SC-2024-341-632,LOT341,SmartCollar,EMEA,2024-11-05,Works as expected. Decent value for money.,1
-633,SC-2024-341-633,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,4
-634,SC-2024-341-634,LOT341,SmartCollar,EMEA,2024-11-12,Exceptional quality and reliability. Could not be happier!,4
-635,SC-2024-341-635,LOT341,SmartCollar,EMEA,2024-10-18,Exceptional quality and reliability. Could not be happier!,5
+633,SC-2024-341-633,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,3
+634,SC-2024-341-634,LOT341,SmartCollar,EMEA,2024-11-12,Exceptional quality and reliability. Could not be happier!,3
+635,SC-2024-341-635,LOT341,SmartCollar,EMEA,2024-10-18,Exceptional quality and reliability. Could not be happier!,1
 636,SC-2024-341-636,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,5
 637,SC-2024-341-637,LOT341,SmartCollar,EMEA,2024-10-29,Exceptional quality and reliability. Could not be happier!,5
-638,SC-2024-341-638,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,4
+638,SC-2024-341-638,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,3
 639,SC-2024-341-639,LOT341,SmartCollar,EMEA,2024-10-24,Perfect collar with amazing battery performance. Highly recommend!,5
-640,SC-2024-341-640,LOT341,SmartCollar,EMEA,2024-11-26,Fantastic device with consistent performance. Great value for money.,4
-641,SC-2024-341-641,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,5
+640,SC-2024-341-640,LOT341,SmartCollar,EMEA,2024-11-26,Fantastic device with consistent performance. Great value for money.,3
+641,SC-2024-341-641,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,3
 642,SC-2024-341-642,LOT341,SmartCollar,EMEA,2024-11-28,Perfect collar with amazing battery performance. Highly recommend!,4
 643,SC-2024-341-643,LOT341,SmartCollar,EMEA,2024-12-07,Works perfectly in all weather conditions. Highly recommend!,4
-644,SC-2024-341-644,LOT341,SmartCollar,EMEA,2024-11-28,Love this product! Battery lasts forever and GPS is accurate.,5
-645,SC-2024-341-645,LOT341,SmartCollar,EMEA,2024-11-29,Works perfectly in all weather conditions. Highly recommend!,5
+644,SC-2024-341-644,LOT341,SmartCollar,EMEA,2024-11-28,Love this product! Battery lasts forever and GPS is accurate.,2
+645,SC-2024-341-645,LOT341,SmartCollar,EMEA,2024-11-29,Works perfectly in all weather conditions. Highly recommend!,3
 646,SC-2024-341-646,LOT341,SmartCollar,EMEA,2024-10-25,Exceptional quality and reliability. Could not be happier!,4
 647,SC-2024-341-647,LOT341,SmartCollar,EMEA,2024-10-20,Love this product! Battery lasts forever and GPS is accurate.,4
 648,SC-2024-341-648,LOT341,SmartCollar,EMEA,2024-11-29,Exceptional quality and reliability. Could not be happier!,5
@@ -651,322 +651,322 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 650,SC-2024-341-650,LOT341,SmartCollar,EMEA,2024-11-23,Exceptional quality and reliability. Could not be happier!,4
 651,SC-2024-341-651,LOT341,SmartCollar,EMEA,2024-12-13,"Meets basic needs, solid product overall.",3
 652,SC-2024-341-652,LOT341,SmartCollar,EMEA,2024-10-26,Perfect collar with amazing battery performance. Highly recommend!,5
-653,SC-2024-341-653,LOT341,SmartCollar,EMEA,2024-10-24,Fantastic device with consistent performance. Great value for money.,4
-654,SC-2024-341-654,LOT341,SmartCollar,EMEA,2024-12-02,Great device with excellent battery life. Very satisfied with performance.,5
+653,SC-2024-341-653,LOT341,SmartCollar,EMEA,2024-10-24,Fantastic device with consistent performance. Great value for money.,3
+654,SC-2024-341-654,LOT341,SmartCollar,EMEA,2024-12-02,Great device with excellent battery life. Very satisfied with performance.,3
 655,SC-2024-341-655,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,4
-656,SC-2024-341-656,LOT341,SmartCollar,EMEA,2024-11-23,Works as expected. Decent value for money.,3
+656,SC-2024-341-656,LOT341,SmartCollar,EMEA,2024-11-23,Works as expected. Decent value for money.,1
 657,SC-2024-341-657,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,5
 658,SC-2024-341-658,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,5
 659,SC-2024-341-659,LOT341,SmartCollar,EMEA,2024-11-09,Exceptional quality and reliability. Could not be happier!,5
-660,SC-2024-341-660,LOT341,SmartCollar,EMEA,2024-11-12,Great device with excellent battery life. Very satisfied with performance.,4
-661,SC-2024-341-661,LOT341,SmartCollar,EMEA,2024-11-27,Great device with excellent battery life. Very satisfied with performance.,4
+660,SC-2024-341-660,LOT341,SmartCollar,EMEA,2024-11-12,Great device with excellent battery life. Very satisfied with performance.,2
+661,SC-2024-341-661,LOT341,SmartCollar,EMEA,2024-11-27,Great device with excellent battery life. Very satisfied with performance.,2
 662,SC-2024-341-662,LOT341,SmartCollar,EMEA,2024-12-04,Works as expected. Decent value for money.,3
-663,SC-2024-341-663,LOT341,SmartCollar,EMEA,2024-10-23,Love this product! Battery lasts forever and GPS is accurate.,4
-664,SC-2024-341-664,LOT341,SmartCollar,EMEA,2024-11-24,Works as expected. Decent value for money.,3
-665,SC-2024-341-665,LOT341,SmartCollar,EMEA,2024-11-15,Fantastic device with consistent performance. Great value for money.,5
+663,SC-2024-341-663,LOT341,SmartCollar,EMEA,2024-10-23,Love this product! Battery lasts forever and GPS is accurate.,3
+664,SC-2024-341-664,LOT341,SmartCollar,EMEA,2024-11-24,Works as expected. Decent value for money.,1
+665,SC-2024-341-665,LOT341,SmartCollar,EMEA,2024-11-15,Fantastic device with consistent performance. Great value for money.,1
 666,SC-2024-341-666,LOT341,SmartCollar,EMEA,2024-12-14,Satisfactory performance overall. Does what it should.,3
 667,SC-2024-341-667,LOT341,SmartCollar,EMEA,2024-10-16,Works perfectly in all weather conditions. Highly recommend!,4
 668,SC-2024-341-668,LOT341,SmartCollar,EMEA,2024-11-05,Very impressed with the durability and battery life.,5
 669,SC-2024-341-669,LOT341,SmartCollar,EMEA,2024-12-13,Best pet collar we've owned. Build quality is outstanding.,4
 670,SC-2024-341-670,LOT341,SmartCollar,EMEA,2024-11-18,Very impressed with the durability and battery life.,4
-671,SC-2024-341-671,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,5
+671,SC-2024-341-671,LOT341,SmartCollar,EMEA,2024-11-11,Works perfectly in all weather conditions. Highly recommend!,1
 672,SC-2024-341-672,LOT341,SmartCollar,EMEA,2024-10-23,Great device with excellent battery life. Very satisfied with performance.,5
-673,SC-2024-341-673,LOT341,SmartCollar,EMEA,2024-12-04,Works as expected. Decent value for money.,2
+673,SC-2024-341-673,LOT341,SmartCollar,EMEA,2024-12-04,Works as expected. Decent value for money.,1
 674,SC-2024-341-674,LOT341,SmartCollar,EMEA,2024-12-01,"Meets basic needs, solid product overall.",3
-675,SC-2024-341-675,LOT341,SmartCollar,EMEA,2024-12-09,Best pet collar we've owned. Build quality is outstanding.,4
-676,SC-2024-341-676,LOT341,SmartCollar,EMEA,2024-11-25,Exceptional quality and reliability. Could not be happier!,4
+675,SC-2024-341-675,LOT341,SmartCollar,EMEA,2024-12-09,Best pet collar we've owned. Build quality is outstanding.,3
+676,SC-2024-341-676,LOT341,SmartCollar,EMEA,2024-11-25,Exceptional quality and reliability. Could not be happier!,3
 677,SC-2024-341-677,LOT341,SmartCollar,EMEA,2024-12-12,Very impressed with the durability and battery life.,4
 678,SC-2024-341-678,LOT341,SmartCollar,EMEA,2024-10-28,Satisfactory performance overall. Does what it should.,2
 679,SC-2024-341-679,LOT341,SmartCollar,EMEA,2024-11-29,Perfect collar with amazing battery performance. Highly recommend!,5
-680,SC-2024-341-680,LOT341,SmartCollar,EMEA,2024-11-13,Perfect collar with amazing battery performance. Highly recommend!,4
+680,SC-2024-341-680,LOT341,SmartCollar,EMEA,2024-11-13,Perfect collar with amazing battery performance. Highly recommend!,1
 681,SC-2024-341-681,LOT341,SmartCollar,EMEA,2024-12-07,Love this product! Battery lasts forever and GPS is accurate.,4
 682,SC-2024-341-682,LOT341,SmartCollar,EMEA,2024-10-21,Exceptional quality and reliability. Could not be happier!,4
-683,SC-2024-341-683,LOT341,SmartCollar,EMEA,2024-11-27,Perfect collar with amazing battery performance. Highly recommend!,4
+683,SC-2024-341-683,LOT341,SmartCollar,EMEA,2024-11-27,Perfect collar with amazing battery performance. Highly recommend!,3
 684,SC-2024-341-684,LOT341,SmartCollar,EMEA,2024-12-09,Works perfectly in all weather conditions. Highly recommend!,4
-685,SC-2024-341-685,LOT341,SmartCollar,EMEA,2024-12-04,Works perfectly in all weather conditions. Highly recommend!,4
+685,SC-2024-341-685,LOT341,SmartCollar,EMEA,2024-12-04,Works perfectly in all weather conditions. Highly recommend!,2
 686,SC-2024-341-686,LOT341,SmartCollar,EMEA,2024-12-02,Best pet collar we've owned. Build quality is outstanding.,5
 687,SC-2024-341-687,LOT341,SmartCollar,EMEA,2024-12-06,Perfect collar with amazing battery performance. Highly recommend!,5
 688,SC-2024-341-688,LOT341,SmartCollar,EMEA,2024-11-09,Works as expected. Decent value for money.,3
 689,SC-2024-341-689,LOT341,SmartCollar,EMEA,2024-10-25,"Meets basic needs, solid product overall.",2
-690,SC-2024-341-690,LOT341,SmartCollar,EMEA,2024-10-23,"Meets basic needs, solid product overall.",2
-691,SC-2024-341-691,LOT341,SmartCollar,EMEA,2024-11-08,Fantastic device with consistent performance. Great value for money.,5
-692,SC-2024-341-692,LOT341,SmartCollar,EMEA,2024-11-23,"Meets basic needs, solid product overall.",3
+690,SC-2024-341-690,LOT341,SmartCollar,EMEA,2024-10-23,"Meets basic needs, solid product overall.",3
+691,SC-2024-341-691,LOT341,SmartCollar,EMEA,2024-11-08,Fantastic device with consistent performance. Great value for money.,2
+692,SC-2024-341-692,LOT341,SmartCollar,EMEA,2024-11-23,"Meets basic needs, solid product overall.",2
 693,SC-2024-341-693,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,4
 694,SC-2024-341-694,LOT341,SmartCollar,EMEA,2024-11-08,"Meets basic needs, solid product overall.",2
 695,SC-2024-341-695,LOT341,SmartCollar,EMEA,2024-11-22,Works perfectly in all weather conditions. Highly recommend!,4
-696,SC-2024-341-696,LOT341,SmartCollar,EMEA,2024-10-27,Best pet collar we've owned. Build quality is outstanding.,4
+696,SC-2024-341-696,LOT341,SmartCollar,EMEA,2024-10-27,Best pet collar we've owned. Build quality is outstanding.,3
 697,SC-2024-341-697,LOT341,SmartCollar,EMEA,2024-10-26,Good basic functionality but always room for improvement.,2
 698,SC-2024-341-698,LOT341,SmartCollar,EMEA,2024-11-04,Good basic functionality but always room for improvement.,3
-699,SC-2024-341-699,LOT341,SmartCollar,EMEA,2024-12-06,Fantastic device with consistent performance. Great value for money.,4
+699,SC-2024-341-699,LOT341,SmartCollar,EMEA,2024-12-06,Fantastic device with consistent performance. Great value for money.,3
 700,SC-2024-341-700,LOT341,SmartCollar,EMEA,2024-11-13,Best pet collar we've owned. Build quality is outstanding.,5
-701,SC-2024-341-701,LOT341,SmartCollar,EMEA,2024-11-18,Fantastic device with consistent performance. Great value for money.,4
-702,SC-2024-341-702,LOT341,SmartCollar,EMEA,2024-11-12,Fantastic device with consistent performance. Great value for money.,4
-703,SC-2024-341-703,LOT341,SmartCollar,EMEA,2024-11-15,Best pet collar we've owned. Build quality is outstanding.,5
-704,SC-2024-341-704,LOT341,SmartCollar,EMEA,2024-11-20,Best pet collar we've owned. Build quality is outstanding.,4
+701,SC-2024-341-701,LOT341,SmartCollar,EMEA,2024-11-18,Fantastic device with consistent performance. Great value for money.,3
+702,SC-2024-341-702,LOT341,SmartCollar,EMEA,2024-11-12,Fantastic device with consistent performance. Great value for money.,2
+703,SC-2024-341-703,LOT341,SmartCollar,EMEA,2024-11-15,Best pet collar we've owned. Build quality is outstanding.,3
+704,SC-2024-341-704,LOT341,SmartCollar,EMEA,2024-11-20,Best pet collar we've owned. Build quality is outstanding.,3
 705,SC-2024-341-705,LOT341,SmartCollar,EMEA,2024-11-24,Love this product! Battery lasts forever and GPS is accurate.,4
 706,SC-2024-341-706,LOT341,SmartCollar,EMEA,2024-12-04,Exceptional quality and reliability. Could not be happier!,4
-707,SC-2024-341-707,LOT341,SmartCollar,EMEA,2024-11-22,Good basic functionality but always room for improvement.,2
-708,SC-2024-341-708,LOT341,SmartCollar,EMEA,2024-11-19,Great device with excellent battery life. Very satisfied with performance.,4
+707,SC-2024-341-707,LOT341,SmartCollar,EMEA,2024-11-22,Good basic functionality but always room for improvement.,1
+708,SC-2024-341-708,LOT341,SmartCollar,EMEA,2024-11-19,Great device with excellent battery life. Very satisfied with performance.,3
 709,SC-2024-341-709,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,5
-710,SC-2024-341-710,LOT341,SmartCollar,EMEA,2024-10-18,Fantastic device with consistent performance. Great value for money.,4
+710,SC-2024-341-710,LOT341,SmartCollar,EMEA,2024-10-18,Fantastic device with consistent performance. Great value for money.,3
 711,SC-2024-341-711,LOT341,SmartCollar,EMEA,2024-11-26,"Meets basic needs, solid product overall.",3
-712,SC-2024-341-712,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,4
+712,SC-2024-341-712,LOT341,SmartCollar,EMEA,2024-11-25,Love this product! Battery lasts forever and GPS is accurate.,2
 713,SC-2024-341-713,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,4
 714,SC-2024-341-714,LOT341,SmartCollar,EMEA,2024-11-27,Works as expected. Decent value for money.,2
 715,SC-2024-341-715,LOT341,SmartCollar,EMEA,2024-11-28,Love this product! Battery lasts forever and GPS is accurate.,4
 716,SC-2024-341-716,LOT341,SmartCollar,EMEA,2024-12-14,Works as expected. Decent value for money.,3
-717,SC-2024-341-717,LOT341,SmartCollar,EMEA,2024-11-03,Good basic functionality but always room for improvement.,1
-718,SC-2024-341-718,LOT341,SmartCollar,EMEA,2024-11-13,Love this product! Battery lasts forever and GPS is accurate.,4
+717,SC-2024-341-717,LOT341,SmartCollar,EMEA,2024-11-03,Good basic functionality but always room for improvement.,2
+718,SC-2024-341-718,LOT341,SmartCollar,EMEA,2024-11-13,Love this product! Battery lasts forever and GPS is accurate.,3
 719,SC-2024-341-719,LOT341,SmartCollar,EMEA,2024-11-19,Perfect collar with amazing battery performance. Highly recommend!,5
 720,SC-2024-341-720,LOT341,SmartCollar,EMEA,2024-12-01,Great device with excellent battery life. Very satisfied with performance.,5
 721,SC-2024-341-721,LOT341,SmartCollar,EMEA,2024-10-17,Satisfactory performance overall. Does what it should.,2
 722,SC-2024-341-722,LOT341,SmartCollar,EMEA,2024-11-12,Best pet collar we've owned. Build quality is outstanding.,5
 723,SC-2024-341-723,LOT341,SmartCollar,EMEA,2024-11-21,Best pet collar we've owned. Build quality is outstanding.,5
 724,SC-2024-341-724,LOT341,SmartCollar,EMEA,2024-11-22,Works perfectly in all weather conditions. Highly recommend!,4
-725,SC-2024-341-725,LOT341,SmartCollar,EMEA,2024-11-30,Very impressed with the durability and battery life.,4
-726,SC-2024-341-726,LOT341,SmartCollar,EMEA,2024-10-22,"Meets basic needs, solid product overall.",3
+725,SC-2024-341-725,LOT341,SmartCollar,EMEA,2024-11-30,Very impressed with the durability and battery life.,3
+726,SC-2024-341-726,LOT341,SmartCollar,EMEA,2024-10-22,"Meets basic needs, solid product overall.",1
 727,SC-2024-341-727,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,5
 728,SC-2024-341-728,LOT341,SmartCollar,EMEA,2024-12-13,Very impressed with the durability and battery life.,5
 729,SC-2024-341-729,LOT341,SmartCollar,EMEA,2024-12-10,Works as expected. Decent value for money.,2
-730,SC-2024-341-730,LOT341,SmartCollar,EMEA,2024-11-04,Good basic functionality but always room for improvement.,3
-731,SC-2024-341-731,LOT341,SmartCollar,EMEA,2024-11-28,Great device with excellent battery life. Very satisfied with performance.,4
+730,SC-2024-341-730,LOT341,SmartCollar,EMEA,2024-11-04,Good basic functionality but always room for improvement.,2
+731,SC-2024-341-731,LOT341,SmartCollar,EMEA,2024-11-28,Great device with excellent battery life. Very satisfied with performance.,1
 732,SC-2024-341-732,LOT341,SmartCollar,EMEA,2024-11-09,Great device with excellent battery life. Very satisfied with performance.,5
-733,SC-2024-341-733,LOT341,SmartCollar,EMEA,2024-11-04,Good basic functionality but always room for improvement.,3
+733,SC-2024-341-733,LOT341,SmartCollar,EMEA,2024-11-04,Good basic functionality but always room for improvement.,2
 734,SC-2024-341-734,LOT341,SmartCollar,EMEA,2024-12-05,Perfect collar with amazing battery performance. Highly recommend!,4
 735,SC-2024-341-735,LOT341,SmartCollar,EMEA,2024-11-25,Fantastic device with consistent performance. Great value for money.,5
 736,SC-2024-341-736,LOT341,SmartCollar,EMEA,2024-11-06,Great device with excellent battery life. Very satisfied with performance.,4
-737,SC-2024-341-737,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,5
+737,SC-2024-341-737,LOT341,SmartCollar,EMEA,2024-11-11,Perfect collar with amazing battery performance. Highly recommend!,1
 738,SC-2024-341-738,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,5
 739,SC-2024-341-739,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,4
-740,SC-2024-341-740,LOT341,SmartCollar,EMEA,2024-11-08,Exceptional quality and reliability. Could not be happier!,5
+740,SC-2024-341-740,LOT341,SmartCollar,EMEA,2024-11-08,Exceptional quality and reliability. Could not be happier!,3
 741,SC-2024-341-741,LOT341,SmartCollar,EMEA,2024-11-27,Best pet collar we've owned. Build quality is outstanding.,5
-742,SC-2024-341-742,LOT341,SmartCollar,EMEA,2024-11-17,Fantastic device with consistent performance. Great value for money.,4
+742,SC-2024-341-742,LOT341,SmartCollar,EMEA,2024-11-17,Fantastic device with consistent performance. Great value for money.,2
 743,SC-2024-341-743,LOT341,SmartCollar,EMEA,2024-10-21,Good basic functionality but always room for improvement.,3
-744,SC-2024-341-744,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,4
+744,SC-2024-341-744,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,3
 745,SC-2024-341-745,LOT341,SmartCollar,EMEA,2024-11-18,Very impressed with the durability and battery life.,5
 746,SC-2024-341-746,LOT341,SmartCollar,EMEA,2024-12-14,Good basic functionality but always room for improvement.,3
-747,SC-2024-341-747,LOT341,SmartCollar,EMEA,2024-11-10,Very impressed with the durability and battery life.,5
+747,SC-2024-341-747,LOT341,SmartCollar,EMEA,2024-11-10,Very impressed with the durability and battery life.,2
 748,SC-2024-341-748,LOT341,SmartCollar,EMEA,2024-10-17,Best pet collar we've owned. Build quality is outstanding.,5
 749,SC-2024-341-749,LOT341,SmartCollar,EMEA,2024-10-23,Love this product! Battery lasts forever and GPS is accurate.,4
 750,SC-2024-341-750,LOT341,SmartCollar,EMEA,2024-10-16,Love this product! Battery lasts forever and GPS is accurate.,5
-751,SC-2024-341-751,LOT341,SmartCollar,EMEA,2024-10-26,Works perfectly in all weather conditions. Highly recommend!,4
+751,SC-2024-341-751,LOT341,SmartCollar,EMEA,2024-10-26,Works perfectly in all weather conditions. Highly recommend!,2
 752,SC-2024-341-752,LOT341,SmartCollar,EMEA,2024-11-06,Perfect collar with amazing battery performance. Highly recommend!,4
 753,SC-2024-341-753,LOT341,SmartCollar,EMEA,2024-10-21,Very impressed with the durability and battery life.,4
-754,SC-2024-341-754,LOT341,SmartCollar,EMEA,2024-12-04,Perfect collar with amazing battery performance. Highly recommend!,5
+754,SC-2024-341-754,LOT341,SmartCollar,EMEA,2024-12-04,Perfect collar with amazing battery performance. Highly recommend!,2
 755,SC-2024-341-755,LOT341,SmartCollar,EMEA,2024-10-31,Love this product! Battery lasts forever and GPS is accurate.,4
 756,SC-2024-341-756,LOT341,SmartCollar,EMEA,2024-10-16,Good basic functionality but always room for improvement.,1
-757,SC-2024-341-757,LOT341,SmartCollar,EMEA,2024-11-03,Very impressed with the durability and battery life.,4
+757,SC-2024-341-757,LOT341,SmartCollar,EMEA,2024-11-03,Very impressed with the durability and battery life.,3
 758,SC-2024-341-758,LOT341,SmartCollar,EMEA,2024-11-25,Perfect collar with amazing battery performance. Highly recommend!,5
-759,SC-2024-341-759,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,4
-760,SC-2024-341-760,LOT341,SmartCollar,EMEA,2024-11-01,Fantastic device with consistent performance. Great value for money.,5
-761,SC-2024-341-761,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,4
-762,SC-2024-341-762,LOT341,SmartCollar,EMEA,2024-10-16,Good basic functionality but always room for improvement.,3
-763,SC-2024-341-763,LOT341,SmartCollar,EMEA,2024-11-27,Love this product! Battery lasts forever and GPS is accurate.,4
+759,SC-2024-341-759,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,2
+760,SC-2024-341-760,LOT341,SmartCollar,EMEA,2024-11-01,Fantastic device with consistent performance. Great value for money.,3
+761,SC-2024-341-761,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,2
+762,SC-2024-341-762,LOT341,SmartCollar,EMEA,2024-10-16,Good basic functionality but always room for improvement.,2
+763,SC-2024-341-763,LOT341,SmartCollar,EMEA,2024-11-27,Love this product! Battery lasts forever and GPS is accurate.,2
 764,SC-2024-341-764,LOT341,SmartCollar,EMEA,2024-11-20,Satisfactory performance overall. Does what it should.,3
-765,SC-2024-341-765,LOT341,SmartCollar,EMEA,2024-11-01,Great device with excellent battery life. Very satisfied with performance.,4
-766,SC-2024-341-766,LOT341,SmartCollar,EMEA,2024-11-14,Love this product! Battery lasts forever and GPS is accurate.,5
-767,SC-2024-341-767,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,5
+765,SC-2024-341-765,LOT341,SmartCollar,EMEA,2024-11-01,Great device with excellent battery life. Very satisfied with performance.,3
+766,SC-2024-341-766,LOT341,SmartCollar,EMEA,2024-11-14,Love this product! Battery lasts forever and GPS is accurate.,3
+767,SC-2024-341-767,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,2
 768,SC-2024-341-768,LOT341,SmartCollar,EMEA,2024-10-24,Exceptional quality and reliability. Could not be happier!,4
 769,SC-2024-341-769,LOT341,SmartCollar,EMEA,2024-11-10,Best pet collar we've owned. Build quality is outstanding.,5
 770,SC-2024-341-770,LOT341,SmartCollar,EMEA,2024-11-20,"Meets basic needs, solid product overall.",3
 771,SC-2024-341-771,LOT341,SmartCollar,EMEA,2024-10-28,Very impressed with the durability and battery life.,5
 772,SC-2024-341-772,LOT341,SmartCollar,EMEA,2024-10-30,Very impressed with the durability and battery life.,5
 773,SC-2024-341-773,LOT341,SmartCollar,EMEA,2024-12-10,Exceptional quality and reliability. Could not be happier!,4
-774,SC-2024-341-774,LOT341,SmartCollar,EMEA,2024-11-14,Great device with excellent battery life. Very satisfied with performance.,4
+774,SC-2024-341-774,LOT341,SmartCollar,EMEA,2024-11-14,Great device with excellent battery life. Very satisfied with performance.,3
 775,SC-2024-341-775,LOT341,SmartCollar,EMEA,2024-12-04,Love this product! Battery lasts forever and GPS is accurate.,5
-776,SC-2024-341-776,LOT341,SmartCollar,EMEA,2024-11-14,Best pet collar we've owned. Build quality is outstanding.,4
+776,SC-2024-341-776,LOT341,SmartCollar,EMEA,2024-11-14,Best pet collar we've owned. Build quality is outstanding.,1
 777,SC-2024-341-777,LOT341,SmartCollar,EMEA,2024-12-13,Fantastic device with consistent performance. Great value for money.,5
-778,SC-2024-341-778,LOT341,SmartCollar,EMEA,2024-11-24,Great device with excellent battery life. Very satisfied with performance.,4
-779,SC-2024-341-779,LOT341,SmartCollar,EMEA,2024-10-31,Very impressed with the durability and battery life.,5
+778,SC-2024-341-778,LOT341,SmartCollar,EMEA,2024-11-24,Great device with excellent battery life. Very satisfied with performance.,3
+779,SC-2024-341-779,LOT341,SmartCollar,EMEA,2024-10-31,Very impressed with the durability and battery life.,1
 780,SC-2024-341-780,LOT341,SmartCollar,EMEA,2024-11-12,Exceptional quality and reliability. Could not be happier!,4
 781,SC-2024-341-781,LOT341,SmartCollar,EMEA,2024-11-15,Perfect collar with amazing battery performance. Highly recommend!,5
 782,SC-2024-341-782,LOT341,SmartCollar,EMEA,2024-11-07,Works as expected. Decent value for money.,3
-783,SC-2024-341-783,LOT341,SmartCollar,EMEA,2024-11-08,Works perfectly in all weather conditions. Highly recommend!,5
+783,SC-2024-341-783,LOT341,SmartCollar,EMEA,2024-11-08,Works perfectly in all weather conditions. Highly recommend!,3
 784,SC-2024-341-784,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,4
 785,SC-2024-341-785,LOT341,SmartCollar,EMEA,2024-11-03,Exceptional quality and reliability. Could not be happier!,5
-786,SC-2024-341-786,LOT341,SmartCollar,EMEA,2024-11-09,Works as expected. Decent value for money.,3
-787,SC-2024-341-787,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,4
+786,SC-2024-341-786,LOT341,SmartCollar,EMEA,2024-11-09,Works as expected. Decent value for money.,1
+787,SC-2024-341-787,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,3
 788,SC-2024-341-788,LOT341,SmartCollar,EMEA,2024-12-05,Very impressed with the durability and battery life.,5
-789,SC-2024-341-789,LOT341,SmartCollar,EMEA,2024-10-24,Best pet collar we've owned. Build quality is outstanding.,4
-790,SC-2024-341-790,LOT341,SmartCollar,EMEA,2024-12-04,Perfect collar with amazing battery performance. Highly recommend!,5
-791,SC-2024-341-791,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,5
-792,SC-2024-341-792,LOT341,SmartCollar,EMEA,2024-10-28,Good basic functionality but always room for improvement.,3
+789,SC-2024-341-789,LOT341,SmartCollar,EMEA,2024-10-24,Best pet collar we've owned. Build quality is outstanding.,1
+790,SC-2024-341-790,LOT341,SmartCollar,EMEA,2024-12-04,Perfect collar with amazing battery performance. Highly recommend!,1
+791,SC-2024-341-791,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,1
+792,SC-2024-341-792,LOT341,SmartCollar,EMEA,2024-10-28,Good basic functionality but always room for improvement.,1
 793,SC-2024-341-793,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
 794,SC-2024-341-794,LOT341,SmartCollar,EMEA,2024-10-24,Very impressed with the durability and battery life.,5
 795,SC-2024-341-795,LOT341,SmartCollar,EMEA,2024-11-14,Works as expected. Decent value for money.,3
 796,SC-2024-341-796,LOT341,SmartCollar,EMEA,2024-11-10,Perfect collar with amazing battery performance. Highly recommend!,5
 797,SC-2024-341-797,LOT341,SmartCollar,EMEA,2024-11-04,Works as expected. Decent value for money.,3
-798,SC-2024-341-798,LOT341,SmartCollar,EMEA,2024-10-22,Exceptional quality and reliability. Could not be happier!,5
+798,SC-2024-341-798,LOT341,SmartCollar,EMEA,2024-10-22,Exceptional quality and reliability. Could not be happier!,2
 799,SC-2024-341-799,LOT341,SmartCollar,EMEA,2024-11-29,Perfect collar with amazing battery performance. Highly recommend!,5
-800,SC-2024-341-800,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,5
+800,SC-2024-341-800,LOT341,SmartCollar,EMEA,2024-10-17,Exceptional quality and reliability. Could not be happier!,3
 801,SC-2024-341-801,LOT341,SmartCollar,EMEA,2024-10-21,Good basic functionality but always room for improvement.,3
 802,SC-2024-341-802,LOT341,SmartCollar,EMEA,2024-11-18,Best pet collar we've owned. Build quality is outstanding.,4
-803,SC-2024-341-803,LOT341,SmartCollar,EMEA,2024-12-08,Works perfectly in all weather conditions. Highly recommend!,4
-804,SC-2024-341-804,LOT341,SmartCollar,EMEA,2024-12-01,Great device with excellent battery life. Very satisfied with performance.,5
+803,SC-2024-341-803,LOT341,SmartCollar,EMEA,2024-12-08,Works perfectly in all weather conditions. Highly recommend!,3
+804,SC-2024-341-804,LOT341,SmartCollar,EMEA,2024-12-01,Great device with excellent battery life. Very satisfied with performance.,1
 805,SC-2024-341-805,LOT341,SmartCollar,EMEA,2024-10-31,Works as expected. Decent value for money.,3
 806,SC-2024-341-806,LOT341,SmartCollar,EMEA,2024-10-23,Works perfectly in all weather conditions. Highly recommend!,4
 807,SC-2024-341-807,LOT341,SmartCollar,EMEA,2024-12-01,Works as expected. Decent value for money.,3
-808,SC-2024-341-808,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,4
+808,SC-2024-341-808,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,1
 809,SC-2024-341-809,LOT341,SmartCollar,EMEA,2024-10-21,Good basic functionality but always room for improvement.,3
-810,SC-2024-341-810,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,5
-811,SC-2024-341-811,LOT341,SmartCollar,EMEA,2024-11-13,Exceptional quality and reliability. Could not be happier!,5
+810,SC-2024-341-810,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,2
+811,SC-2024-341-811,LOT341,SmartCollar,EMEA,2024-11-13,Exceptional quality and reliability. Could not be happier!,3
 812,SC-2024-341-812,LOT341,SmartCollar,EMEA,2024-11-03,Works perfectly in all weather conditions. Highly recommend!,4
 813,SC-2024-341-813,LOT341,SmartCollar,EMEA,2024-11-30,Perfect collar with amazing battery performance. Highly recommend!,5
-814,SC-2024-341-814,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,5
-815,SC-2024-341-815,LOT341,SmartCollar,EMEA,2024-11-04,Exceptional quality and reliability. Could not be happier!,5
-816,SC-2024-341-816,LOT341,SmartCollar,EMEA,2024-10-20,Perfect collar with amazing battery performance. Highly recommend!,4
-817,SC-2024-341-817,LOT341,SmartCollar,EMEA,2024-12-11,Works perfectly in all weather conditions. Highly recommend!,4
+814,SC-2024-341-814,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,2
+815,SC-2024-341-815,LOT341,SmartCollar,EMEA,2024-11-04,Exceptional quality and reliability. Could not be happier!,3
+816,SC-2024-341-816,LOT341,SmartCollar,EMEA,2024-10-20,Perfect collar with amazing battery performance. Highly recommend!,3
+817,SC-2024-341-817,LOT341,SmartCollar,EMEA,2024-12-11,Works perfectly in all weather conditions. Highly recommend!,2
 818,SC-2024-341-818,LOT341,SmartCollar,EMEA,2024-12-08,Very impressed with the durability and battery life.,5
 819,SC-2024-341-819,LOT341,SmartCollar,EMEA,2024-10-18,"Meets basic needs, solid product overall.",3
-820,SC-2024-341-820,LOT341,SmartCollar,EMEA,2024-11-06,Great device with excellent battery life. Very satisfied with performance.,4
-821,SC-2024-341-821,LOT341,SmartCollar,EMEA,2024-12-11,Satisfactory performance overall. Does what it should.,3
+820,SC-2024-341-820,LOT341,SmartCollar,EMEA,2024-11-06,Great device with excellent battery life. Very satisfied with performance.,1
+821,SC-2024-341-821,LOT341,SmartCollar,EMEA,2024-12-11,Satisfactory performance overall. Does what it should.,2
 822,SC-2024-341-822,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,4
 823,SC-2024-341-823,LOT341,SmartCollar,EMEA,2024-10-29,Exceptional quality and reliability. Could not be happier!,4
 824,SC-2024-341-824,LOT341,SmartCollar,EMEA,2024-11-10,Love this product! Battery lasts forever and GPS is accurate.,5
-825,SC-2024-341-825,LOT341,SmartCollar,EMEA,2024-12-07,Exceptional quality and reliability. Could not be happier!,4
+825,SC-2024-341-825,LOT341,SmartCollar,EMEA,2024-12-07,Exceptional quality and reliability. Could not be happier!,3
 826,SC-2024-341-826,LOT341,SmartCollar,EMEA,2024-11-08,Fantastic device with consistent performance. Great value for money.,5
-827,SC-2024-341-827,LOT341,SmartCollar,EMEA,2024-11-30,Perfect collar with amazing battery performance. Highly recommend!,5
+827,SC-2024-341-827,LOT341,SmartCollar,EMEA,2024-11-30,Perfect collar with amazing battery performance. Highly recommend!,3
 828,SC-2024-341-828,LOT341,SmartCollar,EMEA,2024-11-05,Works as expected. Decent value for money.,1
 829,SC-2024-341-829,LOT341,SmartCollar,EMEA,2024-11-28,Best pet collar we've owned. Build quality is outstanding.,5
-830,SC-2024-341-830,LOT341,SmartCollar,EMEA,2024-10-29,Exceptional quality and reliability. Could not be happier!,4
-831,SC-2024-341-831,LOT341,SmartCollar,EMEA,2024-11-15,Fantastic device with consistent performance. Great value for money.,4
+830,SC-2024-341-830,LOT341,SmartCollar,EMEA,2024-10-29,Exceptional quality and reliability. Could not be happier!,2
+831,SC-2024-341-831,LOT341,SmartCollar,EMEA,2024-11-15,Fantastic device with consistent performance. Great value for money.,3
 832,SC-2024-341-832,LOT341,SmartCollar,EMEA,2024-11-21,Best pet collar we've owned. Build quality is outstanding.,4
 833,SC-2024-341-833,LOT341,SmartCollar,EMEA,2024-10-18,Satisfactory performance overall. Does what it should.,3
 834,SC-2024-341-834,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,4
 835,SC-2024-341-835,LOT341,SmartCollar,EMEA,2024-11-18,Good basic functionality but always room for improvement.,3
 836,SC-2024-341-836,LOT341,SmartCollar,EMEA,2024-11-25,Exceptional quality and reliability. Could not be happier!,4
-837,SC-2024-341-837,LOT341,SmartCollar,EMEA,2024-11-18,"Meets basic needs, solid product overall.",3
+837,SC-2024-341-837,LOT341,SmartCollar,EMEA,2024-11-18,"Meets basic needs, solid product overall.",2
 838,SC-2024-341-838,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,4
 839,SC-2024-341-839,LOT341,SmartCollar,EMEA,2024-10-18,Love this product! Battery lasts forever and GPS is accurate.,4
 840,SC-2024-341-840,LOT341,SmartCollar,EMEA,2024-11-28,Exceptional quality and reliability. Could not be happier!,4
 841,SC-2024-341-841,LOT341,SmartCollar,EMEA,2024-12-08,Best pet collar we've owned. Build quality is outstanding.,4
 842,SC-2024-341-842,LOT341,SmartCollar,EMEA,2024-11-19,Love this product! Battery lasts forever and GPS is accurate.,4
 843,SC-2024-341-843,LOT341,SmartCollar,EMEA,2024-11-24,Works perfectly in all weather conditions. Highly recommend!,4
-844,SC-2024-341-844,LOT341,SmartCollar,EMEA,2024-11-03,Love this product! Battery lasts forever and GPS is accurate.,5
-845,SC-2024-341-845,LOT341,SmartCollar,EMEA,2024-11-25,Best pet collar we've owned. Build quality is outstanding.,4
-846,SC-2024-341-846,LOT341,SmartCollar,EMEA,2024-10-23,Perfect collar with amazing battery performance. Highly recommend!,5
+844,SC-2024-341-844,LOT341,SmartCollar,EMEA,2024-11-03,Love this product! Battery lasts forever and GPS is accurate.,1
+845,SC-2024-341-845,LOT341,SmartCollar,EMEA,2024-11-25,Best pet collar we've owned. Build quality is outstanding.,1
+846,SC-2024-341-846,LOT341,SmartCollar,EMEA,2024-10-23,Perfect collar with amazing battery performance. Highly recommend!,1
 847,SC-2024-341-847,LOT341,SmartCollar,EMEA,2024-12-13,Very impressed with the durability and battery life.,4
 848,SC-2024-341-848,LOT341,SmartCollar,EMEA,2024-11-29,Exceptional quality and reliability. Could not be happier!,5
 849,SC-2024-341-849,LOT341,SmartCollar,EMEA,2024-11-19,Best pet collar we've owned. Build quality is outstanding.,5
-850,SC-2024-341-850,LOT341,SmartCollar,EMEA,2024-10-19,Great device with excellent battery life. Very satisfied with performance.,4
+850,SC-2024-341-850,LOT341,SmartCollar,EMEA,2024-10-19,Great device with excellent battery life. Very satisfied with performance.,3
 851,SC-2024-341-851,LOT341,SmartCollar,EMEA,2024-12-11,Perfect collar with amazing battery performance. Highly recommend!,5
 852,SC-2024-341-852,LOT341,SmartCollar,EMEA,2024-11-27,Satisfactory performance overall. Does what it should.,3
-853,SC-2024-341-853,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,4
-854,SC-2024-341-854,LOT341,SmartCollar,EMEA,2024-11-28,Very impressed with the durability and battery life.,4
+853,SC-2024-341-853,LOT341,SmartCollar,EMEA,2024-11-23,Perfect collar with amazing battery performance. Highly recommend!,3
+854,SC-2024-341-854,LOT341,SmartCollar,EMEA,2024-11-28,Very impressed with the durability and battery life.,2
 855,SC-2024-341-855,LOT341,SmartCollar,EMEA,2024-12-03,Very impressed with the durability and battery life.,4
 856,SC-2024-341-856,LOT341,SmartCollar,EMEA,2024-11-17,Best pet collar we've owned. Build quality is outstanding.,5
-857,SC-2024-341-857,LOT341,SmartCollar,EMEA,2024-12-08,Satisfactory performance overall. Does what it should.,3
+857,SC-2024-341-857,LOT341,SmartCollar,EMEA,2024-12-08,Satisfactory performance overall. Does what it should.,1
 858,SC-2024-341-858,LOT341,SmartCollar,EMEA,2024-10-23,"Meets basic needs, solid product overall.",3
 859,SC-2024-341-859,LOT341,SmartCollar,EMEA,2024-11-05,Satisfactory performance overall. Does what it should.,2
-860,SC-2024-341-860,LOT341,SmartCollar,EMEA,2024-12-09,Good basic functionality but always room for improvement.,2
+860,SC-2024-341-860,LOT341,SmartCollar,EMEA,2024-12-09,Good basic functionality but always room for improvement.,3
 861,SC-2024-341-861,LOT341,SmartCollar,EMEA,2024-12-11,Love this product! Battery lasts forever and GPS is accurate.,5
 862,SC-2024-341-862,LOT341,SmartCollar,EMEA,2024-12-02,Exceptional quality and reliability. Could not be happier!,5
 863,SC-2024-341-863,LOT341,SmartCollar,EMEA,2024-10-15,Fantastic device with consistent performance. Great value for money.,5
 864,SC-2024-341-864,LOT341,SmartCollar,EMEA,2024-11-19,Perfect collar with amazing battery performance. Highly recommend!,5
 865,SC-2024-341-865,LOT341,SmartCollar,EMEA,2024-11-04,Love this product! Battery lasts forever and GPS is accurate.,4
-866,SC-2024-341-866,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,5
+866,SC-2024-341-866,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,2
 867,SC-2024-341-867,LOT341,SmartCollar,EMEA,2024-11-18,Perfect collar with amazing battery performance. Highly recommend!,4
-868,SC-2024-341-868,LOT341,SmartCollar,EMEA,2024-10-15,Very impressed with the durability and battery life.,4
-869,SC-2024-341-869,LOT341,SmartCollar,EMEA,2024-11-17,Best pet collar we've owned. Build quality is outstanding.,4
-870,SC-2024-341-870,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,4
+868,SC-2024-341-868,LOT341,SmartCollar,EMEA,2024-10-15,Very impressed with the durability and battery life.,3
+869,SC-2024-341-869,LOT341,SmartCollar,EMEA,2024-11-17,Best pet collar we've owned. Build quality is outstanding.,3
+870,SC-2024-341-870,LOT341,SmartCollar,EMEA,2024-10-24,Works perfectly in all weather conditions. Highly recommend!,3
 871,SC-2024-341-871,LOT341,SmartCollar,EMEA,2024-11-29,Works perfectly in all weather conditions. Highly recommend!,4
-872,SC-2024-341-872,LOT341,SmartCollar,EMEA,2024-10-29,Love this product! Battery lasts forever and GPS is accurate.,4
+872,SC-2024-341-872,LOT341,SmartCollar,EMEA,2024-10-29,Love this product! Battery lasts forever and GPS is accurate.,2
 873,SC-2024-341-873,LOT341,SmartCollar,EMEA,2024-12-07,"Meets basic needs, solid product overall.",3
-874,SC-2024-341-874,LOT341,SmartCollar,EMEA,2024-11-27,Very impressed with the durability and battery life.,4
+874,SC-2024-341-874,LOT341,SmartCollar,EMEA,2024-11-27,Very impressed with the durability and battery life.,2
 875,SC-2024-341-875,LOT341,SmartCollar,EMEA,2024-12-07,Best pet collar we've owned. Build quality is outstanding.,4
 876,SC-2024-341-876,LOT341,SmartCollar,EMEA,2024-12-06,Great device with excellent battery life. Very satisfied with performance.,4
 877,SC-2024-341-877,LOT341,SmartCollar,EMEA,2024-11-26,Works as expected. Decent value for money.,3
-878,SC-2024-341-878,LOT341,SmartCollar,EMEA,2024-12-11,Love this product! Battery lasts forever and GPS is accurate.,4
-879,SC-2024-341-879,LOT341,SmartCollar,EMEA,2024-10-18,Exceptional quality and reliability. Could not be happier!,4
-880,SC-2024-341-880,LOT341,SmartCollar,EMEA,2024-10-18,Good basic functionality but always room for improvement.,3
+878,SC-2024-341-878,LOT341,SmartCollar,EMEA,2024-12-11,Love this product! Battery lasts forever and GPS is accurate.,2
+879,SC-2024-341-879,LOT341,SmartCollar,EMEA,2024-10-18,Exceptional quality and reliability. Could not be happier!,3
+880,SC-2024-341-880,LOT341,SmartCollar,EMEA,2024-10-18,Good basic functionality but always room for improvement.,2
 881,SC-2024-341-881,LOT341,SmartCollar,EMEA,2024-10-30,Good basic functionality but always room for improvement.,3
 882,SC-2024-341-882,LOT341,SmartCollar,EMEA,2024-10-16,Works perfectly in all weather conditions. Highly recommend!,4
-883,SC-2024-341-883,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,4
+883,SC-2024-341-883,LOT341,SmartCollar,EMEA,2024-11-01,Very impressed with the durability and battery life.,2
 884,SC-2024-341-884,LOT341,SmartCollar,EMEA,2024-11-11,"Meets basic needs, solid product overall.",3
 885,SC-2024-341-885,LOT341,SmartCollar,EMEA,2024-10-15,Great device with excellent battery life. Very satisfied with performance.,4
 886,SC-2024-341-886,LOT341,SmartCollar,EMEA,2024-10-18,Good basic functionality but always room for improvement.,3
-887,SC-2024-341-887,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,5
+887,SC-2024-341-887,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,2
 888,SC-2024-341-888,LOT341,SmartCollar,EMEA,2024-11-22,Perfect collar with amazing battery performance. Highly recommend!,5
 889,SC-2024-341-889,LOT341,SmartCollar,EMEA,2024-12-05,Fantastic device with consistent performance. Great value for money.,4
 890,SC-2024-341-890,LOT341,SmartCollar,EMEA,2024-12-02,Fantastic device with consistent performance. Great value for money.,4
 891,SC-2024-341-891,LOT341,SmartCollar,EMEA,2024-12-14,Best pet collar we've owned. Build quality is outstanding.,4
-892,SC-2024-341-892,LOT341,SmartCollar,EMEA,2024-11-09,Perfect collar with amazing battery performance. Highly recommend!,4
+892,SC-2024-341-892,LOT341,SmartCollar,EMEA,2024-11-09,Perfect collar with amazing battery performance. Highly recommend!,1
 893,SC-2024-341-893,LOT341,SmartCollar,EMEA,2024-11-02,Satisfactory performance overall. Does what it should.,1
-894,SC-2024-341-894,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,5
+894,SC-2024-341-894,LOT341,SmartCollar,EMEA,2024-10-30,Best pet collar we've owned. Build quality is outstanding.,1
 895,SC-2024-341-895,LOT341,SmartCollar,EMEA,2024-10-29,Satisfactory performance overall. Does what it should.,3
-896,SC-2024-341-896,LOT341,SmartCollar,EMEA,2024-12-09,Best pet collar we've owned. Build quality is outstanding.,4
+896,SC-2024-341-896,LOT341,SmartCollar,EMEA,2024-12-09,Best pet collar we've owned. Build quality is outstanding.,3
 897,SC-2024-341-897,LOT341,SmartCollar,EMEA,2024-11-29,Love this product! Battery lasts forever and GPS is accurate.,5
 898,SC-2024-341-898,LOT341,SmartCollar,EMEA,2024-12-04,Fantastic device with consistent performance. Great value for money.,4
-899,SC-2024-341-899,LOT341,SmartCollar,EMEA,2024-12-11,Best pet collar we've owned. Build quality is outstanding.,4
+899,SC-2024-341-899,LOT341,SmartCollar,EMEA,2024-12-11,Best pet collar we've owned. Build quality is outstanding.,3
 900,SC-2024-341-900,LOT341,SmartCollar,EMEA,2024-11-16,Very impressed with the durability and battery life.,5
 901,SC-2024-341-901,LOT341,SmartCollar,EMEA,2024-10-15,Fantastic device with consistent performance. Great value for money.,5
 902,SC-2024-341-902,LOT341,SmartCollar,EMEA,2024-11-21,Perfect collar with amazing battery performance. Highly recommend!,4
-903,SC-2024-341-903,LOT341,SmartCollar,EMEA,2024-11-20,Satisfactory performance overall. Does what it should.,3
+903,SC-2024-341-903,LOT341,SmartCollar,EMEA,2024-11-20,Satisfactory performance overall. Does what it should.,1
 904,SC-2024-341-904,LOT341,SmartCollar,EMEA,2024-11-15,Works perfectly in all weather conditions. Highly recommend!,5
 905,SC-2024-341-905,LOT341,SmartCollar,EMEA,2024-10-20,Perfect collar with amazing battery performance. Highly recommend!,4
 906,SC-2024-341-906,LOT341,SmartCollar,EMEA,2024-10-29,Satisfactory performance overall. Does what it should.,3
-907,SC-2024-341-907,LOT341,SmartCollar,EMEA,2024-11-27,Love this product! Battery lasts forever and GPS is accurate.,5
-908,SC-2024-341-908,LOT341,SmartCollar,EMEA,2024-12-01,Exceptional quality and reliability. Could not be happier!,5
+907,SC-2024-341-907,LOT341,SmartCollar,EMEA,2024-11-27,Love this product! Battery lasts forever and GPS is accurate.,3
+908,SC-2024-341-908,LOT341,SmartCollar,EMEA,2024-12-01,Exceptional quality and reliability. Could not be happier!,3
 909,SC-2024-341-909,LOT341,SmartCollar,EMEA,2024-10-23,Love this product! Battery lasts forever and GPS is accurate.,5
-910,SC-2024-341-910,LOT341,SmartCollar,EMEA,2024-10-25,Love this product! Battery lasts forever and GPS is accurate.,5
+910,SC-2024-341-910,LOT341,SmartCollar,EMEA,2024-10-25,Love this product! Battery lasts forever and GPS is accurate.,1
 911,SC-2024-341-911,LOT341,SmartCollar,EMEA,2024-10-27,Love this product! Battery lasts forever and GPS is accurate.,4
 912,SC-2024-341-912,LOT341,SmartCollar,EMEA,2024-10-17,Perfect collar with amazing battery performance. Highly recommend!,4
 913,SC-2024-341-913,LOT341,SmartCollar,EMEA,2024-10-26,Works perfectly in all weather conditions. Highly recommend!,4
 914,SC-2024-341-914,LOT341,SmartCollar,EMEA,2024-11-22,Fantastic device with consistent performance. Great value for money.,4
-915,SC-2024-341-915,LOT341,SmartCollar,EMEA,2024-12-04,Works perfectly in all weather conditions. Highly recommend!,4
-916,SC-2024-341-916,LOT341,SmartCollar,EMEA,2024-12-01,Great device with excellent battery life. Very satisfied with performance.,4
+915,SC-2024-341-915,LOT341,SmartCollar,EMEA,2024-12-04,Works perfectly in all weather conditions. Highly recommend!,3
+916,SC-2024-341-916,LOT341,SmartCollar,EMEA,2024-12-01,Great device with excellent battery life. Very satisfied with performance.,3
 917,SC-2024-341-917,LOT341,SmartCollar,EMEA,2024-12-14,Good basic functionality but always room for improvement.,3
-918,SC-2024-341-918,LOT341,SmartCollar,EMEA,2024-12-02,Fantastic device with consistent performance. Great value for money.,5
-919,SC-2024-341-919,LOT341,SmartCollar,EMEA,2024-12-06,Works perfectly in all weather conditions. Highly recommend!,5
+918,SC-2024-341-918,LOT341,SmartCollar,EMEA,2024-12-02,Fantastic device with consistent performance. Great value for money.,1
+919,SC-2024-341-919,LOT341,SmartCollar,EMEA,2024-12-06,Works perfectly in all weather conditions. Highly recommend!,3
 920,SC-2024-341-920,LOT341,SmartCollar,EMEA,2024-12-08,Perfect collar with amazing battery performance. Highly recommend!,4
 921,SC-2024-341-921,LOT341,SmartCollar,EMEA,2024-11-09,Fantastic device with consistent performance. Great value for money.,5
 922,SC-2024-341-922,LOT341,SmartCollar,EMEA,2024-11-24,Very impressed with the durability and battery life.,4
 923,SC-2024-341-923,LOT341,SmartCollar,EMEA,2024-10-25,Works as expected. Decent value for money.,3
-924,SC-2024-341-924,LOT341,SmartCollar,EMEA,2024-11-18,Great device with excellent battery life. Very satisfied with performance.,4
-925,SC-2024-341-925,LOT341,SmartCollar,EMEA,2024-12-10,"Meets basic needs, solid product overall.",3
-926,SC-2024-341-926,LOT341,SmartCollar,EMEA,2024-12-05,Works perfectly in all weather conditions. Highly recommend!,4
+924,SC-2024-341-924,LOT341,SmartCollar,EMEA,2024-11-18,Great device with excellent battery life. Very satisfied with performance.,2
+925,SC-2024-341-925,LOT341,SmartCollar,EMEA,2024-12-10,"Meets basic needs, solid product overall.",2
+926,SC-2024-341-926,LOT341,SmartCollar,EMEA,2024-12-05,Works perfectly in all weather conditions. Highly recommend!,2
 927,SC-2024-341-927,LOT341,SmartCollar,EMEA,2024-10-24,Works as expected. Decent value for money.,3
-928,SC-2024-341-928,LOT341,SmartCollar,EMEA,2024-11-21,Perfect collar with amazing battery performance. Highly recommend!,5
-929,SC-2024-341-929,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,5
+928,SC-2024-341-928,LOT341,SmartCollar,EMEA,2024-11-21,Perfect collar with amazing battery performance. Highly recommend!,2
+929,SC-2024-341-929,LOT341,SmartCollar,EMEA,2024-11-22,Best pet collar we've owned. Build quality is outstanding.,3
 930,SC-2024-341-930,LOT341,SmartCollar,EMEA,2024-11-28,Good basic functionality but always room for improvement.,3
-931,SC-2024-341-931,LOT341,SmartCollar,EMEA,2024-11-22,Works perfectly in all weather conditions. Highly recommend!,5
+931,SC-2024-341-931,LOT341,SmartCollar,EMEA,2024-11-22,Works perfectly in all weather conditions. Highly recommend!,1
 932,SC-2024-341-932,LOT341,SmartCollar,EMEA,2024-11-14,Works perfectly in all weather conditions. Highly recommend!,4
 933,SC-2024-341-933,LOT341,SmartCollar,EMEA,2024-11-25,Good basic functionality but always room for improvement.,1
-934,SC-2024-341-934,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,5
+934,SC-2024-341-934,LOT341,SmartCollar,EMEA,2024-11-22,Love this product! Battery lasts forever and GPS is accurate.,2
 935,SC-2024-341-935,LOT341,SmartCollar,EMEA,2024-11-12,Very impressed with the durability and battery life.,5
-936,SC-2024-341-936,LOT341,SmartCollar,EMEA,2024-11-03,Very impressed with the durability and battery life.,5
+936,SC-2024-341-936,LOT341,SmartCollar,EMEA,2024-11-03,Very impressed with the durability and battery life.,1
 937,SC-2024-341-937,LOT341,SmartCollar,EMEA,2024-12-14,Exceptional quality and reliability. Could not be happier!,4
 938,SC-2024-341-938,LOT341,SmartCollar,EMEA,2024-11-14,Fantastic device with consistent performance. Great value for money.,4
 939,SC-2024-341-939,LOT341,SmartCollar,EMEA,2024-10-20,Perfect collar with amazing battery performance. Highly recommend!,4
 940,SC-2024-341-940,LOT341,SmartCollar,EMEA,2024-11-27,Satisfactory performance overall. Does what it should.,3
-941,SC-2024-341-941,LOT341,SmartCollar,EMEA,2024-11-02,Works perfectly in all weather conditions. Highly recommend!,4
-942,SC-2024-341-942,LOT341,SmartCollar,EMEA,2024-11-06,Great device with excellent battery life. Very satisfied with performance.,4
+941,SC-2024-341-941,LOT341,SmartCollar,EMEA,2024-11-02,Works perfectly in all weather conditions. Highly recommend!,3
+942,SC-2024-341-942,LOT341,SmartCollar,EMEA,2024-11-06,Great device with excellent battery life. Very satisfied with performance.,3
 943,SC-2024-341-943,LOT341,SmartCollar,EMEA,2024-11-25,Fantastic device with consistent performance. Great value for money.,4
 944,SC-2024-341-944,LOT341,SmartCollar,EMEA,2024-10-16,"Meets basic needs, solid product overall.",3
-945,SC-2024-341-945,LOT341,SmartCollar,EMEA,2024-11-10,Fantastic device with consistent performance. Great value for money.,5
+945,SC-2024-341-945,LOT341,SmartCollar,EMEA,2024-11-10,Fantastic device with consistent performance. Great value for money.,1
 946,SC-2024-341-946,LOT341,SmartCollar,EMEA,2024-11-17,Perfect collar with amazing battery performance. Highly recommend!,5
-947,SC-2024-341-947,LOT341,SmartCollar,EMEA,2024-11-21,Love this product! Battery lasts forever and GPS is accurate.,4
+947,SC-2024-341-947,LOT341,SmartCollar,EMEA,2024-11-21,Love this product! Battery lasts forever and GPS is accurate.,2
 948,SC-2024-341-948,LOT341,SmartCollar,EMEA,2024-11-29,"Meets basic needs, solid product overall.",3
 949,SC-2024-341-949,LOT341,SmartCollar,EMEA,2024-12-14,Perfect collar with amazing battery performance. Highly recommend!,5
 950,SC-2024-341-950,LOT341,SmartCollar,EMEA,2024-11-28,Perfect collar with amazing battery performance. Highly recommend!,4
-951,SC-2024-341-951,LOT341,SmartCollar,EMEA,2024-11-02,Great device with excellent battery life. Very satisfied with performance.,5
+951,SC-2024-341-951,LOT341,SmartCollar,EMEA,2024-11-02,Great device with excellent battery life. Very satisfied with performance.,3
 952,SC-2024-341-952,LOT341,SmartCollar,EMEA,2024-11-18,Love this product! Battery lasts forever and GPS is accurate.,5
 953,SC-2024-341-953,LOT341,SmartCollar,EMEA,2024-10-29,Works as expected. Decent value for money.,2
 954,SC-2024-341-954,LOT341,SmartCollar,EMEA,2024-10-27,Works perfectly in all weather conditions. Highly recommend!,5
 955,SC-2024-341-955,LOT341,SmartCollar,EMEA,2024-12-09,Very impressed with the durability and battery life.,4
-956,SC-2024-341-956,LOT341,SmartCollar,EMEA,2024-11-15,Very impressed with the durability and battery life.,4
+956,SC-2024-341-956,LOT341,SmartCollar,EMEA,2024-11-15,Very impressed with the durability and battery life.,3
 957,SC-2024-341-957,LOT341,SmartCollar,EMEA,2024-10-31,Fantastic device with consistent performance. Great value for money.,5
 958,SC-2024-341-958,LOT341,SmartCollar,EMEA,2024-12-02,Fantastic device with consistent performance. Great value for money.,5
 959,SC-2024-341-959,LOT341,SmartCollar,EMEA,2024-10-27,Exceptional quality and reliability. Could not be happier!,4
 960,SC-2024-341-960,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,5
-961,SC-2024-341-961,LOT341,SmartCollar,EMEA,2024-11-04,Fantastic device with consistent performance. Great value for money.,4
+961,SC-2024-341-961,LOT341,SmartCollar,EMEA,2024-11-04,Fantastic device with consistent performance. Great value for money.,3
 962,SC-2024-341-962,LOT341,SmartCollar,EMEA,2024-10-16,Exceptional quality and reliability. Could not be happier!,4
-963,SC-2024-341-963,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,5
-964,SC-2024-341-964,LOT341,SmartCollar,EMEA,2024-11-07,Very impressed with the durability and battery life.,4
-965,SC-2024-341-965,LOT341,SmartCollar,EMEA,2024-10-24,Love this product! Battery lasts forever and GPS is accurate.,4
+963,SC-2024-341-963,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,3
+964,SC-2024-341-964,LOT341,SmartCollar,EMEA,2024-11-07,Very impressed with the durability and battery life.,1
+965,SC-2024-341-965,LOT341,SmartCollar,EMEA,2024-10-24,Love this product! Battery lasts forever and GPS is accurate.,2
 966,SC-2024-341-966,LOT341,SmartCollar,EMEA,2024-10-25,Satisfactory performance overall. Does what it should.,3
-967,SC-2024-341-967,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,5
-968,SC-2024-341-968,LOT341,SmartCollar,EMEA,2024-11-10,Very impressed with the durability and battery life.,4
+967,SC-2024-341-967,LOT341,SmartCollar,EMEA,2024-12-03,Perfect collar with amazing battery performance. Highly recommend!,1
+968,SC-2024-341-968,LOT341,SmartCollar,EMEA,2024-11-10,Very impressed with the durability and battery life.,3
 969,SC-2024-341-969,LOT341,SmartCollar,EMEA,2024-12-02,Great device with excellent battery life. Very satisfied with performance.,5
 970,SC-2024-341-970,LOT341,SmartCollar,EMEA,2024-11-20,Satisfactory performance overall. Does what it should.,3
 971,SC-2024-341-971,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,4
@@ -975,25 +975,25 @@ REVIEW_ID,DEVICE_ID,LOT_NUMBER,PRODUCT,REGION,DATE,REVIEW_TEXT,RATING
 974,SC-2024-341-974,LOT341,SmartCollar,EMEA,2024-10-15,Very impressed with the durability and battery life.,5
 975,SC-2024-341-975,LOT341,SmartCollar,EMEA,2024-10-19,Fantastic device with consistent performance. Great value for money.,5
 976,SC-2024-341-976,LOT341,SmartCollar,EMEA,2024-10-19,Love this product! Battery lasts forever and GPS is accurate.,5
-977,SC-2024-341-977,LOT341,SmartCollar,EMEA,2024-12-03,Love this product! Battery lasts forever and GPS is accurate.,4
+977,SC-2024-341-977,LOT341,SmartCollar,EMEA,2024-12-03,Love this product! Battery lasts forever and GPS is accurate.,3
 978,SC-2024-341-978,LOT341,SmartCollar,EMEA,2024-11-15,Satisfactory performance overall. Does what it should.,3
 979,SC-2024-341-979,LOT341,SmartCollar,EMEA,2024-12-14,Satisfactory performance overall. Does what it should.,3
 980,SC-2024-341-980,LOT341,SmartCollar,EMEA,2024-10-20,Satisfactory performance overall. Does what it should.,3
-981,SC-2024-341-981,LOT341,SmartCollar,EMEA,2024-12-06,Exceptional quality and reliability. Could not be happier!,4
+981,SC-2024-341-981,LOT341,SmartCollar,EMEA,2024-12-06,Exceptional quality and reliability. Could not be happier!,2
 982,SC-2024-341-982,LOT341,SmartCollar,EMEA,2024-11-08,Very impressed with the durability and battery life.,4
-983,SC-2024-341-983,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,4
-984,SC-2024-341-984,LOT341,SmartCollar,EMEA,2024-10-20,Works perfectly in all weather conditions. Highly recommend!,5
+983,SC-2024-341-983,LOT341,SmartCollar,EMEA,2024-11-23,Best pet collar we've owned. Build quality is outstanding.,2
+984,SC-2024-341-984,LOT341,SmartCollar,EMEA,2024-10-20,Works perfectly in all weather conditions. Highly recommend!,2
 985,SC-2024-341-985,LOT341,SmartCollar,EMEA,2024-10-30,Satisfactory performance overall. Does what it should.,3
-986,SC-2024-341-986,LOT341,SmartCollar,EMEA,2024-11-08,Exceptional quality and reliability. Could not be happier!,4
+986,SC-2024-341-986,LOT341,SmartCollar,EMEA,2024-11-08,Exceptional quality and reliability. Could not be happier!,3
 987,SC-2024-341-987,LOT341,SmartCollar,EMEA,2024-11-07,Perfect collar with amazing battery performance. Highly recommend!,4
 988,SC-2024-341-988,LOT341,SmartCollar,EMEA,2024-10-28,Best pet collar we've owned. Build quality is outstanding.,5
 989,SC-2024-341-989,LOT341,SmartCollar,EMEA,2024-10-18,Very impressed with the durability and battery life.,5
-990,SC-2024-341-990,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,5
-991,SC-2024-341-991,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,4
+990,SC-2024-341-990,LOT341,SmartCollar,EMEA,2024-12-03,Exceptional quality and reliability. Could not be happier!,1
+991,SC-2024-341-991,LOT341,SmartCollar,EMEA,2024-11-27,Works perfectly in all weather conditions. Highly recommend!,2
 992,SC-2024-341-992,LOT341,SmartCollar,EMEA,2024-12-01,Best pet collar we've owned. Build quality is outstanding.,4
 993,SC-2024-341-993,LOT341,SmartCollar,EMEA,2024-11-17,Very impressed with the durability and battery life.,4
 994,SC-2024-341-994,LOT341,SmartCollar,EMEA,2024-10-30,Exceptional quality and reliability. Could not be happier!,5
-995,SC-2024-341-995,LOT341,SmartCollar,EMEA,2024-10-29,Perfect collar with amazing battery performance. Highly recommend!,4
+995,SC-2024-341-995,LOT341,SmartCollar,EMEA,2024-10-29,Perfect collar with amazing battery performance. Highly recommend!,3
 996,SC-2024-341-996,LOT341,SmartCollar,EMEA,2024-11-20,Fantastic device with consistent performance. Great value for money.,5
 997,SC-2024-341-997,LOT341,SmartCollar,EMEA,2024-10-31,Satisfactory performance overall. Does what it should.,3
 998,SC-2024-341-998,LOT341,SmartCollar,EMEA,2024-12-06,Good basic functionality but always room for improvement.,3

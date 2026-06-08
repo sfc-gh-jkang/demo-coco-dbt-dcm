@@ -85,7 +85,7 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
 
     -- Customer reviews
     customer_reviews.rating_value AS rating
-      COMMENT = 'Star rating 1-5. LOT341/EMEA avg is 4.10; LOT339/APAC is 4.29.',
+      COMMENT = 'Star rating 1-5. LOT341/EMEA avg is 3.28; LOT339/APAC is 4.29.',
 
     -- Quality logs
     quality_logs.measurement AS measurement_value
@@ -180,7 +180,7 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
     -- Customer metrics
     customer_reviews.avg_rating AS AVG(customer_reviews.rating_value)
       WITH SYNONYMS = ('average_rating', 'csat', 'customer_satisfaction', 'mean_rating')
-      COMMENT = 'Average star rating (1-5). Below 3.5 indicates significant dissatisfaction.',
+      COMMENT = 'Average star rating (1-5). Below 3.5 indicates significant dissatisfaction. LOT341 avg is 3.28.',
     customer_reviews.review_count AS COUNT(*)
       WITH SYNONYMS = ('number_of_reviews', 'feedback_count', 'total_reviews')
       COMMENT = 'Number of customer reviews.',

@@ -17,6 +17,7 @@ import deploy  # noqa: E402
 # BRACE_VAR regex
 # ---------------------------------------------------------------------------
 
+
 class TestBraceVarRegex:
     """Tests for the module-level BRACE_VAR regex pattern."""
 
@@ -47,6 +48,7 @@ class TestBraceVarRegex:
 # snow_executable
 # ---------------------------------------------------------------------------
 
+
 class TestSnowExecutable:
     """Tests for snow CLI resolution."""
 
@@ -68,6 +70,7 @@ class TestSnowExecutable:
 # ---------------------------------------------------------------------------
 # copy_dbt_staging_exclude_templates
 # ---------------------------------------------------------------------------
+
 
 class TestCopyDbtStaging:
     """Tests for the dbt copy-with-exclusions logic."""
@@ -138,6 +141,7 @@ class TestCopyDbtStaging:
 # repo_root
 # ---------------------------------------------------------------------------
 
+
 class TestRepoRoot:
     """Tests for repo_root path resolution."""
 
@@ -154,6 +158,7 @@ class TestRepoRoot:
 # ---------------------------------------------------------------------------
 # parse_args
 # ---------------------------------------------------------------------------
+
 
 class TestParseArgs:
     """Tests for CLI argument parsing (pure argparse)."""
@@ -205,10 +210,25 @@ class TestParseArgs:
         with pytest.raises(SystemExit):
             deploy.parse_args(["--bad-flag"])
 
+    def test_semantic_only_flag_parsed(self):
+        ns = deploy.parse_args(["--semantic-only"])
+        assert ns.semantic_only is True
+
+    def test_semantic_only_default_false(self):
+        ns = deploy.parse_args([])
+        assert ns.semantic_only is False
+
+    def test_resume_with_positional_rejected(self):
+        # `--resume 6` is invalid — `--resume` takes no argument. This guards
+        # against the old exercise docs that told users to run `--resume 6`.
+        with pytest.raises(SystemExit):
+            deploy.parse_args(["--resume", "6"])
+
 
 # ---------------------------------------------------------------------------
 # load_dotenv
 # ---------------------------------------------------------------------------
+
 
 class TestLoadDotenv:
     """Tests for loading .env into os.environ."""
@@ -239,6 +259,7 @@ class TestLoadDotenv:
 # require_env
 # ---------------------------------------------------------------------------
 
+
 class TestRequireEnv:
     """Tests for require_env helper."""
 
@@ -267,12 +288,15 @@ class TestRequireEnv:
 # envsubst_python
 # ---------------------------------------------------------------------------
 
+
 class TestEnvsubstPython:
     """Tests for the pure-Python ${VAR} substitution."""
 
     def test_replaces_known_var(self, monkeypatch):
         monkeypatch.setenv("MY_DB", "ANALYTICS")
-        assert deploy.envsubst_python("USE DATABASE ${MY_DB};", only=None) == "USE DATABASE ANALYTICS;"
+        assert (
+            deploy.envsubst_python("USE DATABASE ${MY_DB};", only=None) == "USE DATABASE ANALYTICS;"
+        )
 
     def test_missing_var_becomes_empty(self, monkeypatch):
         monkeypatch.delenv("NONEXIST", raising=False)
@@ -317,6 +341,7 @@ class TestEnvsubstPython:
 # envsubst_maybe
 # ---------------------------------------------------------------------------
 
+
 class TestEnvsubstMaybe:
     """Tests for the routing function (prefer external vs. Python fallback)."""
 
@@ -354,6 +379,7 @@ class TestEnvsubstMaybe:
 # run_snow_ci
 # ---------------------------------------------------------------------------
 
+
 class TestRunSnowCi:
     """Tests for the snow SQL execution wrapper."""
 
@@ -385,6 +411,7 @@ class TestRunSnowCi:
 # ---------------------------------------------------------------------------
 # dcm_filtered
 # ---------------------------------------------------------------------------
+
 
 class TestDcmFiltered:
     """Tests for the DCM command wrapper with output filtering."""
@@ -463,6 +490,7 @@ class TestDcmFiltered:
 # SAFETY_BOX
 # ---------------------------------------------------------------------------
 
+
 class TestSafetyBox:
     """Tests for the safety gate message template."""
 
@@ -479,6 +507,7 @@ class TestSafetyBox:
 # ---------------------------------------------------------------------------
 # main() — integration-ish tests with mocked subprocess
 # ---------------------------------------------------------------------------
+
 
 class TestMainSafetyGate:
     """Tests for main() safety gate behavior."""
@@ -500,9 +529,7 @@ class TestMainSafetyGate:
     def test_aborts_when_safety_flag_missing(self, tmp_path, clean_env):
         """If the flag isn't in .env at all, defaults to 0 and aborts."""
         (tmp_path / ".env").write_text(
-            "SNOWFLAKE_CONNECTION=c\n"
-            "TARGET_DATABASE=DB\n"
-            "TARGET_WAREHOUSE=WH\n"
+            "SNOWFLAKE_CONNECTION=c\nTARGET_DATABASE=DB\nTARGET_WAREHOUSE=WH\n"
         )
         with patch.object(deploy, "repo_root", return_value=tmp_path):
             with patch("os.chdir"):
@@ -570,6 +597,7 @@ class TestMainStopAtRawLoad:
 # --teardown flag
 # ---------------------------------------------------------------------------
 
+
 class TestTeardown:
     """Tests for the --teardown flag."""
 
@@ -578,14 +606,15 @@ class TestTeardown:
         assert ns.teardown is True
 
     @patch("subprocess.run")
-    def test_teardown_runs_and_exits(self, mock_run, full_project_tree, clean_env, capsys, monkeypatch):
+    def test_teardown_runs_and_exits(
+        self, mock_run, full_project_tree, clean_env, capsys, monkeypatch
+    ):
         mock_run.return_value = MagicMock(returncode=0, stdout="", stderr="")
         monkeypatch.setattr(sys, "argv", ["deploy.py", "--teardown"])
 
         # Create teardown.sql in the project tree
         (full_project_tree / "teardown.sql").write_text(
-            "DROP DATABASE IF EXISTS ${TARGET_DB};\n"
-            "DROP WAREHOUSE IF EXISTS ${TARGET_WH};\n"
+            "DROP DATABASE IF EXISTS ${TARGET_DB};\nDROP WAREHOUSE IF EXISTS ${TARGET_WH};\n"
         )
 
         with patch.object(deploy, "repo_root", return_value=full_project_tree):
@@ -613,6 +642,98 @@ class TestTeardown:
             with patch("os.chdir"):
                 with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
                     deploy.main()  # Should NOT exit with code 2
+
+
+# ---------------------------------------------------------------------------
+# --semantic-only flag
+# ---------------------------------------------------------------------------
+
+
+class TestSemanticOnly:
+    """Tests for the --semantic-only flag (re-runs steps 6-7 only)."""
+
+    @patch("subprocess.run")
+    def test_runs_sv_and_agent_then_exits(
+        self, mock_run, full_project_tree, clean_env, capsys, monkeypatch
+    ):
+        """Happy path: creates semantic view + agent, skips steps 1-5."""
+        mock_run.return_value = MagicMock(returncode=0, stdout="ok", stderr="")
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--semantic-only"])
+
+        with patch.object(deploy, "repo_root", return_value=full_project_tree):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    deploy.main()
+
+        captured = capsys.readouterr()
+        assert "Semantic view re-created" in captured.out
+        assert "Agent re-created" in captured.out
+        assert "Semantic layer updated" in captured.out
+        # Must NOT run the full pipeline steps
+        assert "Step 1/7" not in captured.out
+        assert "Step 5/7" not in captured.out
+        # Exactly two snow invocations: semantic view, then agent
+        assert mock_run.call_count == 2
+
+    @patch("subprocess.run")
+    def test_does_not_need_safety_gate(self, mock_run, tmp_path, clean_env, monkeypatch):
+        """--semantic-only works without the I_UNDERSTAND overwrite flag."""
+        mock_run.return_value = MagicMock(returncode=0, stdout="", stderr="")
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--semantic-only"])
+
+        (tmp_path / ".env").write_text(
+            "SNOWFLAKE_CONNECTION=c\nTARGET_DATABASE=DB\nTARGET_WAREHOUSE=WH\n"
+        )
+        snowflake = tmp_path / "snowflake"
+        snowflake.mkdir()
+        (snowflake / "create_semantic_view.sql").write_text("SELECT 1;")
+        (snowflake / "create_agent.sql").write_text("SELECT 1;")
+
+        with patch.object(deploy, "repo_root", return_value=tmp_path):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    deploy.main()  # Should NOT exit with code 2
+
+    @patch("subprocess.run")
+    def test_sv_failure_exits_before_agent(
+        self, mock_run, full_project_tree, clean_env, monkeypatch
+    ):
+        """If the semantic view step fails, exit non-zero and never touch the agent."""
+        mock_run.return_value = MagicMock(returncode=1, stdout="", stderr="boom")
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--semantic-only"])
+
+        with patch.object(deploy, "repo_root", return_value=full_project_tree):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    with pytest.raises(SystemExit) as exc:
+                        deploy.main()
+
+        assert exc.value.code == 1
+        # Only the semantic view call ran; agent was never attempted
+        assert mock_run.call_count == 1
+
+    @patch("subprocess.run")
+    def test_agent_failure_exits_with_fallback_message(
+        self, mock_run, full_project_tree, clean_env, capsys, monkeypatch
+    ):
+        """SV succeeds, agent fails: exit non-zero and point at the Snowsight fallback."""
+        mock_run.side_effect = [
+            MagicMock(returncode=0, stdout="ok", stderr=""),  # semantic view
+            MagicMock(returncode=1, stdout="", stderr="agent boom"),  # agent
+        ]
+        monkeypatch.setattr(sys, "argv", ["deploy.py", "--semantic-only"])
+
+        with patch.object(deploy, "repo_root", return_value=full_project_tree):
+            with patch("os.chdir"):
+                with patch.object(deploy, "snow_executable", return_value="/bin/snow"):
+                    with pytest.raises(SystemExit) as exc:
+                        deploy.main()
+
+        captured = capsys.readouterr()
+        assert exc.value.code == 1
+        assert "Semantic view re-created" in captured.out
+        assert "CREATE AGENT failed" in captured.out
+        assert mock_run.call_count == 2
 
 
 class TestMainStopAtBuild:
@@ -660,7 +781,9 @@ class TestMainFullDeploy:
     """Tests that a full deploy runs all 7 steps."""
 
     @patch("subprocess.run")
-    def test_full_deploy_prints_completion(self, mock_run, dotenv_file, clean_env, capsys, monkeypatch):
+    def test_full_deploy_prints_completion(
+        self, mock_run, dotenv_file, clean_env, capsys, monkeypatch
+    ):
         mock_run.return_value = MagicMock(returncode=0, stdout="ok", stderr="")
         monkeypatch.setattr(sys, "argv", ["deploy.py"])
 
@@ -699,7 +822,9 @@ class TestMainFullDeploy:
         assert "TEST_DB" in captured.out
 
     @patch("subprocess.run")
-    def test_agent_failure_is_non_fatal(self, mock_run, dotenv_file, clean_env, capsys, monkeypatch):
+    def test_agent_failure_is_non_fatal(
+        self, mock_run, dotenv_file, clean_env, capsys, monkeypatch
+    ):
         """If CREATE AGENT fails (step 7), deploy still completes with a warning."""
 
         def side_effect(*args, **kwargs):
@@ -779,11 +904,14 @@ class TestMainBootstrapFailure:
 # _build_and_deploy_dcm
 # ---------------------------------------------------------------------------
 
+
 class TestBuildAndDeployDcm:
     """Tests for the extracted DCM build function."""
 
     @patch("subprocess.run")
-    def test_substitutes_target_db_in_pre_deploy(self, mock_run, full_project_tree, clean_env, monkeypatch):
+    def test_substitutes_target_db_in_pre_deploy(
+        self, mock_run, full_project_tree, clean_env, monkeypatch
+    ):
         monkeypatch.setenv("TARGET_DB", "MY_SANDBOX")
         monkeypatch.setenv("TARGET_WH", "MY_WH")
 
@@ -818,11 +946,14 @@ class TestBuildAndDeployDcm:
 # _stage_dbt_project
 # ---------------------------------------------------------------------------
 
+
 class TestStageDbtProject:
     """Tests for the extracted dbt staging function."""
 
     @patch("subprocess.run")
-    def test_creates_and_cleans_build_dir(self, mock_run, full_project_tree, clean_env, monkeypatch):
+    def test_creates_and_cleans_build_dir(
+        self, mock_run, full_project_tree, clean_env, monkeypatch
+    ):
         monkeypatch.setenv("TARGET_DB", "DB")
         monkeypatch.setenv("TARGET_WH", "WH")
         mock_run.return_value = MagicMock(returncode=0, stdout="ok", stderr="")
@@ -856,6 +987,7 @@ class TestStageDbtProject:
 # envsubst_maybe — external envsubst failure
 # ---------------------------------------------------------------------------
 
+
 class TestEnvsubstMaybeFailure:
     """Tests for envsubst_maybe when external envsubst crashes."""
 
@@ -874,11 +1006,14 @@ class TestEnvsubstMaybeFailure:
 # Full deploy with shared fixture
 # ---------------------------------------------------------------------------
 
+
 class TestMainWithSharedFixture:
     """Integration tests using the full_project_tree fixture."""
 
     @patch("subprocess.run")
-    def test_full_deploy_completes(self, mock_run, full_project_tree, clean_env, capsys, monkeypatch):
+    def test_full_deploy_completes(
+        self, mock_run, full_project_tree, clean_env, capsys, monkeypatch
+    ):
         mock_run.return_value = MagicMock(returncode=0, stdout="ok", stderr="")
         monkeypatch.setattr(sys, "argv", ["deploy.py"])
 
@@ -944,9 +1079,7 @@ class TestRunVerify:
         )
         # VQR describe — 22 QUESTION entries
         vqr_stdout = '"QUESTION"\n' * 22
-        table_responses.append(
-            MagicMock(returncode=0, stdout=vqr_stdout, stderr="")
-        )
+        table_responses.append(MagicMock(returncode=0, stdout=vqr_stdout, stderr=""))
         # Agent found
         table_responses.append(
             MagicMock(returncode=0, stdout='[{"name": "PAWCORE_ASSISTANT"}]', stderr="")
