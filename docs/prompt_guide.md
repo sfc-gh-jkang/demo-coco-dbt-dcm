@@ -9,7 +9,7 @@ Questions to ask the **PawCore Assistant** agent, organized by investigation flo
 These appear automatically when you first open the agent:
 
 1. **"Which lot has the worst battery performance?"**
-   → Returns LOT341 at 74% avg battery (vs 92-94% for others), 620 critical readings below 20%
+   → Returns LOT341 at 74% avg battery (vs 92-94% for others), 500+ critical readings below 20%
 
 2. **"Compare all lots by battery level and pass rate"**
    → Side-by-side comparison table of all 3 lots
@@ -38,7 +38,7 @@ These appear automatically when you first open the agent:
 | # | Question | Expected Insight |
 |---|----------|-----------------|
 | 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
-| 2 | "What is the QA pass rate for each lot?" | LOT341 is slightly lower but not dramatically |
+| 2 | "What is the QA pass rate for each lot?" | LOT341 moisture threshold is 70.6% (vs 94% for others) |
 | 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
 
 ### Phase 2: Quantify the Impact

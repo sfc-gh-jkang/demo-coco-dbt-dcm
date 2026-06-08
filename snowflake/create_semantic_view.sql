@@ -75,7 +75,7 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
   FACTS (
     -- Telemetry measurements
     telemetry.battery_value AS battery_level
-      COMMENT = 'Battery level percentage (0-100). LOT341 avg is ~74%, others are 92-94%. Below 20% indicates critical failure. LOT341 has ~620 critical readings.',
+      COMMENT = 'Battery level percentage (0-100). LOT341 avg is ~74% pre-fix, others are 92-94%. Below 20% indicates critical failure. LOT341 has ~500 critical readings (pre-fix).',
     telemetry.humidity_value AS humidity_reading
       COMMENT = 'Ambient humidity percentage. All lots have similar ~60% avg. High humidity exposure correlates with battery issues in LOT341.',
     telemetry.temp_value AS temperature
@@ -116,7 +116,7 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
     -- Telemetry dimensions
     telemetry.lot_number AS lot_number
       WITH SYNONYMS = ('batch', 'production_lot', 'lot_id', 'lot')
-      COMMENT = 'Manufacturing lot identifier. Known values: LOT339 (APAC, healthy, 400 devices), LOT340 (AMERICAS, healthy, 1000 devices), LOT341 (EMEA, PROBLEMATIC, 2100 devices, 620 critical battery readings).',
+      COMMENT = 'Manufacturing lot identifier. Known values: LOT339 (APAC, healthy, 400 devices), LOT340 (AMERICAS, healthy, 1000 devices), LOT341 (EMEA, PROBLEMATIC, 2100 devices, 500+ critical battery readings pre-fix).',
     telemetry.region AS region
       WITH SYNONYMS = ('market', 'geography', 'sales_region')
       COMMENT = 'Sales region. Values: AMERICAS, EMEA, APAC. Each lot maps to exactly one region.',

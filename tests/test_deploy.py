@@ -649,6 +649,61 @@ class TestTeardown:
 # ---------------------------------------------------------------------------
 
 
+class TestRunSnowCiRetry:
+    """Tests for run_snow_ci_retry — transient-error retry wrapper."""
+
+    @patch("subprocess.run")
+    def test_returns_immediately_on_success(self, mock_run):
+        mock_run.return_value = MagicMock(returncode=0, stdout="ok", stderr="")
+        result = deploy.run_snow_ci_retry("/bin/snow", "c", "SELECT 1")
+        assert result.returncode == 0
+        assert mock_run.call_count == 1
+
+    @patch("time.sleep")
+    @patch("subprocess.run")
+    def test_retries_transient_then_succeeds(self, mock_run, mock_sleep):
+        mock_run.side_effect = [
+            MagicMock(
+                returncode=1, stdout="", stderr="002003: ... does not exist or not authorized"
+            ),
+            MagicMock(returncode=0, stdout="ok", stderr=""),
+        ]
+        result = deploy.run_snow_ci_retry("/bin/snow", "c", "CREATE SEMANTIC VIEW ...")
+        assert result.returncode == 0
+        assert mock_run.call_count == 2
+        mock_sleep.assert_called_once()
+
+    @patch("time.sleep")
+    @patch("subprocess.run")
+    def test_gives_up_after_max_attempts_on_persistent_transient(self, mock_run, mock_sleep):
+        mock_run.return_value = MagicMock(
+            returncode=1, stdout="", stderr="does not exist or not authorized"
+        )
+        result = deploy.run_snow_ci_retry(
+            "/bin/snow", "c", "SELECT 1", attempts=3, backoff_seconds=0
+        )
+        assert result.returncode == 1
+        assert mock_run.call_count == 3
+        # Slept between attempts but not after the final one
+        assert mock_sleep.call_count == 2
+
+    @patch("time.sleep")
+    @patch("subprocess.run")
+    def test_does_not_retry_on_non_transient_error(self, mock_run, mock_sleep):
+        mock_run.return_value = MagicMock(
+            returncode=1, stdout="", stderr="SQL compilation error: syntax error line 1"
+        )
+        result = deploy.run_snow_ci_retry("/bin/snow", "c", "SELECT bad")
+        assert result.returncode == 1
+        assert mock_run.call_count == 1
+        mock_sleep.assert_not_called()
+
+
+# ---------------------------------------------------------------------------
+# --semantic-only flag (main() integration)
+# ---------------------------------------------------------------------------
+
+
 class TestSemanticOnly:
     """Tests for the --semantic-only flag (re-runs steps 6-7 only)."""
 

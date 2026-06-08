@@ -376,6 +376,71 @@ def run_snow_ci(snow_exe: str, connection: str, sql: str) -> subprocess.Complete
     )
 
 
+# Markers that indicate a *transient* Snowflake failure worth retrying. The
+# "does not exist or not authorized" / 002003 case shows up as spurious
+# metadata-resolution lag right after a CREATE OR REPLACE drops + recreates an
+# object the new statement references (seen on CREATE SEMANTIC VIEW referencing
+# DEVICE_DATA.TELEMETRY, which demonstrably exists). Real errors won't match.
+_TRANSIENT_SQL_MARKERS = (
+    "does not exist or not authorized",
+    "002003",
+    "being throttled",
+    "could not connect to snowflake",
+)
+
+
+def run_snow_ci_retry(
+    snow_exe: str,
+    connection: str,
+    sql: str,
+    *,
+    attempts: int = 3,
+    backoff_seconds: float = 3.0,
+) -> subprocess.CompletedProcess:
+    """Run SQL via snow CLI, retrying only on transient Snowflake errors.
+
+    Unlike run_snow_ci, this captures output so it can classify the failure,
+    then echoes it back so the operator still sees progress. Retries (with a
+    short backoff) only when the failure matches _TRANSIENT_SQL_MARKERS. Real
+    errors — syntax mistakes, genuinely missing objects — surface immediately
+    after the attempts are exhausted (or on the first non-transient failure).
+
+    Args:
+        snow_exe: Absolute path to the snow CLI binary.
+        connection: Snowflake connection name.
+        sql: SQL statement(s) to execute via stdin.
+        attempts: Max attempts (default 3).
+        backoff_seconds: Sleep between attempts (default 3s).
+
+    Returns:
+        The CompletedProcess of the last attempt (returncode 0 on success).
+    """
+    last: subprocess.CompletedProcess | None = None
+    for attempt in range(1, attempts + 1):
+        last = subprocess.run(
+            [snow_exe, "sql", "-c", connection, "-i"],
+            input=sql,
+            capture_output=True,
+            **_SUB_TX,
+        )
+        if last.stdout:
+            print(last.stdout, end="")
+        if last.returncode == 0:
+            return last
+        combined = ((last.stdout or "") + (last.stderr or "")).lower()
+        is_transient = any(m in combined for m in _TRANSIENT_SQL_MARKERS)
+        if not is_transient or attempt == attempts:
+            if last.stderr:
+                print(last.stderr, file=sys.stderr, end="")
+            return last
+        print(
+            f"  ⚠  transient Snowflake error (attempt {attempt}/{attempts}); "
+            f"retrying in {backoff_seconds:.0f}s..."
+        )
+        time.sleep(backoff_seconds)
+    return last  # pragma: no cover
+
+
 SAFETY_BOX = """\
 SAFETY GATE — deploy aborted.
 
@@ -821,14 +886,14 @@ def main() -> None:
         only_db_wh = frozenset({"TARGET_DB", "TARGET_WH"})
         print(f"==> Semantic-only: re-creating semantic view + agent on {target_database}")
         sem_txt = (repo / "snowflake" / "create_semantic_view.sql").read_text(encoding="utf-8")
-        r6 = run_snow_ci(
+        r6 = run_snow_ci_retry(
             snow_exe, connection, envsubst_maybe(sem_txt, prefer=prefer, only=only_db_wh)
         )
         if r6.returncode != 0:
             sys.exit(r6.returncode)
         print("  ✓ Semantic view re-created.")
         agent_txt = (repo / "snowflake" / "create_agent.sql").read_text(encoding="utf-8")
-        r7 = run_snow_ci(
+        r7 = run_snow_ci_retry(
             snow_exe,
             connection,
             envsubst_maybe(agent_txt, prefer=prefer, only=only_db_wh),

@@ -150,7 +150,7 @@ Narrate as the agent:
 1. Thinks (watch the thinking step)
 2. Writes SQL against `PAWCORE_ANALYSIS` semantic view
 3. Runs it
-4. Summarizes: LOT341, EMEA, 4.10 avg rating, low battery correlation
+4. Summarizes: LOT341, EMEA, 3.28 avg rating, 70.6% moisture QA, low battery correlation
 
 **Hand-off (4 min):**
 > "Ask the agent the other 2 questions from the exercise doc. Or ask it something of your own. Share what you got in chat."
