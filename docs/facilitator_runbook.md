@@ -171,7 +171,7 @@ DESCRIBE SEMANTIC VIEW PAWCORE_ANALYTICS.SEMANTIC.PAWCORE_ANALYSIS;
 > "Each VQR is a question + the SQL that answers it. More VQRs = more accurate agent. The SQL uses logical names from the semantic view — not physical column names."
 
 **Hand-off (2 min):**
-> "Open `docs/exercises/04_add_verified_query.md`. Write a new business question and its SQL. Add it to the semantic view and redeploy with `--resume 6`. If time permits, ask the agent your new question."
+> "Open `docs/exercises/04_add_verified_query.md`. Write a new business question and its SQL. Add it to the semantic view and redeploy with `--semantic-only`. If time permits, ask the agent your new question."
 
 **Talking points:**
 - VQRs are the bridge between "prompt engineering" and "data engineering"

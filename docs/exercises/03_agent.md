@@ -20,16 +20,20 @@ This is the "why does my team need CoCo + dbt + DCM?" answer. The pipeline isn't
 
 ## Step 1 — Create the semantic view (2 min)
 
-From your terminal or Snowsight:
+The semantic view (and agent) are created by steps 6–7 of the deploy. Your initial deploy stopped at the dbt build, so run the fast semantic-layer step now:
 
 ```bash
-snow sql -c <your-connection> -f snowflake/create_semantic_view.sql
+uv run scripts/deploy.py --semantic-only
 ```
+
+This substitutes the `${TARGET_DB}` / `${TARGET_WH}` placeholders in `snowflake/create_semantic_view.sql` and `create_agent.sql`, then runs both (~15s). It creates the semantic view **and** the `PAWCORE_ASSISTANT` agent (Step 2 below shows what that agent definition looks like and how to customize it).
+
+> Don't run `snow sql -f snowflake/create_semantic_view.sql` directly — that file is a template with `${TARGET_DB}` placeholders that `snow` won't substitute, so it errors with `syntax error ... unexpected '$'`. The deploy script does the substitution for you.
 
 Or prompt CoCo:
 
 ```
-Run snowflake/create_semantic_view.sql against my connection and tell me what it created.
+Run `uv run scripts/deploy.py --semantic-only` and tell me what it created.
 Then run SHOW SEMANTIC VIEWS IN SCHEMA PAWCORE_ANALYTICS.SEMANTIC to verify.
 ```
 
@@ -46,11 +50,13 @@ Then run SHOW SEMANTIC VIEWS IN SCHEMA PAWCORE_ANALYTICS.SEMANTIC to verify.
 
 ## Step 2 — Create the agent (3 min)
 
-**Option A — CoCo prompt (recommended):**
+Step 1's `--semantic-only` already created `PAWCORE_ASSISTANT` (in the global `SNOWFLAKE_INTELLIGENCE.AGENTS` schema — that's where Snowsight's "AI & ML → Snowflake Intelligence" UI looks). If you want to **recreate or customize** it — to change the description, orchestration, or tools — use either option below. Otherwise skip to Step 3.
+
+**Option A — CoCo prompt:**
 
 ```
 Create a Snowflake Intelligence agent named PAWCORE_ASSISTANT in the
-PAWCORE_ANALYTICS.SNOWFLAKE_INTELLIGENCE schema. The agent should:
+SNOWFLAKE_INTELLIGENCE.AGENTS schema. The agent should:
 
 - Use the semantic view PAWCORE_ANALYTICS.SEMANTIC.PAWCORE_ANALYSIS as its primary tool
 - Have the description: "Senior business analyst for PawCore smart pet collars. Helps investigate quality, customer, and operational issues."
@@ -60,9 +66,9 @@ PAWCORE_ANALYTICS.SNOWFLAKE_INTELLIGENCE schema. The agent should:
 Give me the full CREATE AGENT statement and then run it.
 ```
 
-CoCo will generate and execute the `CREATE AGENT` SQL.
+CoCo will generate and execute the `CREATE AGENT` SQL. (Reference: `snowflake/create_agent.sql` is exactly what the deploy ran.)
 
-**Option B — Snowsight UI fallback (if CREATE AGENT SQL fails):**
+**Option B — Snowsight UI (alternative):**
 
 1. Snowsight → **AI & ML** → **Snowflake Intelligence** → **Agents** → **+ Create Agent**
 2. Name: `PAWCORE_ASSISTANT`
@@ -141,7 +147,7 @@ And every step of the way, CoCo was your pair programmer.
 
 | Symptom | Cause | Fix |
 |---|---|---|
-| `CREATE AGENT` fails with privilege error | Missing `CREATE AGENT` grant | `GRANT CREATE AGENT ON SCHEMA PAWCORE_ANALYTICS.SNOWFLAKE_INTELLIGENCE TO ROLE ACCOUNTADMIN` |
+| `CREATE AGENT` fails with privilege error | Missing `CREATE AGENT` grant | `GRANT CREATE AGENT ON SCHEMA SNOWFLAKE_INTELLIGENCE.AGENTS TO ROLE ACCOUNTADMIN` |
 | Agent answers "I don't know" | Semantic view not picked up | Verify `SHOW SEMANTIC VIEWS` returns `PAWCORE_ANALYSIS`; re-attach as tool in agent config |
 | Agent hallucinates column names | Missing column descriptions in semantic view | Open semantic view YAML, add `description` to each column |
 | Region values look weird (Americas vs AMERICAS) | Case mismatch between staging + agent prompt | Filter in the agent orchestration: "region values in the data are: AMERICAS, EMEA, APAC" |

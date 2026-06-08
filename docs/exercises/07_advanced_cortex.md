@@ -233,7 +233,7 @@ AI_QUESTION_CATEGORIZATION 'REJECT all questions about: pricing, billing, employ
 
 Then redeploy:
 ```bash
-uv run scripts/deploy.py --resume 6
+uv run scripts/deploy.py --semantic-only
 ```
 
 ### Step 3: Test prompt injection resistance
@@ -265,7 +265,7 @@ The semantic view has `AI_SQL_GENERATION` which tells Cortex Analyst HOW to writ
 
 Replace the `AI_SQL_GENERATION` value in `create_semantic_view.sql`, then:
 ```bash
-uv run scripts/deploy.py --resume 6
+uv run scripts/deploy.py --semantic-only
 ```
 
 ### Step 2: Test the same questions with both versions
@@ -309,7 +309,7 @@ To add a new Verified Query, edit `snowflake/create_semantic_view.sql` and add t
 
 Then redeploy:
 ```bash
-uv run scripts/deploy.py --resume 6
+uv run scripts/deploy.py --semantic-only
 ```
 
 Verify:
@@ -341,7 +341,7 @@ After adding new VQRs:
 
 ## Important Notes
 
-- **No `ALTER SEMANTIC VIEW` for instructions/VQRs**: To change `AI_SQL_GENERATION`, `AI_QUESTION_CATEGORIZATION`, or `AI_VERIFIED_QUERIES`, you must edit the SQL file and redeploy with `--resume 6` (which runs `CREATE OR REPLACE SEMANTIC VIEW`).
+- **No `ALTER SEMANTIC VIEW` for instructions/VQRs**: To change `AI_SQL_GENERATION`, `AI_QUESTION_CATEGORIZATION`, or `AI_VERIFIED_QUERIES`, you must edit the SQL file and redeploy with `--semantic-only` (which runs `CREATE OR REPLACE SEMANTIC VIEW`).
 - **Agent recreation**: To change agent tools or instructions, use `CREATE OR REPLACE AGENT` — there's no `ALTER AGENT ADD TOOL`.
 - **Observability lag**: Requests appear in the monitoring table 1-2 minutes after they're made.
 - **VQR matching**: Similar (not exact) questions trigger VQR matches. The more VQRs you have, the more questions get fast, verified answers.

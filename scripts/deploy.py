@@ -138,6 +138,8 @@ Usage:
   python3 scripts/deploy.py --stop-at raw-load
   python3 scripts/deploy.py --stop-at build
   python3 scripts/deploy.py --resume
+  python3 scripts/deploy.py --semantic-only   # rebuild steps 6-7 only (~15s)
+  python3 scripts/deploy.py --verify
   py -3 scripts\\deploy.py                 # Windows (same flags)
 """
 
@@ -208,6 +210,13 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "--verify",
         action="store_true",
         help="Check that all expected objects exist with correct row counts.",
+    )
+    p.add_argument(
+        "--semantic-only",
+        action="store_true",
+        help="Re-create only the semantic view + agent (steps 6-7). Fast (~15s); "
+        "assumes the dbt marts are already built. Use after editing "
+        "snowflake/create_semantic_view.sql or create_agent.sql.",
     )
     p.add_argument(
         "--dry-run",
@@ -285,6 +294,7 @@ def envsubst_python(text: str, *, only: frozenset[str] | None) -> str:
         - Variable names must match [A-Za-z_][A-Za-z0-9_]*.
         - An empty `only=frozenset()` means nothing is replaced.
     """
+
     def repl(m: re.Match[str]) -> str:
         key = m.group(1)
         if only is not None and key not in only:
@@ -294,9 +304,7 @@ def envsubst_python(text: str, *, only: frozenset[str] | None) -> str:
     return BRACE_VAR.sub(repl, text)
 
 
-def envsubst_maybe(
-    text: str, *, prefer: bool, only: frozenset[str] | None
-) -> str:
+def envsubst_maybe(text: str, *, prefer: bool, only: frozenset[str] | None) -> str:
     """Substitute ${VAR} placeholders, optionally using external envsubst.
 
     Routing logic:
@@ -435,9 +443,7 @@ def dcm_filtered(
         "PUBLIC",
     ]
     p = subprocess.run(cmd, capture_output=True, **_SUB_TX)
-    out_lines = [
-        ln for ln in (p.stdout or "").splitlines() if "already exists" not in ln
-    ]
+    out_lines = [ln for ln in (p.stdout or "").splitlines() if "already exists" not in ln]
     if out_lines:
         print("\n".join(out_lines))
     err = (p.stderr or "").strip()
@@ -476,16 +482,16 @@ def _build_and_deploy_dcm(
     defs.mkdir(parents=True)
     (defs / "schemas.sql").write_text(
         sub_all(
-            (repo / "dcm" / "sources" / "definitions" / "schemas.sql").read_text(
-                encoding="utf-8"
-            )
+            (repo / "dcm" / "sources" / "definitions" / "schemas.sql").read_text(encoding="utf-8")
         ),
         encoding="utf-8",
     )
 
     # Replace hardcoded default DB name in manifest
-    myml = (dcm_build / "manifest.yml").read_text(encoding="utf-8").replace(
-        "PAWCORE_ANALYTICS", target_database
+    myml = (
+        (dcm_build / "manifest.yml")
+        .read_text(encoding="utf-8")
+        .replace("PAWCORE_ANALYTICS", target_database)
     )
     (dcm_build / "manifest.yml").write_text(myml, encoding="utf-8")
 
@@ -520,14 +526,16 @@ def _stage_dbt_project(
     (dbt_build / "profiles.yml").write_text(
         envsubst_maybe(
             (repo / "dbt" / "profiles.yml").read_text(encoding="utf-8"),
-            prefer=prefer, only=None,
+            prefer=prefer,
+            only=None,
         ),
         encoding="utf-8",
     )
     (dbt_build / "models" / "sources.yml").write_text(
         envsubst_maybe(
             (repo / "dbt" / "models" / "sources.yml").read_text(encoding="utf-8"),
-            prefer=prefer, only=None,
+            prefer=prefer,
+            only=None,
         ),
         encoding="utf-8",
     )
@@ -551,11 +559,15 @@ def _stage_dbt_project(
     # Upload dbt build dir to stage
     subprocess.run(
         [
-            snow_exe, "stage", "copy",
+            snow_exe,
+            "stage",
+            "copy",
             str(dbt_build),
             f"@{target_database}.PUBLIC.DBT_PROJECT_STAGE",
-            "-c", connection,
-            "--recursive", "--overwrite",
+            "-c",
+            connection,
+            "--recursive",
+            "--overwrite",
         ],
         check=True,
         **_SUB_TX,
@@ -635,9 +647,7 @@ def _run_verify(snow_exe: str, connection: str, target_database: str) -> bool:
         all_pass = False
 
     # Check verified queries count
-    sql_vqr = (
-        f"DESCRIBE SEMANTIC VIEW {target_database}.SEMANTIC.PAWCORE_ANALYSIS;"
-    )
+    sql_vqr = f"DESCRIBE SEMANTIC VIEW {target_database}.SEMANTIC.PAWCORE_ANALYSIS;"
     p_vqr = subprocess.run(
         [snow_exe, "sql", "-c", connection, "-q", sql_vqr, "--format", "json"],
         capture_output=True,
@@ -713,7 +723,7 @@ def _print_wow(snow_exe: str, connection: str, target_database: str) -> None:
     print("  │  Signal: low battery correlates with low customer satisfaction")
     print("  └─────────────────────────────────────────────────────────────┘")
     print("")
-    print("  Ask the agent: \"Why does LOT341 have the worst ratings?\"")
+    print('  Ask the agent: "Why does LOT341 have the worst ratings?"')
     print("  It will cross-reference manufacturing QA + telemetry + reviews.")
 
 
@@ -740,7 +750,7 @@ def main() -> None:
         3. Raw load — COPY INTO 4 RAW tables from GitHub CSVs
         4. dbt stage — copy dbt tree, substitute templates, upload to stage,
            CREATE DBT PROJECT
-        5. dbt build — EXECUTE DBT PROJECT args='build' (12 models + 36 tests)
+        5. dbt build — EXECUTE DBT PROJECT args='build' (all models + tests)
         6. Semantic view — CREATE SEMANTIC VIEW for Cortex Analyst
         7. Agent — CREATE AGENT for Snowflake Intelligence
 
@@ -799,6 +809,40 @@ def main() -> None:
             sys.exit(1)
         return
 
+    # --semantic-only: re-create just the semantic view + agent (steps 6-7).
+    # Fast path for iterating on create_semantic_view.sql / create_agent.sql
+    # without re-running bootstrap, raw-load, or the dbt build. Only does
+    # CREATE OR REPLACE on the semantic view + agent, so no DB-overwrite gate.
+    if ns.semantic_only:
+        snow_exe = snow_executable()
+        os.environ["TARGET_DB"] = target_database
+        os.environ["TARGET_WH"] = target_wh
+        prefer = ns.prefer_envsubst
+        only_db_wh = frozenset({"TARGET_DB", "TARGET_WH"})
+        print(f"==> Semantic-only: re-creating semantic view + agent on {target_database}")
+        sem_txt = (repo / "snowflake" / "create_semantic_view.sql").read_text(encoding="utf-8")
+        r6 = run_snow_ci(
+            snow_exe, connection, envsubst_maybe(sem_txt, prefer=prefer, only=only_db_wh)
+        )
+        if r6.returncode != 0:
+            sys.exit(r6.returncode)
+        print("  ✓ Semantic view re-created.")
+        agent_txt = (repo / "snowflake" / "create_agent.sql").read_text(encoding="utf-8")
+        r7 = run_snow_ci(
+            snow_exe,
+            connection,
+            envsubst_maybe(agent_txt, prefer=prefer, only=only_db_wh),
+        )
+        if r7.returncode != 0:
+            print(
+                "\n⚠  CREATE AGENT failed. Fall back to Snowsight UI — "
+                "see docs/exercises/03_agent.md Option B."
+            )
+            sys.exit(r7.returncode)
+        print("  ✓ Agent re-created.")
+        print("\n✓ Semantic layer updated. Run --verify to confirm.")
+        return
+
     os.environ.setdefault("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE", "0")
     if os.environ.get("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE") != "1":
         print(SAFETY_BOX.format(db=target_database, conn=connection), file=sys.stderr)
@@ -821,7 +865,7 @@ def main() -> None:
         print("[DRY RUN] Step 2: Deploy 8 schemas via DCM")
         print(f"[DRY RUN] Step 3: Upload {data_size / 1024:.0f}KB of CSVs + COPY INTO 4 tables")
         print(f"[DRY RUN] Step 4: Stage dbt project ({dbt_files} files) + CREATE DBT PROJECT")
-        print("[DRY RUN] Step 5: EXECUTE DBT PROJECT (12 models + 36 tests)")
+        print("[DRY RUN] Step 5: EXECUTE DBT PROJECT (all dbt models + tests)")
         print(f"[DRY RUN] Step 6: CREATE SEMANTIC VIEW {target_database}.SEMANTIC.PAWCORE_ANALYSIS")
         print("[DRY RUN] Step 7: CREATE AGENT SNOWFLAKE_INTELLIGENCE.AGENTS.PAWCORE_ASSISTANT")
         return
@@ -864,11 +908,15 @@ def main() -> None:
     print("==> Step 3/7: Upload data/ to stage + load raw CSVs")
     subprocess.run(
         [
-            snow_exe, "stage", "copy",
+            snow_exe,
+            "stage",
+            "copy",
             str(repo / "data"),
             f"@{target_database}.RAW.PAWCORE_DATA_STAGE",
-            "-c", connection,
-            "--recursive", "--overwrite",
+            "-c",
+            connection,
+            "--recursive",
+            "--overwrite",
         ],
         check=True,
         **_SUB_TX,
@@ -900,8 +948,10 @@ def main() -> None:
 
     if stop_at == "build":
         _print_timing(timings)
-        print("\n✓ Stopped at dbt build. Marts ready. Re-run without --stop-at "
-              "for semantic view + agent.")
+        print(
+            "\n✓ Stopped at dbt build. Marts ready. Re-run without --stop-at "
+            "for semantic view + agent."
+        )
         return
 
     only_db_wh = frozenset({"TARGET_DB", "TARGET_WH"})
@@ -909,9 +959,7 @@ def main() -> None:
     t0 = time.time()
     print("==> Step 6/7: Create semantic view")
     sem_txt = (repo / "snowflake" / "create_semantic_view.sql").read_text(encoding="utf-8")
-    r6 = run_snow_ci(
-        snow_exe, connection, envsubst_maybe(sem_txt, prefer=prefer, only=only_db_wh)
-    )
+    r6 = run_snow_ci(snow_exe, connection, envsubst_maybe(sem_txt, prefer=prefer, only=only_db_wh))
     if r6.returncode != 0:
         sys.exit(r6.returncode)
     timings.append(("6. Semantic view", time.time() - t0))
@@ -938,9 +986,7 @@ def main() -> None:
         "  Open the agent: https://app.snowflake.com/"
         "#/agents/SNOWFLAKE_INTELLIGENCE/AGENTS/PAWCORE_ASSISTANT"
     )
-    print(
-        "  Or via Snowsight → AI & ML → Snowflake Intelligence → 'PawCore Assistant'"
-    )
+    print("  Or via Snowsight → AI & ML → Snowflake Intelligence → 'PawCore Assistant'")
 
 
 if __name__ == "__main__":

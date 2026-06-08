@@ -19,10 +19,10 @@ Open `snowflake/create_semantic_view.sql` and add a new metric in the METRICS se
 
 ```sql
     telemetry.post_fix_avg_battery AS AVG(
-      CASE WHEN telemetry.reading_time >= '2024-06-01' THEN telemetry.battery_value END
+      CASE WHEN telemetry.reading_time >= '2024-11-15' THEN telemetry.battery_value END
     )
       WITH SYNONYMS = ('recent_battery', 'post_fix_battery', 'improvement')
-      COMMENT = 'Average battery for readings after June 2024 (post-fix window). Compare to overall avg to measure improvement.',
+      COMMENT = 'Average battery for readings after Nov 15 2024 (post-fix). Expected: ~92% post-fix vs ~74% pre-fix for LOT341.',
 ```
 
 And add a dimension for time bucketing:
@@ -45,19 +45,21 @@ Add this to the `AI_VERIFIED_QUERIES` section:
       VERIFIED_AT 1748620800
       ONBOARDING_QUESTION TRUE
       VERIFIED_BY '(STEWARD = your.name@company.com)'
-      SQL 'SELECT lot_number, AVG(battery_value) AS overall_avg, AVG(CASE WHEN reading_time >= ''2024-06-01'' THEN battery_value END) AS post_fix_avg FROM __telemetry WHERE lot_number = ''LOT341'' GROUP BY lot_number'
+      SQL 'SELECT lot_number, AVG(battery_value) AS overall_avg, AVG(CASE WHEN reading_time >= ''2024-11-15'' THEN battery_value END) AS post_fix_avg FROM __telemetry WHERE lot_number = ''LOT341'' GROUP BY lot_number'
     )
 ```
+
+> **Expected result:** LOT341 overall avg is ~78% (degraded pre-fix readings drag it down), but `post_fix_avg` is ~92% — a clear +18 point improvement showing the moisture seal fix worked. This is the payoff of the entire investigation storyline.
 
 ---
 
 ## Step 3: Redeploy the semantic view
 
 ```bash
-uv run scripts/deploy.py --resume 6
+uv run scripts/deploy.py --semantic-only
 ```
 
-This re-creates the semantic view with your new metric and VQR.
+This re-creates the semantic view (with your new metric and VQR) and the agent — steps 6–7 — in ~15 seconds, skipping the earlier steps.
 
 ---
 
@@ -67,7 +69,7 @@ This re-creates the semantic view with your new metric and VQR.
 uv run scripts/deploy.py --verify
 ```
 
-Should show `PASS  VERIFIED QUERIES: 23 registered` (was 22).
+The registered count goes up by 1 for the VQR you just added: `PASS  VERIFIED QUERIES: 23 registered` if this is the only query you've added, or `24` if you also completed Exercise 4 (which adds one too).
 
 ---
 
@@ -112,5 +114,5 @@ This derived metric combines two existing metrics without specifying a table, sh
 | Semantic view evolution | Add metrics without touching dbt models |
 | Verified Query Repository | Teach the agent new questions in SQL |
 | Derived metrics | Compose existing metrics into new insights |
-| `--resume` partial deploy | Update just the semantic layer (steps 6-7) in seconds |
+| `--semantic-only` partial deploy | Update just the semantic layer (steps 6-7) in seconds |
 | Agent-as-interface | Business users ask questions, never write SQL |

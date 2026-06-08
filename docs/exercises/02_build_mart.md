@@ -54,7 +54,7 @@ Also add an entry to dbt/models/marts/__marts.yml with not_null tests on week_st
 IMPORTANT: Do NOT try to run dbt locally. This project uses server-side dbt (EXECUTE DBT PROJECT). Just write the file — I will deploy it with the deploy script.
 ```
 
-**Expected row count:** ~30-50 rows (weeks × 3 regions)
+**Expected row count:** ~27 rows (9 weeks × 3 regions)
 
 ---
 
@@ -133,6 +133,8 @@ After CoCo writes the file:
    uv run scripts/deploy.py --stop-at build
    ```
    Watch for `PASS` on your new model and its tests. All existing tests should still pass too.
+
+   > Note: this command re-runs the full pipeline up to the dbt build — bootstrap, schemas, **and a raw CSV reload** — then rebuilds. It's idempotent (the CSVs in `data/` are the source of truth), but if you edited the RAW tables directly in SQL, those changes are overwritten. Edit the CSVs instead.
 
 2. **Verify** — query your new mart:
    ```sql

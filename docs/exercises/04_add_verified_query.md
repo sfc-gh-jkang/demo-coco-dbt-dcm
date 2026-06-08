@@ -58,10 +58,10 @@ Open `snowflake/create_semantic_view.sql` and add your query inside the `AI_VERI
 ## Step 3: Redeploy the semantic view
 
 ```bash
-uv run scripts/deploy.py --resume 6
+uv run scripts/deploy.py --semantic-only
 ```
 
-This runs only step 6 (semantic view creation) and step 7 (agent), skipping the earlier steps.
+This re-creates only the semantic view (with your new VQR) and the agent — steps 6–7 — in ~15 seconds, skipping bootstrap, raw load, and the dbt build.
 
 ---
 
