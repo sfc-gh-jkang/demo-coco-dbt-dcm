@@ -6,17 +6,19 @@
 
 ## The goal
 
-Pick one of three business questions. Prompt CoCo to write the dbt model. Commit locally. Re-run `EXECUTE DBT PROJECT`. Verify tests pass. You'll end the activity with an analytical mart **you** designed.
+Pick one of three business questions. Paste a ready-made prompt into CoCo. CoCo writes the SQL. You redeploy. Tests pass. You end with an analytical mart **you** designed — built entirely by prompting an AI pair programmer.
 
-## Setup (90 seconds)
+---
 
-1. Open the repo in your editor (VSCode, Cursor, whatever).
-2. Open Cortex Code in a terminal.
-3. Copy the starter file:
-   ```bash
-   cp dbt/models/marts/_exercise_starter.sql dbt/models/marts/mart_<your_choice>.sql
-   ```
-4. Remember the mart name — we'll reference it in the build command.
+## How it works (read this first)
+
+1. **Pick Option A, B, or C** below (A is easiest, C is hardest)
+2. **Copy the pre-filled CoCo prompt** under your chosen option
+3. **Paste it into Cortex Code** — CoCo reads the codebase and writes the .sql file for you
+4. **Redeploy** — one command re-stages and rebuilds the dbt project
+5. **Verify** — query your new mart to see the results
+
+You are NOT writing SQL yourself. CoCo does the work. Your job is to evaluate what it produces and iterate if needed.
 
 ---
 
@@ -33,13 +35,24 @@ Pick one of three business questions. Prompt CoCo to write the dbt model. Commit
 - `min_battery_level` (NUMBER)
 - `device_count` (NUMBER)
 
-**Target table:** `mart_weekly_battery_by_region`
+**Copy-paste this ENTIRE prompt into CoCo:**
 
-**dbt test to add (in `__marts.yml`):**
-- `not_null` on `week_start`, `region`, `avg_battery_level`
-- `accepted_values` for region: `['AMERICAS', 'EMEA', 'APAC']`
+```
+I'm adding a new dbt mart to this project. Please:
+1. Read dbt/models/marts/_exercise_starter.sql and the 3 existing marts in dbt/models/marts/
+2. Also read dbt/models/staging/stg_telemetry.sql
+3. Write dbt/models/marts/mart_weekly_battery_by_region.sql
 
-**Hint if stuck:** The source is `{{ ref('stg_telemetry') }}`. Use `DATE_TRUNC('week', timestamp)`. Group by `week_start, region`.
+Business question: "How is battery performance trending by region week over week?"
+
+Expected columns: week_start (DATE), region (VARCHAR), avg_battery_level (NUMBER), min_battery_level (NUMBER), device_count (NUMBER)
+
+Use DATE_TRUNC('week', timestamp) for week_start. Group by week_start and region. Use CTEs. Follow the existing mart style (config block at top, table materialization, ORDER BY at end).
+
+Also add an entry to dbt/models/marts/__marts.yml with not_null tests on week_start, region, and avg_battery_level, plus accepted_values for region: ['AMERICAS', 'EMEA', 'APAC'].
+```
+
+**Expected row count:** ~30-50 rows (weeks × 3 regions)
 
 ---
 
@@ -48,24 +61,28 @@ Pick one of three business questions. Prompt CoCo to write the dbt model. Commit
 **Business question:** "Which 10 devices are showing the worst signals right now?"
 
 **Expected output columns:**
-- `device_id` (VARCHAR)
-- `lot_number` (VARCHAR)
-- `region` (VARCHAR)
-- `avg_battery_level` (NUMBER)
-- `low_battery_reading_count` (NUMBER) — readings < 20
-- `failed_quality_tests` (NUMBER) — joined by lot
-- `review_count` (NUMBER)
-- `worst_rating` (NUMBER)
-- `risk_score` (NUMBER) — weighted: low_battery * 3 + failed_tests * 2 + (6 - worst_rating) * 1
+- `device_id`, `lot_number`, `region`
+- `avg_battery_level`, `low_battery_reading_count` (readings < 20)
+- `risk_score` (weighted: low_battery_count * 3 + (5 - avg_rating))
 
-**Target table:** `mart_top10_problematic_devices`
+**Copy-paste this ENTIRE prompt into CoCo:**
 
-**dbt test to add:**
-- `unique` on `device_id`
-- `not_null` on `device_id`, `lot_number`
-- Row count test: model should return exactly 10 rows (use `dbt_utils.equal_rowcount` or a custom SQL test)
+```
+I'm adding a new dbt mart to this project. Please:
+1. Read dbt/models/marts/_exercise_starter.sql and the 3 existing marts in dbt/models/marts/
+2. Also read dbt/models/staging/stg_telemetry.sql and stg_customer_reviews.sql
+3. Write dbt/models/marts/mart_top10_problematic_devices.sql
 
-**Hint:** Pre-aggregate `stg_telemetry` per device BEFORE joining. Otherwise you'll get fanout like we caught in the original `mart_regional_customer_impact` bug. Rank at the end with `ROW_NUMBER() OVER (ORDER BY risk_score DESC) QUALIFY rn <= 10`.
+Business question: "Which 10 devices are showing the worst signals right now?"
+
+Expected columns: device_id (VARCHAR), lot_number (VARCHAR), region (VARCHAR), avg_battery_level (NUMBER), low_battery_reading_count (NUMBER — readings where battery_level < 20), avg_rating (NUMBER — from reviews), risk_score (NUMBER — weighted: low_battery_reading_count * 3 + (5 - avg_rating))
+
+CRITICAL: Pre-aggregate stg_telemetry to one row per device BEFORE joining to stg_customer_reviews. Otherwise you get fanout (21K telemetry × 1.5K reviews). Use a CTE like: WITH device_stats AS (SELECT device_id, lot_number, region, AVG(battery_level), SUM(CASE WHEN battery_level < 20...) FROM stg_telemetry GROUP BY device_id, lot_number, region). Then LEFT JOIN to reviews aggregated per device_id. Rank by risk_score DESC and LIMIT 10.
+
+Also add an entry to dbt/models/marts/__marts.yml with unique test on device_id and not_null on device_id, lot_number.
+```
+
+**Expected row count:** Exactly 10 rows
 
 ---
 
@@ -75,36 +92,27 @@ Pick one of three business questions. Prompt CoCo to write the dbt model. Commit
 
 **Expected output columns:**
 - `charging_cycles_bucket` (VARCHAR) — one of `0-50`, `51-100`, `101-200`, `201-500`, `500+`
-- `device_count` (NUMBER)
-- `low_battery_rate` (NUMBER) — % of readings where battery < 20
-- `avg_temperature` (NUMBER)
-- `avg_humidity` (NUMBER)
-- `pct_devices_with_failed_tests` (NUMBER) — % of devices in this bucket whose lot has any FAIL in quality logs
+- `device_count`, `low_battery_rate` (% of readings where battery < 20)
+- `avg_temperature`, `avg_humidity`
 
-**Target table:** `mart_device_age_cohort_analysis`
-
-**dbt test to add:**
-- `not_null` on all columns
-- `accepted_values` on `charging_cycles_bucket` (the 5 buckets listed)
-
-**Hint:** Use `CASE` for bucketing. The `pct_devices_with_failed_tests` needs a sub-aggregation: first find lots with any FAIL, then count matching devices per bucket, divide by total devices in bucket.
-
----
-
-## CoCo prompt template (copy this)
+**Copy-paste this ENTIRE prompt into CoCo:**
 
 ```
 I'm adding a new dbt mart to this project. Please:
 1. Read dbt/models/marts/_exercise_starter.sql and the 3 existing marts in dbt/models/marts/
-2. Also read dbt/models/staging/stg_telemetry.sql, stg_quality_logs.sql, and stg_customer_reviews.sql
-3. Write dbt/models/marts/mart_<your_choice>.sql to answer this business question:
+2. Also read dbt/models/staging/stg_telemetry.sql and stg_quality_logs.sql
+3. Write dbt/models/marts/mart_device_age_cohort_analysis.sql
 
-<paste your chosen Option A, B, or C description here>
+Business question: "Are older devices (more charging cycles) failing at a higher rate than newer ones?"
 
-Expected columns: <paste the column list>
+Expected columns: charging_cycles_bucket (VARCHAR — one of '0-50', '51-100', '101-200', '201-500', '500+'), device_count (NUMBER), low_battery_rate (NUMBER — percentage of readings where battery_level < 20), avg_temperature (NUMBER), avg_humidity (NUMBER)
 
-Use CTEs to keep logic readable. Follow the existing mart style (config block at top, table materialization, ORDER BY at end). Watch out for fanout — pre-aggregate source tables before joining.
+Use CASE WHEN charging_cycles <= 50 THEN '0-50' WHEN charging_cycles <= 100 THEN '51-100' etc. for bucketing. First compute per-device stats (avg charging_cycles, low_battery_rate, avg_temp, avg_humidity) then bucket and aggregate. Use CTEs.
+
+Also add an entry to dbt/models/marts/__marts.yml with not_null on all columns and accepted_values on charging_cycles_bucket for the 5 bucket values.
 ```
+
+**Expected row count:** Exactly 5 rows (one per bucket)
 
 ---
 
@@ -112,63 +120,72 @@ Use CTEs to keep logic readable. Follow the existing mart style (config block at
 
 After CoCo writes the file:
 
-1. **Add the entry to `dbt/models/marts/__marts.yml`** — CoCo can do this too, or copy the pattern from existing entries. Include the tests listed above.
-
-2. **Re-deploy the dbt project** — this re-stages all dbt files (including your new mart) and rebuilds:
+1. **Redeploy the dbt project** — this re-stages all dbt files (including your new mart) and rebuilds:
    ```bash
    uv run scripts/deploy.py --stop-at build
    ```
-   The build runs all 48 existing nodes plus your new mart. Watch for PASS on your model.
+   Watch for `PASS` on your new model and its tests. All existing tests should still pass too.
 
-   **Or** for a faster targeted rebuild (uploads just your file and rebuilds only your mart):
-   ```bash
-   CONN=$(grep "^SNOWFLAKE_CONNECTION=" .env | cut -d= -f2)
-   DB=$(grep "^TARGET_DATABASE=" .env | cut -d= -f2)
-   WH=$(grep "^TARGET_WAREHOUSE=" .env | cut -d= -f2)
-
-   snow stage copy dbt/models/marts/mart_<your_choice>.sql \
-       @${DB}.PUBLIC.DBT_PROJECT_STAGE/models/marts/ \
-       -c "$CONN" --overwrite
-
-   snow sql -c "$CONN" -q "
-   USE WAREHOUSE ${WH};
-   CREATE OR REPLACE DBT PROJECT ${DB}.PUBLIC.PAWCORE_DBT
-       FROM @${DB}.PUBLIC.DBT_PROJECT_STAGE/
-       COMMENT = 'PawCore dbt project';
-   EXECUTE DBT PROJECT ${DB}.PUBLIC.PAWCORE_DBT
-       args='build --select mart_<your_choice>+';
-   "
-   ```
-   Note: `CREATE OR REPLACE DBT PROJECT` is required after uploading new files —
-   it re-compiles the manifest. The `+` pulls in upstream dependencies automatically.
-
-3. **Verify** — query your new mart:
+2. **Verify** — query your new mart:
    ```sql
    SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> LIMIT 10;
    ```
+
+3. **Check the row count** matches the expected count listed under your option.
+
+---
+
+## If CoCo gives you something wrong
+
+This happens. Here's what to do:
+
+### "The build failed with an ERROR"
+
+Paste this into CoCo:
+```
+The dbt build failed. Here's the error: <paste the error message>. Please fix the SQL in dbt/models/marts/mart_<name>.sql.
+```
+
+### "Row count is way too high (fanout)"
+
+This means CoCo joined two tables without pre-aggregating. Paste this:
+```
+The mart has too many rows — I think there's a fanout from joining stg_telemetry directly to stg_customer_reviews without pre-aggregating. Please fix dbt/models/marts/mart_<name>.sql: pre-aggregate stg_telemetry to one row per device_id in a CTE before joining.
+```
+
+### "Column has NULL values but shouldn't"
+
+```
+The column <name> has NULLs. This is probably from a LEFT JOIN that didn't match. Please use COALESCE(<column>, 0) or switch to INNER JOIN if every device should have data.
+```
+
+### "CoCo wrote something completely different from what I asked"
+
+Start over with a more specific prompt:
+```
+Delete what you wrote in dbt/models/marts/mart_<name>.sql and try again. Here are the EXACT columns I need: <list them>. The ONLY source table is {{ ref('stg_telemetry') }}. Do not join to any other table. GROUP BY <fields>. ORDER BY <field> DESC.
+```
+
+### "Tests fail but the data looks right"
+
+The YAML test definition might not match what CoCo wrote. Paste:
+```
+The dbt test <test_name> is failing. Read the test definition in __marts.yml and the actual SQL in mart_<name>.sql. Fix whichever one is wrong — the test should match the actual column names and logic.
+```
 
 ---
 
 ## Alternative: skip the dbt project entirely
 
-If re-deploying is too slow or you hit issues, create the table directly:
+If re-deploying is too slow or you hit issues, create the table directly in Snowsight:
 
-1. Create the file locally.
-2. Use Cortex Code to turn it into a `CREATE TABLE AS SELECT` statement:
-   ```sql
-   CREATE OR REPLACE TABLE PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> AS
-   -- paste the CTE-based SELECT from your file
-   ;
-   ```
-3. You lose the dbt test wrapping but you still get a working mart. Good enough for the demo.
+```sql
+CREATE OR REPLACE TABLE PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> AS
+-- paste the SELECT statement CoCo wrote (everything after the config block)
+;
+```
 
----
-
-## Gotchas (CoCo will probably warn you about these)
-
-- **Fanout**: Never join `stg_telemetry` (21k rows) to `stg_customer_reviews` (1.5k rows) on `device_id` without pre-aggregating telemetry first. The original `mart_regional_customer_impact` had this bug — `review_count` was 4x inflated.
-- **NULL battery in joins**: If you join device_id across staging, some reviews may not match a telemetry row. Use LEFT JOIN and handle NULLs explicitly.
-- **Test the mart total vs. source**: For Option A, rows = weeks × regions. For Option B, exactly 10. For Option C, exactly 5 (one per bucket). Always verify a row count expectation before declaring done.
+You lose the dbt test wrapping but you still get a working mart. Good enough for the demo.
 
 ---
 
