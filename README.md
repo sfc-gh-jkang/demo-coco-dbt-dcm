@@ -120,11 +120,9 @@ uv tool install snowflake-cli-labs
 # Install from VS Code marketplace: search "Cortex Code"
 ```
 
-After installing, verify the tools are available:
+Verify everything installed:
 ```bash
-git --version
-uv --version
-snow --version
+git --version && uv --version && snow --version
 ```
 
 ---
