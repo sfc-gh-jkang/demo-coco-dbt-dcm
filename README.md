@@ -192,7 +192,7 @@ Expected: TELEMETRY=21000, QUALITY_LOGS=1050, REVIEWS=1550.
 ### Teardown
 
 ```bash
-snow sql -f teardown.sql
+uv run scripts/deploy.py --teardown   # Drops agent, database, and warehouse
 ```
 
 ---
