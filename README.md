@@ -146,20 +146,30 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 
 ### 1. Set up your Snowflake connection
 
-If you haven't already configured a Snowflake CLI connection:
-
+**Option A — Interactive (recommended):**
 ```bash
 snow connection add
 ```
+Follow the prompts. When asked for authenticator, choose `externalbrowser` to log in via your browser (supports SSO/MFA), or `snowflake_jwt` / leave blank for username+password.
 
-This prompts you interactively for account URL, user, password, role, warehouse, and database. Use:
-- **Role**: `ACCOUNTADMIN` (required for this demo)
-- **Warehouse**: any existing warehouse (or leave blank — the deploy creates one)
-- **Connection name**: remember this — you'll put it in `.env`
+**Option B — Manual file edit:**
 
-Verify it works:
+Create/edit `~/.snowflake/connections.toml` (macOS/Linux) or `%USERPROFILE%\.snowflake\connections.toml` (Windows):
+
+```toml
+[my_trial]
+account = "ORGNAME-ACCOUNTNAME"    # from your Snowflake URL: https://ORGNAME-ACCOUNTNAME.snowflakecomputing.com
+user = "your_username"
+authenticator = "externalbrowser"   # opens browser for login (no password stored)
+role = "ACCOUNTADMIN"
+warehouse = "COMPUTE_WH"           # any existing warehouse
+```
+
+Find your account identifier in Snowsight: click your name (bottom-left) → **Account** → copy the `ORGNAME-ACCOUNTNAME` value.
+
+**Verify it works:**
 ```bash
-snow connection test -c <your-connection-name>
+snow connection test -c my_trial
 # or if it's your default connection:
 snow connection test
 ```
