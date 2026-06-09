@@ -223,14 +223,19 @@ uv run scripts/deploy.py --prefer-envsubst     # Use system envsubst if installe
 ### Verify
 
 ```bash
-snow sql -c <conn> -q "
-SELECT 'TELEMETRY' AS t, COUNT(*) AS n FROM <DB>.DEVICE_DATA.TELEMETRY
-UNION ALL SELECT 'QUALITY_LOGS', COUNT(*) FROM <DB>.MANUFACTURING.QUALITY_LOGS
-UNION ALL SELECT 'REVIEWS', COUNT(*) FROM <DB>.SUPPORT.CUSTOMER_REVIEWS;
-"
+uv run scripts/deploy.py --verify
 ```
 
-Expected: TELEMETRY=21000, QUALITY_LOGS=1050, REVIEWS=1550.
+Expected output:
+```
+  PASS  DEVICE_DATA.TELEMETRY: 21,000 rows
+  PASS  MANUFACTURING.QUALITY_LOGS: 1,050 rows
+  PASS  SUPPORT.CUSTOMER_REVIEWS: 1,550 rows
+  ...
+  PASS  VERIFIED QUERIES: 22 registered
+  PASS  AGENT: PAWCORE_ASSISTANT
+✓ All checks passed.
+```
 
 ### Teardown
 
