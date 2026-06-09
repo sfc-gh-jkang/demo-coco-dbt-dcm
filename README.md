@@ -145,20 +145,44 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 
 ## Quick Start
 
+### Configure `.env`
+
+Copy the template and edit it:
+
+```bash
+cp .env.example .env        # macOS/Linux
+# copy .env.example .env    # Windows (cmd) or: Copy-Item .env.example .env (PowerShell)
+```
+
+Then edit `.env` with these values:
+
+| Variable | What to set | How to find it |
+|----------|------------|----------------|
+| `SNOWFLAKE_CONNECTION` | Your connection name | Run `snow connection list` — use the name of the connection you set up with `snow connection add` |
+| `TARGET_DATABASE` | Database name to create | Default `PAWCORE_ANALYTICS` works fine. Change if you want to avoid conflicts. |
+| `TARGET_WAREHOUSE` | Warehouse name to create | Default `PAWCORE_DEMO_WH` works fine. |
+| `I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE` | `1` | Set to `1` after confirming the database name. This is a safety gate — deploy will refuse to run without it. |
+
+Example `.env` for a trial account:
+```
+SNOWFLAKE_CONNECTION=my_trial
+TARGET_DATABASE=PAWCORE_ANALYTICS
+TARGET_WAREHOUSE=PAWCORE_DEMO_WH
+I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
+```
+
+### Deploy
+
 ```bash
 git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
 cd demo-coco-dbt-dcm
 
-cp .env.example .env        # macOS/Linux
-# copy .env.example .env    # Windows (cmd) or: Copy-Item .env.example .env (PowerShell)
-
-# Edit .env: set SNOWFLAKE_CONNECTION, TARGET_DATABASE, TARGET_WAREHOUSE
-# Set I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
+# Configure .env (see above)
 
 uv run scripts/deploy.py
 ```
 
-Deploy takes ~4 minutes. On success:
+Deploy takes ~3-4 minutes. On success:
 ```
 ✓ Deploy complete. Target: PAWCORE_ANALYTICS on <your_connection>
   Try: "Which lot has the worst customer ratings?"
