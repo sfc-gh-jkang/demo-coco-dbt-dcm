@@ -39,18 +39,20 @@ LIMIT 20;
 ### Step 2: Check for errors and warnings
 
 ```sql
--- Find requests that generated warnings or errors
-SELECT *
+-- Find requests that generated warnings or a non-200 response
+SELECT timestamp, latest_question, generated_sql, response_status_code, warnings
 FROM TABLE(
   SNOWFLAKE.LOCAL.CORTEX_ANALYST_REQUESTS(
     'SEMANTIC_VIEW',
     'PAWCORE_ANALYTICS.SEMANTIC.PAWCORE_ANALYSIS'
   )
 )
-WHERE ARRAY_SIZE(PARSE_JSON(RECORD_ATTRIBUTES):warnings) > 0
-   OR PARSE_JSON(RECORD_ATTRIBUTES):error IS NOT NULL
+WHERE ARRAY_SIZE(WARNINGS) > 0
+   OR RESPONSE_STATUS_CODE <> 200
 ORDER BY 1 DESC;
 ```
+
+> The table function returns one row per request with columns including `TIMESTAMP`, `LATEST_QUESTION`, `GENERATED_SQL`, `RESPONSE_STATUS_CODE`, `WARNINGS` (an array), `TABLES_REFERENCED`, and `RESPONSE_METADATA`. There is no `RECORD_ATTRIBUTES` column — warnings live in the `WARNINGS` array and failures show up as a non-200 `RESPONSE_STATUS_CODE`.
 
 ### Step 3: Use the Snowsight Monitoring tab
 
