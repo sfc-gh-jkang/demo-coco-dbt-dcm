@@ -92,7 +92,7 @@ Then check the results:
 SELECT * FROM ANALYTICS.BATTERY_ALERTS ORDER BY alert_time DESC;
 ```
 
-**Expected**: LOT341 appears with avg_battery ~74% (below the 90% threshold). LOT339 and LOT340 stay above 90%, so only LOT341 is logged.
+**Expected**: LOT341 appears with avg_battery ~78% (below the 90% threshold). LOT339 and LOT340 stay above 90%, so only LOT341 is logged.
 
 ---
 

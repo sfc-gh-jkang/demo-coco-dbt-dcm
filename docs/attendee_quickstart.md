@@ -69,7 +69,7 @@ Follow along. You'll be prompted to run specific commands at key points. If you 
 
 1. Verify the pipeline:
    ```bash
-   snow sql -q "SHOW TABLES IN DATABASE PAWCORE_DBT_DEMO" -c trial
+   snow sql -q "SHOW TABLES IN DATABASE PAWCORE_ANALYTICS" -c trial
    ```
 2. Run the follow-on [Cortex AI + Snowflake Intelligence HOL](https://github.com/sfc-gh-calexander/HandsOnLabs/tree/main/1-Cortex-AI-Snowflake-Intelligence) to attach a Cortex Agent on top.
 3. Clean up when done:

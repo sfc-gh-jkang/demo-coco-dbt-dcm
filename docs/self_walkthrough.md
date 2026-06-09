@@ -44,10 +44,10 @@ uv run scripts/deploy.py --stop-at raw-load
 ```bash
 snow sql -c mytrial -q "
 USE WAREHOUSE PAWCORE_DEMO_WH;
-SELECT 'TELEMETRY' AS t, COUNT(*) FROM PAWCORE_DBT_DEMO.RAW.TELEMETRY
-UNION ALL SELECT 'QUALITY_LOGS', COUNT(*) FROM PAWCORE_DBT_DEMO.RAW.QUALITY_LOGS
-UNION ALL SELECT 'CUSTOMER_REVIEWS', COUNT(*) FROM PAWCORE_DBT_DEMO.RAW.CUSTOMER_REVIEWS
-UNION ALL SELECT 'SLACK_MESSAGES', COUNT(*) FROM PAWCORE_DBT_DEMO.RAW.SLACK_MESSAGES"
+SELECT 'TELEMETRY' AS t, COUNT(*) FROM PAWCORE_ANALYTICS.RAW.TELEMETRY
+UNION ALL SELECT 'QUALITY_LOGS', COUNT(*) FROM PAWCORE_ANALYTICS.RAW.QUALITY_LOGS
+UNION ALL SELECT 'CUSTOMER_REVIEWS', COUNT(*) FROM PAWCORE_ANALYTICS.RAW.CUSTOMER_REVIEWS
+UNION ALL SELECT 'SLACK_MESSAGES', COUNT(*) FROM PAWCORE_ANALYTICS.RAW.SLACK_MESSAGES"
 ```
 
 ---
@@ -95,11 +95,11 @@ Open [docs/exercises/02_build_mart.md](exercises/02_build_mart.md). Pick Option 
 Run the last 2 steps:
 
 ```bash
-uv run scripts/deploy.py   # resumes to complete steps 6-7
+uv run scripts/deploy.py --semantic-only   # completes steps 6-7 (semantic view + agent)
 ```
 
 **What happens:**
-- Step 6/7: Creates `PAWCORE_DBT_DEMO.SEMANTIC.PAWCORE_ANALYSIS` semantic view
+- Step 6/7: Creates `PAWCORE_ANALYTICS.SEMANTIC.PAWCORE_ANALYSIS` semantic view
 - Step 7/7: Creates `PAWCORE_ASSISTANT` agent (if CREATE AGENT SQL works; otherwise UI fallback)
 
 **Open the agent:** Snowsight → **AI & ML** → **Snowflake Intelligence** → `PAWCORE_ASSISTANT`.
@@ -146,7 +146,7 @@ Drops the database, warehouse, and API integration.
 | `CREATE DBT PROJECT` says "packages not installed" | `git pull` — `dbt_packages/` is vendored in recent commits |
 | Test failure on `region` accepted_values | `git pull` — we use `AMERICAS` now (not `NORTH AMERICA`) |
 | `CREATE AGENT` privilege error | Fall back to Snowsight UI path in exercises/03_agent.md |
-| Agent answers "I don't know" | `SHOW SEMANTIC VIEWS IN SCHEMA PAWCORE_DBT_DEMO.SEMANTIC` — if empty, re-run `snowflake/create_semantic_view.sql` |
+| Agent answers "I don't know" | `SHOW SEMANTIC VIEWS IN SCHEMA PAWCORE_ANALYTICS.SEMANTIC` — if empty, re-run `snowflake/create_semantic_view.sql` |
 
 ---
 

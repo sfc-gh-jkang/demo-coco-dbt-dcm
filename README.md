@@ -81,7 +81,7 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 | `CUSTOMER_REVIEWS` | 1,550 | Star ratings (1-5) with review text |
 | `SLACK_MESSAGES` | 37 | Internal team Slack messages about issues |
 
-**Embedded signal**: LOT341 (EMEA region) has systematically lower battery levels (avg 74% vs 92-94%, with 500+ critical readings below 20%) correlated with high humidity, failed moisture resistance tests, and low customer ratings. The Cortex Agent should discover this correlation when asked "Which lot has the worst customer ratings, and why?"
+**Embedded signal**: LOT341 (EMEA region) has systematically lower battery levels (overall avg ~78% — degraded to ~74% pre-fix, recovered to ~92% after the Nov 15 fix — vs 92-94% for healthy lots, with 500+ critical readings below 20%) correlated with high humidity, failed moisture resistance tests, and low customer ratings. The Cortex Agent should discover this correlation when asked "Which lot has the worst customer ratings, and why?"
 
 ---
 
@@ -110,6 +110,7 @@ Deploy takes ~4 minutes. On success:
 uv run scripts/deploy.py --stop-at raw-load   # Stop after CSV loading (steps 1-3)
 uv run scripts/deploy.py --stop-at build       # Stop after dbt build (steps 1-5)
 uv run scripts/deploy.py --resume              # Run all 7 steps (default)
+uv run scripts/deploy.py --semantic-only       # Rebuild steps 6-7 only (semantic view + agent), ~15s
 uv run scripts/deploy.py --verify              # Validate deployed objects after build
 uv run scripts/deploy.py --teardown            # Drop all objects and exit
 uv run scripts/deploy.py --dry-run             # Show what would run without executing
@@ -238,10 +239,10 @@ demo-coco-dbt-dcm/
 │   ├── speaker_notes.md           # Per-slide notes
 │   ├── prompt_guide.md            # 22 agent questions with expected answers
 │   ├── certificate_template.html  # Print-ready completion certificate
-│   └── exercises/                 # 6 hands-on activities
+│   └── exercises/                 # 7 hands-on activities (6 core + 1 bonus)
 ├── tests/
 │   ├── conftest.py                # Shared pytest fixtures
-│   └── test_deploy.py            # 92 unit tests for deploy.py
+│   └── test_deploy.py            # 103 unit tests for deploy.py
 ├── .env.example                   # Configuration template
 ├── pyproject.toml                 # Python 3.10+, pytest, ruff, python-dotenv
 ├── teardown.sql                   # DROP everything
@@ -324,7 +325,7 @@ Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitato
 ## Testing
 
 ```bash
-uv run pytest tests/ -v    # 92 unit tests, <1s
+uv run pytest tests/ -v    # 103 unit tests, <1s
 uv run ruff check .        # Lint
 ```
 

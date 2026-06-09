@@ -21,7 +21,7 @@ Do NOT:
 All Snowflake operations go through `scripts/deploy.py`:
 - `uv run scripts/deploy.py` — full 7-step deploy
 - `uv run scripts/deploy.py --stop-at build` — steps 1-5 (stops after dbt)
-- `uv run scripts/deploy.py --resume 6` — steps 6-7 only (semantic view + agent)
+- `uv run scripts/deploy.py --semantic-only` — steps 6-7 only (semantic view + agent), ~15s
 - `uv run scripts/deploy.py --verify` — check deployed objects
 - `uv run scripts/deploy.py --teardown` — drop everything
 

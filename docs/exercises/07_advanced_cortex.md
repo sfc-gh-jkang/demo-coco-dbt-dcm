@@ -82,7 +82,7 @@ CREATE OR REPLACE TABLE ANALYTICS.AGENT_EVAL_QUESTIONS (
 INSERT INTO ANALYTICS.AGENT_EVAL_QUESTIONS VALUES
     (1, 'Which lot has the worst battery?', 'LOT341', 'lot_analysis'),
     (2, 'How many devices are in LOT341?', '2100', 'data_lookup'),
-    (3, 'What is the average rating for EMEA?', '4.1', 'customer_impact'),
+    (3, 'What is the average rating for EMEA?', '3.3', 'customer_impact'),
     (4, 'What test type has the most failures?', 'MOISTURE', 'qa_analysis'),
     (5, 'Is there a correlation between humidity and battery?', 'LOT341', 'root_cause'),
     (6, 'How many total devices are tracked?', '3500', 'data_lookup'),
@@ -204,6 +204,10 @@ $$;
 
 GRANT USAGE ON AGENT SNOWFLAKE_INTELLIGENCE.AGENTS.PAWCORE_ASSISTANT TO ROLE PUBLIC;
 ```
+
+> ⚠️ **This change is not persisted to the repo.** It runs an ad-hoc `CREATE OR REPLACE AGENT`; it does **not** edit `snowflake/create_agent.sql`. The next time you run `uv run scripts/deploy.py --semantic-only` (Parts D, E, and F all tell you to), step 7 recreates the agent from `create_agent.sql` and **drops the Slack search tool** — reverting to the single-tool agent. To keep the multi-tool agent, either re-run this `CREATE OR REPLACE AGENT` afterward, or paste this two-tool spec into `snowflake/create_agent.sql` so the deploy reproduces it.
+>
+> Note: this spec is written in **YAML** with `COMMENT=` / `PROFILE=` (no `WITH`). The repo's `snowflake/create_agent.sql` uses an equivalent **JSON** spec with `WITH PROFILE=`. Both forms are valid — don't be thrown by the difference if you diff them.
 
 ### Step 4: Test the multi-tool agent
 

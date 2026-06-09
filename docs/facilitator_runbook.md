@@ -119,7 +119,7 @@ Narrate as CoCo writes: *"Notice it's using DATE_TRUNC — good. It's pulling fr
 
 Run the build:
 ```sql
-EXECUTE DBT PROJECT PAWCORE_DBT_DEMO.PUBLIC.PAWCORE_DBT args='build --select mart_weekly_battery_by_region+';
+EXECUTE DBT PROJECT PAWCORE_ANALYTICS.PUBLIC.PAWCORE_DBT args='build --select mart_weekly_battery_by_region+';
 ```
 
 **Hand-off (10 min):**
@@ -136,7 +136,7 @@ EXECUTE DBT PROJECT PAWCORE_DBT_DEMO.PUBLIC.PAWCORE_DBT args='build --select mar
 
 Run:
 ```bash
-uv run scripts/deploy.py   # resumes and creates semantic view + agent
+uv run scripts/deploy.py --semantic-only   # creates semantic view + agent (steps 6-7, ~15s)
 ```
 
 While it runs, open `docs/exercises/03_agent.md` in browser. Show sample questions.

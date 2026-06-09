@@ -9,7 +9,7 @@ Questions to ask the **PawCore Assistant** agent, organized by investigation flo
 These appear automatically when you first open the agent:
 
 1. **"Which lot has the worst battery performance?"**
-   → Returns LOT341 at 74% avg battery (vs 92-94% for others), 500+ critical readings below 20%
+   → Returns LOT341 at ~78% avg battery (~74% pre-fix, vs 92-94% for others), 500+ critical readings below 20%
 
 2. **"Compare all lots by battery level and pass rate"**
    → Side-by-side comparison table of all 3 lots

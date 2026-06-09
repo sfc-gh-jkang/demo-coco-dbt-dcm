@@ -34,7 +34,7 @@ demo-coco-dbt-dcm/
 ├── snowflake/              # Semantic view + agent creation SQL
 ├── tests/                  # pytest unit tests for deploy.py
 ├── docs/                   # Facilitator, attendee, architecture, exercises
-├── pyproject.toml          # Python 3.14+, pytest, ruff, python-dotenv
+├── pyproject.toml          # Python 3.10+, pytest, ruff, python-dotenv
 ├── .env.example            # Config template (3 vars + safety gate)
 └── teardown.sql            # DROP everything
 ```

@@ -118,7 +118,7 @@ Also add an entry to dbt/models/marts/__marts.yml with not_null on all columns a
 IMPORTANT: Do NOT try to run dbt locally. This project uses server-side dbt (EXECUTE DBT PROJECT). Just write the file — I will deploy it with the deploy script.
 ```
 
-**Expected row count:** Exactly 5 rows (one per bucket)
+**Expected row count:** ~4 rows — one per populated bucket. With the current data the highest per-device average is ~350 cycles, so the `500+` bucket is empty and won't appear. (The `accepted_values` test still lists all 5 — that's fine; it only checks values are *in* the list.)
 
 ---
 
