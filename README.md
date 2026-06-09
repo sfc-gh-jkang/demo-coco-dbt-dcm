@@ -162,6 +162,8 @@ This prompts you interactively for account URL, user, password, role, warehouse,
 Verify it works:
 ```bash
 snow connection test -c <your-connection-name>
+# or if it's your default connection:
+snow connection test
 ```
 
 ### 2. Configure `.env`
