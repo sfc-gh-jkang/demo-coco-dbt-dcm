@@ -81,25 +81,24 @@ xcode-select --install
 # uv (installs Python automatically)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Snowflake CLI
-pip install snowflake-cli-labs
-# or: brew install snowflake-cli
+# Snowflake CLI (via uv — no separate pip needed)
+uv tool install snowflake-cli-labs
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
 ```
 
-**Windows (PowerShell as admin):**
+**Windows (PowerShell):**
 ```powershell
-# Git
-winget install Git.Git
+# Git — pick one:
+winget install Git.Git                # if you have winget (Windows 11+)
+# or download from: https://git-scm.com/download/win
 
 # uv (installs Python automatically)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-# Snowflake CLI
-pip install snowflake-cli-labs
-# or: winget install Snowflake.SnowflakeCLI
+# Snowflake CLI (via uv — no separate pip needed)
+uv tool install snowflake-cli-labs
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
@@ -114,8 +113,8 @@ sudo apt install git  # Debian/Ubuntu
 # uv (installs Python automatically)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Snowflake CLI
-pip install snowflake-cli-labs
+# Snowflake CLI (via uv — no separate pip needed)
+uv tool install snowflake-cli-labs
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
@@ -150,7 +149,9 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
 cd demo-coco-dbt-dcm
 
-cp .env.example .env
+cp .env.example .env        # macOS/Linux
+# copy .env.example .env    # Windows (cmd) or: Copy-Item .env.example .env (PowerShell)
+
 # Edit .env: set SNOWFLAKE_CONNECTION, TARGET_DATABASE, TARGET_WAREHOUSE
 # Set I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
 
