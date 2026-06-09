@@ -120,10 +120,11 @@ uv tool install snowflake-cli-labs
 # Install from VS Code marketplace: search "Cortex Code"
 ```
 
-After installing, configure your Snowflake connection:
+After installing, verify the tools are available:
 ```bash
-snow connection add        # Interactive setup
-snow connection test       # Verify it works
+git --version
+uv --version
+snow --version
 ```
 
 ---
@@ -145,7 +146,25 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 
 ## Quick Start
 
-### Configure `.env`
+### 1. Set up your Snowflake connection
+
+If you haven't already configured a Snowflake CLI connection:
+
+```bash
+snow connection add
+```
+
+This prompts you interactively for account URL, user, password, role, warehouse, and database. Use:
+- **Role**: `ACCOUNTADMIN` (required for this demo)
+- **Warehouse**: any existing warehouse (or leave blank — the deploy creates one)
+- **Connection name**: remember this — you'll put it in `.env`
+
+Verify it works:
+```bash
+snow connection test -c <your-connection-name>
+```
+
+### 2. Configure `.env`
 
 Copy the template and edit it:
 
@@ -171,7 +190,7 @@ TARGET_WAREHOUSE=PAWCORE_DEMO_WH
 I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
 ```
 
-### Deploy
+### 3. Deploy
 
 ```bash
 git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
