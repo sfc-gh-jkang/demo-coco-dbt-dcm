@@ -56,6 +56,7 @@ Plus: a warehouse (`PAWCORE_DEMO_WH`) and an internal stage.
 
 | Dependency | Version | Purpose |
 |-----------|---------|---------|
+| [Git](https://git-scm.com/downloads) | any | Clone this repo |
 | [Snowflake CLI (`snow`)](https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation) | v3.0+ | Executes all SQL and DCM commands |
 | [uv](https://docs.astral.sh/uv/getting-started/installation/) | latest | Python environment + dependency management (auto-installs Python 3.10+ if missing) |
 | [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code) | latest | AI pair programmer (for hands-on exercises) |
@@ -67,6 +68,64 @@ Plus: a warehouse (`PAWCORE_DEMO_WH`) and an internal stage.
 - `python-dotenv` — .env file parsing (runtime)
 - `pytest` — test runner (dev only)
 - `ruff` — linter (dev only)
+
+### Install from scratch (zero dependencies)
+
+If starting on a fresh machine with nothing installed:
+
+**macOS:**
+```bash
+# Git (included with Xcode CLI tools)
+xcode-select --install
+
+# uv (installs Python automatically)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Snowflake CLI
+pip install snowflake-cli-labs
+# or: brew install snowflake-cli
+
+# Cortex Code (VS Code extension)
+# Install from VS Code marketplace: search "Cortex Code"
+```
+
+**Windows (PowerShell as admin):**
+```powershell
+# Git
+winget install Git.Git
+
+# uv (installs Python automatically)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+
+# Snowflake CLI
+pip install snowflake-cli-labs
+# or: winget install Snowflake.SnowflakeCLI
+
+# Cortex Code (VS Code extension)
+# Install from VS Code marketplace: search "Cortex Code"
+```
+
+**Linux:**
+```bash
+# Git
+sudo apt install git  # Debian/Ubuntu
+# or: sudo dnf install git  # Fedora
+
+# uv (installs Python automatically)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Snowflake CLI
+pip install snowflake-cli-labs
+
+# Cortex Code (VS Code extension)
+# Install from VS Code marketplace: search "Cortex Code"
+```
+
+After installing, configure your Snowflake connection:
+```bash
+snow connection add        # Interactive setup
+snow connection test       # Verify it works
+```
 
 ---
 
