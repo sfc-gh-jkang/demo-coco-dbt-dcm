@@ -138,17 +138,17 @@ After CoCo writes the file:
 
 2. **Verify** — query your new mart (copy the one matching your option):
 
-   **Option A:**
+   **Option A** (~27 rows):
    ```sql
    SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_WEEKLY_BATTERY_BY_REGION ORDER BY WEEK_START DESC LIMIT 10;
    ```
 
-   **Option B:**
+   **Option B** (10 rows):
    ```sql
    SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_TOP10_PROBLEMATIC_DEVICES ORDER BY RISK_SCORE DESC;
    ```
 
-   **Option C:**
+   **Option C** (~4 rows):
    ```sql
    SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_DEVICE_AGE_COHORT_ANALYSIS ORDER BY CHARGING_CYCLES_BUCKET;
    ```
