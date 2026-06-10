@@ -130,11 +130,11 @@ After CoCo writes the file:
 
 1. **Redeploy the dbt project** — this re-stages all dbt files (including your new mart) and rebuilds:
    ```bash
-   uv run scripts/deploy.py --stop-at build
+   uv run scripts/deploy.py --dbt-only
    ```
    Watch for `PASS` on your new model and its tests. All existing tests should still pass too.
 
-   > Note: this command re-runs the full pipeline up to the dbt build — bootstrap, schemas, **and a raw CSV reload** — then rebuilds. It's idempotent (the CSVs in `data/` are the source of truth), but if you edited the RAW tables directly in SQL, those changes are overwritten. Edit the CSVs instead.
+   > This only re-stages the dbt files and runs `EXECUTE DBT PROJECT` (~30 seconds). It does NOT re-upload CSVs or re-run bootstrap — those already ran during initial deploy.
 
 2. **Verify** — query your new mart (copy the one matching your option):
 

@@ -253,6 +253,7 @@ Deploy takes ~3-4 minutes. On success:
 ```bash
 uv run scripts/deploy.py --stop-at raw-load   # Stop after CSV loading (steps 1-3)
 uv run scripts/deploy.py --stop-at build       # Stop after dbt build (steps 1-5)
+uv run scripts/deploy.py --dbt-only            # Re-stage + rebuild dbt only (steps 4-5), ~30s
 uv run scripts/deploy.py --semantic-only       # Rebuild steps 6-7 only (semantic view + agent), ~15s
 uv run scripts/deploy.py --dry-run             # Show what would run without executing
 uv run scripts/deploy.py --prefer-envsubst     # Use system envsubst if installed

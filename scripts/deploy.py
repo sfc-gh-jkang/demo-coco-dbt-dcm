@@ -219,6 +219,13 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         "snowflake/create_semantic_view.sql or create_agent.sql.",
     )
     p.add_argument(
+        "--dbt-only",
+        action="store_true",
+        help="Re-stage and rebuild only the dbt project (steps 4-5). Fast (~30s); "
+        "assumes bootstrap + raw tables already exist. Use after adding or "
+        "editing models in dbt/models/.",
+    )
+    p.add_argument(
         "--dry-run",
         action="store_true",
         help="Print what each step would do without executing anything.",
@@ -906,6 +913,35 @@ def main() -> None:
             sys.exit(r7.returncode)
         print("  ✓ Agent re-created.")
         print("\n✓ Semantic layer updated. Run --verify to confirm.")
+        return
+
+    # --dbt-only: re-stage dbt project + execute dbt build (steps 4-5 only).
+    # Fast path for iterating on dbt models without re-running bootstrap,
+    # DCM, or CSV uploads. Assumes RAW tables already exist.
+    if ns.dbt_only:
+        snow_exe = snow_executable()
+        os.environ["TARGET_DB"] = target_database
+        os.environ["TARGET_WH"] = target_wh
+        prefer = ns.prefer_envsubst
+        timings: list[tuple[str, float]] = []
+
+        t0 = time.time()
+        print(f"==> dbt-only: re-staging + rebuilding dbt on {target_database}")
+        _stage_dbt_project(snow_exe, connection, repo, target_database, target_wh, prefer)
+        timings.append(("4. Stage dbt project", time.time() - t0))
+
+        t0 = time.time()
+        print("==> Executing dbt build...")
+        pipeline_txt = (repo / "snowflake" / "run_pipeline.sql").read_text(encoding="utf-8")
+        r5 = run_snow_ci(
+            snow_exe, connection, envsubst_maybe(pipeline_txt, prefer=prefer, only=None)
+        )
+        if r5.returncode != 0:
+            sys.exit(r5.returncode)
+        timings.append(("5. dbt build", time.time() - t0))
+
+        _print_timing(timings)
+        print("\n✓ dbt rebuild complete. Run --verify to confirm.")
         return
 
     os.environ.setdefault("I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE", "0")
