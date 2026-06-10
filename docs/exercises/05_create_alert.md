@@ -11,121 +11,69 @@ LOT341's battery issue is now known. You want to be **alerted automatically** if
 
 ---
 
-## Step 1: Create an alert log table
+## Step 1: Ask CoCo to create the alert
 
-```sql
-USE ROLE ACCOUNTADMIN;
-USE DATABASE PAWCORE_ANALYTICS;
-USE WAREHOUSE PAWCORE_DEMO_WH;
+**Copy-paste into CoCo:**
 
-CREATE TABLE IF NOT EXISTS ANALYTICS.BATTERY_ALERTS (
-    alert_time    TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
-    lot_number    VARCHAR,
-    avg_battery   NUMBER(10,2),
-    threshold     NUMBER(10,2),
-    message       VARCHAR
-);
 ```
+I want to create a Snowflake ALERT that monitors battery levels in my pipeline. Here's what I need:
+
+1. A log table PAWCORE_ANALYTICS.ANALYTICS.BATTERY_ALERTS with columns:
+   - alert_time (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - lot_number (VARCHAR)
+   - avg_battery (NUMBER(10,2))
+   - threshold (NUMBER(10,2))
+   - message (VARCHAR)
+
+2. An alert PAWCORE_ANALYTICS.ANALYTICS.LOW_BATTERY_ALERT that:
+   - Uses warehouse PAWCORE_DEMO_WH
+   - Runs every hour (CRON)
+   - Checks if ANY lot in DEVICE_DATA.TELEMETRY has avg battery_level < 90
+   - If triggered, INSERTs the offending lot(s) into the BATTERY_ALERTS table
+   - Uses CREATE OR REPLACE and CREATE TABLE IF NOT EXISTS so it's idempotent
+
+3. After creating it, RESUME the alert so it's active.
+
+Generate the full SQL and run it.
+```
+
+**What to look for in CoCo's output:**
+- Creates the log table with `IF NOT EXISTS`
+- Alert has a `SCHEDULE = 'USING CRON 0 * * * * America/New_York'` (or similar hourly cron)
+- `IF (EXISTS (...))` checks avg battery per lot
+- `THEN` inserts into the log table
+- Ends with `ALTER ALERT ... RESUME`
 
 ---
 
-## Step 2: Create the alert
+## Step 2: Test it manually
 
-```sql
-CREATE OR REPLACE ALERT ANALYTICS.LOW_BATTERY_ALERT
-  WAREHOUSE = PAWCORE_DEMO_WH
-  SCHEDULE = 'USING CRON 0 * * * * America/New_York'  -- Every hour
-  IF (EXISTS (
-    SELECT lot_number, AVG(battery_level) AS avg_batt
-    FROM DEVICE_DATA.TELEMETRY
-    GROUP BY lot_number
-    HAVING AVG(battery_level) < 90  -- threshold: 90%
-  ))
-  THEN
-    INSERT INTO ANALYTICS.BATTERY_ALERTS (lot_number, avg_battery, threshold, message)
-    SELECT
-      lot_number,
-      ROUND(AVG(battery_level), 2),
-      90,
-      'Battery below 90% threshold'
-    FROM DEVICE_DATA.TELEMETRY
-    GROUP BY lot_number
-    HAVING AVG(battery_level) < 90;
+Ask CoCo:
+
+```
+Execute the alert manually with EXECUTE ALERT ANALYTICS.LOW_BATTERY_ALERT, then query ANALYTICS.BATTERY_ALERTS to show me which lots triggered. I expect LOT341 to appear (avg battery ~78%) but not LOT339 or LOT340 (both above 90%).
 ```
 
-**How it works:**
-- **SCHEDULE**: Runs every hour (CRON expression)
-- **IF (EXISTS ...)**: The condition — only fires if any lot has avg battery < 90%
-- **THEN**: The action — logs the offending lot(s) to the alert table
+**Expected**: LOT341 appears with avg_battery ~78%. The other lots stay above 90%.
 
 ---
 
-## Step 3: Resume (activate) the alert
+## Step 3: Clean up
 
-Alerts are created in a SUSPENDED state. Activate it:
+Ask CoCo:
 
-```sql
-ALTER ALERT ANALYTICS.LOW_BATTERY_ALERT RESUME;
 ```
-
-Verify it's active:
-
-```sql
-SHOW ALERTS IN SCHEMA ANALYTICS;
-```
-
-You should see `state = started`.
-
----
-
-## Step 4: Manually trigger to test
-
-You can't wait an hour during a lab. Force the condition check:
-
-```sql
-EXECUTE ALERT ANALYTICS.LOW_BATTERY_ALERT;
-```
-
-Then check the results:
-
-```sql
-SELECT * FROM ANALYTICS.BATTERY_ALERTS ORDER BY alert_time DESC;
-```
-
-**Expected**: LOT341 appears with avg_battery ~78% (below the 90% threshold). LOT339 and LOT340 stay above 90%, so only LOT341 is logged.
-
----
-
-## Step 5: Clean up
-
-```sql
-ALTER ALERT ANALYTICS.LOW_BATTERY_ALERT SUSPEND;
--- Or drop it entirely:
--- DROP ALERT ANALYTICS.LOW_BATTERY_ALERT;
+Suspend the LOW_BATTERY_ALERT so it doesn't keep running after the lab.
 ```
 
 ---
 
 ## Bonus: Email notification
 
-If you have a notification integration configured:
+Ask CoCo:
 
-```sql
-CREATE OR REPLACE ALERT ANALYTICS.LOW_BATTERY_EMAIL_ALERT
-  WAREHOUSE = PAWCORE_DEMO_WH
-  SCHEDULE = 'USING CRON 0 8 * * * America/New_York'  -- Daily at 8am
-  IF (EXISTS (
-    SELECT 1 FROM DEVICE_DATA.TELEMETRY
-    GROUP BY lot_number
-    HAVING AVG(battery_level) < 90
-  ))
-  THEN
-    CALL SYSTEM$SEND_EMAIL(
-      'my_email_integration',
-      'your.email@company.com',
-      'PawCore Battery Alert',
-      'One or more lots have average battery below 90%. Check ANALYTICS.MART_LOT_QUALITY_CORRELATION for details.'
-    );
+```
+Create a second alert called LOW_BATTERY_EMAIL_ALERT that runs daily at 8am and uses SYSTEM$SEND_EMAIL to notify me when any lot drops below 90% battery. Use 'my_email_integration' as the notification integration name and 'your.email@company.com' as the recipient. Just show me the SQL — don't run it (I may not have an email integration configured).
 ```
 
 ---
