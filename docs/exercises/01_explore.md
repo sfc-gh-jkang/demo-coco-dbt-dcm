@@ -57,25 +57,25 @@ CoCo should identify the CSV data files and the staging views as the places to u
 
 ---
 
-## Prompt 3 — "Summarize the raw data we just loaded"
+## Prompt 3 — "Which lot looks problematic?"
 
 **Copy-paste into CoCo:**
 
 ```
-Run a query against PAWCORE_ANALYTICS.RAW to show me:
-- Row counts for each raw table
-- The 3 regions and their lot numbers from RAW.TELEMETRY
-- The top 5 review ratings distribution
-Give me one business insight from what you see.
+Query PAWCORE_ANALYTICS.RAW and compare the 3 lots (LOT339, LOT340, LOT341) across:
+- Average customer rating from CUSTOMER_REVIEWS
+- Average humidity_reading from TELEMETRY
+- Moisture test failure rate from QUALITY_LOGS (where TEST_TYPE = 'MOISTURE_THRESHOLD')
+Which lot looks like it has a problem, and what's your hypothesis for the root cause?
 ```
 
 **What to look for:**
-- CoCo runs 3 SELECT queries (not one monolithic join)
-- Returns: TELEMETRY=21000, QUALITY_LOGS=1050, CUSTOMER_REVIEWS=1550, SLACK_MESSAGES=37
-- Identifies the 3 lot-to-region mappings (LOT339/APAC, LOT340/Americas, LOT341/EMEA)
-- The business insight should flag **something about LOT341 / EMEA** — low ratings, low battery, or high review volume
+- CoCo runs queries against all 3 raw tables and compares lots side-by-side
+- Identifies LOT341 as the outlier: lowest ratings (~3.3), highest humidity (~77), highest moisture failure rate (~29%)
+- Hypothesizes a connection: high humidity → failed moisture tests → degraded devices → unhappy customers
+- Bonus: may notice LOT341 is EMEA region
 
-> **Share in chat:** What did YOUR CoCo flag about LOT341? Drop the one-liner in chat — let's see if everyone's CoCo found the same signal.
+> **Share in chat:** What did YOUR CoCo hypothesize as the root cause? Did it connect all three signals?
 
 ---
 
