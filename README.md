@@ -82,7 +82,7 @@ xcode-select --install
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Snowflake CLI (via uv — no separate pip needed)
-uv tool install snowflake-cli-labs
+uv tool install snowflake-cli
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
@@ -98,7 +98,7 @@ winget install Git.Git                # if you have winget (Windows 11+)
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 # Snowflake CLI (via uv — no separate pip needed)
-uv tool install snowflake-cli-labs
+uv tool install snowflake-cli
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
@@ -114,7 +114,7 @@ sudo apt install git  # Debian/Ubuntu
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Snowflake CLI (via uv — no separate pip needed)
-uv tool install snowflake-cli-labs
+uv tool install snowflake-cli
 
 # Cortex Code (VS Code extension)
 # Install from VS Code marketplace: search "Cortex Code"
@@ -144,7 +144,14 @@ A synthetic IoT dataset simulating **PawCore**, a smart pet collar manufacturer 
 
 ## Quick Start
 
-### 1. Set up your Snowflake connection
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
+cd demo-coco-dbt-dcm
+```
+
+### 2. Set up your Snowflake connection
 
 **Option A — Interactive (recommended):**
 ```bash
@@ -174,7 +181,7 @@ snow connection test -c my_trial
 snow connection test
 ```
 
-### 2. Configure `.env`
+### 3. Configure `.env`
 
 Copy the template and edit it:
 
@@ -200,14 +207,9 @@ TARGET_WAREHOUSE=PAWCORE_DEMO_WH
 I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
 ```
 
-### 3. Deploy
+### 4. Deploy
 
 ```bash
-git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
-cd demo-coco-dbt-dcm
-
-# Configure .env (see above)
-
 uv run scripts/deploy.py
 ```
 
