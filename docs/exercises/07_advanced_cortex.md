@@ -15,6 +15,8 @@ This exercise covers production-grade Cortex Agent capabilities beyond the basic
 
 ### Step 1: Query request history
 
+> **Heads-up — this table logs *direct* Cortex Analyst API calls, not agent calls.** `CORTEX_ANALYST_REQUESTS` only captures requests made directly to the Cortex Analyst REST API. When you chat with **PawCore Assistant** (a Snowflake Intelligence *agent*), its text-to-SQL runs through the agent layer and does **not** appear here — so this query will often return **0 rows** even after you've asked the agent plenty of questions. That's expected. To see *agent* traffic, use the **Snowsight Monitoring tab** in Step 3. The query below is still useful if you call Cortex Analyst directly (e.g. via the `/api/v2/cortex/analyst/message` endpoint or the Analyst playground).
+
 **Copy-paste into CoCo:**
 
 ```
@@ -69,6 +71,8 @@ Run the CREATE and INSERT statements.
 ### Step 2: Manual evaluation
 
 Open the PawCore Assistant in Snowsight and ask each question from the test table. Record whether the answer contains the expected string.
+
+> **Score by meaning, not exact substring.** The `expected_answer_contains` seeds are deliberately short (`2100`, `3500`, `3.3`). The agent writes natural prose and will format numbers with thousands separators and its own rounding — e.g. it says **"2,100"** (not `2100`), **"3,500"** (not `3500`), and **"3.28"** (not `3.3`). A naive `CONTAINS(answer, expected)` check would mark these *correct* answers as failures. When scoring (manually, or if you automate it), normalize first: strip commas/`$`, and treat a more-precise number as a match for a rounded seed. Judge whether the answer is *factually right*, not byte-identical.
 
 ### Step 3: Compute pass rate
 
@@ -127,10 +131,12 @@ Ask questions that require both tools:
 
 ## Part D: Guardrails & Safety
 
+> **Where guardrails actually apply.** `AI_QUESTION_CATEGORIZATION` is a **Cortex Analyst (semantic-view) instruction** — it shapes how the *text-to-SQL tool* categorizes and answers questions that get routed to it. It does **not** govern the agent's general conversational layer. So an off-topic *general-knowledge* question that never triggers the analyst tool (e.g. "What is the capital of France?") can still be answered by the underlying LLM — strengthening `AI_QUESTION_CATEGORIZATION` alone will **not** make the agent refuse it. To hard-scope the **agent** itself, also add scope rules to the agent's `response`/`orchestration` instructions in `create_agent.sql` (e.g. "Only answer questions about PawCore device analytics; for anything else, reply that it's outside your scope."). Use both layers together.
+
 ### Step 1: Test existing guardrails
 
 The semantic view already has `AI_QUESTION_CATEGORIZATION`. Test it:
-- Ask: "What is my account balance?" → Should reject (off-topic)
+- Ask: "What is my account balance?" → Should reject (off-topic — recognized as out of data scope)
 - Ask: "Tell me about a specific lot" → Should ask which lot (LOT339/340/341)
 
 ### Step 2: Strengthen guardrails
@@ -144,13 +150,15 @@ Read the AI_QUESTION_CATEGORIZATION in snowflake/create_semantic_view.sql. I wan
 - If user asks about a lot without specifying which, ask them to specify LOT339, LOT340, or LOT341.
 - If the question is unrelated to IoT devices, manufacturing, or customer feedback, respond: "That question is outside my scope."
 
-Update the AI_QUESTION_CATEGORIZATION value in the file.
+Update the AI_QUESTION_CATEGORIZATION value in the file. Remember to escape single quotes inside the string as '' (two single quotes).
 ```
 
 Then redeploy:
 ```bash
 uv run scripts/deploy.py --semantic-only
 ```
+
+> Re-test "What is my account balance?" (pricing/billing) — that **is** caught, because such questions route to the analyst tool which now rejects them. But note (per the callout above) that a pure trivia question like "What is the capital of France?" may still get answered: it never reaches the analyst tool. Add the matching scope rule to the agent's instructions in `create_agent.sql` if you want the agent to refuse those too.
 
 ### Step 3: Test prompt injection resistance
 

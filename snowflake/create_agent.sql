@@ -64,7 +64,12 @@ FROM SPECIFICATION $$
   ],
   "tool_resources": {
     "pawcore_analysis_tool": {
-      "semantic_view": "${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS"
+      "semantic_view": "${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS",
+      "execution_environment": {
+        "type": "warehouse",
+        "warehouse": "${TARGET_WH}",
+        "query_timeout": 120
+      }
     }
   }
 }

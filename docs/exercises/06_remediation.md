@@ -92,10 +92,17 @@ The agent can now use the `reading_month` dimension for time-series analysis.
 **Copy-paste into CoCo:**
 
 ```
-Add a derived metric to snowflake/create_semantic_view.sql called fix_effectiveness that computes the difference between post_fix_avg_battery and the overall avg_battery metric. Derived metrics don't have a table prefix — they compose existing metrics. Add a comment: "Positive = improving after the fix."
+Add a new metric to snowflake/create_semantic_view.sql called fix_effectiveness on the telemetry table that computes post-fix average battery minus overall average battery, so a positive value means battery improved after the Nov 15, 2024 fix.
+
+Use this exact expression (a Snowflake semantic-view metric must be a single table-qualified aggregate expression — it cannot reference other metrics by name):
+telemetry.fix_effectiveness AS AVG(CASE WHEN telemetry.reading_time >= '2024-11-15' THEN telemetry.battery_value END) - AVG(telemetry.battery_value)
+
+Add the comment: "Positive = improving after the fix."
 ```
 
-This shows how the semantic view composes calculations without touching dbt models.
+> **Why not just reference the metrics?** Snowflake semantic views don't support "derived metrics" that compose other metrics by name (e.g. `fix_effectiveness AS post_fix_avg_battery - avg_battery` fails with `invalid identifier 'POST_FIX_AVG_BATTERY'`). Each metric must be a self-contained, table-qualified aggregate expression. So we inline both aggregates instead of referencing the named metrics. This still shows the semantic view composing a new calculation without touching dbt models.
+
+This shows how the semantic view adds new calculations without touching dbt models.
 
 ---
 
@@ -105,6 +112,6 @@ This shows how the semantic view composes calculations without touching dbt mode
 |---------|----------------|
 | Semantic view evolution | Add metrics without touching dbt models |
 | Verified Query Repository | Teach the agent new questions via CoCo |
-| Derived metrics | Compose existing metrics into new insights |
+| Derived metrics | Add composite metrics (inline aggregate expressions) |
 | `--semantic-only` partial deploy | Update just the semantic layer in seconds |
 | Agent-as-interface | Business users ask questions, never write SQL |
