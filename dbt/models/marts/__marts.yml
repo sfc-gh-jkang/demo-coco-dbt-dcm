@@ -74,3 +74,25 @@ models:
       - name: low_battery_reading_count
       - name: avg_rating
       - name: risk_score
+
+  - name: mart_device_age_cohort_analysis
+    description: >
+      Device-age cohort analysis. Per-device charging-cycle averages bucketed into
+      age bands, with low-battery rate, temperature, and humidity aggregated per
+      bucket. Answers whether older (more charging cycles) devices fail at a higher
+      rate. The 500+ bucket is expected to be empty with current data.
+    columns:
+      - name: charging_cycles_bucket
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['0-50', '51-100', '101-200', '201-500', '500+']
+              quote: true
+      - name: device_count
+        tests: [not_null]
+      - name: low_battery_rate
+        tests: [not_null]
+      - name: avg_temperature
+        tests: [not_null]
+      - name: avg_humidity
+        tests: [not_null]
