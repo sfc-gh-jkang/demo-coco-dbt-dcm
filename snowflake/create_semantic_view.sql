@@ -311,6 +311,13 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
       VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
       SQL 'SELECT device_identifier, lot_number, region, AVG(battery_value) AS avg_battery, COUNT(*) AS reading_count FROM __telemetry WHERE battery_value < 20 GROUP BY device_identifier, lot_number, region ORDER BY avg_battery ASC LIMIT 20'
     ),
+    lot341_pct_battery_below_50 AS (
+      QUESTION 'What percentage of LOT341 devices have battery below 50%?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT ROUND(100.0 * COUNT(CASE WHEN avg_battery < 50 THEN 1 END) / COUNT(*), 2) AS pct_devices_below_50 FROM (SELECT device_identifier, AVG(battery_value) AS avg_battery FROM __telemetry WHERE lot_number = ''LOT341'' GROUP BY device_identifier)'
+    ),
 
     -- =========================================================================
     -- MANUFACTURING QA
