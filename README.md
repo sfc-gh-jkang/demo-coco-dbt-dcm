@@ -125,6 +125,12 @@ Verify everything installed:
 git --version && uv --version && snow --version
 ```
 
+> **Gotcha — `snow: command not found` after `uv tool install`?** `uv tool install snowflake-cli` installs `snow` into uv's tool bin directory (`~/.local/bin` on macOS/Linux, `%APPDATA%\uv\tools` bin on Windows). That directory must be on your `PATH` for the bare `snow` command to resolve. If `snow --version` fails right after install, run:
+> ```bash
+> uv tool update-shell
+> ```
+> then **open a new terminal** (or `source ~/.zshrc` / `~/.bashrc`) and re-check. This is a one-time setup per machine. (uv also prints this same hint automatically when the bin dir isn't on PATH.)
+
 ---
 
 ## The PawCore Dataset
