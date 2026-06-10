@@ -122,6 +122,8 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
       COMMENT = 'Sales region. Values: AMERICAS, EMEA, APAC. Each lot maps to exactly one region.',
     telemetry.reading_time AS timestamp
       COMMENT = 'Telemetry reading timestamp.',
+    telemetry.reading_month AS DATE_TRUNC('MONTH', timestamp)
+      COMMENT = 'Month of the telemetry reading (for trend analysis).',
     telemetry.device_identifier AS device_id
       WITH SYNONYMS = ('device', 'collar_id', 'unit_id')
       COMMENT = 'Unique SmartCollar device identifier.',
@@ -176,6 +178,11 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
       COMMENT = 'Count of readings with battery below 20%. Indicates device degradation.',
     telemetry.low_battery_rate AS AVG(CASE WHEN telemetry.battery_value < 20 THEN 1.0 ELSE 0.0 END) * 100
       COMMENT = 'Percentage of readings with critically low battery.',
+    telemetry.post_fix_avg_battery AS AVG(
+      CASE WHEN telemetry.reading_time >= '2024-11-15' THEN telemetry.battery_value END
+    )
+      WITH SYNONYMS = ('recent_battery', 'post_fix_battery', 'improvement')
+      COMMENT = 'Average battery for readings after Nov 15 2024 (post-fix). Expected: ~92% post-fix vs ~74% pre-fix for LOT341.',
 
     -- Customer metrics
     customer_reviews.avg_rating AS AVG(customer_reviews.rating_value)
@@ -392,6 +399,20 @@ CREATE OR REPLACE SEMANTIC VIEW ${TARGET_DB}.SEMANTIC.PAWCORE_ANALYSIS
       ONBOARDING_QUESTION FALSE
       VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
       SQL 'SELECT COUNT(*) AS total_reviews FROM __customer_reviews'
+    ),
+    lot341_low_battery_pct AS (
+      QUESTION 'What percentage of LOT341 devices have battery below 50%?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION FALSE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, COUNT(CASE WHEN battery_value < 50 THEN 1 END) AS low_battery_devices, COUNT(*) AS total_readings, ROUND(COUNT(CASE WHEN battery_value < 50 THEN 1 END) * 100.0 / COUNT(*), 2) AS pct_below_50 FROM __telemetry WHERE lot_number = ''LOT341'' GROUP BY lot_number'
+    ),
+    post_fix_improvement AS (
+      QUESTION 'Is LOT341 battery improving after the fix?'
+      VERIFIED_AT 1748620800
+      ONBOARDING_QUESTION TRUE
+      VERIFIED_BY '(STEWARD = john.kang@snowflake.com)'
+      SQL 'SELECT lot_number, AVG(battery_value) AS overall_avg, AVG(CASE WHEN reading_time >= ''2024-11-15'' THEN battery_value END) AS post_fix_avg FROM __telemetry WHERE lot_number = ''LOT341'' GROUP BY lot_number'
     )
   );
 

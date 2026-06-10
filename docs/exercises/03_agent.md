@@ -104,13 +104,15 @@ Try these 3 questions in order. Watch what the agent does — it'll write SQL, r
 
 ### Question 2 — Correlation
 
-> "Is there a correlation between humidity and battery life? Show me the data."
+> "Which lot fails the most moisture-resistance QA tests, and how does that track with battery performance? Show me the data."
 
 **What to look for:**
-- Agent uses `mart_battery_moisture_correlation`
-- Returns a table or chart showing humidity vs. battery
-- Notes EMEA has highest humidity AND lowest battery — that's the correlation
+- Agent uses `mart_lot_quality_correlation` (QA pass rate + field battery per lot)
+- Identifies **LOT341** as the worst: lowest pass rate (~88.6% vs ~96.9% for the healthy lots), highest failure count (40 vs 11), AND the lowest average battery (~78% vs ~92-94%) with the most critical (<20%) readings (~500 vs 0)
+- States the relationship plainly: the lot that fails moisture-resistance testing on the line is the same lot whose batteries degrade in the field
 - Optional: suggests a bar chart
+
+> **Why not ask about humidity directly?** Ambient humidity readings are essentially flat (~60%) across all three lots, so there's no clean humidity-vs-battery correlation to find in the telemetry. The real signal is in the **moisture-resistance QA tests** (LOT341 fails them ~5x more often) — that's the manufacturing defect that explains the field battery degradation. Asking about QA failures points the agent at the data that actually tells the story.
 
 ### Question 3 — Action
 
