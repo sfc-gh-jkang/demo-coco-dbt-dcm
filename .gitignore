@@ -35,6 +35,11 @@ __pycache__/
 venv/
 .pytest_cache/
 
+# Exercise 2 solution artifacts (attendees create these during the HOL)
+dbt/models/marts/mart_weekly_battery_by_region.sql
+dbt/models/marts/mart_top10_problematic_devices.sql
+dbt/models/marts/mart_device_age_cohort_analysis.sql
+
 # IDE
 .vscode/
 .idea/

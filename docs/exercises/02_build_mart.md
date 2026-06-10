@@ -134,7 +134,7 @@ After CoCo writes the file:
    ```
    Watch for `PASS` on your new model and its tests. All existing tests should still pass too.
 
-   > This only re-stages the dbt files and runs `EXECUTE DBT PROJECT` (~30 seconds). It does NOT re-upload CSVs or re-run bootstrap — those already ran during initial deploy.
+   > This only re-stages the dbt files and runs `EXECUTE DBT PROJECT` (~2 minutes). It does NOT re-upload CSVs or re-run bootstrap — those already ran during initial deploy.
 
 2. **Verify** — query your new mart (copy the one matching your option):
 

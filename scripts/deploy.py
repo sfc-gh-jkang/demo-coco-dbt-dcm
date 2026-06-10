@@ -221,7 +221,7 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     p.add_argument(
         "--dbt-only",
         action="store_true",
-        help="Re-stage and rebuild only the dbt project (steps 4-5). Fast (~30s); "
+        help="Re-stage and rebuild only the dbt project (steps 4-5). ~2 min; "
         "assumes bootstrap + raw tables already exist. Use after adding or "
         "editing models in dbt/models/.",
     )

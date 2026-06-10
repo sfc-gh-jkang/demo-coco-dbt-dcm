@@ -253,7 +253,7 @@ Deploy takes ~3-4 minutes. On success:
 ```bash
 uv run scripts/deploy.py --stop-at raw-load   # Stop after CSV loading (steps 1-3)
 uv run scripts/deploy.py --stop-at build       # Stop after dbt build (steps 1-5)
-uv run scripts/deploy.py --dbt-only            # Re-stage + rebuild dbt only (steps 4-5), ~30s
+uv run scripts/deploy.py --dbt-only            # Re-stage + rebuild dbt only (steps 4-5), ~2min
 uv run scripts/deploy.py --semantic-only       # Rebuild steps 6-7 only (semantic view + agent), ~15s
 uv run scripts/deploy.py --dry-run             # Show what would run without executing
 uv run scripts/deploy.py --prefer-envsubst     # Use system envsubst if installed
@@ -380,10 +380,8 @@ demo-coco-dbt-dcm/
 │   └── environment.yml            # SiS deployment dependencies
 ├── docs/
 │   ├── architecture.md            # Mermaid diagrams
-│   ├── facilitator_runbook.md     # 60-min timed facilitator script
 │   ├── attendee_quickstart.md     # Pre-work checklist
 │   ├── self_walkthrough.md        # Solo rehearsal guide
-│   ├── speaker_notes.md           # Per-slide notes
 │   ├── prompt_guide.md            # 22 agent questions with expected answers
 │   ├── certificate_template.html  # Print-ready completion certificate
 │   └── exercises/                 # 7 hands-on activities (6 core + 1 bonus)
@@ -465,7 +463,6 @@ Creates `PAWCORE_ASSISTANT` in `SNOWFLAKE_INTELLIGENCE.AGENTS` with:
 | 6 | Track Remediation (version 2 storyline) | 5-8 min | [06_remediation.md](docs/exercises/06_remediation.md) |
 | 7 | Advanced Cortex Agent Features (Bonus) | 20-30 min | [07_advanced_cortex.md](docs/exercises/07_advanced_cortex.md) |
 
-Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitator_runbook.md)
 
 ---
 
