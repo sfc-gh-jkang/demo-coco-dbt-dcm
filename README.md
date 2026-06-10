@@ -431,15 +431,15 @@ Creates `PAWCORE_ASSISTANT` in `SNOWFLAKE_INTELLIGENCE.AGENTS` with:
 
 ## Hands-On Lab Activities
 
-| # | Activity | Duration | Doc |
+| # | Exercise | Duration | Doc |
 |---|----------|----------|-----|
-| 1 | Explore the pipeline with CoCo (3 prompts) | 10 min | [01_explore.md](docs/exercises/01_explore.md) |
-| 2 | Build your own mart (choose a business question) | 13 min | [02_build_mart.md](docs/exercises/02_build_mart.md) |
-| 3 | Create a Snowflake Intelligence agent | 10 min | [03_agent.md](docs/exercises/03_agent.md) |
-| 4 | Add a verified query to the semantic view | 5-8 min | [04_add_verified_query.md](docs/exercises/04_add_verified_query.md) |
-| 5 | Create a battery alert | 5-8 min | [05_create_alert.md](docs/exercises/05_create_alert.md) |
-| 6 | Track remediation (version 2 storyline) | 5-8 min | [06_remediation.md](docs/exercises/06_remediation.md) |
-| 7 | Advanced: observability, eval, search, guardrails | 20-30 min | [07_advanced_cortex.md](docs/exercises/07_advanced_cortex.md) |
+| 1 | Ask CoCo (3 prompts to explore the pipeline) | 10 min | [01_explore.md](docs/exercises/01_explore.md) |
+| 2 | Build-Your-Own Mart (choose a business question) | 13 min | [02_build_mart.md](docs/exercises/02_build_mart.md) |
+| 3 | Plug in a Snowflake Intelligence Agent | 10 min | [03_agent.md](docs/exercises/03_agent.md) |
+| 4 | Add a Verified Query to the semantic view | 5-8 min | [04_add_verified_query.md](docs/exercises/04_add_verified_query.md) |
+| 5 | Create a Battery Alert | 5-8 min | [05_create_alert.md](docs/exercises/05_create_alert.md) |
+| 6 | Track Remediation (version 2 storyline) | 5-8 min | [06_remediation.md](docs/exercises/06_remediation.md) |
+| 7 | Advanced Cortex Agent Features (Bonus) | 20-30 min | [07_advanced_cortex.md](docs/exercises/07_advanced_cortex.md) |
 
 Facilitator script with timing anchors: [facilitator_runbook.md](docs/facilitator_runbook.md)
 
@@ -464,6 +464,28 @@ Tests cover all `deploy.py` functions with mocked subprocess calls. No Snowflake
 4. **Idempotent** — safe to re-run at any time
 5. **Cross-platform** — one runtime dep (`python-dotenv`), no bash/rsync dependencies
 6. **Offline build** — dbt_utils vendored, no network fetch during `EXECUTE DBT PROJECT`
+
+---
+
+## FAQ
+
+### Why do we run a bootstrap SQL script (DB, warehouse, stage) when the very next step uses DCM? Isn't DCM supposed to manage infrastructure?
+
+Good catch — and the answer is that **DCM literally cannot create these three objects** in this project, so something has to create them first.
+
+**The database and warehouse — DCM can't own its own parent.** The DCM project is registered as a Snowflake object at `PAWCORE_ANALYTICS.PUBLIC.COCO_DCM_PROJECT` (see `dcm/manifest.yml`). A DCM project lives *inside* a database and can only `DEFINE` objects *inside* its own parent database/schema — never the parent itself. Per Snowflake's DCM model: *a DCM project cannot define its parent database or schema; those containers must already exist.* So it's a chicken-and-egg problem: `snow dcm deploy` needs `PAWCORE_ANALYTICS` (and its `PUBLIC` schema) to already exist before it can register the project there, and it needs a warehouse to run on — it can't spin up the compute it's currently executing inside. That's why `pre_deploy.sql` (and `00_bootstrap.sql`) create the DB + WH with `CREATE ... IF NOT EXISTS`. The header comment in `dcm/pre_deploy.sql` says it directly: *"parent objects DCM cannot own (its own parent DB + warehouse)."*
+
+**The stage — needed before DCM, and intentionally kept out of DCM's scope.** `RAW.PAWCORE_DATA_STAGE` is created in bootstrap because Step 3 (raw CSV load) uploads `data/*.csv` into it and `COPY INTO`s from it. DCM in this demo is deliberately scoped to **schemas only** — *"the only thing DCM owns in this demo"* (see `schemas.sql`). Tables and views are owned by dbt; the stage and parent infra are owned by bootstrap. DCM *can* technically `DEFINE` an internal stage, but the demo keeps a clean ownership split:
+
+| Object | Owner | Why |
+|--------|-------|-----|
+| Database, warehouse, `PUBLIC`, stage | `00_bootstrap.sql` / `dcm/pre_deploy.sql` | DCM can't create its own parent DB/WH; the stage is needed for raw load |
+| 8 schemas | DCM (`schemas.sql`) | Reviewable, version-controlled, plan-deployable schema lifecycle |
+| Tables + views | dbt (`dbt/models/`) | Transformations, tested + documented |
+
+**You may notice `RAW` is created twice** — once in bootstrap (commented *"also created by DCM"*) and once by DCM (`DEFINE SCHEMA ... RAW`). That's intentional and harmless: bootstrap needs `RAW` to exist so it can place the stage there before DCM runs, and both forms are idempotent/declarative so the second pass is a no-op. DCM is additive-only and never drops schemas it manages, so there's no conflict.
+
+**Bottom line:** bootstrap exists because DCM cannot create its own parent database or the warehouse it runs on, and because the immediately-following raw-load step needs the stage. DCM's job in this lab is strictly the 8-schema lifecycle.
 
 ---
 
