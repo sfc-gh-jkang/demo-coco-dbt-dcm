@@ -9,7 +9,7 @@ Questions to ask the **PawCore Assistant** agent, organized by investigation flo
 These appear automatically when you first open the agent:
 
 1. **"Which lot has the worst battery performance?"**
-   → Returns LOT341 at ~78% avg battery (~74% pre-fix, vs 92-94% for others), 500+ critical readings below 20%
+   → Returns LOT341 at ~78% avg battery (vs 92-94% for healthy lots), 500+ critical readings below 20%
 
 2. **"Compare all lots by battery level and pass rate"**
    → Side-by-side comparison table of all 3 lots
@@ -38,7 +38,7 @@ These appear automatically when you first open the agent:
 | # | Question | Expected Insight |
 |---|----------|-----------------|
 | 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
-| 2 | "What is the QA pass rate for each lot?" | LOT341 moisture threshold is 70.6% (vs 94% for others) |
+| 2 | "What is the QA pass rate for each lot?" | LOT341 overall pass rate is 88.6% (vs 96.9% for others); moisture-specific failure rate is ~29% |
 | 3 | "What are the customer ratings by lot and region?" | LOT341/EMEA = 3.28/5 (lowest) |
 
 ### Phase 2: Quantify the Impact
@@ -95,9 +95,10 @@ These appear automatically when you first open the agent:
 By the end of the investigation, the agent should help you conclude:
 
 > **LOT341** (EMEA, 2,100 devices) has a manufacturing defect related to
-> **moisture resistance**. The moisture threshold QA pass rate is only 70.6%
-> (vs 94% for healthy lots). Devices with inadequate sealing exposed to humidity
-> experience accelerated battery degradation (avg 78% vs 92-94% for healthy lots,
-> with 500+ readings below 20% critical threshold), leading to dramatically lower
-> customer satisfaction ratings (3.28/5 vs 4.14-4.29). The post-fix data (Nov 15+)
-> shows full recovery to 92% battery, confirming the root cause and fix.
+> **moisture resistance**. The overall QA pass rate is 88.6% (vs 96.9% for
+> healthy lots), with moisture-specific failure rate at ~29% (vs ~6%). Devices
+> exposed to high humidity (~77% vs ~60% for healthy lots) experience
+> accelerated battery degradation (avg 78% vs 92-94%, with 500+ readings below
+> 20% critical threshold), leading to dramatically lower customer satisfaction
+> ratings (3.28/5 vs 4.14-4.29). The post-fix data (Nov 15+) shows full recovery
+> to 92% battery, confirming the root cause and fix.

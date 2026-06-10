@@ -381,7 +381,6 @@ demo-coco-dbt-dcm/
 ├── docs/
 │   ├── architecture.md            # Mermaid diagrams
 │   ├── attendee_quickstart.md     # Pre-work checklist
-│   ├── self_walkthrough.md        # Solo rehearsal guide
 │   ├── prompt_guide.md            # 22 agent questions with expected answers
 │   ├── certificate_template.html  # Print-ready completion certificate
 │   └── exercises/                 # 7 hands-on activities (6 core + 1 bonus)

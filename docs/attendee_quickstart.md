@@ -1,78 +1,74 @@
 # Attendee Quickstart
 
-Pre-work for the **Prompt to Pipeline** Hands On Lab.
+Pre-work for the **Prompt to Pipeline** Hands-On Lab. Complete these steps **before** the webinar (10 minutes).
 
-## Before the webinar (10 minutes)
+---
 
-### 1. Get a Snowflake trial account
+## 1. Get a Snowflake trial account
 
 If you don't have one: https://signup.snowflake.com/ → choose **Standard** edition, any cloud/region. You'll get ACCOUNTADMIN by default.
 
-### 2. Install Snowflake CLI
+---
+
+## 2. Install tools
 
 ```bash
-# macOS
-brew install snowflake-cli
+# uv (installs Python automatically)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Other: https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation
+# Snowflake CLI
+uv tool install snowflake-cli
+
+# Verify
+uv --version && snow --version
 ```
 
-### 3. Configure your connection
+---
+
+## 3. Configure your Snowflake connection
 
 ```bash
-snow connection add \
-    --connection-name trial \
-    --account <your-account-identifier> \
-    --user <your-username> \
-    --authenticator externalbrowser
-
-snow connection test --connection trial
+snow connection add
 ```
 
-### 4. Install Cortex Code
+Follow the prompts. Use `externalbrowser` as the authenticator (opens your browser for login — supports SSO/MFA, no password stored).
 
-Follow: https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code
-
-Verify:
-
+Verify it works:
 ```bash
-cortex --version
-cortex connections set trial
+snow connection test
 ```
 
-### 5. Clone the demo repo
+---
+
+## 4. Install Cortex Code
+
+Install the VS Code extension from the marketplace: search "Cortex Code".
+
+Docs: https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code
+
+---
+
+## 5. Clone the repo
 
 ```bash
 git clone https://github.com/sfc-gh-jkang/demo-coco-dbt-dcm.git
 cd demo-coco-dbt-dcm
 ```
 
-## 5-minute pre-flight (day-of)
+---
 
-Open a terminal in the repo root:
+## 6. Configure `.env`
 
 ```bash
-# Confirm CLI is working
-snow sql -q "SELECT CURRENT_ACCOUNT(), CURRENT_USER(), CURRENT_ROLE()" -c trial
-
-# Confirm Cortex Code is wired up
-cortex connections list
+cp .env.example .env
 ```
 
-If both work, you're ready. If either fails, ping the facilitator in the webinar chat.
+Edit `.env`:
+- `SNOWFLAKE_CONNECTION` = your connection name from step 3
+- `I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE` = `1`
 
-## During the webinar
+---
 
-Follow along. You'll be prompted to run specific commands at key points. If you fall behind, don't stress — the recording goes out after.
+## That's it!
 
-## After the webinar
-
-1. Verify the pipeline:
-   ```bash
-   snow sql -q "SHOW TABLES IN DATABASE PAWCORE_ANALYTICS" -c trial
-   ```
-2. Run the follow-on [Cortex AI + Snowflake Intelligence HOL](https://github.com/sfc-gh-calexander/HandsOnLabs/tree/main/1-Cortex-AI-Snowflake-Intelligence) to attach a Cortex Agent on top.
-3. Clean up when done:
-   ```bash
-   snow sql -f teardown.sql -c trial
-   ```
+During the webinar we'll run `uv run scripts/deploy.py` together. See `README.md` for full details.
