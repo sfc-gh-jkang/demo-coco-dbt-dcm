@@ -1,6 +1,6 @@
-# Activity 1 — Ask CoCo
+# Exercise 1: Ask CoCo
 
-**Time:** 10 minutes · **You'll do:** prompt your own Cortex Code instance and share findings
+**Duration**: 10 minutes · **You'll do:** prompt your own Cortex Code instance and share findings
 
 ---
 
@@ -10,14 +10,9 @@ See what Cortex Code can do with a real codebase. You just ran a deploy that cre
 
 ## Setup (30 seconds)
 
-Open Cortex Code in your terminal. Make sure it's pointed at your trial:
+Open the **Cortex Code** chat panel in VS Code (click the Cortex Code icon in the sidebar). Make sure the repo folder `demo-coco-dbt-dcm` is open as your workspace — CoCo reads from the active workspace.
 
-```bash
-cortex connections list
-cortex connections set <your-trial-connection>
-```
-
-Keep this webinar tab open in your browser and keep Cortex Code in your terminal side by side.
+Keep this webinar tab open in your browser and Cortex Code in your editor side by side.
 
 ---
 
@@ -87,4 +82,4 @@ Give me one business insight from what you see.
 
 You're not watching me prompt — you're prompting **your own** CoCo, against **your own** trial account, and seeing how it reads code + queries data together. That's the pair-programmer pattern you'll take back to your real work.
 
-Next up: **Activity 2** — you're going to build a brand-new analytical mart by asking CoCo to write it.
+Next up: **Exercise 2** — you're going to build a brand-new analytical mart by asking CoCo to write it.

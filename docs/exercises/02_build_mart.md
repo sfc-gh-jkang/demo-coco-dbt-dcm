@@ -1,6 +1,6 @@
-# Activity 2 — Build-Your-Own Mart
+# Exercise 2: Build-Your-Own Mart
 
-**Time:** 13 minutes · **You'll do:** prompt CoCo to write a brand-new dbt model, wire it up, and run the build
+**Duration**: 13 minutes · **You'll do:** prompt CoCo to write a brand-new dbt model, wire it up, and run the build
 
 ---
 

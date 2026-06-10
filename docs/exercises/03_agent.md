@@ -1,6 +1,6 @@
-# Activity 3 — Plug in a Snowflake Intelligence Agent
+# Exercise 3: Plug in a Snowflake Intelligence Agent
 
-**Time:** 10 minutes · **You'll do:** create a semantic view over your marts, wire up a Snowflake Intelligence agent, ask it 3 questions in plain English
+**Duration**: 10 minutes · **You'll do:** create a semantic view over your marts, wire up a Snowflake Intelligence agent, ask it 3 questions in plain English
 
 ---
 
