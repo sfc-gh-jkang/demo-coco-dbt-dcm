@@ -90,6 +90,8 @@ https://app.snowflake.com/#/agents/SNOWFLAKE_INTELLIGENCE/AGENTS/PAWCORE_ASSISTA
 
 **Or via Snowsight UI**: AI & ML → Snowflake Intelligence → pick **PawCore Assistant** from the list.
 
+> **Optional — Add to CoWork:** To use the agent in Snowflake's collaborative chat (CoWork), go to **AI & ML → Snowflake Intelligence → CoWork → Add agent** and select `PAWCORE_ASSISTANT`. This is a manual UI step — there's no SQL/CLI equivalent. Not required for this exercise, but nice if you want to share the agent with teammates later.
+
 Try these 3 questions in order. Watch what the agent does — it'll write SQL, run it, summarize, and sometimes follow up on its own.
 
 ### Question 1 — Diagnostic
