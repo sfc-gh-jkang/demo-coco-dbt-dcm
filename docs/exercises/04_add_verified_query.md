@@ -59,7 +59,9 @@ Open the agent in Snowsight and ask your exact question:
 
 > "What percentage of LOT341 devices have battery below 50%?"
 
-The agent should use your verified query directly (faster, more accurate). You'll see `verified_query` in the confidence metadata if it matched.
+The agent should return the correct answer. It may or may not use your verified query directly — Cortex Analyst treats VQRs as high-confidence hints, not forced routes. The value is that when the question matches closely, the agent has a pre-verified SQL path to use instead of generating from scratch, which improves accuracy over time especially for complex queries.
+
+> **Note:** VQRs are most impactful for questions where Cortex Analyst would otherwise generate incorrect SQL (complex joins, edge cases, domain-specific logic). For simple queries like this one, the agent can answer correctly either way — but the VQR guarantees the exact SQL you validated.
 
 ---
 
