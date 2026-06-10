@@ -39,14 +39,14 @@ Explain in 3-4 sentences what DCM is managing for this demo and why schemas (not
 **Copy-paste into CoCo:**
 
 ```
-Read dbt/models/staging/stg_customer_reviews.sql and dbt/models/staging/stg_telemetry.sql.
+Read dbt/models/staging/stg_customer_reviews.sql, dbt/models/staging/stg_telemetry.sql, and dbt/models/staging/__staging.yml.
 Compare them. Explain in 3-4 sentences what the staging layer does and why we CAST/UPPER columns here instead of in the COPY INTO.
 ```
 
 **What to look for:**
 - Notes that staging views handle type casting, normalization (UPPER), and null filtering
 - Calls out that raw tables store data as-is from CSVs — staging is the "clean contract" layer
-- Mentions the `relationships` dbt test that enforces `device_id` exists in `stg_telemetry`
+- Mentions the `relationships` dbt test (defined in `__staging.yml`) that enforces every `stg_customer_reviews.device_id` exists in `stg_telemetry`
 - Explains **why dbt staging**: business logic is versioned, tested, and reviewable — COPY INTO isn't
 
 **Bonus follow-up to try:**
