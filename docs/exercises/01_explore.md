@@ -29,7 +29,8 @@ Explain in 3-4 sentences what DCM is managing for this demo and why schemas (not
 - Mentions that DCM manages **schemas only** (not tables)
 - Notes that schemas are **infrastructure** — reviewable, plan-deployable, versionable
 - Picks up on the 8 schemas (RAW, STAGING, DEVICE_DATA, MANUFACTURING, SUPPORT, ANALYTICS, SEMANTIC, DBT_PROD)
-- **Checkpoint:** paste CoCo's one-line summary of DCM into the webinar chat
+
+> **Share in chat:** In one sentence, what does DCM own in this project? (Hint: it's NOT the tables.)
 
 ---
 
@@ -74,7 +75,7 @@ Give me one business insight from what you see.
 - Identifies the 3 lot-to-region mappings (LOT339/APAC, LOT340/Americas, LOT341/EMEA)
 - The business insight should flag **something about LOT341 / EMEA** — low ratings, low battery, or high review volume
 
-**Chat prompt:** what's the business insight YOUR CoCo surfaced? Post it in the webinar chat.
+> **Share in chat:** What did YOUR CoCo flag about LOT341? Drop the one-liner in chat — let's see if everyone's CoCo found the same signal.
 
 ---
 

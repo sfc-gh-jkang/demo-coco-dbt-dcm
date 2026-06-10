@@ -201,6 +201,8 @@ You lose the dbt test wrapping but you still get a working mart. Good enough for
 
 ## Share your work
 
-Once your mart builds and the tests pass, paste a one-line description of what YOUR CoCo came up with into the webinar chat. We'll feature 2-3 in the recap.
+Once your mart builds and the tests pass:
 
-Next up: **Activity 3** — plug a Snowflake Intelligence agent on top of all the marts we've built and ask it questions in plain English.
+> **Share in chat:** What business question does your mart answer? (e.g., "Which region has the most devices with critically low battery?")
+
+Next up: **Exercise 3** — plug a Snowflake Intelligence agent on top of all the marts we've built and ask it questions in plain English.

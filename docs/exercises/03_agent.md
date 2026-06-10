@@ -125,9 +125,9 @@ Try these 3 questions in order. Watch what the agent does — it'll write SQL, r
 
 ---
 
-## Checkpoint: paste into chat
+## Checkpoint
 
-What was the most interesting thing YOUR agent answered? Post one line into the webinar chat.
+> **Share in chat:** What's the most surprising thing your agent told you? Did it connect humidity to customer ratings on its own?
 
 ---
 
