@@ -136,9 +136,21 @@ After CoCo writes the file:
 
    > Note: this command re-runs the full pipeline up to the dbt build — bootstrap, schemas, **and a raw CSV reload** — then rebuilds. It's idempotent (the CSVs in `data/` are the source of truth), but if you edited the RAW tables directly in SQL, those changes are overwritten. Edit the CSVs instead.
 
-2. **Verify** — query your new mart:
+2. **Verify** — query your new mart (copy the one matching your option):
+
+   **Option A:**
    ```sql
-   SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_<YOUR_CHOICE> LIMIT 10;
+   SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_WEEKLY_BATTERY_BY_REGION ORDER BY WEEK_START DESC LIMIT 10;
+   ```
+
+   **Option B:**
+   ```sql
+   SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_TOP10_PROBLEMATIC_DEVICES ORDER BY RISK_SCORE DESC;
+   ```
+
+   **Option C:**
+   ```sql
+   SELECT * FROM PAWCORE_ANALYTICS.ANALYTICS.MART_DEVICE_AGE_COHORT_ANALYSIS ORDER BY CHARGING_CYCLES_BUCKET;
    ```
 
 3. **Check the row count** matches the expected count listed under your option.
