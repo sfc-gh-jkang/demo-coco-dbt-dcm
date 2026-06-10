@@ -757,10 +757,12 @@ def _print_wow(snow_exe: str, connection: str, target_database: str) -> None:
     import json
 
     sql = (
-        f"SELECT lot_number, region, avg_rating, review_count, "
-        f"avg_battery_level, device_count "
-        f"FROM {target_database}.ANALYTICS.MART_REGIONAL_CUSTOMER_IMPACT "
-        f"ORDER BY avg_rating ASC LIMIT 1;"
+        f"SELECT r.lot_number, r.region, r.avg_rating, r.review_count, "
+        f"l.avg_battery_level, l.device_count "
+        f"FROM {target_database}.ANALYTICS.MART_REGIONAL_CUSTOMER_IMPACT r "
+        f"JOIN {target_database}.ANALYTICS.MART_LOT_QUALITY_CORRELATION l "
+        f"ON r.lot_number = l.lot_number "
+        f"ORDER BY r.avg_rating ASC LIMIT 1;"
     )
     p = subprocess.run(
         [snow_exe, "sql", "-c", connection, "-q", sql, "--format", "json"],
