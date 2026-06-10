@@ -59,7 +59,7 @@ Plus: a warehouse (`PAWCORE_DEMO_WH`) and an internal stage.
 | [Git](https://git-scm.com/downloads) | any | Clone this repo |
 | [Snowflake CLI (`snow`)](https://docs.snowflake.com/en/developer-guide/snowflake-cli/installation/installation) | v3.0+ | Executes all SQL and DCM commands |
 | [uv](https://docs.astral.sh/uv/getting-started/installation/) | latest | Python environment + dependency management (auto-installs Python 3.10+ if missing) |
-| [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code) | latest | AI pair programmer (for hands-on exercises) |
+| [Cortex Code](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code) | latest | AI pair programmer (for hands-on exercises). Requires cross-region inference enabled — see [Quick Start step 3](#3-enable-cortex-code-one-time-required-for-the-hands-on-exercises). |
 | Snowflake account | any edition | Must have ACCOUNTADMIN role |
 
 **No other tools required.** No dbt CLI, no Docker, no Node.js, no GitHub PAT, no cloud credentials. Everything runs through `snow` CLI and Snowflake-native execution. Data files are included in the repo under `data/`.
@@ -187,7 +187,30 @@ snow connection test -c my_trial
 snow connection test
 ```
 
-### 3. Configure `.env`
+### 3. Enable Cortex Code (one-time, required for the hands-on exercises)
+
+The hands-on exercises use **Cortex Code** as your AI pair programmer. On a brand-new trial account this usually needs **one ACCOUNTADMIN command first** — otherwise Cortex Code can't reach an LLM and appears broken with no obvious error.
+
+Cortex Code's models (Claude / GPT) often aren't hosted in your trial's home region, so you must enable **cross-region inference**:
+
+```sql
+USE ROLE ACCOUNTADMIN;
+
+-- Route Cortex requests to a region that hosts the models.
+-- 'AWS_US' is the best default for Claude Opus; use 'ANY_REGION' for best-effort global routing.
+ALTER ACCOUNT SET CORTEX_ENABLED_CROSS_REGION = 'AWS_US';
+```
+
+Also confirm your user has the Cortex role (all users have it by default via PUBLIC unless your org revoked it):
+
+```sql
+SHOW GRANTS TO ROLE PUBLIC;   -- look for SNOWFLAKE.CORTEX_USER
+-- If missing: GRANT DATABASE ROLE SNOWFLAKE.CORTEX_USER TO ROLE <your_role>;
+```
+
+> **Why this is needed:** per the [Cortex Code docs](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code), the CLI is *"available to all Commercial (non-Gov) accounts **with cross-region inference enabled**."* If a model isn't available in your region, cross-region inference is **required**, and enabling it requires ACCOUNTADMIN. On a trial, Cortex Code is billed pay-as-you-go against your trial credits — a lab session uses a negligible amount. For region/model details see [Cross-region inference](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cross-region-inference).
+
+### 4. Configure `.env`
 
 Copy the template and edit it:
 
@@ -213,7 +236,7 @@ TARGET_WAREHOUSE=PAWCORE_DEMO_WH
 I_UNDERSTAND_THIS_WILL_OVERWRITE_TARGET_DATABASE=1
 ```
 
-### 4. Deploy
+### 5. Deploy
 
 ```bash
 uv run scripts/deploy.py
